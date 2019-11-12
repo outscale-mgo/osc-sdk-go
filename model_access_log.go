@@ -160,17 +160,17 @@ func (o *AccessLog) SetPublicationInterval(v int32) {
 }
 
 type NullableAccessLog struct {
-	Value AccessLog
+	Value        AccessLog
 	ExplicitNull bool
 }
 
 func (v NullableAccessLog) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableAccessLog) UnmarshalJSON(src []byte) error {
@@ -181,4 +181,3 @@ func (v *NullableAccessLog) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

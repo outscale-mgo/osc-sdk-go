@@ -54,17 +54,17 @@ func (o *DeleteExportTaskResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableDeleteExportTaskResponse struct {
-	Value DeleteExportTaskResponse
+	Value        DeleteExportTaskResponse
 	ExplicitNull bool
 }
 
 func (v NullableDeleteExportTaskResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableDeleteExportTaskResponse) UnmarshalJSON(src []byte) error {
@@ -75,4 +75,3 @@ func (v *NullableDeleteExportTaskResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

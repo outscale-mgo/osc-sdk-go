@@ -18,7 +18,7 @@ import (
 // ReadSnapshotsRequest struct for ReadSnapshotsRequest
 type ReadSnapshotsRequest struct {
 	// If `true`, checks whether you have the required permissions to perform the action.
-	DryRun *bool `json:"DryRun,omitempty"`
+	DryRun  *bool            `json:"DryRun,omitempty"`
 	Filters *FiltersSnapshot `json:"Filters,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *ReadSnapshotsRequest) SetFilters(v FiltersSnapshot) {
 }
 
 type NullableReadSnapshotsRequest struct {
-	Value ReadSnapshotsRequest
+	Value        ReadSnapshotsRequest
 	ExplicitNull bool
 }
 
 func (v NullableReadSnapshotsRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadSnapshotsRequest) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadSnapshotsRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

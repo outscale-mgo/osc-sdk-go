@@ -18,7 +18,7 @@ import (
 // LinkNicResponse struct for LinkNicResponse
 type LinkNicResponse struct {
 	// The ID of the NIC attachment.
-	LinkNicId *string `json:"LinkNicId,omitempty"`
+	LinkNicId       *string          `json:"LinkNicId,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *LinkNicResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableLinkNicResponse struct {
-	Value LinkNicResponse
+	Value        LinkNicResponse
 	ExplicitNull bool
 }
 
 func (v NullableLinkNicResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableLinkNicResponse) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableLinkNicResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

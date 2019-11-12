@@ -18,7 +18,7 @@ import (
 // CreateVpnConnectionResponse struct for CreateVpnConnectionResponse
 type CreateVpnConnectionResponse struct {
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
-	VpnConnection *VpnConnection `json:"VpnConnection,omitempty"`
+	VpnConnection   *VpnConnection   `json:"VpnConnection,omitempty"`
 }
 
 // GetResponseContext returns the ResponseContext field value if set, zero value otherwise.
@@ -88,17 +88,17 @@ func (o *CreateVpnConnectionResponse) SetVpnConnection(v VpnConnection) {
 }
 
 type NullableCreateVpnConnectionResponse struct {
-	Value CreateVpnConnectionResponse
+	Value        CreateVpnConnectionResponse
 	ExplicitNull bool
 }
 
 func (v NullableCreateVpnConnectionResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreateVpnConnectionResponse) UnmarshalJSON(src []byte) error {
@@ -109,4 +109,3 @@ func (v *NullableCreateVpnConnectionResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

@@ -89,17 +89,17 @@ func (o *ReadSubregionsResponse) SetSubregions(v []Subregion) {
 }
 
 type NullableReadSubregionsResponse struct {
-	Value ReadSubregionsResponse
+	Value        ReadSubregionsResponse
 	ExplicitNull bool
 }
 
 func (v NullableReadSubregionsResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadSubregionsResponse) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadSubregionsResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

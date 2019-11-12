@@ -18,7 +18,7 @@ import (
 // ReadVmsRequest struct for ReadVmsRequest
 type ReadVmsRequest struct {
 	// If `true`, checks whether you have the required permissions to perform the action.
-	DryRun *bool `json:"DryRun,omitempty"`
+	DryRun  *bool      `json:"DryRun,omitempty"`
 	Filters *FiltersVm `json:"Filters,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *ReadVmsRequest) SetFilters(v FiltersVm) {
 }
 
 type NullableReadVmsRequest struct {
-	Value ReadVmsRequest
+	Value        ReadVmsRequest
 	ExplicitNull bool
 }
 
 func (v NullableReadVmsRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadVmsRequest) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadVmsRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

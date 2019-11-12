@@ -18,7 +18,7 @@ import (
 // ReadPublicIpRangesResponse struct for ReadPublicIpRangesResponse
 type ReadPublicIpRangesResponse struct {
 	// The list of public IPv4 addresses used in the Region, in CIDR notation.
-	PublicIps *[]string `json:"PublicIps,omitempty"`
+	PublicIps       *[]string        `json:"PublicIps,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *ReadPublicIpRangesResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableReadPublicIpRangesResponse struct {
-	Value ReadPublicIpRangesResponse
+	Value        ReadPublicIpRangesResponse
 	ExplicitNull bool
 }
 
 func (v NullableReadPublicIpRangesResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadPublicIpRangesResponse) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadPublicIpRangesResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

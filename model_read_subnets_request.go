@@ -18,7 +18,7 @@ import (
 // ReadSubnetsRequest struct for ReadSubnetsRequest
 type ReadSubnetsRequest struct {
 	// If `true`, checks whether you have the required permissions to perform the action.
-	DryRun *bool `json:"DryRun,omitempty"`
+	DryRun  *bool          `json:"DryRun,omitempty"`
 	Filters *FiltersSubnet `json:"Filters,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *ReadSubnetsRequest) SetFilters(v FiltersSubnet) {
 }
 
 type NullableReadSubnetsRequest struct {
-	Value ReadSubnetsRequest
+	Value        ReadSubnetsRequest
 	ExplicitNull bool
 }
 
 func (v NullableReadSubnetsRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadSubnetsRequest) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadSubnetsRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

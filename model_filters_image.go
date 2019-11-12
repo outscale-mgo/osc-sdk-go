@@ -755,17 +755,17 @@ func (o *FiltersImage) SetVirtualizationTypes(v []string) {
 }
 
 type NullableFiltersImage struct {
-	Value FiltersImage
+	Value        FiltersImage
 	ExplicitNull bool
 }
 
 func (v NullableFiltersImage) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableFiltersImage) UnmarshalJSON(src []byte) error {
@@ -776,4 +776,3 @@ func (v *NullableFiltersImage) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

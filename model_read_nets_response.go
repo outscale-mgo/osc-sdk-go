@@ -18,7 +18,7 @@ import (
 // ReadNetsResponse struct for ReadNetsResponse
 type ReadNetsResponse struct {
 	// Information about the described Nets.
-	Nets *[]Net `json:"Nets,omitempty"`
+	Nets            *[]Net           `json:"Nets,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *ReadNetsResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableReadNetsResponse struct {
-	Value ReadNetsResponse
+	Value        ReadNetsResponse
 	ExplicitNull bool
 }
 
 func (v NullableReadNetsResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadNetsResponse) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadNetsResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

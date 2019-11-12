@@ -125,17 +125,17 @@ func (o *ProductType) SetVendor(v string) {
 }
 
 type NullableProductType struct {
-	Value ProductType
+	Value        ProductType
 	ExplicitNull bool
 }
 
 func (v NullableProductType) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableProductType) UnmarshalJSON(src []byte) error {
@@ -146,4 +146,3 @@ func (v *NullableProductType) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

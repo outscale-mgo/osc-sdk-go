@@ -17,7 +17,7 @@ import (
 
 // UpdateFlexibleGpuResponse struct for UpdateFlexibleGpuResponse
 type UpdateFlexibleGpuResponse struct {
-	FlexibleGpu *FlexibleGpu `json:"FlexibleGpu,omitempty"`
+	FlexibleGpu     *FlexibleGpu     `json:"FlexibleGpu,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 }
 
@@ -88,17 +88,17 @@ func (o *UpdateFlexibleGpuResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableUpdateFlexibleGpuResponse struct {
-	Value UpdateFlexibleGpuResponse
+	Value        UpdateFlexibleGpuResponse
 	ExplicitNull bool
 }
 
 func (v NullableUpdateFlexibleGpuResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableUpdateFlexibleGpuResponse) UnmarshalJSON(src []byte) error {
@@ -109,4 +109,3 @@ func (v *NullableUpdateFlexibleGpuResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

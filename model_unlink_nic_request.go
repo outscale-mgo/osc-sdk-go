@@ -72,17 +72,17 @@ func (o *UnlinkNicRequest) SetLinkNicId(v string) {
 }
 
 type NullableUnlinkNicRequest struct {
-	Value UnlinkNicRequest
+	Value        UnlinkNicRequest
 	ExplicitNull bool
 }
 
 func (v NullableUnlinkNicRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableUnlinkNicRequest) UnmarshalJSON(src []byte) error {
@@ -93,4 +93,3 @@ func (v *NullableUnlinkNicRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

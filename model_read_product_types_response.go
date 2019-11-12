@@ -18,7 +18,7 @@ import (
 // ReadProductTypesResponse struct for ReadProductTypesResponse
 type ReadProductTypesResponse struct {
 	// Information about one or more product types.
-	ProductTypes *[]ProductType `json:"ProductTypes,omitempty"`
+	ProductTypes    *[]ProductType   `json:"ProductTypes,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *ReadProductTypesResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableReadProductTypesResponse struct {
-	Value ReadProductTypesResponse
+	Value        ReadProductTypesResponse
 	ExplicitNull bool
 }
 
 func (v NullableReadProductTypesResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadProductTypesResponse) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadProductTypesResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

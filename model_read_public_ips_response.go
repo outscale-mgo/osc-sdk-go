@@ -18,7 +18,7 @@ import (
 // ReadPublicIpsResponse struct for ReadPublicIpsResponse
 type ReadPublicIpsResponse struct {
 	// Information about one or more EIPs.
-	PublicIps *[]PublicIp `json:"PublicIps,omitempty"`
+	PublicIps       *[]PublicIp      `json:"PublicIps,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *ReadPublicIpsResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableReadPublicIpsResponse struct {
-	Value ReadPublicIpsResponse
+	Value        ReadPublicIpsResponse
 	ExplicitNull bool
 }
 
 func (v NullableReadPublicIpsResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadPublicIpsResponse) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadPublicIpsResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

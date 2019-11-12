@@ -54,17 +54,17 @@ func (o *DeleteSubnetResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableDeleteSubnetResponse struct {
-	Value DeleteSubnetResponse
+	Value        DeleteSubnetResponse
 	ExplicitNull bool
 }
 
 func (v NullableDeleteSubnetResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableDeleteSubnetResponse) UnmarshalJSON(src []byte) error {
@@ -75,4 +75,3 @@ func (v *NullableDeleteSubnetResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

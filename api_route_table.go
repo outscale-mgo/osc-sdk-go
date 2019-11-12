@@ -12,10 +12,10 @@ package oscgo
 
 import (
 	_context "context"
+	"github.com/antihax/optional"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
-	"github.com/antihax/optional"
 )
 
 // Linger please
@@ -28,14 +28,14 @@ type RouteTableApiService service
 
 // CreateRouteTableOpts Optional parameters for the method 'CreateRouteTable'
 type CreateRouteTableOpts struct {
-    CreateRouteTableRequest optional.Interface
+	CreateRouteTableRequest optional.Interface
 }
 
 /*
 CreateRouteTable Method for CreateRouteTable
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *CreateRouteTableOpts - Optional Parameters:
- * @param "CreateRouteTableRequest" (optional.Interface of CreateRouteTableRequest) - 
+ * @param "CreateRouteTableRequest" (optional.Interface of CreateRouteTableRequest) -
 @return CreateRouteTableResponse
 */
 func (a *RouteTableApiService) CreateRouteTable(ctx _context.Context, localVarOptionals *CreateRouteTableOpts) (CreateRouteTableResponse, *_nethttp.Response, error) {
@@ -125,7 +125,6 @@ func (a *RouteTableApiService) CreateRouteTable(ctx _context.Context, localVarOp
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -136,7 +135,6 @@ func (a *RouteTableApiService) CreateRouteTable(ctx _context.Context, localVarOp
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -146,7 +144,6 @@ func (a *RouteTableApiService) CreateRouteTable(ctx _context.Context, localVarOp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -175,14 +172,14 @@ func (a *RouteTableApiService) CreateRouteTable(ctx _context.Context, localVarOp
 
 // DeleteRouteTableOpts Optional parameters for the method 'DeleteRouteTable'
 type DeleteRouteTableOpts struct {
-    DeleteRouteTableRequest optional.Interface
+	DeleteRouteTableRequest optional.Interface
 }
 
 /*
 DeleteRouteTable Method for DeleteRouteTable
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *DeleteRouteTableOpts - Optional Parameters:
- * @param "DeleteRouteTableRequest" (optional.Interface of DeleteRouteTableRequest) - 
+ * @param "DeleteRouteTableRequest" (optional.Interface of DeleteRouteTableRequest) -
 @return DeleteRouteTableResponse
 */
 func (a *RouteTableApiService) DeleteRouteTable(ctx _context.Context, localVarOptionals *DeleteRouteTableOpts) (DeleteRouteTableResponse, *_nethttp.Response, error) {
@@ -272,7 +269,6 @@ func (a *RouteTableApiService) DeleteRouteTable(ctx _context.Context, localVarOp
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -283,7 +279,6 @@ func (a *RouteTableApiService) DeleteRouteTable(ctx _context.Context, localVarOp
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -293,7 +288,6 @@ func (a *RouteTableApiService) DeleteRouteTable(ctx _context.Context, localVarOp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -322,14 +316,14 @@ func (a *RouteTableApiService) DeleteRouteTable(ctx _context.Context, localVarOp
 
 // LinkRouteTableOpts Optional parameters for the method 'LinkRouteTable'
 type LinkRouteTableOpts struct {
-    LinkRouteTableRequest optional.Interface
+	LinkRouteTableRequest optional.Interface
 }
 
 /*
 LinkRouteTable Method for LinkRouteTable
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *LinkRouteTableOpts - Optional Parameters:
- * @param "LinkRouteTableRequest" (optional.Interface of LinkRouteTableRequest) - 
+ * @param "LinkRouteTableRequest" (optional.Interface of LinkRouteTableRequest) -
 @return LinkRouteTableResponse
 */
 func (a *RouteTableApiService) LinkRouteTable(ctx _context.Context, localVarOptionals *LinkRouteTableOpts) (LinkRouteTableResponse, *_nethttp.Response, error) {
@@ -419,7 +413,6 @@ func (a *RouteTableApiService) LinkRouteTable(ctx _context.Context, localVarOpti
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -430,7 +423,6 @@ func (a *RouteTableApiService) LinkRouteTable(ctx _context.Context, localVarOpti
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -440,7 +432,6 @@ func (a *RouteTableApiService) LinkRouteTable(ctx _context.Context, localVarOpti
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -469,14 +460,14 @@ func (a *RouteTableApiService) LinkRouteTable(ctx _context.Context, localVarOpti
 
 // ReadRouteTablesOpts Optional parameters for the method 'ReadRouteTables'
 type ReadRouteTablesOpts struct {
-    ReadRouteTablesRequest optional.Interface
+	ReadRouteTablesRequest optional.Interface
 }
 
 /*
 ReadRouteTables Method for ReadRouteTables
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ReadRouteTablesOpts - Optional Parameters:
- * @param "ReadRouteTablesRequest" (optional.Interface of ReadRouteTablesRequest) - 
+ * @param "ReadRouteTablesRequest" (optional.Interface of ReadRouteTablesRequest) -
 @return ReadRouteTablesResponse
 */
 func (a *RouteTableApiService) ReadRouteTables(ctx _context.Context, localVarOptionals *ReadRouteTablesOpts) (ReadRouteTablesResponse, *_nethttp.Response, error) {
@@ -566,7 +557,6 @@ func (a *RouteTableApiService) ReadRouteTables(ctx _context.Context, localVarOpt
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -577,7 +567,6 @@ func (a *RouteTableApiService) ReadRouteTables(ctx _context.Context, localVarOpt
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -587,7 +576,6 @@ func (a *RouteTableApiService) ReadRouteTables(ctx _context.Context, localVarOpt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -616,14 +604,14 @@ func (a *RouteTableApiService) ReadRouteTables(ctx _context.Context, localVarOpt
 
 // UnlinkRouteTableOpts Optional parameters for the method 'UnlinkRouteTable'
 type UnlinkRouteTableOpts struct {
-    UnlinkRouteTableRequest optional.Interface
+	UnlinkRouteTableRequest optional.Interface
 }
 
 /*
 UnlinkRouteTable Method for UnlinkRouteTable
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *UnlinkRouteTableOpts - Optional Parameters:
- * @param "UnlinkRouteTableRequest" (optional.Interface of UnlinkRouteTableRequest) - 
+ * @param "UnlinkRouteTableRequest" (optional.Interface of UnlinkRouteTableRequest) -
 @return UnlinkRouteTableResponse
 */
 func (a *RouteTableApiService) UnlinkRouteTable(ctx _context.Context, localVarOptionals *UnlinkRouteTableOpts) (UnlinkRouteTableResponse, *_nethttp.Response, error) {
@@ -713,7 +701,6 @@ func (a *RouteTableApiService) UnlinkRouteTable(ctx _context.Context, localVarOp
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -724,7 +711,6 @@ func (a *RouteTableApiService) UnlinkRouteTable(ctx _context.Context, localVarOp
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -734,7 +720,6 @@ func (a *RouteTableApiService) UnlinkRouteTable(ctx _context.Context, localVarOp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {

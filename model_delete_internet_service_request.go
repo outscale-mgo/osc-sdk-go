@@ -72,17 +72,17 @@ func (o *DeleteInternetServiceRequest) SetInternetServiceId(v string) {
 }
 
 type NullableDeleteInternetServiceRequest struct {
-	Value DeleteInternetServiceRequest
+	Value        DeleteInternetServiceRequest
 	ExplicitNull bool
 }
 
 func (v NullableDeleteInternetServiceRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableDeleteInternetServiceRequest) UnmarshalJSON(src []byte) error {
@@ -93,4 +93,3 @@ func (v *NullableDeleteInternetServiceRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

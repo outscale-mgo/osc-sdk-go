@@ -160,17 +160,17 @@ func (o *BackendVmHealth) SetVmId(v string) {
 }
 
 type NullableBackendVmHealth struct {
-	Value BackendVmHealth
+	Value        BackendVmHealth
 	ExplicitNull bool
 }
 
 func (v NullableBackendVmHealth) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableBackendVmHealth) UnmarshalJSON(src []byte) error {
@@ -181,4 +181,3 @@ func (v *NullableBackendVmHealth) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

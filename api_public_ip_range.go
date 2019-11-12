@@ -12,10 +12,10 @@ package oscgo
 
 import (
 	_context "context"
+	"github.com/antihax/optional"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
-	"github.com/antihax/optional"
 )
 
 // Linger please
@@ -28,14 +28,14 @@ type PublicIpRangeApiService service
 
 // ReadPublicIpRangesOpts Optional parameters for the method 'ReadPublicIpRanges'
 type ReadPublicIpRangesOpts struct {
-    ReadPublicIpRangesRequest optional.Interface
+	ReadPublicIpRangesRequest optional.Interface
 }
 
 /*
 ReadPublicIpRanges Method for ReadPublicIpRanges
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ReadPublicIpRangesOpts - Optional Parameters:
- * @param "ReadPublicIpRangesRequest" (optional.Interface of ReadPublicIpRangesRequest) - 
+ * @param "ReadPublicIpRangesRequest" (optional.Interface of ReadPublicIpRangesRequest) -
 @return ReadPublicIpRangesResponse
 */
 func (a *PublicIpRangeApiService) ReadPublicIpRanges(ctx _context.Context, localVarOptionals *ReadPublicIpRangesOpts) (ReadPublicIpRangesResponse, *_nethttp.Response, error) {

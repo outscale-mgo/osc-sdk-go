@@ -160,17 +160,17 @@ func (o *FiltersQuota) SetShortDescriptions(v []string) {
 }
 
 type NullableFiltersQuota struct {
-	Value FiltersQuota
+	Value        FiltersQuota
 	ExplicitNull bool
 }
 
 func (v NullableFiltersQuota) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableFiltersQuota) UnmarshalJSON(src []byte) error {
@@ -181,4 +181,3 @@ func (v *NullableFiltersQuota) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

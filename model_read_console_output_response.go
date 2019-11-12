@@ -18,7 +18,7 @@ import (
 // ReadConsoleOutputResponse struct for ReadConsoleOutputResponse
 type ReadConsoleOutputResponse struct {
 	// The Base64-encoded output of the console. If a command line tool is used, the output is decoded by the tool.
-	ConsoleOutput *string `json:"ConsoleOutput,omitempty"`
+	ConsoleOutput   *string          `json:"ConsoleOutput,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 	// The ID of the VM.
 	VmId *string `json:"VmId,omitempty"`
@@ -124,17 +124,17 @@ func (o *ReadConsoleOutputResponse) SetVmId(v string) {
 }
 
 type NullableReadConsoleOutputResponse struct {
-	Value ReadConsoleOutputResponse
+	Value        ReadConsoleOutputResponse
 	ExplicitNull bool
 }
 
 func (v NullableReadConsoleOutputResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadConsoleOutputResponse) UnmarshalJSON(src []byte) error {
@@ -145,4 +145,3 @@ func (v *NullableReadConsoleOutputResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

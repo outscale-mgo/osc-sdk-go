@@ -195,17 +195,17 @@ func (o *LinkPublicIp) SetPublicIpId(v string) {
 }
 
 type NullableLinkPublicIp struct {
-	Value LinkPublicIp
+	Value        LinkPublicIp
 	ExplicitNull bool
 }
 
 func (v NullableLinkPublicIp) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableLinkPublicIp) UnmarshalJSON(src []byte) error {
@@ -216,4 +216,3 @@ func (v *NullableLinkPublicIp) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

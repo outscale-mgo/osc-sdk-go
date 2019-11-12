@@ -18,7 +18,7 @@ import (
 // CreateDirectLinkInterfaceRequest struct for CreateDirectLinkInterfaceRequest
 type CreateDirectLinkInterfaceRequest struct {
 	// The ID of the existing DirectLink for which you want to create the DirectLink interface.
-	DirectLinkId string `json:"DirectLinkId"`
+	DirectLinkId        string              `json:"DirectLinkId"`
 	DirectLinkInterface DirectLinkInterface `json:"DirectLinkInterface"`
 	// If `true`, checks whether you have the required permissions to perform the action.
 	DryRun *bool `json:"DryRun,omitempty"`
@@ -88,17 +88,17 @@ func (o *CreateDirectLinkInterfaceRequest) SetDryRun(v bool) {
 }
 
 type NullableCreateDirectLinkInterfaceRequest struct {
-	Value CreateDirectLinkInterfaceRequest
+	Value        CreateDirectLinkInterfaceRequest
 	ExplicitNull bool
 }
 
 func (v NullableCreateDirectLinkInterfaceRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreateDirectLinkInterfaceRequest) UnmarshalJSON(src []byte) error {
@@ -109,4 +109,3 @@ func (v *NullableCreateDirectLinkInterfaceRequest) UnmarshalJSON(src []byte) err
 
 	return json.Unmarshal(src, &v.Value)
 }
-

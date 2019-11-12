@@ -106,17 +106,17 @@ func (o *LinkNicRequest) SetVmId(v string) {
 }
 
 type NullableLinkNicRequest struct {
-	Value LinkNicRequest
+	Value        LinkNicRequest
 	ExplicitNull bool
 }
 
 func (v NullableLinkNicRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableLinkNicRequest) UnmarshalJSON(src []byte) error {
@@ -127,4 +127,3 @@ func (v *NullableLinkNicRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

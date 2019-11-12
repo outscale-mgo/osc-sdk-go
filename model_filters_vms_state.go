@@ -125,17 +125,17 @@ func (o *FiltersVmsState) SetVmStates(v []string) {
 }
 
 type NullableFiltersVmsState struct {
-	Value FiltersVmsState
+	Value        FiltersVmsState
 	ExplicitNull bool
 }
 
 func (v NullableFiltersVmsState) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableFiltersVmsState) UnmarshalJSON(src []byte) error {
@@ -146,4 +146,3 @@ func (v *NullableFiltersVmsState) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

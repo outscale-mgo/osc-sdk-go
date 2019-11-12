@@ -230,17 +230,17 @@ func (o *NatService) SetTags(v []ResourceTag) {
 }
 
 type NullableNatService struct {
-	Value NatService
+	Value        NatService
 	ExplicitNull bool
 }
 
 func (v NullableNatService) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableNatService) UnmarshalJSON(src []byte) error {
@@ -251,4 +251,3 @@ func (v *NullableNatService) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

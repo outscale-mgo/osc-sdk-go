@@ -510,17 +510,17 @@ func (o *FiltersRouteTable) SetTags(v []string) {
 }
 
 type NullableFiltersRouteTable struct {
-	Value FiltersRouteTable
+	Value        FiltersRouteTable
 	ExplicitNull bool
 }
 
 func (v NullableFiltersRouteTable) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableFiltersRouteTable) UnmarshalJSON(src []byte) error {
@@ -531,4 +531,3 @@ func (v *NullableFiltersRouteTable) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

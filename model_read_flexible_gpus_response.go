@@ -18,7 +18,7 @@ import (
 // ReadFlexibleGpusResponse struct for ReadFlexibleGpusResponse
 type ReadFlexibleGpusResponse struct {
 	// Information about one or more fGPUs.
-	FlexibleGpus *[]FlexibleGpu `json:"FlexibleGpus,omitempty"`
+	FlexibleGpus    *[]FlexibleGpu   `json:"FlexibleGpus,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *ReadFlexibleGpusResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableReadFlexibleGpusResponse struct {
-	Value ReadFlexibleGpusResponse
+	Value        ReadFlexibleGpusResponse
 	ExplicitNull bool
 }
 
 func (v NullableReadFlexibleGpusResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadFlexibleGpusResponse) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadFlexibleGpusResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

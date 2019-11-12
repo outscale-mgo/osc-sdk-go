@@ -18,7 +18,7 @@ import (
 // ReadVirtualGatewaysRequest struct for ReadVirtualGatewaysRequest
 type ReadVirtualGatewaysRequest struct {
 	// If `true`, checks whether you have the required permissions to perform the action.
-	DryRun *bool `json:"DryRun,omitempty"`
+	DryRun  *bool                  `json:"DryRun,omitempty"`
 	Filters *FiltersVirtualGateway `json:"Filters,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *ReadVirtualGatewaysRequest) SetFilters(v FiltersVirtualGateway) {
 }
 
 type NullableReadVirtualGatewaysRequest struct {
-	Value ReadVirtualGatewaysRequest
+	Value        ReadVirtualGatewaysRequest
 	ExplicitNull bool
 }
 
 func (v NullableReadVirtualGatewaysRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadVirtualGatewaysRequest) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadVirtualGatewaysRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

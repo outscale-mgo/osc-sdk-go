@@ -265,17 +265,17 @@ func (o *Quota) SetUsedValue(v int32) {
 }
 
 type NullableQuota struct {
-	Value Quota
+	Value        Quota
 	ExplicitNull bool
 }
 
 func (v NullableQuota) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableQuota) UnmarshalJSON(src []byte) error {
@@ -286,4 +286,3 @@ func (v *NullableQuota) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

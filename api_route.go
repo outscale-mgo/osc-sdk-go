@@ -12,10 +12,10 @@ package oscgo
 
 import (
 	_context "context"
+	"github.com/antihax/optional"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
-	"github.com/antihax/optional"
 )
 
 // Linger please
@@ -28,14 +28,14 @@ type RouteApiService service
 
 // CreateRouteOpts Optional parameters for the method 'CreateRoute'
 type CreateRouteOpts struct {
-    CreateRouteRequest optional.Interface
+	CreateRouteRequest optional.Interface
 }
 
 /*
 CreateRoute Method for CreateRoute
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *CreateRouteOpts - Optional Parameters:
- * @param "CreateRouteRequest" (optional.Interface of CreateRouteRequest) - 
+ * @param "CreateRouteRequest" (optional.Interface of CreateRouteRequest) -
 @return CreateRouteResponse
 */
 func (a *RouteApiService) CreateRoute(ctx _context.Context, localVarOptionals *CreateRouteOpts) (CreateRouteResponse, *_nethttp.Response, error) {
@@ -125,7 +125,6 @@ func (a *RouteApiService) CreateRoute(ctx _context.Context, localVarOptionals *C
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -136,7 +135,6 @@ func (a *RouteApiService) CreateRoute(ctx _context.Context, localVarOptionals *C
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -146,7 +144,6 @@ func (a *RouteApiService) CreateRoute(ctx _context.Context, localVarOptionals *C
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -175,14 +172,14 @@ func (a *RouteApiService) CreateRoute(ctx _context.Context, localVarOptionals *C
 
 // DeleteRouteOpts Optional parameters for the method 'DeleteRoute'
 type DeleteRouteOpts struct {
-    DeleteRouteRequest optional.Interface
+	DeleteRouteRequest optional.Interface
 }
 
 /*
 DeleteRoute Method for DeleteRoute
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *DeleteRouteOpts - Optional Parameters:
- * @param "DeleteRouteRequest" (optional.Interface of DeleteRouteRequest) - 
+ * @param "DeleteRouteRequest" (optional.Interface of DeleteRouteRequest) -
 @return DeleteRouteResponse
 */
 func (a *RouteApiService) DeleteRoute(ctx _context.Context, localVarOptionals *DeleteRouteOpts) (DeleteRouteResponse, *_nethttp.Response, error) {
@@ -272,7 +269,6 @@ func (a *RouteApiService) DeleteRoute(ctx _context.Context, localVarOptionals *D
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -283,7 +279,6 @@ func (a *RouteApiService) DeleteRoute(ctx _context.Context, localVarOptionals *D
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -293,7 +288,6 @@ func (a *RouteApiService) DeleteRoute(ctx _context.Context, localVarOptionals *D
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -322,14 +316,14 @@ func (a *RouteApiService) DeleteRoute(ctx _context.Context, localVarOptionals *D
 
 // UpdateRouteOpts Optional parameters for the method 'UpdateRoute'
 type UpdateRouteOpts struct {
-    UpdateRouteRequest optional.Interface
+	UpdateRouteRequest optional.Interface
 }
 
 /*
 UpdateRoute Method for UpdateRoute
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *UpdateRouteOpts - Optional Parameters:
- * @param "UpdateRouteRequest" (optional.Interface of UpdateRouteRequest) - 
+ * @param "UpdateRouteRequest" (optional.Interface of UpdateRouteRequest) -
 @return UpdateRouteResponse
 */
 func (a *RouteApiService) UpdateRoute(ctx _context.Context, localVarOptionals *UpdateRouteOpts) (UpdateRouteResponse, *_nethttp.Response, error) {
@@ -419,7 +413,6 @@ func (a *RouteApiService) UpdateRoute(ctx _context.Context, localVarOptionals *U
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -430,7 +423,6 @@ func (a *RouteApiService) UpdateRoute(ctx _context.Context, localVarOptionals *U
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -440,7 +432,6 @@ func (a *RouteApiService) UpdateRoute(ctx _context.Context, localVarOptionals *U
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {

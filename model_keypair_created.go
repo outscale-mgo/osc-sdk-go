@@ -125,17 +125,17 @@ func (o *KeypairCreated) SetPrivateKey(v string) {
 }
 
 type NullableKeypairCreated struct {
-	Value KeypairCreated
+	Value        KeypairCreated
 	ExplicitNull bool
 }
 
 func (v NullableKeypairCreated) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableKeypairCreated) UnmarshalJSON(src []byte) error {
@@ -146,4 +146,3 @@ func (v *NullableKeypairCreated) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

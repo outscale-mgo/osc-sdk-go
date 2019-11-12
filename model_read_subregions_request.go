@@ -18,7 +18,7 @@ import (
 // ReadSubregionsRequest struct for ReadSubregionsRequest
 type ReadSubregionsRequest struct {
 	// If `true`, checks whether you have the required permissions to perform the action.
-	DryRun *bool `json:"DryRun,omitempty"`
+	DryRun  *bool             `json:"DryRun,omitempty"`
 	Filters *FiltersSubregion `json:"Filters,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *ReadSubregionsRequest) SetFilters(v FiltersSubregion) {
 }
 
 type NullableReadSubregionsRequest struct {
-	Value ReadSubregionsRequest
+	Value        ReadSubregionsRequest
 	ExplicitNull bool
 }
 
 func (v NullableReadSubregionsRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadSubregionsRequest) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadSubregionsRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

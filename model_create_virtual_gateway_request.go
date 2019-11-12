@@ -72,17 +72,17 @@ func (o *CreateVirtualGatewayRequest) SetDryRun(v bool) {
 }
 
 type NullableCreateVirtualGatewayRequest struct {
-	Value CreateVirtualGatewayRequest
+	Value        CreateVirtualGatewayRequest
 	ExplicitNull bool
 }
 
 func (v NullableCreateVirtualGatewayRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreateVirtualGatewayRequest) UnmarshalJSON(src []byte) error {
@@ -93,4 +93,3 @@ func (v *NullableCreateVirtualGatewayRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

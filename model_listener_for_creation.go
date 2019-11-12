@@ -141,17 +141,17 @@ func (o *ListenerForCreation) SetServerCertificateId(v string) {
 }
 
 type NullableListenerForCreation struct {
-	Value ListenerForCreation
+	Value        ListenerForCreation
 	ExplicitNull bool
 }
 
 func (v NullableListenerForCreation) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableListenerForCreation) UnmarshalJSON(src []byte) error {
@@ -162,4 +162,3 @@ func (v *NullableListenerForCreation) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

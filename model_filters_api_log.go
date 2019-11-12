@@ -335,17 +335,17 @@ func (o *FiltersApiLog) SetResponseStatusCodes(v []int32) {
 }
 
 type NullableFiltersApiLog struct {
-	Value FiltersApiLog
+	Value        FiltersApiLog
 	ExplicitNull bool
 }
 
 func (v NullableFiltersApiLog) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableFiltersApiLog) UnmarshalJSON(src []byte) error {
@@ -356,4 +356,3 @@ func (v *NullableFiltersApiLog) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

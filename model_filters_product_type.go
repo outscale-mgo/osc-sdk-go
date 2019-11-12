@@ -55,17 +55,17 @@ func (o *FiltersProductType) SetProductTypeIds(v []string) {
 }
 
 type NullableFiltersProductType struct {
-	Value FiltersProductType
+	Value        FiltersProductType
 	ExplicitNull bool
 }
 
 func (v NullableFiltersProductType) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableFiltersProductType) UnmarshalJSON(src []byte) error {
@@ -76,4 +76,3 @@ func (v *NullableFiltersProductType) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

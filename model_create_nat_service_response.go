@@ -17,7 +17,7 @@ import (
 
 // CreateNatServiceResponse struct for CreateNatServiceResponse
 type CreateNatServiceResponse struct {
-	NatService *NatService `json:"NatService,omitempty"`
+	NatService      *NatService      `json:"NatService,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 }
 
@@ -88,17 +88,17 @@ func (o *CreateNatServiceResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableCreateNatServiceResponse struct {
-	Value CreateNatServiceResponse
+	Value        CreateNatServiceResponse
 	ExplicitNull bool
 }
 
 func (v NullableCreateNatServiceResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreateNatServiceResponse) UnmarshalJSON(src []byte) error {
@@ -109,4 +109,3 @@ func (v *NullableCreateNatServiceResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

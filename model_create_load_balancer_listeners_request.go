@@ -89,17 +89,17 @@ func (o *CreateLoadBalancerListenersRequest) SetLoadBalancerName(v string) {
 }
 
 type NullableCreateLoadBalancerListenersRequest struct {
-	Value CreateLoadBalancerListenersRequest
+	Value        CreateLoadBalancerListenersRequest
 	ExplicitNull bool
 }
 
 func (v NullableCreateLoadBalancerListenersRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreateLoadBalancerListenersRequest) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableCreateLoadBalancerListenersRequest) UnmarshalJSON(src []byte) e
 
 	return json.Unmarshal(src, &v.Value)
 }
-

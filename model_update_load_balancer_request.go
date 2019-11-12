@@ -19,7 +19,7 @@ import (
 type UpdateLoadBalancerRequest struct {
 	AccessLog *AccessLog `json:"AccessLog,omitempty"`
 	// If `true`, checks whether you have the required permissions to perform the action.
-	DryRun *bool `json:"DryRun,omitempty"`
+	DryRun      *bool        `json:"DryRun,omitempty"`
 	HealthCheck *HealthCheck `json:"HealthCheck,omitempty"`
 	// The name of the load balancer.
 	LoadBalancerName string `json:"LoadBalancerName"`
@@ -245,17 +245,17 @@ func (o *UpdateLoadBalancerRequest) SetServerCertificateId(v string) {
 }
 
 type NullableUpdateLoadBalancerRequest struct {
-	Value UpdateLoadBalancerRequest
+	Value        UpdateLoadBalancerRequest
 	ExplicitNull bool
 }
 
 func (v NullableUpdateLoadBalancerRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableUpdateLoadBalancerRequest) UnmarshalJSON(src []byte) error {
@@ -266,4 +266,3 @@ func (v *NullableUpdateLoadBalancerRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

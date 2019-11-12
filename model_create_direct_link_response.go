@@ -17,7 +17,7 @@ import (
 
 // CreateDirectLinkResponse struct for CreateDirectLinkResponse
 type CreateDirectLinkResponse struct {
-	DirectLink *DirectLink `json:"DirectLink,omitempty"`
+	DirectLink      *DirectLink      `json:"DirectLink,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 }
 
@@ -88,17 +88,17 @@ func (o *CreateDirectLinkResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableCreateDirectLinkResponse struct {
-	Value CreateDirectLinkResponse
+	Value        CreateDirectLinkResponse
 	ExplicitNull bool
 }
 
 func (v NullableCreateDirectLinkResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreateDirectLinkResponse) UnmarshalJSON(src []byte) error {
@@ -109,4 +109,3 @@ func (v *NullableCreateDirectLinkResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

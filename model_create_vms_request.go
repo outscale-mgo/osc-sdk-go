@@ -40,8 +40,8 @@ type CreateVmsRequest struct {
 	// One or more NICs. If you specify this parameter, you must define one NIC as the primary network interface of the VM with `0` as its device number.
 	Nics *[]NicForVmCreation `json:"Nics,omitempty"`
 	// The performance of the VM (`standard` \\| `high` \\|  `highest`).
-	Performance *string `json:"Performance,omitempty"`
-	Placement *Placement `json:"Placement,omitempty"`
+	Performance *string    `json:"Performance,omitempty"`
+	Placement   *Placement `json:"Placement,omitempty"`
 	// One or more private IP addresses of the VM.
 	PrivateIps *[]string `json:"PrivateIps,omitempty"`
 	// One or more IDs of security group for the VMs.
@@ -701,17 +701,17 @@ func (o *CreateVmsRequest) SetVmType(v string) {
 }
 
 type NullableCreateVmsRequest struct {
-	Value CreateVmsRequest
+	Value        CreateVmsRequest
 	ExplicitNull bool
 }
 
 func (v NullableCreateVmsRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreateVmsRequest) UnmarshalJSON(src []byte) error {
@@ -722,4 +722,3 @@ func (v *NullableCreateVmsRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

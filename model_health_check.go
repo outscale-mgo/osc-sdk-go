@@ -139,17 +139,17 @@ func (o *HealthCheck) SetUnhealthyThreshold(v int32) {
 }
 
 type NullableHealthCheck struct {
-	Value HealthCheck
+	Value        HealthCheck
 	ExplicitNull bool
 }
 
 func (v NullableHealthCheck) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableHealthCheck) UnmarshalJSON(src []byte) error {
@@ -160,4 +160,3 @@ func (v *NullableHealthCheck) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

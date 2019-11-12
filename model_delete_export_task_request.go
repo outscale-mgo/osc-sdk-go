@@ -72,17 +72,17 @@ func (o *DeleteExportTaskRequest) SetExportTaskId(v string) {
 }
 
 type NullableDeleteExportTaskRequest struct {
-	Value DeleteExportTaskRequest
+	Value        DeleteExportTaskRequest
 	ExplicitNull bool
 }
 
 func (v NullableDeleteExportTaskRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableDeleteExportTaskRequest) UnmarshalJSON(src []byte) error {
@@ -93,4 +93,3 @@ func (v *NullableDeleteExportTaskRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

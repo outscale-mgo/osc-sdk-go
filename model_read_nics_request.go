@@ -18,7 +18,7 @@ import (
 // ReadNicsRequest struct for ReadNicsRequest
 type ReadNicsRequest struct {
 	// If `true`, checks whether you have the required permissions to perform the action.
-	DryRun *bool `json:"DryRun,omitempty"`
+	DryRun  *bool       `json:"DryRun,omitempty"`
 	Filters *FiltersNic `json:"Filters,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *ReadNicsRequest) SetFilters(v FiltersNic) {
 }
 
 type NullableReadNicsRequest struct {
-	Value ReadNicsRequest
+	Value        ReadNicsRequest
 	ExplicitNull bool
 }
 
 func (v NullableReadNicsRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadNicsRequest) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadNicsRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

@@ -72,17 +72,17 @@ func (o *DeleteKeypairRequest) SetKeypairName(v string) {
 }
 
 type NullableDeleteKeypairRequest struct {
-	Value DeleteKeypairRequest
+	Value        DeleteKeypairRequest
 	ExplicitNull bool
 }
 
 func (v NullableDeleteKeypairRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableDeleteKeypairRequest) UnmarshalJSON(src []byte) error {
@@ -93,4 +93,3 @@ func (v *NullableDeleteKeypairRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

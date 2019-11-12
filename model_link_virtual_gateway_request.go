@@ -89,17 +89,17 @@ func (o *LinkVirtualGatewayRequest) SetVirtualGatewayId(v string) {
 }
 
 type NullableLinkVirtualGatewayRequest struct {
-	Value LinkVirtualGatewayRequest
+	Value        LinkVirtualGatewayRequest
 	ExplicitNull bool
 }
 
 func (v NullableLinkVirtualGatewayRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableLinkVirtualGatewayRequest) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableLinkVirtualGatewayRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

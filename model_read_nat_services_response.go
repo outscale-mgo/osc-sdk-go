@@ -18,7 +18,7 @@ import (
 // ReadNatServicesResponse struct for ReadNatServicesResponse
 type ReadNatServicesResponse struct {
 	// Information about one or more NAT services.
-	NatServices *[]NatService `json:"NatServices,omitempty"`
+	NatServices     *[]NatService    `json:"NatServices,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *ReadNatServicesResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableReadNatServicesResponse struct {
-	Value ReadNatServicesResponse
+	Value        ReadNatServicesResponse
 	ExplicitNull bool
 }
 
 func (v NullableReadNatServicesResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadNatServicesResponse) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadNatServicesResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

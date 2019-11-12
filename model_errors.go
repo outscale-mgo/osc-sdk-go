@@ -125,17 +125,17 @@ func (o *Errors) SetType(v string) {
 }
 
 type NullableErrors struct {
-	Value Errors
+	Value        Errors
 	ExplicitNull bool
 }
 
 func (v NullableErrors) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableErrors) UnmarshalJSON(src []byte) error {
@@ -146,4 +146,3 @@ func (v *NullableErrors) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

@@ -90,17 +90,17 @@ func (o *SecurityGroupLight) SetSecurityGroupName(v string) {
 }
 
 type NullableSecurityGroupLight struct {
-	Value SecurityGroupLight
+	Value        SecurityGroupLight
 	ExplicitNull bool
 }
 
 func (v NullableSecurityGroupLight) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableSecurityGroupLight) UnmarshalJSON(src []byte) error {
@@ -111,4 +111,3 @@ func (v *NullableSecurityGroupLight) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

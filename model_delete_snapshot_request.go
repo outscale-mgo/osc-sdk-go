@@ -72,17 +72,17 @@ func (o *DeleteSnapshotRequest) SetSnapshotId(v string) {
 }
 
 type NullableDeleteSnapshotRequest struct {
-	Value DeleteSnapshotRequest
+	Value        DeleteSnapshotRequest
 	ExplicitNull bool
 }
 
 func (v NullableDeleteSnapshotRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableDeleteSnapshotRequest) UnmarshalJSON(src []byte) error {
@@ -93,4 +93,3 @@ func (v *NullableDeleteSnapshotRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

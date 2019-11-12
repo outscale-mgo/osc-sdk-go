@@ -18,7 +18,7 @@ import (
 // ReadQuotasResponse struct for ReadQuotasResponse
 type ReadQuotasResponse struct {
 	// Information about one or more quotas.
-	QuotaTypes *[]QuotaTypes `json:"QuotaTypes,omitempty"`
+	QuotaTypes      *[]QuotaTypes    `json:"QuotaTypes,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *ReadQuotasResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableReadQuotasResponse struct {
-	Value ReadQuotasResponse
+	Value        ReadQuotasResponse
 	ExplicitNull bool
 }
 
 func (v NullableReadQuotasResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadQuotasResponse) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadQuotasResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

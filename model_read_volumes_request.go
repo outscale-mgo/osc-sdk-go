@@ -18,7 +18,7 @@ import (
 // ReadVolumesRequest struct for ReadVolumesRequest
 type ReadVolumesRequest struct {
 	// If `true`, checks whether you have the required permissions to perform the action.
-	DryRun *bool `json:"DryRun,omitempty"`
+	DryRun  *bool          `json:"DryRun,omitempty"`
 	Filters *FiltersVolume `json:"Filters,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *ReadVolumesRequest) SetFilters(v FiltersVolume) {
 }
 
 type NullableReadVolumesRequest struct {
-	Value ReadVolumesRequest
+	Value        ReadVolumesRequest
 	ExplicitNull bool
 }
 
 func (v NullableReadVolumesRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadVolumesRequest) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadVolumesRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

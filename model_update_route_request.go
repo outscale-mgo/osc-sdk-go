@@ -264,17 +264,17 @@ func (o *UpdateRouteRequest) SetVmId(v string) {
 }
 
 type NullableUpdateRouteRequest struct {
-	Value UpdateRouteRequest
+	Value        UpdateRouteRequest
 	ExplicitNull bool
 }
 
 func (v NullableUpdateRouteRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableUpdateRouteRequest) UnmarshalJSON(src []byte) error {
@@ -285,4 +285,3 @@ func (v *NullableUpdateRouteRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

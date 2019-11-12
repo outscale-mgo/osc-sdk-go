@@ -19,7 +19,7 @@ import (
 type ReadNetAccessPointsResponse struct {
 	// One or more Net access points.
 	NetAccessPoints *[]NetAccessPoint `json:"NetAccessPoints,omitempty"`
-	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
+	ResponseContext *ResponseContext  `json:"ResponseContext,omitempty"`
 }
 
 // GetNetAccessPoints returns the NetAccessPoints field value if set, zero value otherwise.
@@ -89,17 +89,17 @@ func (o *ReadNetAccessPointsResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableReadNetAccessPointsResponse struct {
-	Value ReadNetAccessPointsResponse
+	Value        ReadNetAccessPointsResponse
 	ExplicitNull bool
 }
 
 func (v NullableReadNetAccessPointsResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadNetAccessPointsResponse) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadNetAccessPointsResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

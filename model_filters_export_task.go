@@ -160,17 +160,17 @@ func (o *FiltersExportTask) SetTaskIds(v []string) {
 }
 
 type NullableFiltersExportTask struct {
-	Value FiltersExportTask
+	Value        FiltersExportTask
 	ExplicitNull bool
 }
 
 func (v NullableFiltersExportTask) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableFiltersExportTask) UnmarshalJSON(src []byte) error {
@@ -181,4 +181,3 @@ func (v *NullableFiltersExportTask) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

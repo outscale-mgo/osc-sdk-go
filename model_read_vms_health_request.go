@@ -107,17 +107,17 @@ func (o *ReadVmsHealthRequest) SetLoadBalancerName(v string) {
 }
 
 type NullableReadVmsHealthRequest struct {
-	Value ReadVmsHealthRequest
+	Value        ReadVmsHealthRequest
 	ExplicitNull bool
 }
 
 func (v NullableReadVmsHealthRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadVmsHealthRequest) UnmarshalJSON(src []byte) error {
@@ -128,4 +128,3 @@ func (v *NullableReadVmsHealthRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

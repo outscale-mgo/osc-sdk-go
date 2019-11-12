@@ -18,7 +18,7 @@ import (
 // CreateVirtualGatewayResponse struct for CreateVirtualGatewayResponse
 type CreateVirtualGatewayResponse struct {
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
-	VirtualGateway *VirtualGateway `json:"VirtualGateway,omitempty"`
+	VirtualGateway  *VirtualGateway  `json:"VirtualGateway,omitempty"`
 }
 
 // GetResponseContext returns the ResponseContext field value if set, zero value otherwise.
@@ -88,17 +88,17 @@ func (o *CreateVirtualGatewayResponse) SetVirtualGateway(v VirtualGateway) {
 }
 
 type NullableCreateVirtualGatewayResponse struct {
-	Value CreateVirtualGatewayResponse
+	Value        CreateVirtualGatewayResponse
 	ExplicitNull bool
 }
 
 func (v NullableCreateVirtualGatewayResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreateVirtualGatewayResponse) UnmarshalJSON(src []byte) error {
@@ -109,4 +109,3 @@ func (v *NullableCreateVirtualGatewayResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

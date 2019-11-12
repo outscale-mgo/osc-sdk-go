@@ -160,17 +160,17 @@ func (o *FiltersTag) SetValues(v []string) {
 }
 
 type NullableFiltersTag struct {
-	Value FiltersTag
+	Value        FiltersTag
 	ExplicitNull bool
 }
 
 func (v NullableFiltersTag) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableFiltersTag) UnmarshalJSON(src []byte) error {
@@ -181,4 +181,3 @@ func (v *NullableFiltersTag) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

@@ -265,17 +265,17 @@ func (o *CreateSnapshotRequest) SetVolumeId(v string) {
 }
 
 type NullableCreateSnapshotRequest struct {
-	Value CreateSnapshotRequest
+	Value        CreateSnapshotRequest
 	ExplicitNull bool
 }
 
 func (v NullableCreateSnapshotRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreateSnapshotRequest) UnmarshalJSON(src []byte) error {
@@ -286,4 +286,3 @@ func (v *NullableCreateSnapshotRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

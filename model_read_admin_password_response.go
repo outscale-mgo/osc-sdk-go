@@ -18,7 +18,7 @@ import (
 // ReadAdminPasswordResponse struct for ReadAdminPasswordResponse
 type ReadAdminPasswordResponse struct {
 	// The password of the VM. After the first boot, returns an empty string.
-	AdminPassword *string `json:"AdminPassword,omitempty"`
+	AdminPassword   *string          `json:"AdminPassword,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 	// The ID of the VM.
 	VmId *string `json:"VmId,omitempty"`
@@ -124,17 +124,17 @@ func (o *ReadAdminPasswordResponse) SetVmId(v string) {
 }
 
 type NullableReadAdminPasswordResponse struct {
-	Value ReadAdminPasswordResponse
+	Value        ReadAdminPasswordResponse
 	ExplicitNull bool
 }
 
 func (v NullableReadAdminPasswordResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadAdminPasswordResponse) UnmarshalJSON(src []byte) error {
@@ -145,4 +145,3 @@ func (v *NullableReadAdminPasswordResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

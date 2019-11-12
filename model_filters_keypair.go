@@ -90,17 +90,17 @@ func (o *FiltersKeypair) SetKeypairNames(v []string) {
 }
 
 type NullableFiltersKeypair struct {
-	Value FiltersKeypair
+	Value        FiltersKeypair
 	ExplicitNull bool
 }
 
 func (v NullableFiltersKeypair) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableFiltersKeypair) UnmarshalJSON(src []byte) error {
@@ -111,4 +111,3 @@ func (v *NullableFiltersKeypair) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

@@ -72,17 +72,17 @@ func (o *DeleteFlexibleGpuRequest) SetFlexibleGpuId(v string) {
 }
 
 type NullableDeleteFlexibleGpuRequest struct {
-	Value DeleteFlexibleGpuRequest
+	Value        DeleteFlexibleGpuRequest
 	ExplicitNull bool
 }
 
 func (v NullableDeleteFlexibleGpuRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableDeleteFlexibleGpuRequest) UnmarshalJSON(src []byte) error {
@@ -93,4 +93,3 @@ func (v *NullableDeleteFlexibleGpuRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

@@ -89,17 +89,17 @@ func (o *CreateNatServiceRequest) SetSubnetId(v string) {
 }
 
 type NullableCreateNatServiceRequest struct {
-	Value CreateNatServiceRequest
+	Value        CreateNatServiceRequest
 	ExplicitNull bool
 }
 
 func (v NullableCreateNatServiceRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreateNatServiceRequest) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableCreateNatServiceRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

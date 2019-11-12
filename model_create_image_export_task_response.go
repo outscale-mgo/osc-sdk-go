@@ -88,17 +88,17 @@ func (o *CreateImageExportTaskResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableCreateImageExportTaskResponse struct {
-	Value CreateImageExportTaskResponse
+	Value        CreateImageExportTaskResponse
 	ExplicitNull bool
 }
 
 func (v NullableCreateImageExportTaskResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreateImageExportTaskResponse) UnmarshalJSON(src []byte) error {
@@ -109,4 +109,3 @@ func (v *NullableCreateImageExportTaskResponse) UnmarshalJSON(src []byte) error 
 
 	return json.Unmarshal(src, &v.Value)
 }
-

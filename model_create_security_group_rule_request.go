@@ -334,17 +334,17 @@ func (o *CreateSecurityGroupRuleRequest) SetToPortRange(v int32) {
 }
 
 type NullableCreateSecurityGroupRuleRequest struct {
-	Value CreateSecurityGroupRuleRequest
+	Value        CreateSecurityGroupRuleRequest
 	ExplicitNull bool
 }
 
 func (v NullableCreateSecurityGroupRuleRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreateSecurityGroupRuleRequest) UnmarshalJSON(src []byte) error {
@@ -355,4 +355,3 @@ func (v *NullableCreateSecurityGroupRuleRequest) UnmarshalJSON(src []byte) error
 
 	return json.Unmarshal(src, &v.Value)
 }
-

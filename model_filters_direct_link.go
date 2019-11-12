@@ -55,17 +55,17 @@ func (o *FiltersDirectLink) SetDirectLinkIds(v []string) {
 }
 
 type NullableFiltersDirectLink struct {
-	Value FiltersDirectLink
+	Value        FiltersDirectLink
 	ExplicitNull bool
 }
 
 func (v NullableFiltersDirectLink) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableFiltersDirectLink) UnmarshalJSON(src []byte) error {
@@ -76,4 +76,3 @@ func (v *NullableFiltersDirectLink) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

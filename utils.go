@@ -11,10 +11,10 @@
 package oscgo
 
 import (
-    "bytes"
-    "encoding/json"
-    "errors"
-    "time"
+	"bytes"
+	"encoding/json"
+	"errors"
+	"time"
 )
 
 var ErrInvalidNullable = errors.New("nullable cannot have non-zero Value and ExplicitNull simultaneously")
@@ -44,202 +44,201 @@ func PtrString(v string) *string { return &v }
 func PtrTime(v time.Time) *time.Time { return &v }
 
 type NullableBool struct {
-    Value bool
-    ExplicitNull bool
+	Value        bool
+	ExplicitNull bool
 }
 
 func (v NullableBool) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull && v.Value:
-        return nil, ErrInvalidNullable
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
-        return json.Marshal(v.Value)
-    }
+	switch {
+	case v.ExplicitNull && v.Value:
+		return nil, ErrInvalidNullable
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
+		return json.Marshal(v.Value)
+	}
 }
 
 func (v *NullableBool) UnmarshalJSON(src []byte) error {
-    if bytes.Equal(src, []byte("null")) {
-        v.ExplicitNull = true
-        return nil
-    }
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
 
-    return json.Unmarshal(src, &v.Value)
+	return json.Unmarshal(src, &v.Value)
 }
 
 type NullableInt struct {
-    Value int
-    ExplicitNull bool
+	Value        int
+	ExplicitNull bool
 }
 
 func (v NullableInt) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull && v.Value != 0:
-        return nil, ErrInvalidNullable
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
-        return json.Marshal(v.Value)
-    }
+	switch {
+	case v.ExplicitNull && v.Value != 0:
+		return nil, ErrInvalidNullable
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
+		return json.Marshal(v.Value)
+	}
 }
 
-
 func (v *NullableInt) UnmarshalJSON(src []byte) error {
-    if bytes.Equal(src, []byte("null")) {
-        v.ExplicitNull = true
-        return nil
-    }
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
 
-    return json.Unmarshal(src, &v.Value)
+	return json.Unmarshal(src, &v.Value)
 }
 
 type NullableInt32 struct {
-    Value int32
-    ExplicitNull bool
+	Value        int32
+	ExplicitNull bool
 }
 
 func (v NullableInt32) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull && v.Value != 0:
-        return nil, ErrInvalidNullable
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
-        return json.Marshal(v.Value)
-    }
+	switch {
+	case v.ExplicitNull && v.Value != 0:
+		return nil, ErrInvalidNullable
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
+		return json.Marshal(v.Value)
+	}
 }
 
 func (v *NullableInt32) UnmarshalJSON(src []byte) error {
-    if bytes.Equal(src, []byte("null")) {
-        v.ExplicitNull = true
-        return nil
-    }
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
 
-    return json.Unmarshal(src, &v.Value)
+	return json.Unmarshal(src, &v.Value)
 }
 
 type NullableInt64 struct {
-    Value int64
-    ExplicitNull bool
+	Value        int64
+	ExplicitNull bool
 }
 
 func (v NullableInt64) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull && v.Value != 0:
-        return nil, ErrInvalidNullable
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
-        return json.Marshal(v.Value)
-    }
+	switch {
+	case v.ExplicitNull && v.Value != 0:
+		return nil, ErrInvalidNullable
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
+		return json.Marshal(v.Value)
+	}
 }
 
 func (v *NullableInt64) UnmarshalJSON(src []byte) error {
-    if bytes.Equal(src, []byte("null")) {
-        v.ExplicitNull = true
-        return nil
-    }
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
 
-    return json.Unmarshal(src, &v.Value)
+	return json.Unmarshal(src, &v.Value)
 }
 
 type NullableFloat32 struct {
-    Value float32
-    ExplicitNull bool
+	Value        float32
+	ExplicitNull bool
 }
 
 func (v NullableFloat32) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull && v.Value != 0.0:
-        return nil, ErrInvalidNullable
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
-        return json.Marshal(v.Value)
-    }
+	switch {
+	case v.ExplicitNull && v.Value != 0.0:
+		return nil, ErrInvalidNullable
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
+		return json.Marshal(v.Value)
+	}
 }
 
 func (v *NullableFloat32) UnmarshalJSON(src []byte) error {
-    if bytes.Equal(src, []byte("null")) {
-        v.ExplicitNull = true
-        return nil
-    }
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
 
-    return json.Unmarshal(src, &v.Value)
+	return json.Unmarshal(src, &v.Value)
 }
 
 type NullableFloat64 struct {
-    Value float64
-    ExplicitNull bool
+	Value        float64
+	ExplicitNull bool
 }
 
 func (v NullableFloat64) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull && v.Value != 0.0:
-        return nil, ErrInvalidNullable
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
-        return json.Marshal(v.Value)
-    }
+	switch {
+	case v.ExplicitNull && v.Value != 0.0:
+		return nil, ErrInvalidNullable
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
+		return json.Marshal(v.Value)
+	}
 }
 
 func (v *NullableFloat64) UnmarshalJSON(src []byte) error {
-    if bytes.Equal(src, []byte("null")) {
-        v.ExplicitNull = true
-        return nil
-    }
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
 
-    return json.Unmarshal(src, &v.Value)
+	return json.Unmarshal(src, &v.Value)
 }
 
 type NullableString struct {
-    Value string
-    ExplicitNull bool
+	Value        string
+	ExplicitNull bool
 }
 
 func (v NullableString) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull && v.Value != "":
-        return nil, ErrInvalidNullable
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
-        return json.Marshal(v.Value)
-    }
+	switch {
+	case v.ExplicitNull && v.Value != "":
+		return nil, ErrInvalidNullable
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
+		return json.Marshal(v.Value)
+	}
 }
 
 func (v *NullableString) UnmarshalJSON(src []byte) error {
-    if bytes.Equal(src, []byte("null")) {
-        v.ExplicitNull = true
-        return nil
-    }
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
 
-    return json.Unmarshal(src, &v.Value)
+	return json.Unmarshal(src, &v.Value)
 }
 
 type NullableTime struct {
-    Value time.Time
-    ExplicitNull bool
+	Value        time.Time
+	ExplicitNull bool
 }
 
 func (v NullableTime) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull && !v.Value.IsZero():
-        return nil, ErrInvalidNullable
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
-        return v.Value.MarshalJSON()
-    }
+	switch {
+	case v.ExplicitNull && !v.Value.IsZero():
+		return nil, ErrInvalidNullable
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
+		return v.Value.MarshalJSON()
+	}
 }
 
 func (v *NullableTime) UnmarshalJSON(src []byte) error {
-    if bytes.Equal(src, []byte("null")) {
-        v.ExplicitNull = true
-        return nil
-    }
+	if bytes.Equal(src, []byte("null")) {
+		v.ExplicitNull = true
+		return nil
+	}
 
-    return json.Unmarshal(src, &v.Value)
+	return json.Unmarshal(src, &v.Value)
 }

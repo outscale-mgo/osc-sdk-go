@@ -195,17 +195,17 @@ func (o *LinkedVolume) SetVolumeId(v string) {
 }
 
 type NullableLinkedVolume struct {
-	Value LinkedVolume
+	Value        LinkedVolume
 	ExplicitNull bool
 }
 
 func (v NullableLinkedVolume) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableLinkedVolume) UnmarshalJSON(src []byte) error {
@@ -216,4 +216,3 @@ func (v *NullableLinkedVolume) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

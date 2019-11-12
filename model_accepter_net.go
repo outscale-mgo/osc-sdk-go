@@ -125,17 +125,17 @@ func (o *AccepterNet) SetNetId(v string) {
 }
 
 type NullableAccepterNet struct {
-	Value AccepterNet
+	Value        AccepterNet
 	ExplicitNull bool
 }
 
 func (v NullableAccepterNet) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableAccepterNet) UnmarshalJSON(src []byte) error {
@@ -146,4 +146,3 @@ func (v *NullableAccepterNet) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

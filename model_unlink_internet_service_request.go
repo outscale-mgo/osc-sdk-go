@@ -89,17 +89,17 @@ func (o *UnlinkInternetServiceRequest) SetNetId(v string) {
 }
 
 type NullableUnlinkInternetServiceRequest struct {
-	Value UnlinkInternetServiceRequest
+	Value        UnlinkInternetServiceRequest
 	ExplicitNull bool
 }
 
 func (v NullableUnlinkInternetServiceRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableUnlinkInternetServiceRequest) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableUnlinkInternetServiceRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

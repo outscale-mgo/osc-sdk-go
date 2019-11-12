@@ -18,7 +18,7 @@ import (
 // ReadImagesResponse struct for ReadImagesResponse
 type ReadImagesResponse struct {
 	// Information about one or more OMIs.
-	Images *[]Image `json:"Images,omitempty"`
+	Images          *[]Image         `json:"Images,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *ReadImagesResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableReadImagesResponse struct {
-	Value ReadImagesResponse
+	Value        ReadImagesResponse
 	ExplicitNull bool
 }
 
 func (v NullableReadImagesResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadImagesResponse) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadImagesResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

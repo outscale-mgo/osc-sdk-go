@@ -18,7 +18,7 @@ import (
 // ReadDirectLinkInterfacesRequest struct for ReadDirectLinkInterfacesRequest
 type ReadDirectLinkInterfacesRequest struct {
 	// If `true`, checks whether you have the required permissions to perform the action.
-	DryRun *bool `json:"DryRun,omitempty"`
+	DryRun  *bool                       `json:"DryRun,omitempty"`
 	Filters *FiltersDirectLinkInterface `json:"Filters,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *ReadDirectLinkInterfacesRequest) SetFilters(v FiltersDirectLinkInterfac
 }
 
 type NullableReadDirectLinkInterfacesRequest struct {
-	Value ReadDirectLinkInterfacesRequest
+	Value        ReadDirectLinkInterfacesRequest
 	ExplicitNull bool
 }
 
 func (v NullableReadDirectLinkInterfacesRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadDirectLinkInterfacesRequest) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadDirectLinkInterfacesRequest) UnmarshalJSON(src []byte) erro
 
 	return json.Unmarshal(src, &v.Value)
 }
-

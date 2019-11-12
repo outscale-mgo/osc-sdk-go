@@ -72,17 +72,17 @@ func (o *DeleteRouteTableRequest) SetRouteTableId(v string) {
 }
 
 type NullableDeleteRouteTableRequest struct {
-	Value DeleteRouteTableRequest
+	Value        DeleteRouteTableRequest
 	ExplicitNull bool
 }
 
 func (v NullableDeleteRouteTableRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableDeleteRouteTableRequest) UnmarshalJSON(src []byte) error {
@@ -93,4 +93,3 @@ func (v *NullableDeleteRouteTableRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

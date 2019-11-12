@@ -18,7 +18,7 @@ import (
 // PrivateIpLightForVm Information about the private IP of the NIC.
 type PrivateIpLightForVm struct {
 	// If `true`, the IP address is the primary private IP address of the NIC.
-	IsPrimary *bool `json:"IsPrimary,omitempty"`
+	IsPrimary    *bool                   `json:"IsPrimary,omitempty"`
 	LinkPublicIp *LinkPublicIpLightForVm `json:"LinkPublicIp,omitempty"`
 	// The name of the private DNS.
 	PrivateDnsName *string `json:"PrivateDnsName,omitempty"`
@@ -159,17 +159,17 @@ func (o *PrivateIpLightForVm) SetPrivateIp(v string) {
 }
 
 type NullablePrivateIpLightForVm struct {
-	Value PrivateIpLightForVm
+	Value        PrivateIpLightForVm
 	ExplicitNull bool
 }
 
 func (v NullablePrivateIpLightForVm) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullablePrivateIpLightForVm) UnmarshalJSON(src []byte) error {
@@ -180,4 +180,3 @@ func (v *NullablePrivateIpLightForVm) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

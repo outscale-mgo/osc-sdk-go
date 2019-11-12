@@ -230,17 +230,17 @@ func (o *Net) SetTenancy(v string) {
 }
 
 type NullableNet struct {
-	Value Net
+	Value        Net
 	ExplicitNull bool
 }
 
 func (v NullableNet) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableNet) UnmarshalJSON(src []byte) error {
@@ -251,4 +251,3 @@ func (v *NullableNet) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

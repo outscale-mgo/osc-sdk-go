@@ -54,17 +54,17 @@ func (o *DeleteSnapshotResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableDeleteSnapshotResponse struct {
-	Value DeleteSnapshotResponse
+	Value        DeleteSnapshotResponse
 	ExplicitNull bool
 }
 
 func (v NullableDeleteSnapshotResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableDeleteSnapshotResponse) UnmarshalJSON(src []byte) error {
@@ -75,4 +75,3 @@ func (v *NullableDeleteSnapshotResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

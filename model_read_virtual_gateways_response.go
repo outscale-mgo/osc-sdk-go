@@ -89,17 +89,17 @@ func (o *ReadVirtualGatewaysResponse) SetVirtualGateways(v []VirtualGateway) {
 }
 
 type NullableReadVirtualGatewaysResponse struct {
-	Value ReadVirtualGatewaysResponse
+	Value        ReadVirtualGatewaysResponse
 	ExplicitNull bool
 }
 
 func (v NullableReadVirtualGatewaysResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadVirtualGatewaysResponse) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadVirtualGatewaysResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

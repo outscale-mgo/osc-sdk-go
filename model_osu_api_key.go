@@ -90,17 +90,17 @@ func (o *OsuApiKey) SetSecretKey(v string) {
 }
 
 type NullableOsuApiKey struct {
-	Value OsuApiKey
+	Value        OsuApiKey
 	ExplicitNull bool
 }
 
 func (v NullableOsuApiKey) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableOsuApiKey) UnmarshalJSON(src []byte) error {
@@ -111,4 +111,3 @@ func (v *NullableOsuApiKey) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

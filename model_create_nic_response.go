@@ -17,7 +17,7 @@ import (
 
 // CreateNicResponse struct for CreateNicResponse
 type CreateNicResponse struct {
-	Nic *Nic `json:"Nic,omitempty"`
+	Nic             *Nic             `json:"Nic,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 }
 
@@ -88,17 +88,17 @@ func (o *CreateNicResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableCreateNicResponse struct {
-	Value CreateNicResponse
+	Value        CreateNicResponse
 	ExplicitNull bool
 }
 
 func (v NullableCreateNicResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreateNicResponse) UnmarshalJSON(src []byte) error {
@@ -109,4 +109,3 @@ func (v *NullableCreateNicResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

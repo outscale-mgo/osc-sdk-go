@@ -17,7 +17,7 @@ import (
 
 // UpdateImageResponse struct for UpdateImageResponse
 type UpdateImageResponse struct {
-	Image *Image `json:"Image,omitempty"`
+	Image           *Image           `json:"Image,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 }
 
@@ -88,17 +88,17 @@ func (o *UpdateImageResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableUpdateImageResponse struct {
-	Value UpdateImageResponse
+	Value        UpdateImageResponse
 	ExplicitNull bool
 }
 
 func (v NullableUpdateImageResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableUpdateImageResponse) UnmarshalJSON(src []byte) error {
@@ -109,4 +109,3 @@ func (v *NullableUpdateImageResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

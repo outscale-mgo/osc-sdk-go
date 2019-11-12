@@ -17,7 +17,7 @@ import (
 
 // CreateClientGatewayResponse struct for CreateClientGatewayResponse
 type CreateClientGatewayResponse struct {
-	ClientGateway *ClientGateway `json:"ClientGateway,omitempty"`
+	ClientGateway   *ClientGateway   `json:"ClientGateway,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 }
 
@@ -88,17 +88,17 @@ func (o *CreateClientGatewayResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableCreateClientGatewayResponse struct {
-	Value CreateClientGatewayResponse
+	Value        CreateClientGatewayResponse
 	ExplicitNull bool
 }
 
 func (v NullableCreateClientGatewayResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreateClientGatewayResponse) UnmarshalJSON(src []byte) error {
@@ -109,4 +109,3 @@ func (v *NullableCreateClientGatewayResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

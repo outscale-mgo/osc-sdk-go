@@ -265,17 +265,17 @@ func (o *DhcpOptionsSet) SetTags(v []ResourceTag) {
 }
 
 type NullableDhcpOptionsSet struct {
-	Value DhcpOptionsSet
+	Value        DhcpOptionsSet
 	ExplicitNull bool
 }
 
 func (v NullableDhcpOptionsSet) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableDhcpOptionsSet) UnmarshalJSON(src []byte) error {
@@ -286,4 +286,3 @@ func (v *NullableDhcpOptionsSet) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

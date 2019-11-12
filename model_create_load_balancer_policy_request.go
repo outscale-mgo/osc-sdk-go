@@ -141,17 +141,17 @@ func (o *CreateLoadBalancerPolicyRequest) SetPolicyType(v string) {
 }
 
 type NullableCreateLoadBalancerPolicyRequest struct {
-	Value CreateLoadBalancerPolicyRequest
+	Value        CreateLoadBalancerPolicyRequest
 	ExplicitNull bool
 }
 
 func (v NullableCreateLoadBalancerPolicyRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreateLoadBalancerPolicyRequest) UnmarshalJSON(src []byte) error {
@@ -162,4 +162,3 @@ func (v *NullableCreateLoadBalancerPolicyRequest) UnmarshalJSON(src []byte) erro
 
 	return json.Unmarshal(src, &v.Value)
 }
-

@@ -90,17 +90,17 @@ func (o *PermissionsOnResource) SetGlobalPermission(v bool) {
 }
 
 type NullablePermissionsOnResource struct {
-	Value PermissionsOnResource
+	Value        PermissionsOnResource
 	ExplicitNull bool
 }
 
 func (v NullablePermissionsOnResource) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullablePermissionsOnResource) UnmarshalJSON(src []byte) error {
@@ -111,4 +111,3 @@ func (v *NullablePermissionsOnResource) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

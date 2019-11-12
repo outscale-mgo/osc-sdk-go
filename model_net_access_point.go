@@ -230,17 +230,17 @@ func (o *NetAccessPoint) SetTags(v []ResourceTag) {
 }
 
 type NullableNetAccessPoint struct {
-	Value NetAccessPoint
+	Value        NetAccessPoint
 	ExplicitNull bool
 }
 
 func (v NullableNetAccessPoint) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableNetAccessPoint) UnmarshalJSON(src []byte) error {
@@ -251,4 +251,3 @@ func (v *NullableNetAccessPoint) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

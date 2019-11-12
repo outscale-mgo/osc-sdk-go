@@ -18,7 +18,7 @@ import (
 // ReadClientGatewaysResponse struct for ReadClientGatewaysResponse
 type ReadClientGatewaysResponse struct {
 	// Information about one or more client gateways.
-	ClientGateways *[]ClientGateway `json:"ClientGateways,omitempty"`
+	ClientGateways  *[]ClientGateway `json:"ClientGateways,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *ReadClientGatewaysResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableReadClientGatewaysResponse struct {
-	Value ReadClientGatewaysResponse
+	Value        ReadClientGatewaysResponse
 	ExplicitNull bool
 }
 
 func (v NullableReadClientGatewaysResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadClientGatewaysResponse) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadClientGatewaysResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

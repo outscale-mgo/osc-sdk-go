@@ -300,17 +300,17 @@ func (o *FiltersClientGateway) SetTags(v []string) {
 }
 
 type NullableFiltersClientGateway struct {
-	Value FiltersClientGateway
+	Value        FiltersClientGateway
 	ExplicitNull bool
 }
 
 func (v NullableFiltersClientGateway) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableFiltersClientGateway) UnmarshalJSON(src []byte) error {
@@ -321,4 +321,3 @@ func (v *NullableFiltersClientGateway) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

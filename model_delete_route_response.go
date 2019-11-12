@@ -18,7 +18,7 @@ import (
 // DeleteRouteResponse struct for DeleteRouteResponse
 type DeleteRouteResponse struct {
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
-	RouteTable *RouteTable `json:"RouteTable,omitempty"`
+	RouteTable      *RouteTable      `json:"RouteTable,omitempty"`
 }
 
 // GetResponseContext returns the ResponseContext field value if set, zero value otherwise.
@@ -88,17 +88,17 @@ func (o *DeleteRouteResponse) SetRouteTable(v RouteTable) {
 }
 
 type NullableDeleteRouteResponse struct {
-	Value DeleteRouteResponse
+	Value        DeleteRouteResponse
 	ExplicitNull bool
 }
 
 func (v NullableDeleteRouteResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableDeleteRouteResponse) UnmarshalJSON(src []byte) error {
@@ -109,4 +109,3 @@ func (v *NullableDeleteRouteResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

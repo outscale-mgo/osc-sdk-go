@@ -17,7 +17,7 @@ import (
 
 // CreateLoadBalancerPolicyResponse struct for CreateLoadBalancerPolicyResponse
 type CreateLoadBalancerPolicyResponse struct {
-	LoadBalancer *LoadBalancer `json:"LoadBalancer,omitempty"`
+	LoadBalancer    *LoadBalancer    `json:"LoadBalancer,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 }
 
@@ -88,17 +88,17 @@ func (o *CreateLoadBalancerPolicyResponse) SetResponseContext(v ResponseContext)
 }
 
 type NullableCreateLoadBalancerPolicyResponse struct {
-	Value CreateLoadBalancerPolicyResponse
+	Value        CreateLoadBalancerPolicyResponse
 	ExplicitNull bool
 }
 
 func (v NullableCreateLoadBalancerPolicyResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreateLoadBalancerPolicyResponse) UnmarshalJSON(src []byte) error {
@@ -109,4 +109,3 @@ func (v *NullableCreateLoadBalancerPolicyResponse) UnmarshalJSON(src []byte) err
 
 	return json.Unmarshal(src, &v.Value)
 }
-

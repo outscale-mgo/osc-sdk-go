@@ -89,17 +89,17 @@ func (o *DeleteLoadBalancerListenersRequest) SetLoadBalancerPorts(v []int32) {
 }
 
 type NullableDeleteLoadBalancerListenersRequest struct {
-	Value DeleteLoadBalancerListenersRequest
+	Value        DeleteLoadBalancerListenersRequest
 	ExplicitNull bool
 }
 
 func (v NullableDeleteLoadBalancerListenersRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableDeleteLoadBalancerListenersRequest) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableDeleteLoadBalancerListenersRequest) UnmarshalJSON(src []byte) e
 
 	return json.Unmarshal(src, &v.Value)
 }
-

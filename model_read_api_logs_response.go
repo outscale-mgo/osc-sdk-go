@@ -20,7 +20,7 @@ type ReadApiLogsResponse struct {
 	// Information displayed in one or more API logs.
 	Logs *[]Log `json:"Logs,omitempty"`
 	// The token to request the next page of results.
-	NextPageToken *string `json:"NextPageToken,omitempty"`
+	NextPageToken   *string          `json:"NextPageToken,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 }
 
@@ -124,17 +124,17 @@ func (o *ReadApiLogsResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableReadApiLogsResponse struct {
-	Value ReadApiLogsResponse
+	Value        ReadApiLogsResponse
 	ExplicitNull bool
 }
 
 func (v NullableReadApiLogsResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadApiLogsResponse) UnmarshalJSON(src []byte) error {
@@ -145,4 +145,3 @@ func (v *NullableReadApiLogsResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

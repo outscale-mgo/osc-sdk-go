@@ -17,7 +17,7 @@ import (
 
 // CreateKeypairResponse struct for CreateKeypairResponse
 type CreateKeypairResponse struct {
-	Keypair *KeypairCreated `json:"Keypair,omitempty"`
+	Keypair         *KeypairCreated  `json:"Keypair,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 }
 
@@ -88,17 +88,17 @@ func (o *CreateKeypairResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableCreateKeypairResponse struct {
-	Value CreateKeypairResponse
+	Value        CreateKeypairResponse
 	ExplicitNull bool
 }
 
 func (v NullableCreateKeypairResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreateKeypairResponse) UnmarshalJSON(src []byte) error {
@@ -109,4 +109,3 @@ func (v *NullableCreateKeypairResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

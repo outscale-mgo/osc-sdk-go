@@ -18,7 +18,7 @@ import (
 // PermissionsOnResourceCreation Information about the permissions for the resource.
 type PermissionsOnResourceCreation struct {
 	Additions *PermissionsOnResource `json:"Additions,omitempty"`
-	Removals *PermissionsOnResource `json:"Removals,omitempty"`
+	Removals  *PermissionsOnResource `json:"Removals,omitempty"`
 }
 
 // GetAdditions returns the Additions field value if set, zero value otherwise.
@@ -88,17 +88,17 @@ func (o *PermissionsOnResourceCreation) SetRemovals(v PermissionsOnResource) {
 }
 
 type NullablePermissionsOnResourceCreation struct {
-	Value PermissionsOnResourceCreation
+	Value        PermissionsOnResourceCreation
 	ExplicitNull bool
 }
 
 func (v NullablePermissionsOnResourceCreation) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullablePermissionsOnResourceCreation) UnmarshalJSON(src []byte) error {
@@ -109,4 +109,3 @@ func (v *NullablePermissionsOnResourceCreation) UnmarshalJSON(src []byte) error 
 
 	return json.Unmarshal(src, &v.Value)
 }
-

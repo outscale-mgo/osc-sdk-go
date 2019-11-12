@@ -18,13 +18,13 @@ import (
 // ReadApiLogsRequest struct for ReadApiLogsRequest
 type ReadApiLogsRequest struct {
 	// If `true`, checks whether you have the required permissions to perform the action.
-	DryRun *bool `json:"DryRun,omitempty"`
+	DryRun  *bool          `json:"DryRun,omitempty"`
 	Filters *FiltersApiLog `json:"Filters,omitempty"`
 	// The token to request the next page of results.
 	NextPageToken *string `json:"NextPageToken,omitempty"`
 	// The maximum number of items returned in a single page. By default, 100.
 	ResultsPerPage *int32 `json:"ResultsPerPage,omitempty"`
-	With *With `json:"With,omitempty"`
+	With           *With  `json:"With,omitempty"`
 }
 
 // GetDryRun returns the DryRun field value if set, zero value otherwise.
@@ -193,17 +193,17 @@ func (o *ReadApiLogsRequest) SetWith(v With) {
 }
 
 type NullableReadApiLogsRequest struct {
-	Value ReadApiLogsRequest
+	Value        ReadApiLogsRequest
 	ExplicitNull bool
 }
 
 func (v NullableReadApiLogsRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadApiLogsRequest) UnmarshalJSON(src []byte) error {
@@ -214,4 +214,3 @@ func (v *NullableReadApiLogsRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

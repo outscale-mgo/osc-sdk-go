@@ -107,17 +107,17 @@ func (o *StopVmsRequest) SetVmIds(v []string) {
 }
 
 type NullableStopVmsRequest struct {
-	Value StopVmsRequest
+	Value        StopVmsRequest
 	ExplicitNull bool
 }
 
 func (v NullableStopVmsRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableStopVmsRequest) UnmarshalJSON(src []byte) error {
@@ -128,4 +128,3 @@ func (v *NullableStopVmsRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

@@ -17,7 +17,7 @@ import (
 
 // CreateNetResponse struct for CreateNetResponse
 type CreateNetResponse struct {
-	Net *Net `json:"Net,omitempty"`
+	Net             *Net             `json:"Net,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 }
 
@@ -88,17 +88,17 @@ func (o *CreateNetResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableCreateNetResponse struct {
-	Value CreateNetResponse
+	Value        CreateNetResponse
 	ExplicitNull bool
 }
 
 func (v NullableCreateNetResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreateNetResponse) UnmarshalJSON(src []byte) error {
@@ -109,4 +109,3 @@ func (v *NullableCreateNetResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

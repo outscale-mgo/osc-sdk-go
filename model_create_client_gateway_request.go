@@ -106,17 +106,17 @@ func (o *CreateClientGatewayRequest) SetPublicIp(v string) {
 }
 
 type NullableCreateClientGatewayRequest struct {
-	Value CreateClientGatewayRequest
+	Value        CreateClientGatewayRequest
 	ExplicitNull bool
 }
 
 func (v NullableCreateClientGatewayRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreateClientGatewayRequest) UnmarshalJSON(src []byte) error {
@@ -127,4 +127,3 @@ func (v *NullableCreateClientGatewayRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

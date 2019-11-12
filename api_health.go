@@ -12,10 +12,10 @@ package oscgo
 
 import (
 	_context "context"
+	"github.com/antihax/optional"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
-	"github.com/antihax/optional"
 )
 
 // Linger please
@@ -28,14 +28,14 @@ type HealthApiService service
 
 // ReadVmsHealthOpts Optional parameters for the method 'ReadVmsHealth'
 type ReadVmsHealthOpts struct {
-    ReadVmsHealthRequest optional.Interface
+	ReadVmsHealthRequest optional.Interface
 }
 
 /*
 ReadVmsHealth Method for ReadVmsHealth
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ReadVmsHealthOpts - Optional Parameters:
- * @param "ReadVmsHealthRequest" (optional.Interface of ReadVmsHealthRequest) - 
+ * @param "ReadVmsHealthRequest" (optional.Interface of ReadVmsHealthRequest) -
 @return ReadVmsHealthResponse
 */
 func (a *HealthApiService) ReadVmsHealth(ctx _context.Context, localVarOptionals *ReadVmsHealthOpts) (ReadVmsHealthResponse, *_nethttp.Response, error) {

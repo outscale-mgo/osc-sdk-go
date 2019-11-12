@@ -160,17 +160,17 @@ func (o *InternetService) SetTags(v []ResourceTag) {
 }
 
 type NullableInternetService struct {
-	Value InternetService
+	Value        InternetService
 	ExplicitNull bool
 }
 
 func (v NullableInternetService) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableInternetService) UnmarshalJSON(src []byte) error {
@@ -181,4 +181,3 @@ func (v *NullableInternetService) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

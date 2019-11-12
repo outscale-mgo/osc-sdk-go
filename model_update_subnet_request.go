@@ -89,17 +89,17 @@ func (o *UpdateSubnetRequest) SetSubnetId(v string) {
 }
 
 type NullableUpdateSubnetRequest struct {
-	Value UpdateSubnetRequest
+	Value        UpdateSubnetRequest
 	ExplicitNull bool
 }
 
 func (v NullableUpdateSubnetRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableUpdateSubnetRequest) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableUpdateSubnetRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

@@ -160,17 +160,17 @@ func (o *CreateDhcpOptionsRequest) SetNtpServers(v []string) {
 }
 
 type NullableCreateDhcpOptionsRequest struct {
-	Value CreateDhcpOptionsRequest
+	Value        CreateDhcpOptionsRequest
 	ExplicitNull bool
 }
 
 func (v NullableCreateDhcpOptionsRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreateDhcpOptionsRequest) UnmarshalJSON(src []byte) error {
@@ -181,4 +181,3 @@ func (v *NullableCreateDhcpOptionsRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

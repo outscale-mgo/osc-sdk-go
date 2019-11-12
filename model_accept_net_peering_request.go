@@ -72,17 +72,17 @@ func (o *AcceptNetPeeringRequest) SetNetPeeringId(v string) {
 }
 
 type NullableAcceptNetPeeringRequest struct {
-	Value AcceptNetPeeringRequest
+	Value        AcceptNetPeeringRequest
 	ExplicitNull bool
 }
 
 func (v NullableAcceptNetPeeringRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableAcceptNetPeeringRequest) UnmarshalJSON(src []byte) error {
@@ -93,4 +93,3 @@ func (v *NullableAcceptNetPeeringRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

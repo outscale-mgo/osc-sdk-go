@@ -54,17 +54,17 @@ func (o *UnlinkNicResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableUnlinkNicResponse struct {
-	Value UnlinkNicResponse
+	Value        UnlinkNicResponse
 	ExplicitNull bool
 }
 
 func (v NullableUnlinkNicResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableUnlinkNicResponse) UnmarshalJSON(src []byte) error {
@@ -75,4 +75,3 @@ func (v *NullableUnlinkNicResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

@@ -90,17 +90,17 @@ func (o *ApplicationStickyCookiePolicy) SetPolicyName(v string) {
 }
 
 type NullableApplicationStickyCookiePolicy struct {
-	Value ApplicationStickyCookiePolicy
+	Value        ApplicationStickyCookiePolicy
 	ExplicitNull bool
 }
 
 func (v NullableApplicationStickyCookiePolicy) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableApplicationStickyCookiePolicy) UnmarshalJSON(src []byte) error {
@@ -111,4 +111,3 @@ func (v *NullableApplicationStickyCookiePolicy) UnmarshalJSON(src []byte) error 
 
 	return json.Unmarshal(src, &v.Value)
 }
-

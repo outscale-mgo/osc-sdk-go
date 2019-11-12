@@ -12,10 +12,10 @@ package oscgo
 
 import (
 	_context "context"
+	"github.com/antihax/optional"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
-	"github.com/antihax/optional"
 )
 
 // Linger please
@@ -28,14 +28,14 @@ type ListenerApiService service
 
 // CreateLoadBalancerListenersOpts Optional parameters for the method 'CreateLoadBalancerListeners'
 type CreateLoadBalancerListenersOpts struct {
-    CreateLoadBalancerListenersRequest optional.Interface
+	CreateLoadBalancerListenersRequest optional.Interface
 }
 
 /*
 CreateLoadBalancerListeners Method for CreateLoadBalancerListeners
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *CreateLoadBalancerListenersOpts - Optional Parameters:
- * @param "CreateLoadBalancerListenersRequest" (optional.Interface of CreateLoadBalancerListenersRequest) - 
+ * @param "CreateLoadBalancerListenersRequest" (optional.Interface of CreateLoadBalancerListenersRequest) -
 @return CreateLoadBalancerListenersResponse
 */
 func (a *ListenerApiService) CreateLoadBalancerListeners(ctx _context.Context, localVarOptionals *CreateLoadBalancerListenersOpts) (CreateLoadBalancerListenersResponse, *_nethttp.Response, error) {
@@ -142,14 +142,14 @@ func (a *ListenerApiService) CreateLoadBalancerListeners(ctx _context.Context, l
 
 // DeleteLoadBalancerListenersOpts Optional parameters for the method 'DeleteLoadBalancerListeners'
 type DeleteLoadBalancerListenersOpts struct {
-    DeleteLoadBalancerListenersRequest optional.Interface
+	DeleteLoadBalancerListenersRequest optional.Interface
 }
 
 /*
 DeleteLoadBalancerListeners Method for DeleteLoadBalancerListeners
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *DeleteLoadBalancerListenersOpts - Optional Parameters:
- * @param "DeleteLoadBalancerListenersRequest" (optional.Interface of DeleteLoadBalancerListenersRequest) - 
+ * @param "DeleteLoadBalancerListenersRequest" (optional.Interface of DeleteLoadBalancerListenersRequest) -
 @return DeleteLoadBalancerListenersResponse
 */
 func (a *ListenerApiService) DeleteLoadBalancerListeners(ctx _context.Context, localVarOptionals *DeleteLoadBalancerListenersOpts) (DeleteLoadBalancerListenersResponse, *_nethttp.Response, error) {

@@ -54,17 +54,17 @@ func (o *DeleteDhcpOptionsResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableDeleteDhcpOptionsResponse struct {
-	Value DeleteDhcpOptionsResponse
+	Value        DeleteDhcpOptionsResponse
 	ExplicitNull bool
 }
 
 func (v NullableDeleteDhcpOptionsResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableDeleteDhcpOptionsResponse) UnmarshalJSON(src []byte) error {
@@ -75,4 +75,3 @@ func (v *NullableDeleteDhcpOptionsResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

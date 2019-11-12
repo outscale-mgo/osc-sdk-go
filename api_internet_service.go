@@ -12,10 +12,10 @@ package oscgo
 
 import (
 	_context "context"
+	"github.com/antihax/optional"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
-	"github.com/antihax/optional"
 )
 
 // Linger please
@@ -28,14 +28,14 @@ type InternetServiceApiService service
 
 // CreateInternetServiceOpts Optional parameters for the method 'CreateInternetService'
 type CreateInternetServiceOpts struct {
-    CreateInternetServiceRequest optional.Interface
+	CreateInternetServiceRequest optional.Interface
 }
 
 /*
 CreateInternetService Method for CreateInternetService
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *CreateInternetServiceOpts - Optional Parameters:
- * @param "CreateInternetServiceRequest" (optional.Interface of CreateInternetServiceRequest) - 
+ * @param "CreateInternetServiceRequest" (optional.Interface of CreateInternetServiceRequest) -
 @return CreateInternetServiceResponse
 */
 func (a *InternetServiceApiService) CreateInternetService(ctx _context.Context, localVarOptionals *CreateInternetServiceOpts) (CreateInternetServiceResponse, *_nethttp.Response, error) {
@@ -125,7 +125,6 @@ func (a *InternetServiceApiService) CreateInternetService(ctx _context.Context, 
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -136,7 +135,6 @@ func (a *InternetServiceApiService) CreateInternetService(ctx _context.Context, 
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -146,7 +144,6 @@ func (a *InternetServiceApiService) CreateInternetService(ctx _context.Context, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -175,14 +172,14 @@ func (a *InternetServiceApiService) CreateInternetService(ctx _context.Context, 
 
 // DeleteInternetServiceOpts Optional parameters for the method 'DeleteInternetService'
 type DeleteInternetServiceOpts struct {
-    DeleteInternetServiceRequest optional.Interface
+	DeleteInternetServiceRequest optional.Interface
 }
 
 /*
 DeleteInternetService Method for DeleteInternetService
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *DeleteInternetServiceOpts - Optional Parameters:
- * @param "DeleteInternetServiceRequest" (optional.Interface of DeleteInternetServiceRequest) - 
+ * @param "DeleteInternetServiceRequest" (optional.Interface of DeleteInternetServiceRequest) -
 @return DeleteInternetServiceResponse
 */
 func (a *InternetServiceApiService) DeleteInternetService(ctx _context.Context, localVarOptionals *DeleteInternetServiceOpts) (DeleteInternetServiceResponse, *_nethttp.Response, error) {
@@ -272,7 +269,6 @@ func (a *InternetServiceApiService) DeleteInternetService(ctx _context.Context, 
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -283,7 +279,6 @@ func (a *InternetServiceApiService) DeleteInternetService(ctx _context.Context, 
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -293,7 +288,6 @@ func (a *InternetServiceApiService) DeleteInternetService(ctx _context.Context, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -322,14 +316,14 @@ func (a *InternetServiceApiService) DeleteInternetService(ctx _context.Context, 
 
 // LinkInternetServiceOpts Optional parameters for the method 'LinkInternetService'
 type LinkInternetServiceOpts struct {
-    LinkInternetServiceRequest optional.Interface
+	LinkInternetServiceRequest optional.Interface
 }
 
 /*
 LinkInternetService Method for LinkInternetService
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *LinkInternetServiceOpts - Optional Parameters:
- * @param "LinkInternetServiceRequest" (optional.Interface of LinkInternetServiceRequest) - 
+ * @param "LinkInternetServiceRequest" (optional.Interface of LinkInternetServiceRequest) -
 @return LinkInternetServiceResponse
 */
 func (a *InternetServiceApiService) LinkInternetService(ctx _context.Context, localVarOptionals *LinkInternetServiceOpts) (LinkInternetServiceResponse, *_nethttp.Response, error) {
@@ -419,7 +413,6 @@ func (a *InternetServiceApiService) LinkInternetService(ctx _context.Context, lo
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -430,7 +423,6 @@ func (a *InternetServiceApiService) LinkInternetService(ctx _context.Context, lo
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -440,7 +432,6 @@ func (a *InternetServiceApiService) LinkInternetService(ctx _context.Context, lo
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -469,14 +460,14 @@ func (a *InternetServiceApiService) LinkInternetService(ctx _context.Context, lo
 
 // ReadInternetServicesOpts Optional parameters for the method 'ReadInternetServices'
 type ReadInternetServicesOpts struct {
-    ReadInternetServicesRequest optional.Interface
+	ReadInternetServicesRequest optional.Interface
 }
 
 /*
 ReadInternetServices Method for ReadInternetServices
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ReadInternetServicesOpts - Optional Parameters:
- * @param "ReadInternetServicesRequest" (optional.Interface of ReadInternetServicesRequest) - 
+ * @param "ReadInternetServicesRequest" (optional.Interface of ReadInternetServicesRequest) -
 @return ReadInternetServicesResponse
 */
 func (a *InternetServiceApiService) ReadInternetServices(ctx _context.Context, localVarOptionals *ReadInternetServicesOpts) (ReadInternetServicesResponse, *_nethttp.Response, error) {
@@ -566,7 +557,6 @@ func (a *InternetServiceApiService) ReadInternetServices(ctx _context.Context, l
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -577,7 +567,6 @@ func (a *InternetServiceApiService) ReadInternetServices(ctx _context.Context, l
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -587,7 +576,6 @@ func (a *InternetServiceApiService) ReadInternetServices(ctx _context.Context, l
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -616,14 +604,14 @@ func (a *InternetServiceApiService) ReadInternetServices(ctx _context.Context, l
 
 // UnlinkInternetServiceOpts Optional parameters for the method 'UnlinkInternetService'
 type UnlinkInternetServiceOpts struct {
-    UnlinkInternetServiceRequest optional.Interface
+	UnlinkInternetServiceRequest optional.Interface
 }
 
 /*
 UnlinkInternetService Method for UnlinkInternetService
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *UnlinkInternetServiceOpts - Optional Parameters:
- * @param "UnlinkInternetServiceRequest" (optional.Interface of UnlinkInternetServiceRequest) - 
+ * @param "UnlinkInternetServiceRequest" (optional.Interface of UnlinkInternetServiceRequest) -
 @return UnlinkInternetServiceResponse
 */
 func (a *InternetServiceApiService) UnlinkInternetService(ctx _context.Context, localVarOptionals *UnlinkInternetServiceOpts) (UnlinkInternetServiceResponse, *_nethttp.Response, error) {
@@ -713,7 +701,6 @@ func (a *InternetServiceApiService) UnlinkInternetService(ctx _context.Context, 
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -724,7 +711,6 @@ func (a *InternetServiceApiService) UnlinkInternetService(ctx _context.Context, 
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -734,7 +720,6 @@ func (a *InternetServiceApiService) UnlinkInternetService(ctx _context.Context, 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {

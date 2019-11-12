@@ -20,7 +20,7 @@ type ImageExportTask struct {
 	// If the OMI export task fails, an error message appears.
 	Comment *string `json:"Comment,omitempty"`
 	// The ID of the OMI to be exported.
-	ImageId *string `json:"ImageId,omitempty"`
+	ImageId   *string    `json:"ImageId,omitempty"`
 	OsuExport *OsuExport `json:"OsuExport,omitempty"`
 	// The progress of the OMI export task, as a percentage.
 	Progress *int32 `json:"Progress,omitempty"`
@@ -264,17 +264,17 @@ func (o *ImageExportTask) SetTaskId(v string) {
 }
 
 type NullableImageExportTask struct {
-	Value ImageExportTask
+	Value        ImageExportTask
 	ExplicitNull bool
 }
 
 func (v NullableImageExportTask) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableImageExportTask) UnmarshalJSON(src []byte) error {
@@ -285,4 +285,3 @@ func (v *NullableImageExportTask) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

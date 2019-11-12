@@ -300,17 +300,17 @@ func (o *FiltersVirtualGateway) SetVirtualGatewayIds(v []string) {
 }
 
 type NullableFiltersVirtualGateway struct {
-	Value FiltersVirtualGateway
+	Value        FiltersVirtualGateway
 	ExplicitNull bool
 }
 
 func (v NullableFiltersVirtualGateway) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableFiltersVirtualGateway) UnmarshalJSON(src []byte) error {
@@ -321,4 +321,3 @@ func (v *NullableFiltersVirtualGateway) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

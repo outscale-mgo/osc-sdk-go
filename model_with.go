@@ -580,17 +580,17 @@ func (o *With) SetResponseStatusCode(v bool) {
 }
 
 type NullableWith struct {
-	Value With
+	Value        With
 	ExplicitNull bool
 }
 
 func (v NullableWith) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableWith) UnmarshalJSON(src []byte) error {
@@ -601,4 +601,3 @@ func (v *NullableWith) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

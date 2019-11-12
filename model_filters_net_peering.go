@@ -440,17 +440,17 @@ func (o *FiltersNetPeering) SetTags(v []string) {
 }
 
 type NullableFiltersNetPeering struct {
-	Value FiltersNetPeering
+	Value        FiltersNetPeering
 	ExplicitNull bool
 }
 
 func (v NullableFiltersNetPeering) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableFiltersNetPeering) UnmarshalJSON(src []byte) error {
@@ -461,4 +461,3 @@ func (v *NullableFiltersNetPeering) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

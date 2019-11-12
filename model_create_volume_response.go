@@ -18,7 +18,7 @@ import (
 // CreateVolumeResponse struct for CreateVolumeResponse
 type CreateVolumeResponse struct {
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
-	Volume *Volume `json:"Volume,omitempty"`
+	Volume          *Volume          `json:"Volume,omitempty"`
 }
 
 // GetResponseContext returns the ResponseContext field value if set, zero value otherwise.
@@ -88,17 +88,17 @@ func (o *CreateVolumeResponse) SetVolume(v Volume) {
 }
 
 type NullableCreateVolumeResponse struct {
-	Value CreateVolumeResponse
+	Value        CreateVolumeResponse
 	ExplicitNull bool
 }
 
 func (v NullableCreateVolumeResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreateVolumeResponse) UnmarshalJSON(src []byte) error {
@@ -109,4 +109,3 @@ func (v *NullableCreateVolumeResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

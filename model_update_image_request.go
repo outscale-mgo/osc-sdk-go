@@ -20,7 +20,7 @@ type UpdateImageRequest struct {
 	// If `true`, checks whether you have the required permissions to perform the action.
 	DryRun *bool `json:"DryRun,omitempty"`
 	// The ID of the OMI you want to modify.
-	ImageId string `json:"ImageId"`
+	ImageId             string                        `json:"ImageId"`
 	PermissionsToLaunch PermissionsOnResourceCreation `json:"PermissionsToLaunch"`
 }
 
@@ -88,17 +88,17 @@ func (o *UpdateImageRequest) SetPermissionsToLaunch(v PermissionsOnResourceCreat
 }
 
 type NullableUpdateImageRequest struct {
-	Value UpdateImageRequest
+	Value        UpdateImageRequest
 	ExplicitNull bool
 }
 
 func (v NullableUpdateImageRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableUpdateImageRequest) UnmarshalJSON(src []byte) error {
@@ -109,4 +109,3 @@ func (v *NullableUpdateImageRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

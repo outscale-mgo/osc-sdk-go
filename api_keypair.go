@@ -12,10 +12,10 @@ package oscgo
 
 import (
 	_context "context"
+	"github.com/antihax/optional"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
-	"github.com/antihax/optional"
 )
 
 // Linger please
@@ -28,14 +28,14 @@ type KeypairApiService service
 
 // CreateKeypairOpts Optional parameters for the method 'CreateKeypair'
 type CreateKeypairOpts struct {
-    CreateKeypairRequest optional.Interface
+	CreateKeypairRequest optional.Interface
 }
 
 /*
 CreateKeypair Method for CreateKeypair
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *CreateKeypairOpts - Optional Parameters:
- * @param "CreateKeypairRequest" (optional.Interface of CreateKeypairRequest) - 
+ * @param "CreateKeypairRequest" (optional.Interface of CreateKeypairRequest) -
 @return CreateKeypairResponse
 */
 func (a *KeypairApiService) CreateKeypair(ctx _context.Context, localVarOptionals *CreateKeypairOpts) (CreateKeypairResponse, *_nethttp.Response, error) {
@@ -125,7 +125,6 @@ func (a *KeypairApiService) CreateKeypair(ctx _context.Context, localVarOptional
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -135,7 +134,6 @@ func (a *KeypairApiService) CreateKeypair(ctx _context.Context, localVarOptional
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -147,7 +145,6 @@ func (a *KeypairApiService) CreateKeypair(ctx _context.Context, localVarOptional
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
 			var v ErrorResponse
@@ -157,7 +154,6 @@ func (a *KeypairApiService) CreateKeypair(ctx _context.Context, localVarOptional
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -186,14 +182,14 @@ func (a *KeypairApiService) CreateKeypair(ctx _context.Context, localVarOptional
 
 // DeleteKeypairOpts Optional parameters for the method 'DeleteKeypair'
 type DeleteKeypairOpts struct {
-    DeleteKeypairRequest optional.Interface
+	DeleteKeypairRequest optional.Interface
 }
 
 /*
 DeleteKeypair Method for DeleteKeypair
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *DeleteKeypairOpts - Optional Parameters:
- * @param "DeleteKeypairRequest" (optional.Interface of DeleteKeypairRequest) - 
+ * @param "DeleteKeypairRequest" (optional.Interface of DeleteKeypairRequest) -
 @return DeleteKeypairResponse
 */
 func (a *KeypairApiService) DeleteKeypair(ctx _context.Context, localVarOptionals *DeleteKeypairOpts) (DeleteKeypairResponse, *_nethttp.Response, error) {
@@ -283,7 +279,6 @@ func (a *KeypairApiService) DeleteKeypair(ctx _context.Context, localVarOptional
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -294,7 +289,6 @@ func (a *KeypairApiService) DeleteKeypair(ctx _context.Context, localVarOptional
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -304,7 +298,6 @@ func (a *KeypairApiService) DeleteKeypair(ctx _context.Context, localVarOptional
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -333,14 +326,14 @@ func (a *KeypairApiService) DeleteKeypair(ctx _context.Context, localVarOptional
 
 // ReadKeypairsOpts Optional parameters for the method 'ReadKeypairs'
 type ReadKeypairsOpts struct {
-    ReadKeypairsRequest optional.Interface
+	ReadKeypairsRequest optional.Interface
 }
 
 /*
 ReadKeypairs Method for ReadKeypairs
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ReadKeypairsOpts - Optional Parameters:
- * @param "ReadKeypairsRequest" (optional.Interface of ReadKeypairsRequest) - 
+ * @param "ReadKeypairsRequest" (optional.Interface of ReadKeypairsRequest) -
 @return ReadKeypairsResponse
 */
 func (a *KeypairApiService) ReadKeypairs(ctx _context.Context, localVarOptionals *ReadKeypairsOpts) (ReadKeypairsResponse, *_nethttp.Response, error) {
@@ -430,7 +423,6 @@ func (a *KeypairApiService) ReadKeypairs(ctx _context.Context, localVarOptionals
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -441,7 +433,6 @@ func (a *KeypairApiService) ReadKeypairs(ctx _context.Context, localVarOptionals
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -451,7 +442,6 @@ func (a *KeypairApiService) ReadKeypairs(ctx _context.Context, localVarOptionals
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {

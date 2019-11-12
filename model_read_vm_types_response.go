@@ -89,17 +89,17 @@ func (o *ReadVmTypesResponse) SetVmTypes(v []VmType) {
 }
 
 type NullableReadVmTypesResponse struct {
-	Value ReadVmTypesResponse
+	Value        ReadVmTypesResponse
 	ExplicitNull bool
 }
 
 func (v NullableReadVmTypesResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadVmTypesResponse) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadVmTypesResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

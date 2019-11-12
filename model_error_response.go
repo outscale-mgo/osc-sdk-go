@@ -18,7 +18,7 @@ import (
 // ErrorResponse struct for ErrorResponse
 type ErrorResponse struct {
 	// One or more errors.
-	Errors *[]Errors `json:"Errors,omitempty"`
+	Errors          *[]Errors        `json:"Errors,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *ErrorResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableErrorResponse struct {
-	Value ErrorResponse
+	Value        ErrorResponse
 	ExplicitNull bool
 }
 
 func (v NullableErrorResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableErrorResponse) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableErrorResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

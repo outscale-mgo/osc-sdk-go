@@ -18,7 +18,7 @@ import (
 // CreateSnapshotExportTaskRequest struct for CreateSnapshotExportTaskRequest
 type CreateSnapshotExportTaskRequest struct {
 	// If `true`, checks whether you have the required permissions to perform the action.
-	DryRun *bool `json:"DryRun,omitempty"`
+	DryRun    *bool     `json:"DryRun,omitempty"`
 	OsuExport OsuExport `json:"OsuExport"`
 	// The ID of the snapshot to export.
 	SnapshotId string `json:"SnapshotId"`
@@ -88,17 +88,17 @@ func (o *CreateSnapshotExportTaskRequest) SetSnapshotId(v string) {
 }
 
 type NullableCreateSnapshotExportTaskRequest struct {
-	Value CreateSnapshotExportTaskRequest
+	Value        CreateSnapshotExportTaskRequest
 	ExplicitNull bool
 }
 
 func (v NullableCreateSnapshotExportTaskRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreateSnapshotExportTaskRequest) UnmarshalJSON(src []byte) error {
@@ -109,4 +109,3 @@ func (v *NullableCreateSnapshotExportTaskRequest) UnmarshalJSON(src []byte) erro
 
 	return json.Unmarshal(src, &v.Value)
 }
-

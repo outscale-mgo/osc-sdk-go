@@ -18,7 +18,7 @@ import (
 // ReadDirectLinksRequest struct for ReadDirectLinksRequest
 type ReadDirectLinksRequest struct {
 	// If `true`, checks whether you have the required permissions to perform the action.
-	DryRun *bool `json:"DryRun,omitempty"`
+	DryRun  *bool              `json:"DryRun,omitempty"`
 	Filters *FiltersDirectLink `json:"Filters,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *ReadDirectLinksRequest) SetFilters(v FiltersDirectLink) {
 }
 
 type NullableReadDirectLinksRequest struct {
-	Value ReadDirectLinksRequest
+	Value        ReadDirectLinksRequest
 	ExplicitNull bool
 }
 
 func (v NullableReadDirectLinksRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadDirectLinksRequest) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadDirectLinksRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

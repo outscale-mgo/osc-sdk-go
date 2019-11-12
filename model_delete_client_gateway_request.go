@@ -72,17 +72,17 @@ func (o *DeleteClientGatewayRequest) SetDryRun(v bool) {
 }
 
 type NullableDeleteClientGatewayRequest struct {
-	Value DeleteClientGatewayRequest
+	Value        DeleteClientGatewayRequest
 	ExplicitNull bool
 }
 
 func (v NullableDeleteClientGatewayRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableDeleteClientGatewayRequest) UnmarshalJSON(src []byte) error {
@@ -93,4 +93,3 @@ func (v *NullableDeleteClientGatewayRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

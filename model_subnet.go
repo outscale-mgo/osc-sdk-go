@@ -300,17 +300,17 @@ func (o *Subnet) SetTags(v []ResourceTag) {
 }
 
 type NullableSubnet struct {
-	Value Subnet
+	Value        Subnet
 	ExplicitNull bool
 }
 
 func (v NullableSubnet) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableSubnet) UnmarshalJSON(src []byte) error {
@@ -321,4 +321,3 @@ func (v *NullableSubnet) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

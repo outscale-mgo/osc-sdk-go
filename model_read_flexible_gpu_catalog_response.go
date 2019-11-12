@@ -19,7 +19,7 @@ import (
 type ReadFlexibleGpuCatalogResponse struct {
 	// Information about one or more fGPUs available in the public catalog.
 	FlexibleGpuCatalog *[]FlexibleGpuCatalog `json:"FlexibleGpuCatalog,omitempty"`
-	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
+	ResponseContext    *ResponseContext      `json:"ResponseContext,omitempty"`
 }
 
 // GetFlexibleGpuCatalog returns the FlexibleGpuCatalog field value if set, zero value otherwise.
@@ -89,17 +89,17 @@ func (o *ReadFlexibleGpuCatalogResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableReadFlexibleGpuCatalogResponse struct {
-	Value ReadFlexibleGpuCatalogResponse
+	Value        ReadFlexibleGpuCatalogResponse
 	ExplicitNull bool
 }
 
 func (v NullableReadFlexibleGpuCatalogResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadFlexibleGpuCatalogResponse) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadFlexibleGpuCatalogResponse) UnmarshalJSON(src []byte) error
 
 	return json.Unmarshal(src, &v.Value)
 }
-

@@ -20,7 +20,7 @@ type UpdateNicRequest struct {
 	// A new description for the NIC.
 	Description *string `json:"Description,omitempty"`
 	// If `true`, checks whether you have the required permissions to perform the action.
-	DryRun *bool `json:"DryRun,omitempty"`
+	DryRun  *bool            `json:"DryRun,omitempty"`
 	LinkNic *LinkNicToUpdate `json:"LinkNic,omitempty"`
 	// The ID of the NIC you want to modify.
 	NicId string `json:"NicId"`
@@ -176,17 +176,17 @@ func (o *UpdateNicRequest) SetSecurityGroupIds(v []string) {
 }
 
 type NullableUpdateNicRequest struct {
-	Value UpdateNicRequest
+	Value        UpdateNicRequest
 	ExplicitNull bool
 }
 
 func (v NullableUpdateNicRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableUpdateNicRequest) UnmarshalJSON(src []byte) error {
@@ -197,4 +197,3 @@ func (v *NullableUpdateNicRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

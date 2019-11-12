@@ -17,7 +17,7 @@ import (
 
 // CreateNetAccessPointResponse struct for CreateNetAccessPointResponse
 type CreateNetAccessPointResponse struct {
-	NetAccessPoint *NetAccessPoint `json:"NetAccessPoint,omitempty"`
+	NetAccessPoint  *NetAccessPoint  `json:"NetAccessPoint,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 }
 
@@ -88,17 +88,17 @@ func (o *CreateNetAccessPointResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableCreateNetAccessPointResponse struct {
-	Value CreateNetAccessPointResponse
+	Value        CreateNetAccessPointResponse
 	ExplicitNull bool
 }
 
 func (v NullableCreateNetAccessPointResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreateNetAccessPointResponse) UnmarshalJSON(src []byte) error {
@@ -109,4 +109,3 @@ func (v *NullableCreateNetAccessPointResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

@@ -18,7 +18,7 @@ import (
 // CreateSubnetResponse struct for CreateSubnetResponse
 type CreateSubnetResponse struct {
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
-	Subnet *Subnet `json:"Subnet,omitempty"`
+	Subnet          *Subnet          `json:"Subnet,omitempty"`
 }
 
 // GetResponseContext returns the ResponseContext field value if set, zero value otherwise.
@@ -88,17 +88,17 @@ func (o *CreateSubnetResponse) SetSubnet(v Subnet) {
 }
 
 type NullableCreateSubnetResponse struct {
-	Value CreateSubnetResponse
+	Value        CreateSubnetResponse
 	ExplicitNull bool
 }
 
 func (v NullableCreateSubnetResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreateSubnetResponse) UnmarshalJSON(src []byte) error {
@@ -109,4 +109,3 @@ func (v *NullableCreateSubnetResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

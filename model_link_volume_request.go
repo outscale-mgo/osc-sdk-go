@@ -106,17 +106,17 @@ func (o *LinkVolumeRequest) SetVolumeId(v string) {
 }
 
 type NullableLinkVolumeRequest struct {
-	Value LinkVolumeRequest
+	Value        LinkVolumeRequest
 	ExplicitNull bool
 }
 
 func (v NullableLinkVolumeRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableLinkVolumeRequest) UnmarshalJSON(src []byte) error {
@@ -127,4 +127,3 @@ func (v *NullableLinkVolumeRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

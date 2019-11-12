@@ -18,7 +18,7 @@ import (
 // ReadLoadBalancersResponse struct for ReadLoadBalancersResponse
 type ReadLoadBalancersResponse struct {
 	// Information about one or more load balancers.
-	LoadBalancers *[]LoadBalancer `json:"LoadBalancers,omitempty"`
+	LoadBalancers   *[]LoadBalancer  `json:"LoadBalancers,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *ReadLoadBalancersResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableReadLoadBalancersResponse struct {
-	Value ReadLoadBalancersResponse
+	Value        ReadLoadBalancersResponse
 	ExplicitNull bool
 }
 
 func (v NullableReadLoadBalancersResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadLoadBalancersResponse) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadLoadBalancersResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

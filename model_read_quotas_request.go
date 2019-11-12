@@ -18,7 +18,7 @@ import (
 // ReadQuotasRequest struct for ReadQuotasRequest
 type ReadQuotasRequest struct {
 	// If `true`, checks whether you have the required permissions to perform the action.
-	DryRun *bool `json:"DryRun,omitempty"`
+	DryRun  *bool         `json:"DryRun,omitempty"`
 	Filters *FiltersQuota `json:"Filters,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *ReadQuotasRequest) SetFilters(v FiltersQuota) {
 }
 
 type NullableReadQuotasRequest struct {
-	Value ReadQuotasRequest
+	Value        ReadQuotasRequest
 	ExplicitNull bool
 }
 
 func (v NullableReadQuotasRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadQuotasRequest) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadQuotasRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

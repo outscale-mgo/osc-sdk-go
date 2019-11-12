@@ -160,17 +160,17 @@ func (o *LinkNicLight) SetState(v string) {
 }
 
 type NullableLinkNicLight struct {
-	Value LinkNicLight
+	Value        LinkNicLight
 	ExplicitNull bool
 }
 
 func (v NullableLinkNicLight) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableLinkNicLight) UnmarshalJSON(src []byte) error {
@@ -181,4 +181,3 @@ func (v *NullableLinkNicLight) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

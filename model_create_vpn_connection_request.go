@@ -141,17 +141,17 @@ func (o *CreateVpnConnectionRequest) SetVirtualGatewayId(v string) {
 }
 
 type NullableCreateVpnConnectionRequest struct {
-	Value CreateVpnConnectionRequest
+	Value        CreateVpnConnectionRequest
 	ExplicitNull bool
 }
 
 func (v NullableCreateVpnConnectionRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreateVpnConnectionRequest) UnmarshalJSON(src []byte) error {
@@ -162,4 +162,3 @@ func (v *NullableCreateVpnConnectionRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

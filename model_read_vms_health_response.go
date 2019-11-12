@@ -19,7 +19,7 @@ import (
 type ReadVmsHealthResponse struct {
 	// Information about the health of one or more back-end VMs.
 	BackendVmHealth *[]BackendVmHealth `json:"BackendVmHealth,omitempty"`
-	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
+	ResponseContext *ResponseContext   `json:"ResponseContext,omitempty"`
 }
 
 // GetBackendVmHealth returns the BackendVmHealth field value if set, zero value otherwise.
@@ -89,17 +89,17 @@ func (o *ReadVmsHealthResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableReadVmsHealthResponse struct {
-	Value ReadVmsHealthResponse
+	Value        ReadVmsHealthResponse
 	ExplicitNull bool
 }
 
 func (v NullableReadVmsHealthResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadVmsHealthResponse) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadVmsHealthResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

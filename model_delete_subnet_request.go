@@ -72,17 +72,17 @@ func (o *DeleteSubnetRequest) SetSubnetId(v string) {
 }
 
 type NullableDeleteSubnetRequest struct {
-	Value DeleteSubnetRequest
+	Value        DeleteSubnetRequest
 	ExplicitNull bool
 }
 
 func (v NullableDeleteSubnetRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableDeleteSubnetRequest) UnmarshalJSON(src []byte) error {
@@ -93,4 +93,3 @@ func (v *NullableDeleteSubnetRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

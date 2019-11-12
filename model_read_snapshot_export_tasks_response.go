@@ -89,17 +89,17 @@ func (o *ReadSnapshotExportTasksResponse) SetSnapshotExportTasks(v []SnapshotExp
 }
 
 type NullableReadSnapshotExportTasksResponse struct {
-	Value ReadSnapshotExportTasksResponse
+	Value        ReadSnapshotExportTasksResponse
 	ExplicitNull bool
 }
 
 func (v NullableReadSnapshotExportTasksResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadSnapshotExportTasksResponse) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadSnapshotExportTasksResponse) UnmarshalJSON(src []byte) erro
 
 	return json.Unmarshal(src, &v.Value)
 }
-

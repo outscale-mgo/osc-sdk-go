@@ -125,17 +125,17 @@ func (o *SourceNet) SetNetId(v string) {
 }
 
 type NullableSourceNet struct {
-	Value SourceNet
+	Value        SourceNet
 	ExplicitNull bool
 }
 
 func (v NullableSourceNet) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableSourceNet) UnmarshalJSON(src []byte) error {
@@ -146,4 +146,3 @@ func (v *NullableSourceNet) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

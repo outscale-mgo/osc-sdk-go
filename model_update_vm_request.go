@@ -422,17 +422,17 @@ func (o *UpdateVmRequest) SetVmType(v string) {
 }
 
 type NullableUpdateVmRequest struct {
-	Value UpdateVmRequest
+	Value        UpdateVmRequest
 	ExplicitNull bool
 }
 
 func (v NullableUpdateVmRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableUpdateVmRequest) UnmarshalJSON(src []byte) error {
@@ -443,4 +443,3 @@ func (v *NullableUpdateVmRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

@@ -18,7 +18,7 @@ import (
 // ReadNicsResponse struct for ReadNicsResponse
 type ReadNicsResponse struct {
 	// Information about one or more NICs.
-	Nics *[]Nic `json:"Nics,omitempty"`
+	Nics            *[]Nic           `json:"Nics,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *ReadNicsResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableReadNicsResponse struct {
-	Value ReadNicsResponse
+	Value        ReadNicsResponse
 	ExplicitNull bool
 }
 
 func (v NullableReadNicsResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadNicsResponse) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadNicsResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

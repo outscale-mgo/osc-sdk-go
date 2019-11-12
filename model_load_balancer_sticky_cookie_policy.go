@@ -55,17 +55,17 @@ func (o *LoadBalancerStickyCookiePolicy) SetPolicyName(v string) {
 }
 
 type NullableLoadBalancerStickyCookiePolicy struct {
-	Value LoadBalancerStickyCookiePolicy
+	Value        LoadBalancerStickyCookiePolicy
 	ExplicitNull bool
 }
 
 func (v NullableLoadBalancerStickyCookiePolicy) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableLoadBalancerStickyCookiePolicy) UnmarshalJSON(src []byte) error {
@@ -76,4 +76,3 @@ func (v *NullableLoadBalancerStickyCookiePolicy) UnmarshalJSON(src []byte) error
 
 	return json.Unmarshal(src, &v.Value)
 }
-

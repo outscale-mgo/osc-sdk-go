@@ -18,7 +18,7 @@ import (
 // CreateSnapshotResponse struct for CreateSnapshotResponse
 type CreateSnapshotResponse struct {
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
-	Snapshot *Snapshot `json:"Snapshot,omitempty"`
+	Snapshot        *Snapshot        `json:"Snapshot,omitempty"`
 }
 
 // GetResponseContext returns the ResponseContext field value if set, zero value otherwise.
@@ -88,17 +88,17 @@ func (o *CreateSnapshotResponse) SetSnapshot(v Snapshot) {
 }
 
 type NullableCreateSnapshotResponse struct {
-	Value CreateSnapshotResponse
+	Value        CreateSnapshotResponse
 	ExplicitNull bool
 }
 
 func (v NullableCreateSnapshotResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreateSnapshotResponse) UnmarshalJSON(src []byte) error {
@@ -109,4 +109,3 @@ func (v *NullableCreateSnapshotResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

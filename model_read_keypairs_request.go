@@ -18,7 +18,7 @@ import (
 // ReadKeypairsRequest struct for ReadKeypairsRequest
 type ReadKeypairsRequest struct {
 	// If `true`, checks whether you have the required permissions to perform the action.
-	DryRun *bool `json:"DryRun,omitempty"`
+	DryRun  *bool           `json:"DryRun,omitempty"`
 	Filters *FiltersKeypair `json:"Filters,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *ReadKeypairsRequest) SetFilters(v FiltersKeypair) {
 }
 
 type NullableReadKeypairsRequest struct {
-	Value ReadKeypairsRequest
+	Value        ReadKeypairsRequest
 	ExplicitNull bool
 }
 
 func (v NullableReadKeypairsRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadKeypairsRequest) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadKeypairsRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

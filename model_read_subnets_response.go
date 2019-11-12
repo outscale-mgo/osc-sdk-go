@@ -89,17 +89,17 @@ func (o *ReadSubnetsResponse) SetSubnets(v []Subnet) {
 }
 
 type NullableReadSubnetsResponse struct {
-	Value ReadSubnetsResponse
+	Value        ReadSubnetsResponse
 	ExplicitNull bool
 }
 
 func (v NullableReadSubnetsResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadSubnetsResponse) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadSubnetsResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

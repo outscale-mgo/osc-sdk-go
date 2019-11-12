@@ -18,7 +18,7 @@ import (
 // ReadLocationsResponse struct for ReadLocationsResponse
 type ReadLocationsResponse struct {
 	// Information about one or more locations.
-	Locations *[]Location `json:"Locations,omitempty"`
+	Locations       *[]Location      `json:"Locations,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *ReadLocationsResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableReadLocationsResponse struct {
-	Value ReadLocationsResponse
+	Value        ReadLocationsResponse
 	ExplicitNull bool
 }
 
 func (v NullableReadLocationsResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadLocationsResponse) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadLocationsResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

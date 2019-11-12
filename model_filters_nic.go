@@ -195,17 +195,17 @@ func (o *FiltersNic) SetSubnetIds(v []string) {
 }
 
 type NullableFiltersNic struct {
-	Value FiltersNic
+	Value        FiltersNic
 	ExplicitNull bool
 }
 
 func (v NullableFiltersNic) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableFiltersNic) UnmarshalJSON(src []byte) error {
@@ -216,4 +216,3 @@ func (v *NullableFiltersNic) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

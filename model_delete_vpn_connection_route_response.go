@@ -54,17 +54,17 @@ func (o *DeleteVpnConnectionRouteResponse) SetResponseContext(v ResponseContext)
 }
 
 type NullableDeleteVpnConnectionRouteResponse struct {
-	Value DeleteVpnConnectionRouteResponse
+	Value        DeleteVpnConnectionRouteResponse
 	ExplicitNull bool
 }
 
 func (v NullableDeleteVpnConnectionRouteResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableDeleteVpnConnectionRouteResponse) UnmarshalJSON(src []byte) error {
@@ -75,4 +75,3 @@ func (v *NullableDeleteVpnConnectionRouteResponse) UnmarshalJSON(src []byte) err
 
 	return json.Unmarshal(src, &v.Value)
 }
-

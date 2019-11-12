@@ -54,17 +54,17 @@ func (o *LinkInternetServiceResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableLinkInternetServiceResponse struct {
-	Value LinkInternetServiceResponse
+	Value        LinkInternetServiceResponse
 	ExplicitNull bool
 }
 
 func (v NullableLinkInternetServiceResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableLinkInternetServiceResponse) UnmarshalJSON(src []byte) error {
@@ -75,4 +75,3 @@ func (v *NullableLinkInternetServiceResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

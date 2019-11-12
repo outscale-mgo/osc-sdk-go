@@ -212,17 +212,17 @@ func (o *CreateVolumeRequest) SetVolumeType(v string) {
 }
 
 type NullableCreateVolumeRequest struct {
-	Value CreateVolumeRequest
+	Value        CreateVolumeRequest
 	ExplicitNull bool
 }
 
 func (v NullableCreateVolumeRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreateVolumeRequest) UnmarshalJSON(src []byte) error {
@@ -233,4 +233,3 @@ func (v *NullableCreateVolumeRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

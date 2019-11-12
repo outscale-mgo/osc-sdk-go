@@ -54,17 +54,17 @@ func (o *DeleteKeypairResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableDeleteKeypairResponse struct {
-	Value DeleteKeypairResponse
+	Value        DeleteKeypairResponse
 	ExplicitNull bool
 }
 
 func (v NullableDeleteKeypairResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableDeleteKeypairResponse) UnmarshalJSON(src []byte) error {
@@ -75,4 +75,3 @@ func (v *NullableDeleteKeypairResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

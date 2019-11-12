@@ -54,17 +54,17 @@ func (o *RebootVmsResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableRebootVmsResponse struct {
-	Value RebootVmsResponse
+	Value        RebootVmsResponse
 	ExplicitNull bool
 }
 
 func (v NullableRebootVmsResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableRebootVmsResponse) UnmarshalJSON(src []byte) error {
@@ -75,4 +75,3 @@ func (v *NullableRebootVmsResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

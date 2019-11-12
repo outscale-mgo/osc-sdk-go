@@ -125,17 +125,17 @@ func (o *DeletePublicIpRequest) SetPublicIpId(v string) {
 }
 
 type NullableDeletePublicIpRequest struct {
-	Value DeletePublicIpRequest
+	Value        DeletePublicIpRequest
 	ExplicitNull bool
 }
 
 func (v NullableDeletePublicIpRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableDeletePublicIpRequest) UnmarshalJSON(src []byte) error {
@@ -146,4 +146,3 @@ func (v *NullableDeletePublicIpRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

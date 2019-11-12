@@ -90,17 +90,17 @@ func (o *Placement) SetTenancy(v string) {
 }
 
 type NullablePlacement struct {
-	Value Placement
+	Value        Placement
 	ExplicitNull bool
 }
 
 func (v NullablePlacement) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullablePlacement) UnmarshalJSON(src []byte) error {
@@ -111,4 +111,3 @@ func (v *NullablePlacement) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

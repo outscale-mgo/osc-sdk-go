@@ -300,17 +300,17 @@ func (o *SecurityGroup) SetTags(v []ResourceTag) {
 }
 
 type NullableSecurityGroup struct {
-	Value SecurityGroup
+	Value        SecurityGroup
 	ExplicitNull bool
 }
 
 func (v NullableSecurityGroup) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableSecurityGroup) UnmarshalJSON(src []byte) error {
@@ -321,4 +321,3 @@ func (v *NullableSecurityGroup) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

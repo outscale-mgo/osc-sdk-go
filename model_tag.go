@@ -160,17 +160,17 @@ func (o *Tag) SetValue(v string) {
 }
 
 type NullableTag struct {
-	Value Tag
+	Value        Tag
 	ExplicitNull bool
 }
 
 func (v NullableTag) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableTag) UnmarshalJSON(src []byte) error {
@@ -181,4 +181,3 @@ func (v *NullableTag) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

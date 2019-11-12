@@ -18,7 +18,7 @@ import (
 // LinkVirtualGatewayResponse struct for LinkVirtualGatewayResponse
 type LinkVirtualGatewayResponse struct {
 	NetToVirtualGatewayLink *NetToVirtualGatewayLink `json:"NetToVirtualGatewayLink,omitempty"`
-	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
+	ResponseContext         *ResponseContext         `json:"ResponseContext,omitempty"`
 }
 
 // GetNetToVirtualGatewayLink returns the NetToVirtualGatewayLink field value if set, zero value otherwise.
@@ -88,17 +88,17 @@ func (o *LinkVirtualGatewayResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableLinkVirtualGatewayResponse struct {
-	Value LinkVirtualGatewayResponse
+	Value        LinkVirtualGatewayResponse
 	ExplicitNull bool
 }
 
 func (v NullableLinkVirtualGatewayResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableLinkVirtualGatewayResponse) UnmarshalJSON(src []byte) error {
@@ -109,4 +109,3 @@ func (v *NullableLinkVirtualGatewayResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

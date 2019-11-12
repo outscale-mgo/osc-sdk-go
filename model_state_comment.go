@@ -90,17 +90,17 @@ func (o *StateComment) SetStateMessage(v string) {
 }
 
 type NullableStateComment struct {
-	Value StateComment
+	Value        StateComment
 	ExplicitNull bool
 }
 
 func (v NullableStateComment) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableStateComment) UnmarshalJSON(src []byte) error {
@@ -111,4 +111,3 @@ func (v *NullableStateComment) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

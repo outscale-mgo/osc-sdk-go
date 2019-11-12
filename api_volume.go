@@ -126,7 +126,6 @@ func (a *VolumeApiService) CreateVolume(ctx _context.Context, localVarOptionals 
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -137,7 +136,6 @@ func (a *VolumeApiService) CreateVolume(ctx _context.Context, localVarOptionals 
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -147,7 +145,6 @@ func (a *VolumeApiService) CreateVolume(ctx _context.Context, localVarOptionals 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -273,7 +270,6 @@ func (a *VolumeApiService) DeleteVolume(ctx _context.Context, localVarOptionals 
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -284,7 +280,6 @@ func (a *VolumeApiService) DeleteVolume(ctx _context.Context, localVarOptionals 
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -294,7 +289,6 @@ func (a *VolumeApiService) DeleteVolume(ctx _context.Context, localVarOptionals 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -420,7 +414,6 @@ func (a *VolumeApiService) LinkVolume(ctx _context.Context, localVarOptionals *L
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -431,7 +424,6 @@ func (a *VolumeApiService) LinkVolume(ctx _context.Context, localVarOptionals *L
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -441,7 +433,6 @@ func (a *VolumeApiService) LinkVolume(ctx _context.Context, localVarOptionals *L
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -567,7 +558,6 @@ func (a *VolumeApiService) ReadVolumes(ctx _context.Context, localVarOptionals *
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -578,7 +568,6 @@ func (a *VolumeApiService) ReadVolumes(ctx _context.Context, localVarOptionals *
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -588,7 +577,6 @@ func (a *VolumeApiService) ReadVolumes(ctx _context.Context, localVarOptionals *
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -714,7 +702,6 @@ func (a *VolumeApiService) UnlinkVolume(ctx _context.Context, localVarOptionals 
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -725,7 +712,6 @@ func (a *VolumeApiService) UnlinkVolume(ctx _context.Context, localVarOptionals 
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -735,7 +721,6 @@ func (a *VolumeApiService) UnlinkVolume(ctx _context.Context, localVarOptionals 
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {

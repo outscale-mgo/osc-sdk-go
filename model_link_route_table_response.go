@@ -18,8 +18,8 @@ import (
 // LinkRouteTableResponse struct for LinkRouteTableResponse
 type LinkRouteTableResponse struct {
 	// The ID of the association between the route table and the Subnet.
-	LinkRouteTableId *string `json:"LinkRouteTableId,omitempty"`
-	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
+	LinkRouteTableId *string          `json:"LinkRouteTableId,omitempty"`
+	ResponseContext  *ResponseContext `json:"ResponseContext,omitempty"`
 }
 
 // GetLinkRouteTableId returns the LinkRouteTableId field value if set, zero value otherwise.
@@ -89,17 +89,17 @@ func (o *LinkRouteTableResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableLinkRouteTableResponse struct {
-	Value LinkRouteTableResponse
+	Value        LinkRouteTableResponse
 	ExplicitNull bool
 }
 
 func (v NullableLinkRouteTableResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableLinkRouteTableResponse) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableLinkRouteTableResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

@@ -20,7 +20,7 @@ type CreateImageExportTaskRequest struct {
 	// If `true`, checks whether you have the required permissions to perform the action.
 	DryRun *bool `json:"DryRun,omitempty"`
 	// The ID of the OMI to export.
-	ImageId string `json:"ImageId"`
+	ImageId   string    `json:"ImageId"`
 	OsuExport OsuExport `json:"OsuExport"`
 }
 
@@ -88,17 +88,17 @@ func (o *CreateImageExportTaskRequest) SetOsuExport(v OsuExport) {
 }
 
 type NullableCreateImageExportTaskRequest struct {
-	Value CreateImageExportTaskRequest
+	Value        CreateImageExportTaskRequest
 	ExplicitNull bool
 }
 
 func (v NullableCreateImageExportTaskRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreateImageExportTaskRequest) UnmarshalJSON(src []byte) error {
@@ -109,4 +109,3 @@ func (v *NullableCreateImageExportTaskRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

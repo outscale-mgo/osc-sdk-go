@@ -125,17 +125,17 @@ func (o *Subregion) SetSubregionName(v string) {
 }
 
 type NullableSubregion struct {
-	Value Subregion
+	Value        Subregion
 	ExplicitNull bool
 }
 
 func (v NullableSubregion) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableSubregion) UnmarshalJSON(src []byte) error {
@@ -146,4 +146,3 @@ func (v *NullableSubregion) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

@@ -89,17 +89,17 @@ func (o *RegisterVmsInLoadBalancerRequest) SetLoadBalancerName(v string) {
 }
 
 type NullableRegisterVmsInLoadBalancerRequest struct {
-	Value RegisterVmsInLoadBalancerRequest
+	Value        RegisterVmsInLoadBalancerRequest
 	ExplicitNull bool
 }
 
 func (v NullableRegisterVmsInLoadBalancerRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableRegisterVmsInLoadBalancerRequest) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableRegisterVmsInLoadBalancerRequest) UnmarshalJSON(src []byte) err
 
 	return json.Unmarshal(src, &v.Value)
 }
-

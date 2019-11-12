@@ -55,17 +55,17 @@ func (o *ReadLocationsRequest) SetDryRun(v bool) {
 }
 
 type NullableReadLocationsRequest struct {
-	Value ReadLocationsRequest
+	Value        ReadLocationsRequest
 	ExplicitNull bool
 }
 
 func (v NullableReadLocationsRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadLocationsRequest) UnmarshalJSON(src []byte) error {
@@ -76,4 +76,3 @@ func (v *NullableReadLocationsRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

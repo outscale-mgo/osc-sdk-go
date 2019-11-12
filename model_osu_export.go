@@ -18,8 +18,8 @@ import (
 // OsuExport Information about the OSU export.
 type OsuExport struct {
 	// The format of the export disk (`qcow2` \\| `vdi` \\| `vmdk`).
-	DiskImageFormat string `json:"DiskImageFormat"`
-	OsuApiKey *OsuApiKey `json:"OsuApiKey,omitempty"`
+	DiskImageFormat string     `json:"DiskImageFormat"`
+	OsuApiKey       *OsuApiKey `json:"OsuApiKey,omitempty"`
 	// The name of the OSU bucket you want to export the object to.
 	OsuBucket string `json:"OsuBucket"`
 	// The URL of the manifest file.
@@ -158,17 +158,17 @@ func (o *OsuExport) SetOsuPrefix(v string) {
 }
 
 type NullableOsuExport struct {
-	Value OsuExport
+	Value        OsuExport
 	ExplicitNull bool
 }
 
 func (v NullableOsuExport) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableOsuExport) UnmarshalJSON(src []byte) error {
@@ -179,4 +179,3 @@ func (v *NullableOsuExport) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

@@ -12,10 +12,10 @@ package oscgo
 
 import (
 	_context "context"
+	"github.com/antihax/optional"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
-	"github.com/antihax/optional"
 )
 
 // Linger please
@@ -28,14 +28,14 @@ type ImageApiService service
 
 // CreateImageOpts Optional parameters for the method 'CreateImage'
 type CreateImageOpts struct {
-    CreateImageRequest optional.Interface
+	CreateImageRequest optional.Interface
 }
 
 /*
 CreateImage Method for CreateImage
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *CreateImageOpts - Optional Parameters:
- * @param "CreateImageRequest" (optional.Interface of CreateImageRequest) - 
+ * @param "CreateImageRequest" (optional.Interface of CreateImageRequest) -
 @return CreateImageResponse
 */
 func (a *ImageApiService) CreateImage(ctx _context.Context, localVarOptionals *CreateImageOpts) (CreateImageResponse, *_nethttp.Response, error) {
@@ -125,7 +125,6 @@ func (a *ImageApiService) CreateImage(ctx _context.Context, localVarOptionals *C
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -136,7 +135,6 @@ func (a *ImageApiService) CreateImage(ctx _context.Context, localVarOptionals *C
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -146,7 +144,6 @@ func (a *ImageApiService) CreateImage(ctx _context.Context, localVarOptionals *C
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -175,14 +172,14 @@ func (a *ImageApiService) CreateImage(ctx _context.Context, localVarOptionals *C
 
 // CreateImageExportTaskOpts Optional parameters for the method 'CreateImageExportTask'
 type CreateImageExportTaskOpts struct {
-    CreateImageExportTaskRequest optional.Interface
+	CreateImageExportTaskRequest optional.Interface
 }
 
 /*
 CreateImageExportTask Method for CreateImageExportTask
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *CreateImageExportTaskOpts - Optional Parameters:
- * @param "CreateImageExportTaskRequest" (optional.Interface of CreateImageExportTaskRequest) - 
+ * @param "CreateImageExportTaskRequest" (optional.Interface of CreateImageExportTaskRequest) -
 @return CreateImageExportTaskResponse
 */
 func (a *ImageApiService) CreateImageExportTask(ctx _context.Context, localVarOptionals *CreateImageExportTaskOpts) (CreateImageExportTaskResponse, *_nethttp.Response, error) {
@@ -289,14 +286,14 @@ func (a *ImageApiService) CreateImageExportTask(ctx _context.Context, localVarOp
 
 // DeleteImageOpts Optional parameters for the method 'DeleteImage'
 type DeleteImageOpts struct {
-    DeleteImageRequest optional.Interface
+	DeleteImageRequest optional.Interface
 }
 
 /*
 DeleteImage Method for DeleteImage
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *DeleteImageOpts - Optional Parameters:
- * @param "DeleteImageRequest" (optional.Interface of DeleteImageRequest) - 
+ * @param "DeleteImageRequest" (optional.Interface of DeleteImageRequest) -
 @return DeleteImageResponse
 */
 func (a *ImageApiService) DeleteImage(ctx _context.Context, localVarOptionals *DeleteImageOpts) (DeleteImageResponse, *_nethttp.Response, error) {
@@ -386,7 +383,6 @@ func (a *ImageApiService) DeleteImage(ctx _context.Context, localVarOptionals *D
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -397,7 +393,6 @@ func (a *ImageApiService) DeleteImage(ctx _context.Context, localVarOptionals *D
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -407,7 +402,6 @@ func (a *ImageApiService) DeleteImage(ctx _context.Context, localVarOptionals *D
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -436,14 +430,14 @@ func (a *ImageApiService) DeleteImage(ctx _context.Context, localVarOptionals *D
 
 // ReadImageExportTasksOpts Optional parameters for the method 'ReadImageExportTasks'
 type ReadImageExportTasksOpts struct {
-    ReadImageExportTasksRequest optional.Interface
+	ReadImageExportTasksRequest optional.Interface
 }
 
 /*
 ReadImageExportTasks Method for ReadImageExportTasks
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ReadImageExportTasksOpts - Optional Parameters:
- * @param "ReadImageExportTasksRequest" (optional.Interface of ReadImageExportTasksRequest) - 
+ * @param "ReadImageExportTasksRequest" (optional.Interface of ReadImageExportTasksRequest) -
 @return ReadImageExportTasksResponse
 */
 func (a *ImageApiService) ReadImageExportTasks(ctx _context.Context, localVarOptionals *ReadImageExportTasksOpts) (ReadImageExportTasksResponse, *_nethttp.Response, error) {
@@ -550,14 +544,14 @@ func (a *ImageApiService) ReadImageExportTasks(ctx _context.Context, localVarOpt
 
 // ReadImagesOpts Optional parameters for the method 'ReadImages'
 type ReadImagesOpts struct {
-    ReadImagesRequest optional.Interface
+	ReadImagesRequest optional.Interface
 }
 
 /*
 ReadImages Method for ReadImages
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ReadImagesOpts - Optional Parameters:
- * @param "ReadImagesRequest" (optional.Interface of ReadImagesRequest) - 
+ * @param "ReadImagesRequest" (optional.Interface of ReadImagesRequest) -
 @return ReadImagesResponse
 */
 func (a *ImageApiService) ReadImages(ctx _context.Context, localVarOptionals *ReadImagesOpts) (ReadImagesResponse, *_nethttp.Response, error) {
@@ -647,7 +641,6 @@ func (a *ImageApiService) ReadImages(ctx _context.Context, localVarOptionals *Re
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -658,7 +651,6 @@ func (a *ImageApiService) ReadImages(ctx _context.Context, localVarOptionals *Re
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -668,7 +660,6 @@ func (a *ImageApiService) ReadImages(ctx _context.Context, localVarOptionals *Re
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -697,14 +688,14 @@ func (a *ImageApiService) ReadImages(ctx _context.Context, localVarOptionals *Re
 
 // UpdateImageOpts Optional parameters for the method 'UpdateImage'
 type UpdateImageOpts struct {
-    UpdateImageRequest optional.Interface
+	UpdateImageRequest optional.Interface
 }
 
 /*
 UpdateImage Method for UpdateImage
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *UpdateImageOpts - Optional Parameters:
- * @param "UpdateImageRequest" (optional.Interface of UpdateImageRequest) - 
+ * @param "UpdateImageRequest" (optional.Interface of UpdateImageRequest) -
 @return UpdateImageResponse
 */
 func (a *ImageApiService) UpdateImage(ctx _context.Context, localVarOptionals *UpdateImageOpts) (UpdateImageResponse, *_nethttp.Response, error) {
@@ -794,7 +785,6 @@ func (a *ImageApiService) UpdateImage(ctx _context.Context, localVarOptionals *U
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -805,7 +795,6 @@ func (a *ImageApiService) UpdateImage(ctx _context.Context, localVarOptionals *U
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -815,7 +804,6 @@ func (a *ImageApiService) UpdateImage(ctx _context.Context, localVarOptionals *U
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {

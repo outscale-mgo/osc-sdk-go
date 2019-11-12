@@ -265,17 +265,17 @@ func (o *DirectLink) SetState(v string) {
 }
 
 type NullableDirectLink struct {
-	Value DirectLink
+	Value        DirectLink
 	ExplicitNull bool
 }
 
 func (v NullableDirectLink) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableDirectLink) UnmarshalJSON(src []byte) error {
@@ -286,4 +286,3 @@ func (v *NullableDirectLink) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

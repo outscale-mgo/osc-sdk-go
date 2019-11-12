@@ -90,17 +90,17 @@ func (o *PrivateIpLight) SetPrivateIp(v string) {
 }
 
 type NullablePrivateIpLight struct {
-	Value PrivateIpLight
+	Value        PrivateIpLight
 	ExplicitNull bool
 }
 
 func (v NullablePrivateIpLight) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullablePrivateIpLight) UnmarshalJSON(src []byte) error {
@@ -111,4 +111,3 @@ func (v *NullablePrivateIpLight) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

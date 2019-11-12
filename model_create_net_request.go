@@ -107,17 +107,17 @@ func (o *CreateNetRequest) SetTenancy(v string) {
 }
 
 type NullableCreateNetRequest struct {
-	Value CreateNetRequest
+	Value        CreateNetRequest
 	ExplicitNull bool
 }
 
 func (v NullableCreateNetRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreateNetRequest) UnmarshalJSON(src []byte) error {
@@ -128,4 +128,3 @@ func (v *NullableCreateNetRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

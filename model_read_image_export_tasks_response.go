@@ -19,7 +19,7 @@ import (
 type ReadImageExportTasksResponse struct {
 	// Information about one or more image export tasks.
 	ImageExportTasks *[]ImageExportTask `json:"ImageExportTasks,omitempty"`
-	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
+	ResponseContext  *ResponseContext   `json:"ResponseContext,omitempty"`
 }
 
 // GetImageExportTasks returns the ImageExportTasks field value if set, zero value otherwise.
@@ -89,17 +89,17 @@ func (o *ReadImageExportTasksResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableReadImageExportTasksResponse struct {
-	Value ReadImageExportTasksResponse
+	Value        ReadImageExportTasksResponse
 	ExplicitNull bool
 }
 
 func (v NullableReadImageExportTasksResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadImageExportTasksResponse) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadImageExportTasksResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

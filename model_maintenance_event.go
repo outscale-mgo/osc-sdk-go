@@ -160,17 +160,17 @@ func (o *MaintenanceEvent) SetNotBefore(v string) {
 }
 
 type NullableMaintenanceEvent struct {
-	Value MaintenanceEvent
+	Value        MaintenanceEvent
 	ExplicitNull bool
 }
 
 func (v NullableMaintenanceEvent) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableMaintenanceEvent) UnmarshalJSON(src []byte) error {
@@ -181,4 +181,3 @@ func (v *NullableMaintenanceEvent) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

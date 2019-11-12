@@ -22,9 +22,9 @@ type Nic struct {
 	// The description of the NIC.
 	Description *string `json:"Description,omitempty"`
 	// (Net only) If `true`, the source/destination check is enabled. If `false`, it is disabled. This value must be `false` for a NAT VM to perform network address translation (NAT) in a Net.
-	IsSourceDestChecked *bool `json:"IsSourceDestChecked,omitempty"`
-	LinkNic *LinkNic `json:"LinkNic,omitempty"`
-	LinkPublicIp *LinkPublicIp `json:"LinkPublicIp,omitempty"`
+	IsSourceDestChecked *bool         `json:"IsSourceDestChecked,omitempty"`
+	LinkNic             *LinkNic      `json:"LinkNic,omitempty"`
+	LinkPublicIp        *LinkPublicIp `json:"LinkPublicIp,omitempty"`
 	// The Media Access Control (MAC) address of the NIC.
 	MacAddress *string `json:"MacAddress,omitempty"`
 	// The ID of the Net for the NIC.
@@ -543,17 +543,17 @@ func (o *Nic) SetTags(v []ResourceTag) {
 }
 
 type NullableNic struct {
-	Value Nic
+	Value        Nic
 	ExplicitNull bool
 }
 
 func (v NullableNic) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableNic) UnmarshalJSON(src []byte) error {
@@ -564,4 +564,3 @@ func (v *NullableNic) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

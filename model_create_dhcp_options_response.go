@@ -17,7 +17,7 @@ import (
 
 // CreateDhcpOptionsResponse struct for CreateDhcpOptionsResponse
 type CreateDhcpOptionsResponse struct {
-	DhcpOptionsSet *DhcpOptionsSet `json:"DhcpOptionsSet,omitempty"`
+	DhcpOptionsSet  *DhcpOptionsSet  `json:"DhcpOptionsSet,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 }
 
@@ -88,17 +88,17 @@ func (o *CreateDhcpOptionsResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableCreateDhcpOptionsResponse struct {
-	Value CreateDhcpOptionsResponse
+	Value        CreateDhcpOptionsResponse
 	ExplicitNull bool
 }
 
 func (v NullableCreateDhcpOptionsResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreateDhcpOptionsResponse) UnmarshalJSON(src []byte) error {
@@ -109,4 +109,3 @@ func (v *NullableCreateDhcpOptionsResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

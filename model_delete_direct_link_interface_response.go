@@ -54,17 +54,17 @@ func (o *DeleteDirectLinkInterfaceResponse) SetResponseContext(v ResponseContext
 }
 
 type NullableDeleteDirectLinkInterfaceResponse struct {
-	Value DeleteDirectLinkInterfaceResponse
+	Value        DeleteDirectLinkInterfaceResponse
 	ExplicitNull bool
 }
 
 func (v NullableDeleteDirectLinkInterfaceResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableDeleteDirectLinkInterfaceResponse) UnmarshalJSON(src []byte) error {
@@ -75,4 +75,3 @@ func (v *NullableDeleteDirectLinkInterfaceResponse) UnmarshalJSON(src []byte) er
 
 	return json.Unmarshal(src, &v.Value)
 }
-

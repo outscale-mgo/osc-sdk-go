@@ -230,17 +230,17 @@ func (o *LinkNic) SetVmId(v string) {
 }
 
 type NullableLinkNic struct {
-	Value LinkNic
+	Value        LinkNic
 	ExplicitNull bool
 }
 
 func (v NullableLinkNic) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableLinkNic) UnmarshalJSON(src []byte) error {
@@ -251,4 +251,3 @@ func (v *NullableLinkNic) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

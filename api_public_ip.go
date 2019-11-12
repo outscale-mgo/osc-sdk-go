@@ -12,10 +12,10 @@ package oscgo
 
 import (
 	_context "context"
+	"github.com/antihax/optional"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
-	"github.com/antihax/optional"
 )
 
 // Linger please
@@ -28,14 +28,14 @@ type PublicIpApiService service
 
 // CreatePublicIpOpts Optional parameters for the method 'CreatePublicIp'
 type CreatePublicIpOpts struct {
-    CreatePublicIpRequest optional.Interface
+	CreatePublicIpRequest optional.Interface
 }
 
 /*
 CreatePublicIp Method for CreatePublicIp
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *CreatePublicIpOpts - Optional Parameters:
- * @param "CreatePublicIpRequest" (optional.Interface of CreatePublicIpRequest) - 
+ * @param "CreatePublicIpRequest" (optional.Interface of CreatePublicIpRequest) -
 @return CreatePublicIpResponse
 */
 func (a *PublicIpApiService) CreatePublicIp(ctx _context.Context, localVarOptionals *CreatePublicIpOpts) (CreatePublicIpResponse, *_nethttp.Response, error) {
@@ -125,7 +125,6 @@ func (a *PublicIpApiService) CreatePublicIp(ctx _context.Context, localVarOption
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -136,7 +135,6 @@ func (a *PublicIpApiService) CreatePublicIp(ctx _context.Context, localVarOption
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -146,7 +144,6 @@ func (a *PublicIpApiService) CreatePublicIp(ctx _context.Context, localVarOption
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -175,14 +172,14 @@ func (a *PublicIpApiService) CreatePublicIp(ctx _context.Context, localVarOption
 
 // DeletePublicIpOpts Optional parameters for the method 'DeletePublicIp'
 type DeletePublicIpOpts struct {
-    DeletePublicIpRequest optional.Interface
+	DeletePublicIpRequest optional.Interface
 }
 
 /*
 DeletePublicIp Method for DeletePublicIp
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *DeletePublicIpOpts - Optional Parameters:
- * @param "DeletePublicIpRequest" (optional.Interface of DeletePublicIpRequest) - 
+ * @param "DeletePublicIpRequest" (optional.Interface of DeletePublicIpRequest) -
 @return DeletePublicIpResponse
 */
 func (a *PublicIpApiService) DeletePublicIp(ctx _context.Context, localVarOptionals *DeletePublicIpOpts) (DeletePublicIpResponse, *_nethttp.Response, error) {
@@ -272,7 +269,6 @@ func (a *PublicIpApiService) DeletePublicIp(ctx _context.Context, localVarOption
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -283,7 +279,6 @@ func (a *PublicIpApiService) DeletePublicIp(ctx _context.Context, localVarOption
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -293,7 +288,6 @@ func (a *PublicIpApiService) DeletePublicIp(ctx _context.Context, localVarOption
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -322,14 +316,14 @@ func (a *PublicIpApiService) DeletePublicIp(ctx _context.Context, localVarOption
 
 // LinkPublicIpOpts Optional parameters for the method 'LinkPublicIp'
 type LinkPublicIpOpts struct {
-    LinkPublicIpRequest optional.Interface
+	LinkPublicIpRequest optional.Interface
 }
 
 /*
 LinkPublicIp Method for LinkPublicIp
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *LinkPublicIpOpts - Optional Parameters:
- * @param "LinkPublicIpRequest" (optional.Interface of LinkPublicIpRequest) - 
+ * @param "LinkPublicIpRequest" (optional.Interface of LinkPublicIpRequest) -
 @return LinkPublicIpResponse
 */
 func (a *PublicIpApiService) LinkPublicIp(ctx _context.Context, localVarOptionals *LinkPublicIpOpts) (LinkPublicIpResponse, *_nethttp.Response, error) {
@@ -419,7 +413,6 @@ func (a *PublicIpApiService) LinkPublicIp(ctx _context.Context, localVarOptional
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -430,7 +423,6 @@ func (a *PublicIpApiService) LinkPublicIp(ctx _context.Context, localVarOptional
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -440,7 +432,6 @@ func (a *PublicIpApiService) LinkPublicIp(ctx _context.Context, localVarOptional
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -469,14 +460,14 @@ func (a *PublicIpApiService) LinkPublicIp(ctx _context.Context, localVarOptional
 
 // ReadPublicIpsOpts Optional parameters for the method 'ReadPublicIps'
 type ReadPublicIpsOpts struct {
-    ReadPublicIpsRequest optional.Interface
+	ReadPublicIpsRequest optional.Interface
 }
 
 /*
 ReadPublicIps Method for ReadPublicIps
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ReadPublicIpsOpts - Optional Parameters:
- * @param "ReadPublicIpsRequest" (optional.Interface of ReadPublicIpsRequest) - 
+ * @param "ReadPublicIpsRequest" (optional.Interface of ReadPublicIpsRequest) -
 @return ReadPublicIpsResponse
 */
 func (a *PublicIpApiService) ReadPublicIps(ctx _context.Context, localVarOptionals *ReadPublicIpsOpts) (ReadPublicIpsResponse, *_nethttp.Response, error) {
@@ -566,7 +557,6 @@ func (a *PublicIpApiService) ReadPublicIps(ctx _context.Context, localVarOptiona
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -577,7 +567,6 @@ func (a *PublicIpApiService) ReadPublicIps(ctx _context.Context, localVarOptiona
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -587,7 +576,6 @@ func (a *PublicIpApiService) ReadPublicIps(ctx _context.Context, localVarOptiona
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -616,14 +604,14 @@ func (a *PublicIpApiService) ReadPublicIps(ctx _context.Context, localVarOptiona
 
 // UnlinkPublicIpOpts Optional parameters for the method 'UnlinkPublicIp'
 type UnlinkPublicIpOpts struct {
-    UnlinkPublicIpRequest optional.Interface
+	UnlinkPublicIpRequest optional.Interface
 }
 
 /*
 UnlinkPublicIp Method for UnlinkPublicIp
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *UnlinkPublicIpOpts - Optional Parameters:
- * @param "UnlinkPublicIpRequest" (optional.Interface of UnlinkPublicIpRequest) - 
+ * @param "UnlinkPublicIpRequest" (optional.Interface of UnlinkPublicIpRequest) -
 @return UnlinkPublicIpResponse
 */
 func (a *PublicIpApiService) UnlinkPublicIp(ctx _context.Context, localVarOptionals *UnlinkPublicIpOpts) (UnlinkPublicIpResponse, *_nethttp.Response, error) {
@@ -713,7 +701,6 @@ func (a *PublicIpApiService) UnlinkPublicIp(ctx _context.Context, localVarOption
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -724,7 +711,6 @@ func (a *PublicIpApiService) UnlinkPublicIp(ctx _context.Context, localVarOption
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -734,7 +720,6 @@ func (a *PublicIpApiService) UnlinkPublicIp(ctx _context.Context, localVarOption
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {

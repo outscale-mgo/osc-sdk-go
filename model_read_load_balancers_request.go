@@ -18,7 +18,7 @@ import (
 // ReadLoadBalancersRequest struct for ReadLoadBalancersRequest
 type ReadLoadBalancersRequest struct {
 	// If `true`, checks whether you have the required permissions to perform the action.
-	DryRun *bool `json:"DryRun,omitempty"`
+	DryRun  *bool                `json:"DryRun,omitempty"`
 	Filters *FiltersLoadBalancer `json:"Filters,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *ReadLoadBalancersRequest) SetFilters(v FiltersLoadBalancer) {
 }
 
 type NullableReadLoadBalancersRequest struct {
-	Value ReadLoadBalancersRequest
+	Value        ReadLoadBalancersRequest
 	ExplicitNull bool
 }
 
 func (v NullableReadLoadBalancersRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadLoadBalancersRequest) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadLoadBalancersRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

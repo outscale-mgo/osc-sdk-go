@@ -89,17 +89,17 @@ func (o *UpdateNetRequest) SetNetId(v string) {
 }
 
 type NullableUpdateNetRequest struct {
-	Value UpdateNetRequest
+	Value        UpdateNetRequest
 	ExplicitNull bool
 }
 
 func (v NullableUpdateNetRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableUpdateNetRequest) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableUpdateNetRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

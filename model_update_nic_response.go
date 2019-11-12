@@ -17,7 +17,7 @@ import (
 
 // UpdateNicResponse struct for UpdateNicResponse
 type UpdateNicResponse struct {
-	Nic *Nic `json:"Nic,omitempty"`
+	Nic             *Nic             `json:"Nic,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 }
 
@@ -88,17 +88,17 @@ func (o *UpdateNicResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableUpdateNicResponse struct {
-	Value UpdateNicResponse
+	Value        UpdateNicResponse
 	ExplicitNull bool
 }
 
 func (v NullableUpdateNicResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableUpdateNicResponse) UnmarshalJSON(src []byte) error {
@@ -109,4 +109,3 @@ func (v *NullableUpdateNicResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

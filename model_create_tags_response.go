@@ -54,17 +54,17 @@ func (o *CreateTagsResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableCreateTagsResponse struct {
-	Value CreateTagsResponse
+	Value        CreateTagsResponse
 	ExplicitNull bool
 }
 
 func (v NullableCreateTagsResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreateTagsResponse) UnmarshalJSON(src []byte) error {
@@ -75,4 +75,3 @@ func (v *NullableCreateTagsResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

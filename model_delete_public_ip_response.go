@@ -54,17 +54,17 @@ func (o *DeletePublicIpResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableDeletePublicIpResponse struct {
-	Value DeletePublicIpResponse
+	Value        DeletePublicIpResponse
 	ExplicitNull bool
 }
 
 func (v NullableDeletePublicIpResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableDeletePublicIpResponse) UnmarshalJSON(src []byte) error {
@@ -75,4 +75,3 @@ func (v *NullableDeletePublicIpResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

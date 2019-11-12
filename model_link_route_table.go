@@ -160,17 +160,17 @@ func (o *LinkRouteTable) SetSubnetId(v string) {
 }
 
 type NullableLinkRouteTable struct {
-	Value LinkRouteTable
+	Value        LinkRouteTable
 	ExplicitNull bool
 }
 
 func (v NullableLinkRouteTable) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableLinkRouteTable) UnmarshalJSON(src []byte) error {
@@ -181,4 +181,3 @@ func (v *NullableLinkRouteTable) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

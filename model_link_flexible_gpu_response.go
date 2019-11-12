@@ -54,17 +54,17 @@ func (o *LinkFlexibleGpuResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableLinkFlexibleGpuResponse struct {
-	Value LinkFlexibleGpuResponse
+	Value        LinkFlexibleGpuResponse
 	ExplicitNull bool
 }
 
 func (v NullableLinkFlexibleGpuResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableLinkFlexibleGpuResponse) UnmarshalJSON(src []byte) error {
@@ -75,4 +75,3 @@ func (v *NullableLinkFlexibleGpuResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

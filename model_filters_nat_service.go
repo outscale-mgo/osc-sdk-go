@@ -265,17 +265,17 @@ func (o *FiltersNatService) SetTags(v []string) {
 }
 
 type NullableFiltersNatService struct {
-	Value FiltersNatService
+	Value        FiltersNatService
 	ExplicitNull bool
 }
 
 func (v NullableFiltersNatService) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableFiltersNatService) UnmarshalJSON(src []byte) error {
@@ -286,4 +286,3 @@ func (v *NullableFiltersNatService) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

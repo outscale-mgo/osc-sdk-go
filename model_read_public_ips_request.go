@@ -18,7 +18,7 @@ import (
 // ReadPublicIpsRequest struct for ReadPublicIpsRequest
 type ReadPublicIpsRequest struct {
 	// If `true`, checks whether you have the required permissions to perform the action.
-	DryRun *bool `json:"DryRun,omitempty"`
+	DryRun  *bool            `json:"DryRun,omitempty"`
 	Filters *FiltersPublicIp `json:"Filters,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *ReadPublicIpsRequest) SetFilters(v FiltersPublicIp) {
 }
 
 type NullableReadPublicIpsRequest struct {
-	Value ReadPublicIpsRequest
+	Value        ReadPublicIpsRequest
 	ExplicitNull bool
 }
 
 func (v NullableReadPublicIpsRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadPublicIpsRequest) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadPublicIpsRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

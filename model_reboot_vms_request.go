@@ -72,17 +72,17 @@ func (o *RebootVmsRequest) SetVmIds(v []string) {
 }
 
 type NullableRebootVmsRequest struct {
-	Value RebootVmsRequest
+	Value        RebootVmsRequest
 	ExplicitNull bool
 }
 
 func (v NullableRebootVmsRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableRebootVmsRequest) UnmarshalJSON(src []byte) error {
@@ -93,4 +93,3 @@ func (v *NullableRebootVmsRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

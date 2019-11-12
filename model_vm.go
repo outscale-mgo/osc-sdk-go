@@ -44,8 +44,8 @@ type Vm struct {
 	// Indicates the operating system (OS) of the VM.
 	OsFamily *string `json:"OsFamily,omitempty"`
 	// The performance of the VM (`standard` \\| `high` \\|  `highest`).
-	Performance *string `json:"Performance,omitempty"`
-	Placement *Placement `json:"Placement,omitempty"`
+	Performance *string    `json:"Performance,omitempty"`
+	Placement   *Placement `json:"Placement,omitempty"`
 	// The name of the private DNS.
 	PrivateDnsName *string `json:"PrivateDnsName,omitempty"`
 	// The primary private IP address of the VM.
@@ -1139,17 +1139,17 @@ func (o *Vm) SetVmType(v string) {
 }
 
 type NullableVm struct {
-	Value Vm
+	Value        Vm
 	ExplicitNull bool
 }
 
 func (v NullableVm) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableVm) UnmarshalJSON(src []byte) error {
@@ -1160,4 +1160,3 @@ func (v *NullableVm) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

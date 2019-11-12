@@ -18,7 +18,7 @@ import (
 // ReadSecurityGroupsRequest struct for ReadSecurityGroupsRequest
 type ReadSecurityGroupsRequest struct {
 	// If `true`, checks whether you have the required permissions to perform the action.
-	DryRun *bool `json:"DryRun,omitempty"`
+	DryRun  *bool                 `json:"DryRun,omitempty"`
 	Filters *FiltersSecurityGroup `json:"Filters,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *ReadSecurityGroupsRequest) SetFilters(v FiltersSecurityGroup) {
 }
 
 type NullableReadSecurityGroupsRequest struct {
-	Value ReadSecurityGroupsRequest
+	Value        ReadSecurityGroupsRequest
 	ExplicitNull bool
 }
 
 func (v NullableReadSecurityGroupsRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadSecurityGroupsRequest) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadSecurityGroupsRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

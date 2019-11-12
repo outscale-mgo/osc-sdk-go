@@ -55,17 +55,17 @@ func (o *FiltersSubregion) SetSubregionNames(v []string) {
 }
 
 type NullableFiltersSubregion struct {
-	Value FiltersSubregion
+	Value        FiltersSubregion
 	ExplicitNull bool
 }
 
 func (v NullableFiltersSubregion) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableFiltersSubregion) UnmarshalJSON(src []byte) error {
@@ -76,4 +76,3 @@ func (v *NullableFiltersSubregion) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

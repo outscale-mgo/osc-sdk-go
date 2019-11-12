@@ -55,17 +55,17 @@ func (o *ResponseContext) SetRequestId(v string) {
 }
 
 type NullableResponseContext struct {
-	Value ResponseContext
+	Value        ResponseContext
 	ExplicitNull bool
 }
 
 func (v NullableResponseContext) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableResponseContext) UnmarshalJSON(src []byte) error {
@@ -76,4 +76,3 @@ func (v *NullableResponseContext) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

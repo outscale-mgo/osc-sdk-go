@@ -18,7 +18,7 @@ import (
 // ReadDirectLinksResponse struct for ReadDirectLinksResponse
 type ReadDirectLinksResponse struct {
 	// Information about one or more DirectLinks.
-	DirectLinks *[]DirectLink `json:"DirectLinks,omitempty"`
+	DirectLinks     *[]DirectLink    `json:"DirectLinks,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *ReadDirectLinksResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableReadDirectLinksResponse struct {
-	Value ReadDirectLinksResponse
+	Value        ReadDirectLinksResponse
 	ExplicitNull bool
 }
 
 func (v NullableReadDirectLinksResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadDirectLinksResponse) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadDirectLinksResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

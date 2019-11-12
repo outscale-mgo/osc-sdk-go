@@ -230,17 +230,17 @@ func (o *FiltersVmType) SetVolumeSizes(v []int32) {
 }
 
 type NullableFiltersVmType struct {
-	Value FiltersVmType
+	Value        FiltersVmType
 	ExplicitNull bool
 }
 
 func (v NullableFiltersVmType) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableFiltersVmType) UnmarshalJSON(src []byte) error {
@@ -251,4 +251,3 @@ func (v *NullableFiltersVmType) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

@@ -300,17 +300,17 @@ func (o *FiltersVpnConnection) SetVpnConnectionIds(v []string) {
 }
 
 type NullableFiltersVpnConnection struct {
-	Value FiltersVpnConnection
+	Value        FiltersVpnConnection
 	ExplicitNull bool
 }
 
 func (v NullableFiltersVpnConnection) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableFiltersVpnConnection) UnmarshalJSON(src []byte) error {
@@ -321,4 +321,3 @@ func (v *NullableFiltersVpnConnection) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

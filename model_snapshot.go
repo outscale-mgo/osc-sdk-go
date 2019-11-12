@@ -22,7 +22,7 @@ type Snapshot struct {
 	// The account ID of the owner of the snapshot.
 	AccountId *string `json:"AccountId,omitempty"`
 	// The description of the snapshot.
-	Description *string `json:"Description,omitempty"`
+	Description               *string                `json:"Description,omitempty"`
 	PermissionsToCreateVolume *PermissionsOnResource `json:"PermissionsToCreateVolume,omitempty"`
 	// The progress of the snapshot, as a percentage.
 	Progress *int32 `json:"Progress,omitempty"`
@@ -369,17 +369,17 @@ func (o *Snapshot) SetVolumeSize(v int32) {
 }
 
 type NullableSnapshot struct {
-	Value Snapshot
+	Value        Snapshot
 	ExplicitNull bool
 }
 
 func (v NullableSnapshot) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableSnapshot) UnmarshalJSON(src []byte) error {
@@ -390,4 +390,3 @@ func (v *NullableSnapshot) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

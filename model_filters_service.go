@@ -90,17 +90,17 @@ func (o *FiltersService) SetServiceNames(v []string) {
 }
 
 type NullableFiltersService struct {
-	Value FiltersService
+	Value        FiltersService
 	ExplicitNull bool
 }
 
 func (v NullableFiltersService) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableFiltersService) UnmarshalJSON(src []byte) error {
@@ -111,4 +111,3 @@ func (v *NullableFiltersService) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

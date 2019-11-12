@@ -18,7 +18,7 @@ import (
 // UpdateVmResponse struct for UpdateVmResponse
 type UpdateVmResponse struct {
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
-	Vm *Vm `json:"Vm,omitempty"`
+	Vm              *Vm              `json:"Vm,omitempty"`
 }
 
 // GetResponseContext returns the ResponseContext field value if set, zero value otherwise.
@@ -88,17 +88,17 @@ func (o *UpdateVmResponse) SetVm(v Vm) {
 }
 
 type NullableUpdateVmResponse struct {
-	Value UpdateVmResponse
+	Value        UpdateVmResponse
 	ExplicitNull bool
 }
 
 func (v NullableUpdateVmResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableUpdateVmResponse) UnmarshalJSON(src []byte) error {
@@ -109,4 +109,3 @@ func (v *NullableUpdateVmResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

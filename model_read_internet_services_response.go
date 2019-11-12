@@ -19,7 +19,7 @@ import (
 type ReadInternetServicesResponse struct {
 	// Information about one or more Internet services.
 	InternetServices *[]InternetService `json:"InternetServices,omitempty"`
-	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
+	ResponseContext  *ResponseContext   `json:"ResponseContext,omitempty"`
 }
 
 // GetInternetServices returns the InternetServices field value if set, zero value otherwise.
@@ -89,17 +89,17 @@ func (o *ReadInternetServicesResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableReadInternetServicesResponse struct {
-	Value ReadInternetServicesResponse
+	Value        ReadInternetServicesResponse
 	ExplicitNull bool
 }
 
 func (v NullableReadInternetServicesResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadInternetServicesResponse) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadInternetServicesResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

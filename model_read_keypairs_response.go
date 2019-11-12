@@ -18,7 +18,7 @@ import (
 // ReadKeypairsResponse struct for ReadKeypairsResponse
 type ReadKeypairsResponse struct {
 	// Information about one or more keypairs.
-	Keypairs *[]Keypair `json:"Keypairs,omitempty"`
+	Keypairs        *[]Keypair       `json:"Keypairs,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *ReadKeypairsResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableReadKeypairsResponse struct {
-	Value ReadKeypairsResponse
+	Value        ReadKeypairsResponse
 	ExplicitNull bool
 }
 
 func (v NullableReadKeypairsResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadKeypairsResponse) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadKeypairsResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

@@ -125,17 +125,17 @@ func (o *VmState) SetVmId(v string) {
 }
 
 type NullableVmState struct {
-	Value VmState
+	Value        VmState
 	ExplicitNull bool
 }
 
 func (v NullableVmState) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableVmState) UnmarshalJSON(src []byte) error {
@@ -146,4 +146,3 @@ func (v *NullableVmState) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

@@ -89,17 +89,17 @@ func (o *LinkFlexibleGpuRequest) SetVmId(v string) {
 }
 
 type NullableLinkFlexibleGpuRequest struct {
-	Value LinkFlexibleGpuRequest
+	Value        LinkFlexibleGpuRequest
 	ExplicitNull bool
 }
 
 func (v NullableLinkFlexibleGpuRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableLinkFlexibleGpuRequest) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableLinkFlexibleGpuRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

@@ -72,17 +72,17 @@ func (o *DeleteNicRequest) SetNicId(v string) {
 }
 
 type NullableDeleteNicRequest struct {
-	Value DeleteNicRequest
+	Value        DeleteNicRequest
 	ExplicitNull bool
 }
 
 func (v NullableDeleteNicRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableDeleteNicRequest) UnmarshalJSON(src []byte) error {
@@ -93,4 +93,3 @@ func (v *NullableDeleteNicRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

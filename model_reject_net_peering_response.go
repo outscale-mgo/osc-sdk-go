@@ -54,17 +54,17 @@ func (o *RejectNetPeeringResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableRejectNetPeeringResponse struct {
-	Value RejectNetPeeringResponse
+	Value        RejectNetPeeringResponse
 	ExplicitNull bool
 }
 
 func (v NullableRejectNetPeeringResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableRejectNetPeeringResponse) UnmarshalJSON(src []byte) error {
@@ -75,4 +75,3 @@ func (v *NullableRejectNetPeeringResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

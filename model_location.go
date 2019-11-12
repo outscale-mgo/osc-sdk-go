@@ -90,17 +90,17 @@ func (o *Location) SetName(v string) {
 }
 
 type NullableLocation struct {
-	Value Location
+	Value        Location
 	ExplicitNull bool
 }
 
 func (v NullableLocation) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableLocation) UnmarshalJSON(src []byte) error {
@@ -111,4 +111,3 @@ func (v *NullableLocation) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

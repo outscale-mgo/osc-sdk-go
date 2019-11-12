@@ -17,7 +17,7 @@ import (
 
 // AcceptNetPeeringResponse struct for AcceptNetPeeringResponse
 type AcceptNetPeeringResponse struct {
-	NetPeering *NetPeering `json:"NetPeering,omitempty"`
+	NetPeering      *NetPeering      `json:"NetPeering,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 }
 
@@ -88,17 +88,17 @@ func (o *AcceptNetPeeringResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableAcceptNetPeeringResponse struct {
-	Value AcceptNetPeeringResponse
+	Value        AcceptNetPeeringResponse
 	ExplicitNull bool
 }
 
 func (v NullableAcceptNetPeeringResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableAcceptNetPeeringResponse) UnmarshalJSON(src []byte) error {
@@ -109,4 +109,3 @@ func (v *NullableAcceptNetPeeringResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

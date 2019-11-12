@@ -17,7 +17,7 @@ import (
 
 // CreatePublicIpResponse struct for CreatePublicIpResponse
 type CreatePublicIpResponse struct {
-	PublicIp *PublicIp `json:"PublicIp,omitempty"`
+	PublicIp        *PublicIp        `json:"PublicIp,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 }
 
@@ -88,17 +88,17 @@ func (o *CreatePublicIpResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableCreatePublicIpResponse struct {
-	Value CreatePublicIpResponse
+	Value        CreatePublicIpResponse
 	ExplicitNull bool
 }
 
 func (v NullableCreatePublicIpResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreatePublicIpResponse) UnmarshalJSON(src []byte) error {
@@ -109,4 +109,3 @@ func (v *NullableCreatePublicIpResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

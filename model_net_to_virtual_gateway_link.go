@@ -90,17 +90,17 @@ func (o *NetToVirtualGatewayLink) SetState(v string) {
 }
 
 type NullableNetToVirtualGatewayLink struct {
-	Value NetToVirtualGatewayLink
+	Value        NetToVirtualGatewayLink
 	ExplicitNull bool
 }
 
 func (v NullableNetToVirtualGatewayLink) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableNetToVirtualGatewayLink) UnmarshalJSON(src []byte) error {
@@ -111,4 +111,3 @@ func (v *NullableNetToVirtualGatewayLink) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

@@ -159,17 +159,17 @@ func (o *BlockDeviceMappingVmUpdate) SetVirtualDeviceName(v string) {
 }
 
 type NullableBlockDeviceMappingVmUpdate struct {
-	Value BlockDeviceMappingVmUpdate
+	Value        BlockDeviceMappingVmUpdate
 	ExplicitNull bool
 }
 
 func (v NullableBlockDeviceMappingVmUpdate) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableBlockDeviceMappingVmUpdate) UnmarshalJSON(src []byte) error {
@@ -180,4 +180,3 @@ func (v *NullableBlockDeviceMappingVmUpdate) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

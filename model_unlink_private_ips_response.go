@@ -54,17 +54,17 @@ func (o *UnlinkPrivateIpsResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableUnlinkPrivateIpsResponse struct {
-	Value UnlinkPrivateIpsResponse
+	Value        UnlinkPrivateIpsResponse
 	ExplicitNull bool
 }
 
 func (v NullableUnlinkPrivateIpsResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableUnlinkPrivateIpsResponse) UnmarshalJSON(src []byte) error {
@@ -75,4 +75,3 @@ func (v *NullableUnlinkPrivateIpsResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

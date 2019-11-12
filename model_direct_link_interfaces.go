@@ -475,17 +475,17 @@ func (o *DirectLinkInterfaces) SetVlan(v int32) {
 }
 
 type NullableDirectLinkInterfaces struct {
-	Value DirectLinkInterfaces
+	Value        DirectLinkInterfaces
 	ExplicitNull bool
 }
 
 func (v NullableDirectLinkInterfaces) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableDirectLinkInterfaces) UnmarshalJSON(src []byte) error {
@@ -496,4 +496,3 @@ func (v *NullableDirectLinkInterfaces) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

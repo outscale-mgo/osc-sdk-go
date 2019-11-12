@@ -18,7 +18,7 @@ import (
 // CreateSecurityGroupRuleResponse struct for CreateSecurityGroupRuleResponse
 type CreateSecurityGroupRuleResponse struct {
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
-	SecurityGroup *SecurityGroup `json:"SecurityGroup,omitempty"`
+	SecurityGroup   *SecurityGroup   `json:"SecurityGroup,omitempty"`
 }
 
 // GetResponseContext returns the ResponseContext field value if set, zero value otherwise.
@@ -88,17 +88,17 @@ func (o *CreateSecurityGroupRuleResponse) SetSecurityGroup(v SecurityGroup) {
 }
 
 type NullableCreateSecurityGroupRuleResponse struct {
-	Value CreateSecurityGroupRuleResponse
+	Value        CreateSecurityGroupRuleResponse
 	ExplicitNull bool
 }
 
 func (v NullableCreateSecurityGroupRuleResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreateSecurityGroupRuleResponse) UnmarshalJSON(src []byte) error {
@@ -109,4 +109,3 @@ func (v *NullableCreateSecurityGroupRuleResponse) UnmarshalJSON(src []byte) erro
 
 	return json.Unmarshal(src, &v.Value)
 }
-

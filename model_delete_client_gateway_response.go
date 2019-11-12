@@ -54,17 +54,17 @@ func (o *DeleteClientGatewayResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableDeleteClientGatewayResponse struct {
-	Value DeleteClientGatewayResponse
+	Value        DeleteClientGatewayResponse
 	ExplicitNull bool
 }
 
 func (v NullableDeleteClientGatewayResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableDeleteClientGatewayResponse) UnmarshalJSON(src []byte) error {
@@ -75,4 +75,3 @@ func (v *NullableDeleteClientGatewayResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

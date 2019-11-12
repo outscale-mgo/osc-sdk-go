@@ -160,17 +160,17 @@ func (o *BsuCreated) SetVolumeId(v string) {
 }
 
 type NullableBsuCreated struct {
-	Value BsuCreated
+	Value        BsuCreated
 	ExplicitNull bool
 }
 
 func (v NullableBsuCreated) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableBsuCreated) UnmarshalJSON(src []byte) error {
@@ -181,4 +181,3 @@ func (v *NullableBsuCreated) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

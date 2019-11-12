@@ -106,17 +106,17 @@ func (o *UpdateRoutePropagationRequest) SetVirtualGatewayId(v string) {
 }
 
 type NullableUpdateRoutePropagationRequest struct {
-	Value UpdateRoutePropagationRequest
+	Value        UpdateRoutePropagationRequest
 	ExplicitNull bool
 }
 
 func (v NullableUpdateRoutePropagationRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableUpdateRoutePropagationRequest) UnmarshalJSON(src []byte) error {
@@ -127,4 +127,3 @@ func (v *NullableUpdateRoutePropagationRequest) UnmarshalJSON(src []byte) error 
 
 	return json.Unmarshal(src, &v.Value)
 }
-

@@ -89,17 +89,17 @@ func (o *UnlinkPrivateIpsRequest) SetPrivateIps(v []string) {
 }
 
 type NullableUnlinkPrivateIpsRequest struct {
-	Value UnlinkPrivateIpsRequest
+	Value        UnlinkPrivateIpsRequest
 	ExplicitNull bool
 }
 
 func (v NullableUnlinkPrivateIpsRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableUnlinkPrivateIpsRequest) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableUnlinkPrivateIpsRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

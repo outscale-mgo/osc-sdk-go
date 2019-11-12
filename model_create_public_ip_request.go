@@ -55,17 +55,17 @@ func (o *CreatePublicIpRequest) SetDryRun(v bool) {
 }
 
 type NullableCreatePublicIpRequest struct {
-	Value CreatePublicIpRequest
+	Value        CreatePublicIpRequest
 	ExplicitNull bool
 }
 
 func (v NullableCreatePublicIpRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreatePublicIpRequest) UnmarshalJSON(src []byte) error {
@@ -76,4 +76,3 @@ func (v *NullableCreatePublicIpRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

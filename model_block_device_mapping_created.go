@@ -89,17 +89,17 @@ func (o *BlockDeviceMappingCreated) SetDeviceName(v string) {
 }
 
 type NullableBlockDeviceMappingCreated struct {
-	Value BlockDeviceMappingCreated
+	Value        BlockDeviceMappingCreated
 	ExplicitNull bool
 }
 
 func (v NullableBlockDeviceMappingCreated) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableBlockDeviceMappingCreated) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableBlockDeviceMappingCreated) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

@@ -89,17 +89,17 @@ func (o *DeleteTagsRequest) SetTags(v []ResourceTag) {
 }
 
 type NullableDeleteTagsRequest struct {
-	Value DeleteTagsRequest
+	Value        DeleteTagsRequest
 	ExplicitNull bool
 }
 
 func (v NullableDeleteTagsRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableDeleteTagsRequest) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableDeleteTagsRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

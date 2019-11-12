@@ -107,17 +107,17 @@ func (o *UpdateFlexibleGpuRequest) SetFlexibleGpuId(v string) {
 }
 
 type NullableUpdateFlexibleGpuRequest struct {
-	Value UpdateFlexibleGpuRequest
+	Value        UpdateFlexibleGpuRequest
 	ExplicitNull bool
 }
 
 func (v NullableUpdateFlexibleGpuRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableUpdateFlexibleGpuRequest) UnmarshalJSON(src []byte) error {
@@ -128,4 +128,3 @@ func (v *NullableUpdateFlexibleGpuRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

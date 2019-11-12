@@ -17,7 +17,7 @@ import (
 
 // CreateSnapshotExportTaskResponse struct for CreateSnapshotExportTaskResponse
 type CreateSnapshotExportTaskResponse struct {
-	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
+	ResponseContext    *ResponseContext    `json:"ResponseContext,omitempty"`
 	SnapshotExportTask *SnapshotExportTask `json:"SnapshotExportTask,omitempty"`
 }
 
@@ -88,17 +88,17 @@ func (o *CreateSnapshotExportTaskResponse) SetSnapshotExportTask(v SnapshotExpor
 }
 
 type NullableCreateSnapshotExportTaskResponse struct {
-	Value CreateSnapshotExportTaskResponse
+	Value        CreateSnapshotExportTaskResponse
 	ExplicitNull bool
 }
 
 func (v NullableCreateSnapshotExportTaskResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableCreateSnapshotExportTaskResponse) UnmarshalJSON(src []byte) error {
@@ -109,4 +109,3 @@ func (v *NullableCreateSnapshotExportTaskResponse) UnmarshalJSON(src []byte) err
 
 	return json.Unmarshal(src, &v.Value)
 }
-

@@ -18,7 +18,7 @@ import (
 // ReadImageExportTasksRequest struct for ReadImageExportTasksRequest
 type ReadImageExportTasksRequest struct {
 	// If `true`, checks whether you have the required permissions to perform the action.
-	DryRun *bool `json:"DryRun,omitempty"`
+	DryRun  *bool              `json:"DryRun,omitempty"`
 	Filters *FiltersExportTask `json:"Filters,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *ReadImageExportTasksRequest) SetFilters(v FiltersExportTask) {
 }
 
 type NullableReadImageExportTasksRequest struct {
-	Value ReadImageExportTasksRequest
+	Value        ReadImageExportTasksRequest
 	ExplicitNull bool
 }
 
 func (v NullableReadImageExportTasksRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadImageExportTasksRequest) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadImageExportTasksRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

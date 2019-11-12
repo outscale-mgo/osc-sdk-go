@@ -18,7 +18,7 @@ import (
 // ReadNetPeeringsResponse struct for ReadNetPeeringsResponse
 type ReadNetPeeringsResponse struct {
 	// Information about one or more Net peering connections.
-	NetPeerings *[]NetPeering `json:"NetPeerings,omitempty"`
+	NetPeerings     *[]NetPeering    `json:"NetPeerings,omitempty"`
 	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *ReadNetPeeringsResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableReadNetPeeringsResponse struct {
-	Value ReadNetPeeringsResponse
+	Value        ReadNetPeeringsResponse
 	ExplicitNull bool
 }
 
 func (v NullableReadNetPeeringsResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadNetPeeringsResponse) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadNetPeeringsResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

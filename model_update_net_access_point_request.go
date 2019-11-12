@@ -142,17 +142,17 @@ func (o *UpdateNetAccessPointRequest) SetRemoveRouteTableIds(v []string) {
 }
 
 type NullableUpdateNetAccessPointRequest struct {
-	Value UpdateNetAccessPointRequest
+	Value        UpdateNetAccessPointRequest
 	ExplicitNull bool
 }
 
 func (v NullableUpdateNetAccessPointRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableUpdateNetAccessPointRequest) UnmarshalJSON(src []byte) error {
@@ -163,4 +163,3 @@ func (v *NullableUpdateNetAccessPointRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

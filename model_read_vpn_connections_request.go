@@ -18,7 +18,7 @@ import (
 // ReadVpnConnectionsRequest struct for ReadVpnConnectionsRequest
 type ReadVpnConnectionsRequest struct {
 	// If `true`, checks whether you have the required permissions to perform the action.
-	DryRun *bool `json:"DryRun,omitempty"`
+	DryRun  *bool                 `json:"DryRun,omitempty"`
 	Filters *FiltersVpnConnection `json:"Filters,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *ReadVpnConnectionsRequest) SetFilters(v FiltersVpnConnection) {
 }
 
 type NullableReadVpnConnectionsRequest struct {
-	Value ReadVpnConnectionsRequest
+	Value        ReadVpnConnectionsRequest
 	ExplicitNull bool
 }
 
 func (v NullableReadVpnConnectionsRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadVpnConnectionsRequest) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadVpnConnectionsRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

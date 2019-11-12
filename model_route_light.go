@@ -125,17 +125,17 @@ func (o *RouteLight) SetState(v string) {
 }
 
 type NullableRouteLight struct {
-	Value RouteLight
+	Value        RouteLight
 	ExplicitNull bool
 }
 
 func (v NullableRouteLight) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableRouteLight) UnmarshalJSON(src []byte) error {
@@ -146,4 +146,3 @@ func (v *NullableRouteLight) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

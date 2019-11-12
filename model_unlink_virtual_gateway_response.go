@@ -54,17 +54,17 @@ func (o *UnlinkVirtualGatewayResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableUnlinkVirtualGatewayResponse struct {
-	Value UnlinkVirtualGatewayResponse
+	Value        UnlinkVirtualGatewayResponse
 	ExplicitNull bool
 }
 
 func (v NullableUnlinkVirtualGatewayResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableUnlinkVirtualGatewayResponse) UnmarshalJSON(src []byte) error {
@@ -75,4 +75,3 @@ func (v *NullableUnlinkVirtualGatewayResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

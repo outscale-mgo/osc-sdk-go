@@ -12,10 +12,10 @@ package oscgo
 
 import (
 	_context "context"
+	"github.com/antihax/optional"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
-	"github.com/antihax/optional"
 )
 
 // Linger please
@@ -28,14 +28,14 @@ type NetPeeringApiService service
 
 // AcceptNetPeeringOpts Optional parameters for the method 'AcceptNetPeering'
 type AcceptNetPeeringOpts struct {
-    AcceptNetPeeringRequest optional.Interface
+	AcceptNetPeeringRequest optional.Interface
 }
 
 /*
 AcceptNetPeering Method for AcceptNetPeering
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *AcceptNetPeeringOpts - Optional Parameters:
- * @param "AcceptNetPeeringRequest" (optional.Interface of AcceptNetPeeringRequest) - 
+ * @param "AcceptNetPeeringRequest" (optional.Interface of AcceptNetPeeringRequest) -
 @return AcceptNetPeeringResponse
 */
 func (a *NetPeeringApiService) AcceptNetPeering(ctx _context.Context, localVarOptionals *AcceptNetPeeringOpts) (AcceptNetPeeringResponse, *_nethttp.Response, error) {
@@ -125,7 +125,6 @@ func (a *NetPeeringApiService) AcceptNetPeering(ctx _context.Context, localVarOp
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -135,7 +134,6 @@ func (a *NetPeeringApiService) AcceptNetPeering(ctx _context.Context, localVarOp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -147,7 +145,6 @@ func (a *NetPeeringApiService) AcceptNetPeering(ctx _context.Context, localVarOp
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
 			var v ErrorResponse
@@ -157,7 +154,6 @@ func (a *NetPeeringApiService) AcceptNetPeering(ctx _context.Context, localVarOp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -186,14 +182,14 @@ func (a *NetPeeringApiService) AcceptNetPeering(ctx _context.Context, localVarOp
 
 // CreateNetPeeringOpts Optional parameters for the method 'CreateNetPeering'
 type CreateNetPeeringOpts struct {
-    CreateNetPeeringRequest optional.Interface
+	CreateNetPeeringRequest optional.Interface
 }
 
 /*
 CreateNetPeering Method for CreateNetPeering
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *CreateNetPeeringOpts - Optional Parameters:
- * @param "CreateNetPeeringRequest" (optional.Interface of CreateNetPeeringRequest) - 
+ * @param "CreateNetPeeringRequest" (optional.Interface of CreateNetPeeringRequest) -
 @return CreateNetPeeringResponse
 */
 func (a *NetPeeringApiService) CreateNetPeering(ctx _context.Context, localVarOptionals *CreateNetPeeringOpts) (CreateNetPeeringResponse, *_nethttp.Response, error) {
@@ -283,7 +279,6 @@ func (a *NetPeeringApiService) CreateNetPeering(ctx _context.Context, localVarOp
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -294,7 +289,6 @@ func (a *NetPeeringApiService) CreateNetPeering(ctx _context.Context, localVarOp
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -304,7 +298,6 @@ func (a *NetPeeringApiService) CreateNetPeering(ctx _context.Context, localVarOp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -333,14 +326,14 @@ func (a *NetPeeringApiService) CreateNetPeering(ctx _context.Context, localVarOp
 
 // DeleteNetPeeringOpts Optional parameters for the method 'DeleteNetPeering'
 type DeleteNetPeeringOpts struct {
-    DeleteNetPeeringRequest optional.Interface
+	DeleteNetPeeringRequest optional.Interface
 }
 
 /*
 DeleteNetPeering Method for DeleteNetPeering
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *DeleteNetPeeringOpts - Optional Parameters:
- * @param "DeleteNetPeeringRequest" (optional.Interface of DeleteNetPeeringRequest) - 
+ * @param "DeleteNetPeeringRequest" (optional.Interface of DeleteNetPeeringRequest) -
 @return DeleteNetPeeringResponse
 */
 func (a *NetPeeringApiService) DeleteNetPeering(ctx _context.Context, localVarOptionals *DeleteNetPeeringOpts) (DeleteNetPeeringResponse, *_nethttp.Response, error) {
@@ -430,7 +423,6 @@ func (a *NetPeeringApiService) DeleteNetPeering(ctx _context.Context, localVarOp
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -440,7 +432,6 @@ func (a *NetPeeringApiService) DeleteNetPeering(ctx _context.Context, localVarOp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -452,7 +443,6 @@ func (a *NetPeeringApiService) DeleteNetPeering(ctx _context.Context, localVarOp
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
 			var v ErrorResponse
@@ -462,7 +452,6 @@ func (a *NetPeeringApiService) DeleteNetPeering(ctx _context.Context, localVarOp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -491,14 +480,14 @@ func (a *NetPeeringApiService) DeleteNetPeering(ctx _context.Context, localVarOp
 
 // ReadNetPeeringsOpts Optional parameters for the method 'ReadNetPeerings'
 type ReadNetPeeringsOpts struct {
-    ReadNetPeeringsRequest optional.Interface
+	ReadNetPeeringsRequest optional.Interface
 }
 
 /*
 ReadNetPeerings Method for ReadNetPeerings
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ReadNetPeeringsOpts - Optional Parameters:
- * @param "ReadNetPeeringsRequest" (optional.Interface of ReadNetPeeringsRequest) - 
+ * @param "ReadNetPeeringsRequest" (optional.Interface of ReadNetPeeringsRequest) -
 @return ReadNetPeeringsResponse
 */
 func (a *NetPeeringApiService) ReadNetPeerings(ctx _context.Context, localVarOptionals *ReadNetPeeringsOpts) (ReadNetPeeringsResponse, *_nethttp.Response, error) {
@@ -588,7 +577,6 @@ func (a *NetPeeringApiService) ReadNetPeerings(ctx _context.Context, localVarOpt
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -599,7 +587,6 @@ func (a *NetPeeringApiService) ReadNetPeerings(ctx _context.Context, localVarOpt
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -609,7 +596,6 @@ func (a *NetPeeringApiService) ReadNetPeerings(ctx _context.Context, localVarOpt
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -638,14 +624,14 @@ func (a *NetPeeringApiService) ReadNetPeerings(ctx _context.Context, localVarOpt
 
 // RejectNetPeeringOpts Optional parameters for the method 'RejectNetPeering'
 type RejectNetPeeringOpts struct {
-    RejectNetPeeringRequest optional.Interface
+	RejectNetPeeringRequest optional.Interface
 }
 
 /*
 RejectNetPeering Method for RejectNetPeering
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *RejectNetPeeringOpts - Optional Parameters:
- * @param "RejectNetPeeringRequest" (optional.Interface of RejectNetPeeringRequest) - 
+ * @param "RejectNetPeeringRequest" (optional.Interface of RejectNetPeeringRequest) -
 @return RejectNetPeeringResponse
 */
 func (a *NetPeeringApiService) RejectNetPeering(ctx _context.Context, localVarOptionals *RejectNetPeeringOpts) (RejectNetPeeringResponse, *_nethttp.Response, error) {
@@ -735,7 +721,6 @@ func (a *NetPeeringApiService) RejectNetPeering(ctx _context.Context, localVarOp
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -745,7 +730,6 @@ func (a *NetPeeringApiService) RejectNetPeering(ctx _context.Context, localVarOp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -757,7 +741,6 @@ func (a *NetPeeringApiService) RejectNetPeering(ctx _context.Context, localVarOp
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
 			var v ErrorResponse
@@ -767,7 +750,6 @@ func (a *NetPeeringApiService) RejectNetPeering(ctx _context.Context, localVarOp
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {

@@ -405,17 +405,17 @@ func (o *FiltersPublicIp) SetVmIds(v []string) {
 }
 
 type NullableFiltersPublicIp struct {
-	Value FiltersPublicIp
+	Value        FiltersPublicIp
 	ExplicitNull bool
 }
 
 func (v NullableFiltersPublicIp) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableFiltersPublicIp) UnmarshalJSON(src []byte) error {
@@ -426,4 +426,3 @@ func (v *NullableFiltersPublicIp) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

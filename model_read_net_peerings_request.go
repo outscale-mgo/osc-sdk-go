@@ -18,7 +18,7 @@ import (
 // ReadNetPeeringsRequest struct for ReadNetPeeringsRequest
 type ReadNetPeeringsRequest struct {
 	// If `true`, checks whether you have the required permissions to perform the action.
-	DryRun *bool `json:"DryRun,omitempty"`
+	DryRun  *bool              `json:"DryRun,omitempty"`
 	Filters *FiltersNetPeering `json:"Filters,omitempty"`
 }
 
@@ -89,17 +89,17 @@ func (o *ReadNetPeeringsRequest) SetFilters(v FiltersNetPeering) {
 }
 
 type NullableReadNetPeeringsRequest struct {
-	Value ReadNetPeeringsRequest
+	Value        ReadNetPeeringsRequest
 	ExplicitNull bool
 }
 
 func (v NullableReadNetPeeringsRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadNetPeeringsRequest) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadNetPeeringsRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

@@ -12,10 +12,10 @@ package oscgo
 
 import (
 	_context "context"
+	"github.com/antihax/optional"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
-	"github.com/antihax/optional"
 )
 
 // Linger please
@@ -28,14 +28,14 @@ type VmApiService service
 
 // CreateVmsOpts Optional parameters for the method 'CreateVms'
 type CreateVmsOpts struct {
-    CreateVmsRequest optional.Interface
+	CreateVmsRequest optional.Interface
 }
 
 /*
 CreateVms Method for CreateVms
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *CreateVmsOpts - Optional Parameters:
- * @param "CreateVmsRequest" (optional.Interface of CreateVmsRequest) - 
+ * @param "CreateVmsRequest" (optional.Interface of CreateVmsRequest) -
 @return CreateVmsResponse
 */
 func (a *VmApiService) CreateVms(ctx _context.Context, localVarOptionals *CreateVmsOpts) (CreateVmsResponse, *_nethttp.Response, error) {
@@ -125,7 +125,6 @@ func (a *VmApiService) CreateVms(ctx _context.Context, localVarOptionals *Create
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -136,7 +135,6 @@ func (a *VmApiService) CreateVms(ctx _context.Context, localVarOptionals *Create
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -146,7 +144,6 @@ func (a *VmApiService) CreateVms(ctx _context.Context, localVarOptionals *Create
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -175,14 +172,14 @@ func (a *VmApiService) CreateVms(ctx _context.Context, localVarOptionals *Create
 
 // DeleteVmsOpts Optional parameters for the method 'DeleteVms'
 type DeleteVmsOpts struct {
-    DeleteVmsRequest optional.Interface
+	DeleteVmsRequest optional.Interface
 }
 
 /*
 DeleteVms Method for DeleteVms
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *DeleteVmsOpts - Optional Parameters:
- * @param "DeleteVmsRequest" (optional.Interface of DeleteVmsRequest) - 
+ * @param "DeleteVmsRequest" (optional.Interface of DeleteVmsRequest) -
 @return DeleteVmsResponse
 */
 func (a *VmApiService) DeleteVms(ctx _context.Context, localVarOptionals *DeleteVmsOpts) (DeleteVmsResponse, *_nethttp.Response, error) {
@@ -272,7 +269,6 @@ func (a *VmApiService) DeleteVms(ctx _context.Context, localVarOptionals *Delete
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -283,7 +279,6 @@ func (a *VmApiService) DeleteVms(ctx _context.Context, localVarOptionals *Delete
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -293,7 +288,6 @@ func (a *VmApiService) DeleteVms(ctx _context.Context, localVarOptionals *Delete
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -322,14 +316,14 @@ func (a *VmApiService) DeleteVms(ctx _context.Context, localVarOptionals *Delete
 
 // ReadAdminPasswordOpts Optional parameters for the method 'ReadAdminPassword'
 type ReadAdminPasswordOpts struct {
-    ReadAdminPasswordRequest optional.Interface
+	ReadAdminPasswordRequest optional.Interface
 }
 
 /*
 ReadAdminPassword Method for ReadAdminPassword
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ReadAdminPasswordOpts - Optional Parameters:
- * @param "ReadAdminPasswordRequest" (optional.Interface of ReadAdminPasswordRequest) - 
+ * @param "ReadAdminPasswordRequest" (optional.Interface of ReadAdminPasswordRequest) -
 @return ReadAdminPasswordResponse
 */
 func (a *VmApiService) ReadAdminPassword(ctx _context.Context, localVarOptionals *ReadAdminPasswordOpts) (ReadAdminPasswordResponse, *_nethttp.Response, error) {
@@ -419,7 +413,6 @@ func (a *VmApiService) ReadAdminPassword(ctx _context.Context, localVarOptionals
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -430,7 +423,6 @@ func (a *VmApiService) ReadAdminPassword(ctx _context.Context, localVarOptionals
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -440,7 +432,6 @@ func (a *VmApiService) ReadAdminPassword(ctx _context.Context, localVarOptionals
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -469,14 +460,14 @@ func (a *VmApiService) ReadAdminPassword(ctx _context.Context, localVarOptionals
 
 // ReadConsoleOutputOpts Optional parameters for the method 'ReadConsoleOutput'
 type ReadConsoleOutputOpts struct {
-    ReadConsoleOutputRequest optional.Interface
+	ReadConsoleOutputRequest optional.Interface
 }
 
 /*
 ReadConsoleOutput Method for ReadConsoleOutput
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ReadConsoleOutputOpts - Optional Parameters:
- * @param "ReadConsoleOutputRequest" (optional.Interface of ReadConsoleOutputRequest) - 
+ * @param "ReadConsoleOutputRequest" (optional.Interface of ReadConsoleOutputRequest) -
 @return ReadConsoleOutputResponse
 */
 func (a *VmApiService) ReadConsoleOutput(ctx _context.Context, localVarOptionals *ReadConsoleOutputOpts) (ReadConsoleOutputResponse, *_nethttp.Response, error) {
@@ -566,7 +557,6 @@ func (a *VmApiService) ReadConsoleOutput(ctx _context.Context, localVarOptionals
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -577,7 +567,6 @@ func (a *VmApiService) ReadConsoleOutput(ctx _context.Context, localVarOptionals
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -587,7 +576,6 @@ func (a *VmApiService) ReadConsoleOutput(ctx _context.Context, localVarOptionals
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -616,14 +604,14 @@ func (a *VmApiService) ReadConsoleOutput(ctx _context.Context, localVarOptionals
 
 // ReadVmTypesOpts Optional parameters for the method 'ReadVmTypes'
 type ReadVmTypesOpts struct {
-    ReadVmTypesRequest optional.Interface
+	ReadVmTypesRequest optional.Interface
 }
 
 /*
 ReadVmTypes Method for ReadVmTypes
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ReadVmTypesOpts - Optional Parameters:
- * @param "ReadVmTypesRequest" (optional.Interface of ReadVmTypesRequest) - 
+ * @param "ReadVmTypesRequest" (optional.Interface of ReadVmTypesRequest) -
 @return ReadVmTypesResponse
 */
 func (a *VmApiService) ReadVmTypes(ctx _context.Context, localVarOptionals *ReadVmTypesOpts) (ReadVmTypesResponse, *_nethttp.Response, error) {
@@ -716,14 +704,14 @@ func (a *VmApiService) ReadVmTypes(ctx _context.Context, localVarOptionals *Read
 
 // ReadVmsOpts Optional parameters for the method 'ReadVms'
 type ReadVmsOpts struct {
-    ReadVmsRequest optional.Interface
+	ReadVmsRequest optional.Interface
 }
 
 /*
 ReadVms Method for ReadVms
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ReadVmsOpts - Optional Parameters:
- * @param "ReadVmsRequest" (optional.Interface of ReadVmsRequest) - 
+ * @param "ReadVmsRequest" (optional.Interface of ReadVmsRequest) -
 @return ReadVmsResponse
 */
 func (a *VmApiService) ReadVms(ctx _context.Context, localVarOptionals *ReadVmsOpts) (ReadVmsResponse, *_nethttp.Response, error) {
@@ -813,7 +801,6 @@ func (a *VmApiService) ReadVms(ctx _context.Context, localVarOptionals *ReadVmsO
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -824,7 +811,6 @@ func (a *VmApiService) ReadVms(ctx _context.Context, localVarOptionals *ReadVmsO
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -834,7 +820,6 @@ func (a *VmApiService) ReadVms(ctx _context.Context, localVarOptionals *ReadVmsO
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -863,14 +848,14 @@ func (a *VmApiService) ReadVms(ctx _context.Context, localVarOptionals *ReadVmsO
 
 // ReadVmsStateOpts Optional parameters for the method 'ReadVmsState'
 type ReadVmsStateOpts struct {
-    ReadVmsStateRequest optional.Interface
+	ReadVmsStateRequest optional.Interface
 }
 
 /*
 ReadVmsState Method for ReadVmsState
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ReadVmsStateOpts - Optional Parameters:
- * @param "ReadVmsStateRequest" (optional.Interface of ReadVmsStateRequest) - 
+ * @param "ReadVmsStateRequest" (optional.Interface of ReadVmsStateRequest) -
 @return ReadVmsStateResponse
 */
 func (a *VmApiService) ReadVmsState(ctx _context.Context, localVarOptionals *ReadVmsStateOpts) (ReadVmsStateResponse, *_nethttp.Response, error) {
@@ -960,7 +945,6 @@ func (a *VmApiService) ReadVmsState(ctx _context.Context, localVarOptionals *Rea
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -971,7 +955,6 @@ func (a *VmApiService) ReadVmsState(ctx _context.Context, localVarOptionals *Rea
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -981,7 +964,6 @@ func (a *VmApiService) ReadVmsState(ctx _context.Context, localVarOptionals *Rea
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1010,14 +992,14 @@ func (a *VmApiService) ReadVmsState(ctx _context.Context, localVarOptionals *Rea
 
 // RebootVmsOpts Optional parameters for the method 'RebootVms'
 type RebootVmsOpts struct {
-    RebootVmsRequest optional.Interface
+	RebootVmsRequest optional.Interface
 }
 
 /*
 RebootVms Method for RebootVms
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *RebootVmsOpts - Optional Parameters:
- * @param "RebootVmsRequest" (optional.Interface of RebootVmsRequest) - 
+ * @param "RebootVmsRequest" (optional.Interface of RebootVmsRequest) -
 @return RebootVmsResponse
 */
 func (a *VmApiService) RebootVms(ctx _context.Context, localVarOptionals *RebootVmsOpts) (RebootVmsResponse, *_nethttp.Response, error) {
@@ -1107,7 +1089,6 @@ func (a *VmApiService) RebootVms(ctx _context.Context, localVarOptionals *Reboot
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -1118,7 +1099,6 @@ func (a *VmApiService) RebootVms(ctx _context.Context, localVarOptionals *Reboot
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -1128,7 +1108,6 @@ func (a *VmApiService) RebootVms(ctx _context.Context, localVarOptionals *Reboot
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1157,14 +1136,14 @@ func (a *VmApiService) RebootVms(ctx _context.Context, localVarOptionals *Reboot
 
 // StartVmsOpts Optional parameters for the method 'StartVms'
 type StartVmsOpts struct {
-    StartVmsRequest optional.Interface
+	StartVmsRequest optional.Interface
 }
 
 /*
 StartVms Method for StartVms
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *StartVmsOpts - Optional Parameters:
- * @param "StartVmsRequest" (optional.Interface of StartVmsRequest) - 
+ * @param "StartVmsRequest" (optional.Interface of StartVmsRequest) -
 @return StartVmsResponse
 */
 func (a *VmApiService) StartVms(ctx _context.Context, localVarOptionals *StartVmsOpts) (StartVmsResponse, *_nethttp.Response, error) {
@@ -1254,7 +1233,6 @@ func (a *VmApiService) StartVms(ctx _context.Context, localVarOptionals *StartVm
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -1265,7 +1243,6 @@ func (a *VmApiService) StartVms(ctx _context.Context, localVarOptionals *StartVm
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -1275,7 +1252,6 @@ func (a *VmApiService) StartVms(ctx _context.Context, localVarOptionals *StartVm
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1304,14 +1280,14 @@ func (a *VmApiService) StartVms(ctx _context.Context, localVarOptionals *StartVm
 
 // StopVmsOpts Optional parameters for the method 'StopVms'
 type StopVmsOpts struct {
-    StopVmsRequest optional.Interface
+	StopVmsRequest optional.Interface
 }
 
 /*
 StopVms Method for StopVms
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *StopVmsOpts - Optional Parameters:
- * @param "StopVmsRequest" (optional.Interface of StopVmsRequest) - 
+ * @param "StopVmsRequest" (optional.Interface of StopVmsRequest) -
 @return StopVmsResponse
 */
 func (a *VmApiService) StopVms(ctx _context.Context, localVarOptionals *StopVmsOpts) (StopVmsResponse, *_nethttp.Response, error) {
@@ -1401,7 +1377,6 @@ func (a *VmApiService) StopVms(ctx _context.Context, localVarOptionals *StopVmsO
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -1412,7 +1387,6 @@ func (a *VmApiService) StopVms(ctx _context.Context, localVarOptionals *StopVmsO
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -1422,7 +1396,6 @@ func (a *VmApiService) StopVms(ctx _context.Context, localVarOptionals *StopVmsO
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1451,14 +1424,14 @@ func (a *VmApiService) StopVms(ctx _context.Context, localVarOptionals *StopVmsO
 
 // UpdateVmOpts Optional parameters for the method 'UpdateVm'
 type UpdateVmOpts struct {
-    UpdateVmRequest optional.Interface
+	UpdateVmRequest optional.Interface
 }
 
 /*
 UpdateVm Method for UpdateVm
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *UpdateVmOpts - Optional Parameters:
- * @param "UpdateVmRequest" (optional.Interface of UpdateVmRequest) - 
+ * @param "UpdateVmRequest" (optional.Interface of UpdateVmRequest) -
 @return UpdateVmResponse
 */
 func (a *VmApiService) UpdateVm(ctx _context.Context, localVarOptionals *UpdateVmOpts) (UpdateVmResponse, *_nethttp.Response, error) {
@@ -1548,7 +1521,6 @@ func (a *VmApiService) UpdateVm(ctx _context.Context, localVarOptionals *UpdateV
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ErrorResponse
@@ -1559,7 +1531,6 @@ func (a *VmApiService) UpdateVm(ctx _context.Context, localVarOptionals *UpdateV
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ErrorResponse
@@ -1569,7 +1540,6 @@ func (a *VmApiService) UpdateVm(ctx _context.Context, localVarOptionals *UpdateV
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {

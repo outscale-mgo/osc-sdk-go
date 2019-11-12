@@ -19,7 +19,7 @@ import (
 type ReadDhcpOptionsResponse struct {
 	// Information about one or more DHCP options sets.
 	DhcpOptionsSets *[]DhcpOptionsSet `json:"DhcpOptionsSets,omitempty"`
-	ResponseContext *ResponseContext `json:"ResponseContext,omitempty"`
+	ResponseContext *ResponseContext  `json:"ResponseContext,omitempty"`
 }
 
 // GetDhcpOptionsSets returns the DhcpOptionsSets field value if set, zero value otherwise.
@@ -89,17 +89,17 @@ func (o *ReadDhcpOptionsResponse) SetResponseContext(v ResponseContext) {
 }
 
 type NullableReadDhcpOptionsResponse struct {
-	Value ReadDhcpOptionsResponse
+	Value        ReadDhcpOptionsResponse
 	ExplicitNull bool
 }
 
 func (v NullableReadDhcpOptionsResponse) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableReadDhcpOptionsResponse) UnmarshalJSON(src []byte) error {
@@ -110,4 +110,3 @@ func (v *NullableReadDhcpOptionsResponse) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

@@ -177,17 +177,17 @@ func (o *LinkPrivateIpsRequest) SetSecondaryPrivateIpCount(v int32) {
 }
 
 type NullableLinkPrivateIpsRequest struct {
-	Value LinkPrivateIpsRequest
+	Value        LinkPrivateIpsRequest
 	ExplicitNull bool
 }
 
 func (v NullableLinkPrivateIpsRequest) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableLinkPrivateIpsRequest) UnmarshalJSON(src []byte) error {
@@ -198,4 +198,3 @@ func (v *NullableLinkPrivateIpsRequest) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-

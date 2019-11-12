@@ -90,17 +90,17 @@ func (o *BsuToUpdateVm) SetVolumeId(v string) {
 }
 
 type NullableBsuToUpdateVm struct {
-	Value BsuToUpdateVm
+	Value        BsuToUpdateVm
 	ExplicitNull bool
 }
 
 func (v NullableBsuToUpdateVm) MarshalJSON() ([]byte, error) {
-    switch {
-    case v.ExplicitNull:
-        return []byte("null"), nil
-    default:
+	switch {
+	case v.ExplicitNull:
+		return []byte("null"), nil
+	default:
 		return json.Marshal(v.Value)
-	}	
+	}
 }
 
 func (v *NullableBsuToUpdateVm) UnmarshalJSON(src []byte) error {
@@ -111,4 +111,3 @@ func (v *NullableBsuToUpdateVm) UnmarshalJSON(src []byte) error {
 
 	return json.Unmarshal(src, &v.Value)
 }
-
