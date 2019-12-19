@@ -9,14 +9,14 @@ Name | Type | Description | Notes
 **Descriptions** | Pointer to **[]string** | The descriptions of the snapshots. | [optional] 
 **PermissionsToCreateVolumeAccountIds** | Pointer to **[]string** | The account IDs of one or more users who have permissions to create volumes. | [optional] 
 **PermissionsToCreateVolumeGlobalPermission** | Pointer to **bool** | If &#x60;true&#x60;, lists all public volumes. If &#x60;false&#x60;, lists all private volumes. | [optional] 
-**Progresses** | Pointer to **[]int32** | The progresses of the snapshots, as a percentage. | [optional] 
+**Progresses** | Pointer to **[]int64** | The progresses of the snapshots, as a percentage. | [optional] 
 **SnapshotIds** | Pointer to **[]string** | The IDs of the snapshots. | [optional] 
 **States** | Pointer to **[]string** | The states of the snapshots (&#x60;in-queue&#x60; \\| &#x60;pending&#x60; \\| &#x60;completed&#x60;). | [optional] 
 **TagKeys** | Pointer to **[]string** | The keys of the tags associated with the snapshots. | [optional] 
 **TagValues** | Pointer to **[]string** | The values of the tags associated with the snapshots. | [optional] 
 **Tags** | Pointer to **[]string** | The key/value combination of the tags associated with the snapshots, in the following format: \&quot;Filters\&quot;:{\&quot;Tags\&quot;:[\&quot;TAGKEY&#x3D;TAGVALUE\&quot;]}. | [optional] 
 **VolumeIds** | Pointer to **[]string** | The IDs of the volumes used to create the snapshots. | [optional] 
-**VolumeSizes** | Pointer to **[]int32** | The sizes of the volumes used to create the snapshots, in gibibytes (GiB). | [optional] 
+**VolumeSizes** | Pointer to **[]int64** | The sizes of the volumes used to create the snapshots, in gibibytes (GiB). | [optional] 
 
 ## Methods
 
@@ -147,13 +147,13 @@ SetPermissionsToCreateVolumeGlobalPermission gets a reference to the given bool 
 
 ### GetProgresses
 
-`func (o *FiltersSnapshot) GetProgresses() []int32`
+`func (o *FiltersSnapshot) GetProgresses() []int64`
 
 GetProgresses returns the Progresses field if non-nil, zero value otherwise.
 
 ### GetProgressesOk
 
-`func (o *FiltersSnapshot) GetProgressesOk() ([]int32, bool)`
+`func (o *FiltersSnapshot) GetProgressesOk() ([]int64, bool)`
 
 GetProgressesOk returns a tuple with the Progresses field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -166,9 +166,9 @@ HasProgresses returns a boolean if a field has been set.
 
 ### SetProgresses
 
-`func (o *FiltersSnapshot) SetProgresses(v []int32)`
+`func (o *FiltersSnapshot) SetProgresses(v []int64)`
 
-SetProgresses gets a reference to the given []int32 and assigns it to the Progresses field.
+SetProgresses gets a reference to the given []int64 and assigns it to the Progresses field.
 
 ### GetSnapshotIds
 
@@ -322,13 +322,13 @@ SetVolumeIds gets a reference to the given []string and assigns it to the Volume
 
 ### GetVolumeSizes
 
-`func (o *FiltersSnapshot) GetVolumeSizes() []int32`
+`func (o *FiltersSnapshot) GetVolumeSizes() []int64`
 
 GetVolumeSizes returns the VolumeSizes field if non-nil, zero value otherwise.
 
 ### GetVolumeSizesOk
 
-`func (o *FiltersSnapshot) GetVolumeSizesOk() ([]int32, bool)`
+`func (o *FiltersSnapshot) GetVolumeSizesOk() ([]int64, bool)`
 
 GetVolumeSizesOk returns a tuple with the VolumeSizes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -341,9 +341,9 @@ HasVolumeSizes returns a boolean if a field has been set.
 
 ### SetVolumeSizes
 
-`func (o *FiltersSnapshot) SetVolumeSizes(v []int32)`
+`func (o *FiltersSnapshot) SetVolumeSizes(v []int64)`
 
-SetVolumeSizes gets a reference to the given []int32 and assigns it to the VolumeSizes field.
+SetVolumeSizes gets a reference to the given []int64 and assigns it to the VolumeSizes field.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

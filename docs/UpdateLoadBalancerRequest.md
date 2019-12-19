@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **DryRun** | Pointer to **bool** | If &#x60;true&#x60;, checks whether you have the required permissions to perform the action. | [optional] 
 **HealthCheck** | Pointer to [**HealthCheck**](HealthCheck.md) |  | [optional] 
 **LoadBalancerName** | Pointer to **string** | The name of the load balancer. | 
-**LoadBalancerPort** | Pointer to **int32** | The port on which the load balancer is listening (between &#x60;1&#x60; and &#x60;65535&#x60;, both included). | [optional] 
+**LoadBalancerPort** | Pointer to **int64** | The port on which the load balancer is listening (between &#x60;1&#x60; and &#x60;65535&#x60;, both included). | [optional] 
 **PolicyNames** | Pointer to **[]string** | The list of policy names (must contain all the policies to be enabled). | [optional] 
 **ServerCertificateId** | Pointer to **string** | The Outscale Resource Name (ORN) of the SSL certificate. | [optional] 
 
@@ -116,13 +116,13 @@ SetLoadBalancerName gets a reference to the given string and assigns it to the L
 
 ### GetLoadBalancerPort
 
-`func (o *UpdateLoadBalancerRequest) GetLoadBalancerPort() int32`
+`func (o *UpdateLoadBalancerRequest) GetLoadBalancerPort() int64`
 
 GetLoadBalancerPort returns the LoadBalancerPort field if non-nil, zero value otherwise.
 
 ### GetLoadBalancerPortOk
 
-`func (o *UpdateLoadBalancerRequest) GetLoadBalancerPortOk() (int32, bool)`
+`func (o *UpdateLoadBalancerRequest) GetLoadBalancerPortOk() (int64, bool)`
 
 GetLoadBalancerPortOk returns a tuple with the LoadBalancerPort field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -135,9 +135,9 @@ HasLoadBalancerPort returns a boolean if a field has been set.
 
 ### SetLoadBalancerPort
 
-`func (o *UpdateLoadBalancerRequest) SetLoadBalancerPort(v int32)`
+`func (o *UpdateLoadBalancerRequest) SetLoadBalancerPort(v int64)`
 
-SetLoadBalancerPort gets a reference to the given int32 and assigns it to the LoadBalancerPort field.
+SetLoadBalancerPort gets a reference to the given int64 and assigns it to the LoadBalancerPort field.
 
 ### GetPolicyNames
 

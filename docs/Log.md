@@ -5,21 +5,21 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountId** | Pointer to **string** | The account ID. | [optional] 
-**CallDuration** | Pointer to **int32** | The duration of the call (in milliseconds). | [optional] 
+**CallDuration** | Pointer to **int64** | The duration of the call (in milliseconds). | [optional] 
 **QueryAccessKey** | Pointer to **string** | The API key used for the query. | [optional] 
 **QueryApiName** | Pointer to **string** | The name of the API service used by the call. | [optional] 
 **QueryApiVersion** | Pointer to **string** | The version of the API service used by the call. | [optional] 
 **QueryCallName** | Pointer to **string** | The name of the call. | [optional] 
 **QueryDate** | Pointer to **string** | The date and time of the query (in ISO 8601 base or extended format). | [optional] 
 **QueryHeaderRaw** | Pointer to **string** | The query header raw. | [optional] 
-**QueryHeaderSize** | Pointer to **int32** | The query header size. | [optional] 
+**QueryHeaderSize** | Pointer to **int64** | The query header size. | [optional] 
 **QueryIpAddress** | Pointer to **string** | The IP address used for the query. | [optional] 
 **QueryPayloadRaw** | Pointer to **string** | The query payload raw. | [optional] 
-**QueryPayloadSize** | Pointer to **int32** | The query payload size. | [optional] 
+**QueryPayloadSize** | Pointer to **int64** | The query payload size. | [optional] 
 **QueryUserAgent** | Pointer to **string** | The user agent used for the HTTP request. | [optional] 
 **RequestId** | Pointer to **string** | The ID provided in the response. | [optional] 
-**ResponseSize** | Pointer to **int32** | The size of the response (in bytes). | [optional] 
-**ResponseStatusCode** | Pointer to **int32** | The HTTP code provided in the response. | [optional] 
+**ResponseSize** | Pointer to **int64** | The size of the response (in bytes). | [optional] 
+**ResponseStatusCode** | Pointer to **int64** | The HTTP code provided in the response. | [optional] 
 
 ## Methods
 
@@ -50,13 +50,13 @@ SetAccountId gets a reference to the given string and assigns it to the AccountI
 
 ### GetCallDuration
 
-`func (o *Log) GetCallDuration() int32`
+`func (o *Log) GetCallDuration() int64`
 
 GetCallDuration returns the CallDuration field if non-nil, zero value otherwise.
 
 ### GetCallDurationOk
 
-`func (o *Log) GetCallDurationOk() (int32, bool)`
+`func (o *Log) GetCallDurationOk() (int64, bool)`
 
 GetCallDurationOk returns a tuple with the CallDuration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -69,9 +69,9 @@ HasCallDuration returns a boolean if a field has been set.
 
 ### SetCallDuration
 
-`func (o *Log) SetCallDuration(v int32)`
+`func (o *Log) SetCallDuration(v int64)`
 
-SetCallDuration gets a reference to the given int32 and assigns it to the CallDuration field.
+SetCallDuration gets a reference to the given int64 and assigns it to the CallDuration field.
 
 ### GetQueryAccessKey
 
@@ -225,13 +225,13 @@ SetQueryHeaderRaw gets a reference to the given string and assigns it to the Que
 
 ### GetQueryHeaderSize
 
-`func (o *Log) GetQueryHeaderSize() int32`
+`func (o *Log) GetQueryHeaderSize() int64`
 
 GetQueryHeaderSize returns the QueryHeaderSize field if non-nil, zero value otherwise.
 
 ### GetQueryHeaderSizeOk
 
-`func (o *Log) GetQueryHeaderSizeOk() (int32, bool)`
+`func (o *Log) GetQueryHeaderSizeOk() (int64, bool)`
 
 GetQueryHeaderSizeOk returns a tuple with the QueryHeaderSize field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -244,9 +244,9 @@ HasQueryHeaderSize returns a boolean if a field has been set.
 
 ### SetQueryHeaderSize
 
-`func (o *Log) SetQueryHeaderSize(v int32)`
+`func (o *Log) SetQueryHeaderSize(v int64)`
 
-SetQueryHeaderSize gets a reference to the given int32 and assigns it to the QueryHeaderSize field.
+SetQueryHeaderSize gets a reference to the given int64 and assigns it to the QueryHeaderSize field.
 
 ### GetQueryIpAddress
 
@@ -300,13 +300,13 @@ SetQueryPayloadRaw gets a reference to the given string and assigns it to the Qu
 
 ### GetQueryPayloadSize
 
-`func (o *Log) GetQueryPayloadSize() int32`
+`func (o *Log) GetQueryPayloadSize() int64`
 
 GetQueryPayloadSize returns the QueryPayloadSize field if non-nil, zero value otherwise.
 
 ### GetQueryPayloadSizeOk
 
-`func (o *Log) GetQueryPayloadSizeOk() (int32, bool)`
+`func (o *Log) GetQueryPayloadSizeOk() (int64, bool)`
 
 GetQueryPayloadSizeOk returns a tuple with the QueryPayloadSize field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -319,9 +319,9 @@ HasQueryPayloadSize returns a boolean if a field has been set.
 
 ### SetQueryPayloadSize
 
-`func (o *Log) SetQueryPayloadSize(v int32)`
+`func (o *Log) SetQueryPayloadSize(v int64)`
 
-SetQueryPayloadSize gets a reference to the given int32 and assigns it to the QueryPayloadSize field.
+SetQueryPayloadSize gets a reference to the given int64 and assigns it to the QueryPayloadSize field.
 
 ### GetQueryUserAgent
 
@@ -375,13 +375,13 @@ SetRequestId gets a reference to the given string and assigns it to the RequestI
 
 ### GetResponseSize
 
-`func (o *Log) GetResponseSize() int32`
+`func (o *Log) GetResponseSize() int64`
 
 GetResponseSize returns the ResponseSize field if non-nil, zero value otherwise.
 
 ### GetResponseSizeOk
 
-`func (o *Log) GetResponseSizeOk() (int32, bool)`
+`func (o *Log) GetResponseSizeOk() (int64, bool)`
 
 GetResponseSizeOk returns a tuple with the ResponseSize field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -394,19 +394,19 @@ HasResponseSize returns a boolean if a field has been set.
 
 ### SetResponseSize
 
-`func (o *Log) SetResponseSize(v int32)`
+`func (o *Log) SetResponseSize(v int64)`
 
-SetResponseSize gets a reference to the given int32 and assigns it to the ResponseSize field.
+SetResponseSize gets a reference to the given int64 and assigns it to the ResponseSize field.
 
 ### GetResponseStatusCode
 
-`func (o *Log) GetResponseStatusCode() int32`
+`func (o *Log) GetResponseStatusCode() int64`
 
 GetResponseStatusCode returns the ResponseStatusCode field if non-nil, zero value otherwise.
 
 ### GetResponseStatusCodeOk
 
-`func (o *Log) GetResponseStatusCodeOk() (int32, bool)`
+`func (o *Log) GetResponseStatusCodeOk() (int64, bool)`
 
 GetResponseStatusCodeOk returns a tuple with the ResponseStatusCode field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -419,9 +419,9 @@ HasResponseStatusCode returns a boolean if a field has been set.
 
 ### SetResponseStatusCode
 
-`func (o *Log) SetResponseStatusCode(v int32)`
+`func (o *Log) SetResponseStatusCode(v int64)`
 
-SetResponseStatusCode gets a reference to the given int32 and assigns it to the ResponseStatusCode field.
+SetResponseStatusCode gets a reference to the given int64 and assigns it to the ResponseStatusCode field.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

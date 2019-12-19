@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AvailableIpsCount** | Pointer to **int32** | The number of available IP addresses in the Subnets. | [optional] 
+**AvailableIpsCount** | Pointer to **int64** | The number of available IP addresses in the Subnets. | [optional] 
 **IpRange** | Pointer to **string** | The IP range in the Subnet, in CIDR notation (for example, 10.0.0.0/16). | [optional] 
 **MapPublicIpOnLaunch** | Pointer to **bool** | If &#x60;true&#x60;, a public IP address is assigned to the network interface cards (NICs) created in the specified Subnet. | [optional] 
 **NetId** | Pointer to **string** | The ID of the Net in which the Subnet is. | [optional] 
@@ -17,13 +17,13 @@ Name | Type | Description | Notes
 
 ### GetAvailableIpsCount
 
-`func (o *Subnet) GetAvailableIpsCount() int32`
+`func (o *Subnet) GetAvailableIpsCount() int64`
 
 GetAvailableIpsCount returns the AvailableIpsCount field if non-nil, zero value otherwise.
 
 ### GetAvailableIpsCountOk
 
-`func (o *Subnet) GetAvailableIpsCountOk() (int32, bool)`
+`func (o *Subnet) GetAvailableIpsCountOk() (int64, bool)`
 
 GetAvailableIpsCountOk returns a tuple with the AvailableIpsCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -36,9 +36,9 @@ HasAvailableIpsCount returns a boolean if a field has been set.
 
 ### SetAvailableIpsCount
 
-`func (o *Subnet) SetAvailableIpsCount(v int32)`
+`func (o *Subnet) SetAvailableIpsCount(v int64)`
 
-SetAvailableIpsCount gets a reference to the given int32 and assigns it to the AvailableIpsCount field.
+SetAvailableIpsCount gets a reference to the given int64 and assigns it to the AvailableIpsCount field.
 
 ### GetIpRange
 

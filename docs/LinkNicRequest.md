@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DeviceNumber** | Pointer to **int32** | The index of the VM device for the NIC attachment (between 1 and 7, both included). | 
+**DeviceNumber** | Pointer to **int64** | The index of the VM device for the NIC attachment (between 1 and 7, both included). | 
 **DryRun** | Pointer to **bool** | If &#x60;true&#x60;, checks whether you have the required permissions to perform the action. | [optional] 
 **NicId** | Pointer to **string** | The ID of the NIC you want to attach. | 
 **VmId** | Pointer to **string** | The ID of the VM to which you want to attach the NIC. | 
@@ -13,13 +13,13 @@ Name | Type | Description | Notes
 
 ### GetDeviceNumber
 
-`func (o *LinkNicRequest) GetDeviceNumber() int32`
+`func (o *LinkNicRequest) GetDeviceNumber() int64`
 
 GetDeviceNumber returns the DeviceNumber field if non-nil, zero value otherwise.
 
 ### GetDeviceNumberOk
 
-`func (o *LinkNicRequest) GetDeviceNumberOk() (int32, bool)`
+`func (o *LinkNicRequest) GetDeviceNumberOk() (int64, bool)`
 
 GetDeviceNumberOk returns a tuple with the DeviceNumber field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -32,9 +32,9 @@ HasDeviceNumber returns a boolean if a field has been set.
 
 ### SetDeviceNumber
 
-`func (o *LinkNicRequest) SetDeviceNumber(v int32)`
+`func (o *LinkNicRequest) SetDeviceNumber(v int64)`
 
-SetDeviceNumber gets a reference to the given int32 and assigns it to the DeviceNumber field.
+SetDeviceNumber gets a reference to the given int64 and assigns it to the DeviceNumber field.
 
 ### GetDryRun
 

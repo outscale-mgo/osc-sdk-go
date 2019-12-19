@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** | A description for the snapshot. | [optional] 
 **DryRun** | Pointer to **bool** | If &#x60;true&#x60;, checks whether you have the required permissions to perform the action. | [optional] 
 **FileLocation** | Pointer to **string** | The pre-signed URL of the snapshot you want to import from the OSU bucket. | [optional] 
-**SnapshotSize** | Pointer to **int32** | The size of the snapshot created in your account, in gibibytes (GiB). This size must be exactly the same as the source snapshot one. The maximum allowed size is 14,901 GiB. | [optional] 
+**SnapshotSize** | Pointer to **int64** | The size of the snapshot created in your account, in gibibytes (GiB). This size must be exactly the same as the source snapshot one. The maximum allowed size is 14,901 GiB. | [optional] 
 **SourceRegionName** | Pointer to **string** | The name of the source Region, which must be the same as the Region of your account. | [optional] 
 **SourceSnapshotId** | Pointer to **string** | The ID of the snapshot you want to copy. | [optional] 
 **VolumeId** | Pointer to **string** | The ID of the volume you want to create a snapshot of. | [optional] 
@@ -91,13 +91,13 @@ SetFileLocation gets a reference to the given string and assigns it to the FileL
 
 ### GetSnapshotSize
 
-`func (o *CreateSnapshotRequest) GetSnapshotSize() int32`
+`func (o *CreateSnapshotRequest) GetSnapshotSize() int64`
 
 GetSnapshotSize returns the SnapshotSize field if non-nil, zero value otherwise.
 
 ### GetSnapshotSizeOk
 
-`func (o *CreateSnapshotRequest) GetSnapshotSizeOk() (int32, bool)`
+`func (o *CreateSnapshotRequest) GetSnapshotSizeOk() (int64, bool)`
 
 GetSnapshotSizeOk returns a tuple with the SnapshotSize field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -110,9 +110,9 @@ HasSnapshotSize returns a boolean if a field has been set.
 
 ### SetSnapshotSize
 
-`func (o *CreateSnapshotRequest) SetSnapshotSize(v int32)`
+`func (o *CreateSnapshotRequest) SetSnapshotSize(v int64)`
 
-SetSnapshotSize gets a reference to the given int32 and assigns it to the SnapshotSize field.
+SetSnapshotSize gets a reference to the given int64 and assigns it to the SnapshotSize field.
 
 ### GetSourceRegionName
 

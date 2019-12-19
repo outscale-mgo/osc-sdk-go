@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BgpAsns** | Pointer to **[]int32** | The Border Gateway Protocol (BGP) Autonomous System Numbers (ASNs) of the connections. | [optional] 
+**BgpAsns** | Pointer to **[]int64** | The Border Gateway Protocol (BGP) Autonomous System Numbers (ASNs) of the connections. | [optional] 
 **ClientGatewayIds** | Pointer to **[]string** | The IDs of the client gateways. | [optional] 
 **ConnectionTypes** | Pointer to **[]string** | The types of the VPN connections (only &#x60;ipsec.1&#x60; is supported). | [optional] 
 **RouteDestinationIpRanges** | Pointer to **[]string** | The destination IP ranges. | [optional] 
@@ -17,13 +17,13 @@ Name | Type | Description | Notes
 
 ### GetBgpAsns
 
-`func (o *FiltersVpnConnection) GetBgpAsns() []int32`
+`func (o *FiltersVpnConnection) GetBgpAsns() []int64`
 
 GetBgpAsns returns the BgpAsns field if non-nil, zero value otherwise.
 
 ### GetBgpAsnsOk
 
-`func (o *FiltersVpnConnection) GetBgpAsnsOk() ([]int32, bool)`
+`func (o *FiltersVpnConnection) GetBgpAsnsOk() ([]int64, bool)`
 
 GetBgpAsnsOk returns a tuple with the BgpAsns field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -36,9 +36,9 @@ HasBgpAsns returns a boolean if a field has been set.
 
 ### SetBgpAsns
 
-`func (o *FiltersVpnConnection) SetBgpAsns(v []int32)`
+`func (o *FiltersVpnConnection) SetBgpAsns(v []int64)`
 
-SetBgpAsns gets a reference to the given []int32 and assigns it to the BgpAsns field.
+SetBgpAsns gets a reference to the given []int64 and assigns it to the BgpAsns field.
 
 ### GetClientGatewayIds
 

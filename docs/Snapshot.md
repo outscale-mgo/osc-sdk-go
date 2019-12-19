@@ -8,12 +8,12 @@ Name | Type | Description | Notes
 **AccountId** | Pointer to **string** | The account ID of the owner of the snapshot. | [optional] 
 **Description** | Pointer to **string** | The description of the snapshot. | [optional] 
 **PermissionsToCreateVolume** | Pointer to [**PermissionsOnResource**](PermissionsOnResource.md) |  | [optional] 
-**Progress** | Pointer to **int32** | The progress of the snapshot, as a percentage. | [optional] 
+**Progress** | Pointer to **int64** | The progress of the snapshot, as a percentage. | [optional] 
 **SnapshotId** | Pointer to **string** | The ID of the snapshot. | [optional] 
 **State** | Pointer to **string** | The state of the snapshot (&#x60;in-queue&#x60; \\| &#x60;pending&#x60; \\| &#x60;completed&#x60;). | [optional] 
 **Tags** | Pointer to [**[]ResourceTag**](ResourceTag.md) | One or more tags associated with the snapshot. | [optional] 
 **VolumeId** | Pointer to **string** | The ID of the volume used to create the snapshot. | [optional] 
-**VolumeSize** | Pointer to **int32** | The size of the volume used to create the snapshot, in gibibytes (GiB). | [optional] 
+**VolumeSize** | Pointer to **int64** | The size of the volume used to create the snapshot, in gibibytes (GiB). | [optional] 
 
 ## Methods
 
@@ -119,13 +119,13 @@ SetPermissionsToCreateVolume gets a reference to the given PermissionsOnResource
 
 ### GetProgress
 
-`func (o *Snapshot) GetProgress() int32`
+`func (o *Snapshot) GetProgress() int64`
 
 GetProgress returns the Progress field if non-nil, zero value otherwise.
 
 ### GetProgressOk
 
-`func (o *Snapshot) GetProgressOk() (int32, bool)`
+`func (o *Snapshot) GetProgressOk() (int64, bool)`
 
 GetProgressOk returns a tuple with the Progress field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -138,9 +138,9 @@ HasProgress returns a boolean if a field has been set.
 
 ### SetProgress
 
-`func (o *Snapshot) SetProgress(v int32)`
+`func (o *Snapshot) SetProgress(v int64)`
 
-SetProgress gets a reference to the given int32 and assigns it to the Progress field.
+SetProgress gets a reference to the given int64 and assigns it to the Progress field.
 
 ### GetSnapshotId
 
@@ -244,13 +244,13 @@ SetVolumeId gets a reference to the given string and assigns it to the VolumeId 
 
 ### GetVolumeSize
 
-`func (o *Snapshot) GetVolumeSize() int32`
+`func (o *Snapshot) GetVolumeSize() int64`
 
 GetVolumeSize returns the VolumeSize field if non-nil, zero value otherwise.
 
 ### GetVolumeSizeOk
 
-`func (o *Snapshot) GetVolumeSizeOk() (int32, bool)`
+`func (o *Snapshot) GetVolumeSizeOk() (int64, bool)`
 
 GetVolumeSizeOk returns a tuple with the VolumeSize field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -263,9 +263,9 @@ HasVolumeSize returns a boolean if a field has been set.
 
 ### SetVolumeSize
 
-`func (o *Snapshot) SetVolumeSize(v int32)`
+`func (o *Snapshot) SetVolumeSize(v int64)`
 
-SetVolumeSize gets a reference to the given int32 and assigns it to the VolumeSize field.
+SetVolumeSize gets a reference to the given int64 and assigns it to the VolumeSize field.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

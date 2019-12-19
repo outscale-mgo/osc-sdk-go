@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AvailableIpsCounts** | Pointer to **[]int32** | The number of available IPs. | [optional] 
+**AvailableIpsCounts** | Pointer to **[]int64** | The number of available IPs. | [optional] 
 **IpRanges** | Pointer to **[]string** | The IP ranges in the Subnets, in CIDR notation (for example, 10.0.0.0/16). | [optional] 
 **NetIds** | Pointer to **[]string** | The IDs of the Nets in which the Subnets are. | [optional] 
 **States** | Pointer to **[]string** | The states of the Subnets (&#x60;pending&#x60; \\| &#x60;available&#x60;). | [optional] 
@@ -15,13 +15,13 @@ Name | Type | Description | Notes
 
 ### GetAvailableIpsCounts
 
-`func (o *FiltersSubnet) GetAvailableIpsCounts() []int32`
+`func (o *FiltersSubnet) GetAvailableIpsCounts() []int64`
 
 GetAvailableIpsCounts returns the AvailableIpsCounts field if non-nil, zero value otherwise.
 
 ### GetAvailableIpsCountsOk
 
-`func (o *FiltersSubnet) GetAvailableIpsCountsOk() ([]int32, bool)`
+`func (o *FiltersSubnet) GetAvailableIpsCountsOk() ([]int64, bool)`
 
 GetAvailableIpsCountsOk returns a tuple with the AvailableIpsCounts field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -34,9 +34,9 @@ HasAvailableIpsCounts returns a boolean if a field has been set.
 
 ### SetAvailableIpsCounts
 
-`func (o *FiltersSubnet) SetAvailableIpsCounts(v []int32)`
+`func (o *FiltersSubnet) SetAvailableIpsCounts(v []int64)`
 
-SetAvailableIpsCounts gets a reference to the given []int32 and assigns it to the AvailableIpsCounts field.
+SetAvailableIpsCounts gets a reference to the given []int64 and assigns it to the AvailableIpsCounts field.
 
 ### GetIpRanges
 

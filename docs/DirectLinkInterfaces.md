@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountId** | Pointer to **string** | The account ID of the owner of the DirectLink interface. | [optional] 
-**BgpAsn** | Pointer to **int32** | The BGP (Border Gateway Protocol) ASN (Autonomous System Number) on the customer&#39;s side of the DirectLink interface. | [optional] 
+**BgpAsn** | Pointer to **int64** | The BGP (Border Gateway Protocol) ASN (Autonomous System Number) on the customer&#39;s side of the DirectLink interface. | [optional] 
 **BgpKey** | Pointer to **string** | The BGP authentication key. | [optional] 
 **ClientPrivateIp** | Pointer to **string** | The IP address on the customer&#39;s side of the DirectLink interface. | [optional] 
 **DirectLinkId** | Pointer to **string** | The ID of the DirectLink. | [optional] 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **OutscalePrivateIp** | Pointer to **string** | The IP address on 3DS OUTSCALE&#39;s side of the DirectLink interface. | [optional] 
 **State** | Pointer to **string** | The state of the DirectLink interface (&#x60;pending&#x60; \\| &#x60;available&#x60; \\| &#x60;deleting&#x60; \\| &#x60;deleted&#x60; \\| &#x60;confirming&#x60; \\| &#x60;rejected&#x60; \\| &#x60;expired&#x60;). | [optional] 
 **VirtualGatewayId** | Pointer to **string** | The ID of the target virtual gateway. | [optional] 
-**Vlan** | Pointer to **int32** | The VLAN number associated with the DirectLink interface. | [optional] 
+**Vlan** | Pointer to **int64** | The VLAN number associated with the DirectLink interface. | [optional] 
 
 ## Methods
 
@@ -47,13 +47,13 @@ SetAccountId gets a reference to the given string and assigns it to the AccountI
 
 ### GetBgpAsn
 
-`func (o *DirectLinkInterfaces) GetBgpAsn() int32`
+`func (o *DirectLinkInterfaces) GetBgpAsn() int64`
 
 GetBgpAsn returns the BgpAsn field if non-nil, zero value otherwise.
 
 ### GetBgpAsnOk
 
-`func (o *DirectLinkInterfaces) GetBgpAsnOk() (int32, bool)`
+`func (o *DirectLinkInterfaces) GetBgpAsnOk() (int64, bool)`
 
 GetBgpAsnOk returns a tuple with the BgpAsn field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -66,9 +66,9 @@ HasBgpAsn returns a boolean if a field has been set.
 
 ### SetBgpAsn
 
-`func (o *DirectLinkInterfaces) SetBgpAsn(v int32)`
+`func (o *DirectLinkInterfaces) SetBgpAsn(v int64)`
 
-SetBgpAsn gets a reference to the given int32 and assigns it to the BgpAsn field.
+SetBgpAsn gets a reference to the given int64 and assigns it to the BgpAsn field.
 
 ### GetBgpKey
 
@@ -322,13 +322,13 @@ SetVirtualGatewayId gets a reference to the given string and assigns it to the V
 
 ### GetVlan
 
-`func (o *DirectLinkInterfaces) GetVlan() int32`
+`func (o *DirectLinkInterfaces) GetVlan() int64`
 
 GetVlan returns the Vlan field if non-nil, zero value otherwise.
 
 ### GetVlanOk
 
-`func (o *DirectLinkInterfaces) GetVlanOk() (int32, bool)`
+`func (o *DirectLinkInterfaces) GetVlanOk() (int64, bool)`
 
 GetVlanOk returns a tuple with the Vlan field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -341,9 +341,9 @@ HasVlan returns a boolean if a field has been set.
 
 ### SetVlan
 
-`func (o *DirectLinkInterfaces) SetVlan(v int32)`
+`func (o *DirectLinkInterfaces) SetVlan(v int64)`
 
-SetVlan gets a reference to the given int32 and assigns it to the Vlan field.
+SetVlan gets a reference to the given int64 and assigns it to the Vlan field.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

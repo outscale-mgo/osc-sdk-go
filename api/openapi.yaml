@@ -4381,7 +4381,7 @@ components:
       example:
         OsuBucketPrefix: OsuBucketPrefix
         IsEnabled: true
-        PublicationInterval: 0
+        PublicationInterval: ""
         OsuBucketName: OsuBucketName
       properties:
         IsEnabled:
@@ -4401,7 +4401,7 @@ components:
           description: The time interval for the publication of access logs in the
             Object Storage Unit (OSU) bucket, in minutes. This value can be either
             5 or 60 (by default, 60).
-          type: integer
+          type: long
       type: object
     ApplicationStickyCookiePolicy:
       description: Information about the stickiness policy.
@@ -4465,8 +4465,8 @@ components:
           SnapshotId: SnapshotId
           DeleteOnVmDeletion: true
           VolumeType: VolumeType
-          Iops: 0
-          VolumeSize: 6
+          Iops: ""
+          VolumeSize: ""
         VirtualDeviceName: VirtualDeviceName
         DeviceName: DeviceName
       properties:
@@ -4486,8 +4486,8 @@ components:
           SnapshotId: SnapshotId
           DeleteOnVmDeletion: true
           VolumeType: VolumeType
-          Iops: 0
-          VolumeSize: 6
+          Iops: ""
+          VolumeSize: ""
         NoDevice: NoDevice
         VirtualDeviceName: VirtualDeviceName
         DeviceName: DeviceName
@@ -4558,8 +4558,8 @@ components:
         SnapshotId: SnapshotId
         DeleteOnVmDeletion: true
         VolumeType: VolumeType
-        Iops: 0
-        VolumeSize: 6
+        Iops: ""
+        VolumeSize: ""
       properties:
         DeleteOnVmDeletion:
           description: Set to `true` by default, which means that the volume is deleted
@@ -4570,7 +4570,7 @@ components:
           description: The number of I/O operations per second (IOPS). This parameter
             must be specified only if you create an `io1` volume. The maximum number
             of IOPS allowed for `io1` volumes is `13000`.
-          type: integer
+          type: long
         SnapshotId:
           description: The ID of the snapshot used to create the volume.
           type: string
@@ -4579,7 +4579,7 @@ components:
             The size of the volume, in gibibytes (GiB).<br />
             If you specify a snapshot ID, the volume size must be at least equal to the snapshot size.<br />
             If you specify a snapshot ID but no volume size, the volume is created with a size similar to the snapshot one.
-          type: integer
+          type: long
         VolumeType:
           description: |-
             The type of the volume (`standard` \| `io1` \| `gp2`). If not specified in the request, a `standard` volume is created.<br />
@@ -4606,7 +4606,7 @@ components:
         ClientGatewayId: ClientGatewayId
         PublicIp: PublicIp
         State: State
-        BgpAsn: 0
+        BgpAsn: ""
         Tags:
         - Value: Value
           Key: Key
@@ -4617,7 +4617,7 @@ components:
           description: An unsigned 32-bits Autonomous System Number (ASN) used by
             the Border Gateway Protocol (BGP) to find out the path to your client
             gateway through the Internet network.
-          type: integer
+          type: long
         ClientGatewayId:
           description: The ID of the client gateway.
           type: string
@@ -4644,14 +4644,14 @@ components:
         ConnectionType: ConnectionType
         PublicIp: PublicIp
         DryRun: true
-        BgpAsn: 0
+        BgpAsn: ""
       properties:
         BgpAsn:
           description: An unsigned 32-bits Autonomous System Number (ASN) used by
             the Border Gateway Protocol (BGP) to find out the path to your client
             gateway through the Internet network. The integer must be within the [0;4294967295]
             range. By default, 65000.
-          type: integer
+          type: long
         ConnectionType:
           description: The communication protocol used to establish tunnel with your
             client gateway (only `ipsec.1` is supported).
@@ -4677,7 +4677,7 @@ components:
           ClientGatewayId: ClientGatewayId
           PublicIp: PublicIp
           State: State
-          BgpAsn: 0
+          BgpAsn: ""
           Tags:
           - Value: Value
             Key: Key
@@ -4752,10 +4752,10 @@ components:
           ClientPrivateIp: ClientPrivateIp
           DirectLinkInterfaceName: DirectLinkInterfaceName
           BgpKey: BgpKey
-          Vlan: 6
+          Vlan: ""
           OutscalePrivateIp: OutscalePrivateIp
           VirtualGatewayId: VirtualGatewayId
-          BgpAsn: 0
+          BgpAsn: ""
         DryRun: true
         DirectLinkId: DirectLinkId
       properties:
@@ -4780,8 +4780,8 @@ components:
           AccountId: AccountId
           BgpKey: BgpKey
           DirectLinkInterfaceId: DirectLinkInterfaceId
-          Vlan: 6
-          BgpAsn: 0
+          Vlan: ""
+          BgpAsn: ""
           InterfaceType: InterfaceType
           State: State
           DirectLinkInterfaceName: DirectLinkInterfaceName
@@ -4914,7 +4914,7 @@ components:
       example:
         ImageExportTask:
           Comment: Comment
-          Progress: 0
+          Progress: ""
           TaskId: TaskId
           State: State
           ImageId: ImageId
@@ -4952,16 +4952,16 @@ components:
             SnapshotId: SnapshotId
             DeleteOnVmDeletion: true
             VolumeType: VolumeType
-            Iops: 0
-            VolumeSize: 6
+            Iops: ""
+            VolumeSize: ""
           VirtualDeviceName: VirtualDeviceName
           DeviceName: DeviceName
         - Bsu:
             SnapshotId: SnapshotId
             DeleteOnVmDeletion: true
             VolumeType: VolumeType
-            Iops: 0
-            VolumeSize: 6
+            Iops: ""
+            VolumeSize: ""
           VirtualDeviceName: VirtualDeviceName
           DeviceName: DeviceName
         DryRun: true
@@ -5035,16 +5035,16 @@ components:
               SnapshotId: SnapshotId
               DeleteOnVmDeletion: true
               VolumeType: VolumeType
-              Iops: 0
-              VolumeSize: 6
+              Iops: ""
+              VolumeSize: ""
             VirtualDeviceName: VirtualDeviceName
             DeviceName: DeviceName
           - Bsu:
               SnapshotId: SnapshotId
               DeleteOnVmDeletion: true
               VolumeType: VolumeType
-              Iops: 0
-              VolumeSize: 6
+              Iops: ""
+              VolumeSize: ""
             VirtualDeviceName: VirtualDeviceName
             DeviceName: DeviceName
           StateComment:
@@ -5137,14 +5137,14 @@ components:
         Listeners:
         - BackendProtocol: BackendProtocol
           LoadBalancerProtocol: LoadBalancerProtocol
-          BackendPort: 0
+          BackendPort: ""
           ServerCertificateId: ServerCertificateId
-          LoadBalancerPort: 6
+          LoadBalancerPort: ""
         - BackendProtocol: BackendProtocol
           LoadBalancerProtocol: LoadBalancerProtocol
-          BackendPort: 0
+          BackendPort: ""
           ServerCertificateId: ServerCertificateId
-          LoadBalancerPort: 6
+          LoadBalancerPort: ""
         DryRun: true
       properties:
         DryRun:
@@ -5172,7 +5172,7 @@ components:
           AccessLog:
             OsuBucketPrefix: OsuBucketPrefix
             IsEnabled: true
-            PublicationInterval: 0
+            PublicationInterval: ""
             OsuBucketName: OsuBucketName
           BackendVmIds:
           - BackendVmIds
@@ -5192,11 +5192,11 @@ components:
             SecurityGroupAccountId: SecurityGroupAccountId
           HealthCheck:
             Path: Path
-            UnhealthyThreshold: 2
-            CheckInterval: 6
-            Timeout: 5
-            HealthyThreshold: 1
-            Port: 5
+            UnhealthyThreshold: ""
+            CheckInterval: ""
+            Timeout: ""
+            HealthyThreshold: ""
+            Port: ""
             Protocol: Protocol
           LoadBalancerType: LoadBalancerType
           LoadBalancerName: LoadBalancerName
@@ -5206,17 +5206,17 @@ components:
             - PolicyNames
             BackendProtocol: BackendProtocol
             LoadBalancerProtocol: LoadBalancerProtocol
-            BackendPort: 7
+            BackendPort: ""
             ServerCertificateId: ServerCertificateId
-            LoadBalancerPort: 9
+            LoadBalancerPort: ""
           - PolicyNames:
             - PolicyNames
             - PolicyNames
             BackendProtocol: BackendProtocol
             LoadBalancerProtocol: LoadBalancerProtocol
-            BackendPort: 7
+            BackendPort: ""
             ServerCertificateId: ServerCertificateId
-            LoadBalancerPort: 9
+            LoadBalancerPort: ""
           Subnets:
           - Subnets
           - Subnets
@@ -5279,7 +5279,7 @@ components:
           AccessLog:
             OsuBucketPrefix: OsuBucketPrefix
             IsEnabled: true
-            PublicationInterval: 0
+            PublicationInterval: ""
             OsuBucketName: OsuBucketName
           BackendVmIds:
           - BackendVmIds
@@ -5299,11 +5299,11 @@ components:
             SecurityGroupAccountId: SecurityGroupAccountId
           HealthCheck:
             Path: Path
-            UnhealthyThreshold: 2
-            CheckInterval: 6
-            Timeout: 5
-            HealthyThreshold: 1
-            Port: 5
+            UnhealthyThreshold: ""
+            CheckInterval: ""
+            Timeout: ""
+            HealthyThreshold: ""
+            Port: ""
             Protocol: Protocol
           LoadBalancerType: LoadBalancerType
           LoadBalancerName: LoadBalancerName
@@ -5313,17 +5313,17 @@ components:
             - PolicyNames
             BackendProtocol: BackendProtocol
             LoadBalancerProtocol: LoadBalancerProtocol
-            BackendPort: 7
+            BackendPort: ""
             ServerCertificateId: ServerCertificateId
-            LoadBalancerPort: 9
+            LoadBalancerPort: ""
           - PolicyNames:
             - PolicyNames
             - PolicyNames
             BackendProtocol: BackendProtocol
             LoadBalancerProtocol: LoadBalancerProtocol
-            BackendPort: 7
+            BackendPort: ""
             ServerCertificateId: ServerCertificateId
-            LoadBalancerPort: 9
+            LoadBalancerPort: ""
           Subnets:
           - Subnets
           - Subnets
@@ -5353,14 +5353,14 @@ components:
         Listeners:
         - BackendProtocol: BackendProtocol
           LoadBalancerProtocol: LoadBalancerProtocol
-          BackendPort: 0
+          BackendPort: ""
           ServerCertificateId: ServerCertificateId
-          LoadBalancerPort: 6
+          LoadBalancerPort: ""
         - BackendProtocol: BackendProtocol
           LoadBalancerProtocol: LoadBalancerProtocol
-          BackendPort: 0
+          BackendPort: ""
           ServerCertificateId: ServerCertificateId
-          LoadBalancerPort: 6
+          LoadBalancerPort: ""
         Subnets:
         - Subnets
         - Subnets
@@ -5430,7 +5430,7 @@ components:
           AccessLog:
             OsuBucketPrefix: OsuBucketPrefix
             IsEnabled: true
-            PublicationInterval: 0
+            PublicationInterval: ""
             OsuBucketName: OsuBucketName
           BackendVmIds:
           - BackendVmIds
@@ -5450,11 +5450,11 @@ components:
             SecurityGroupAccountId: SecurityGroupAccountId
           HealthCheck:
             Path: Path
-            UnhealthyThreshold: 2
-            CheckInterval: 6
-            Timeout: 5
-            HealthyThreshold: 1
-            Port: 5
+            UnhealthyThreshold: ""
+            CheckInterval: ""
+            Timeout: ""
+            HealthyThreshold: ""
+            Port: ""
             Protocol: Protocol
           LoadBalancerType: LoadBalancerType
           LoadBalancerName: LoadBalancerName
@@ -5464,17 +5464,17 @@ components:
             - PolicyNames
             BackendProtocol: BackendProtocol
             LoadBalancerProtocol: LoadBalancerProtocol
-            BackendPort: 7
+            BackendPort: ""
             ServerCertificateId: ServerCertificateId
-            LoadBalancerPort: 9
+            LoadBalancerPort: ""
           - PolicyNames:
             - PolicyNames
             - PolicyNames
             BackendProtocol: BackendProtocol
             LoadBalancerProtocol: LoadBalancerProtocol
-            BackendPort: 7
+            BackendPort: ""
             ServerCertificateId: ServerCertificateId
-            LoadBalancerPort: 9
+            LoadBalancerPort: ""
           Subnets:
           - Subnets
           - Subnets
@@ -5746,7 +5746,7 @@ components:
           Description: Description
           PrivateDnsName: PrivateDnsName
           LinkNic:
-            DeviceNumber: 0
+            DeviceNumber: ""
             DeleteOnVmDeletion: true
             VmAccountId: VmAccountId
             LinkNicId: LinkNicId
@@ -6019,7 +6019,7 @@ components:
           - ServiceIds:
             - ServiceIds
             - ServiceIds
-            ToPortRange: 6
+            ToPortRange: ""
             SecurityGroupsMembers:
             - AccountId: AccountId
               SecurityGroupName: SecurityGroupName
@@ -6031,11 +6031,11 @@ components:
             IpRanges:
             - IpRanges
             - IpRanges
-            FromPortRange: 0
+            FromPortRange: ""
           - ServiceIds:
             - ServiceIds
             - ServiceIds
-            ToPortRange: 6
+            ToPortRange: ""
             SecurityGroupsMembers:
             - AccountId: AccountId
               SecurityGroupName: SecurityGroupName
@@ -6047,7 +6047,7 @@ components:
             IpRanges:
             - IpRanges
             - IpRanges
-            FromPortRange: 0
+            FromPortRange: ""
           NetId: NetId
           AccountId: AccountId
           Description: Description
@@ -6057,7 +6057,7 @@ components:
           - ServiceIds:
             - ServiceIds
             - ServiceIds
-            ToPortRange: 6
+            ToPortRange: ""
             SecurityGroupsMembers:
             - AccountId: AccountId
               SecurityGroupName: SecurityGroupName
@@ -6069,11 +6069,11 @@ components:
             IpRanges:
             - IpRanges
             - IpRanges
-            FromPortRange: 0
+            FromPortRange: ""
           - ServiceIds:
             - ServiceIds
             - ServiceIds
-            ToPortRange: 6
+            ToPortRange: ""
             SecurityGroupsMembers:
             - AccountId: AccountId
               SecurityGroupName: SecurityGroupName
@@ -6085,7 +6085,7 @@ components:
             IpRanges:
             - IpRanges
             - IpRanges
-            FromPortRange: 0
+            FromPortRange: ""
           Tags:
           - Value: Value
             Key: Key
@@ -6100,7 +6100,7 @@ components:
     CreateSecurityGroupRuleRequest:
       example:
         IpRange: IpRange
-        ToPortRange: 6
+        ToPortRange: ""
         SecurityGroupNameToLink: SecurityGroupNameToLink
         SecurityGroupId: SecurityGroupId
         DryRun: true
@@ -6110,7 +6110,7 @@ components:
         - ServiceIds:
           - ServiceIds
           - ServiceIds
-          ToPortRange: 6
+          ToPortRange: ""
           SecurityGroupsMembers:
           - AccountId: AccountId
             SecurityGroupName: SecurityGroupName
@@ -6122,11 +6122,11 @@ components:
           IpRanges:
           - IpRanges
           - IpRanges
-          FromPortRange: 0
+          FromPortRange: ""
         - ServiceIds:
           - ServiceIds
           - ServiceIds
-          ToPortRange: 6
+          ToPortRange: ""
           SecurityGroupsMembers:
           - AccountId: AccountId
             SecurityGroupName: SecurityGroupName
@@ -6138,9 +6138,9 @@ components:
           IpRanges:
           - IpRanges
           - IpRanges
-          FromPortRange: 0
+          FromPortRange: ""
         Flow: Flow
-        FromPortRange: 0
+        FromPortRange: ""
       properties:
         DryRun:
           description: If `true`, checks whether you have the required permissions
@@ -6153,7 +6153,7 @@ components:
         FromPortRange:
           description: The beginning of the port range for the TCP and UDP protocols,
             or an ICMP type number.
-          type: integer
+          type: long
         IpProtocol:
           description: The IP protocol name (`tcp`, `udp`, `icmp`) or protocol number.
             By default, `-1`, which means all protocols.
@@ -6182,7 +6182,7 @@ components:
         ToPortRange:
           description: The end of the port range for the TCP and UDP protocols, or
             an ICMP type number.
-          type: integer
+          type: long
       required:
       - Flow
       - SecurityGroupId
@@ -6196,7 +6196,7 @@ components:
           - ServiceIds:
             - ServiceIds
             - ServiceIds
-            ToPortRange: 6
+            ToPortRange: ""
             SecurityGroupsMembers:
             - AccountId: AccountId
               SecurityGroupName: SecurityGroupName
@@ -6208,11 +6208,11 @@ components:
             IpRanges:
             - IpRanges
             - IpRanges
-            FromPortRange: 0
+            FromPortRange: ""
           - ServiceIds:
             - ServiceIds
             - ServiceIds
-            ToPortRange: 6
+            ToPortRange: ""
             SecurityGroupsMembers:
             - AccountId: AccountId
               SecurityGroupName: SecurityGroupName
@@ -6224,7 +6224,7 @@ components:
             IpRanges:
             - IpRanges
             - IpRanges
-            FromPortRange: 0
+            FromPortRange: ""
           NetId: NetId
           AccountId: AccountId
           Description: Description
@@ -6234,7 +6234,7 @@ components:
           - ServiceIds:
             - ServiceIds
             - ServiceIds
-            ToPortRange: 6
+            ToPortRange: ""
             SecurityGroupsMembers:
             - AccountId: AccountId
               SecurityGroupName: SecurityGroupName
@@ -6246,11 +6246,11 @@ components:
             IpRanges:
             - IpRanges
             - IpRanges
-            FromPortRange: 0
+            FromPortRange: ""
           - ServiceIds:
             - ServiceIds
             - ServiceIds
-            ToPortRange: 6
+            ToPortRange: ""
             SecurityGroupsMembers:
             - AccountId: AccountId
               SecurityGroupName: SecurityGroupName
@@ -6262,7 +6262,7 @@ components:
             IpRanges:
             - IpRanges
             - IpRanges
-            FromPortRange: 0
+            FromPortRange: ""
           Tags:
           - Value: Value
             Key: Key
@@ -6307,7 +6307,7 @@ components:
         SnapshotExportTask:
           Comment: Comment
           SnapshotId: SnapshotId
-          Progress: 0
+          Progress: ""
           TaskId: TaskId
           State: State
           OsuExport:
@@ -6331,7 +6331,7 @@ components:
       type: object
     CreateSnapshotRequest:
       example:
-        SnapshotSize: 0
+        SnapshotSize: ""
         SourceRegionName: SourceRegionName
         VolumeId: VolumeId
         Description: Description
@@ -6354,7 +6354,7 @@ components:
           description: The size of the snapshot created in your account, in gibibytes
             (GiB). This size must be exactly the same as the source snapshot one.
             The maximum allowed size is 14,901 GiB.
-          type: integer
+          type: long
         SourceRegionName:
           description: The name of the source Region, which must be the same as the
             Region of your account.
@@ -6370,7 +6370,7 @@ components:
       example:
         Snapshot:
           SnapshotId: SnapshotId
-          Progress: 0
+          Progress: ""
           VolumeId: VolumeId
           AccountId: AccountId
           Description: Description
@@ -6381,7 +6381,7 @@ components:
             - AccountIds
             GlobalPermission: true
           AccountAlias: AccountAlias
-          VolumeSize: 6
+          VolumeSize: ""
           Tags:
           - Value: Value
             Key: Key
@@ -6427,7 +6427,7 @@ components:
         Subnet:
           IpRange: IpRange
           NetId: NetId
-          AvailableIpsCount: 0
+          AvailableIpsCount: ""
           MapPublicIpOnLaunch: true
           State: State
           SubnetId: SubnetId
@@ -6534,8 +6534,8 @@ components:
             SnapshotId: SnapshotId
             DeleteOnVmDeletion: true
             VolumeType: VolumeType
-            Iops: 0
-            VolumeSize: 6
+            Iops: ""
+            VolumeSize: ""
           NoDevice: NoDevice
           VirtualDeviceName: VirtualDeviceName
           DeviceName: DeviceName
@@ -6543,13 +6543,13 @@ components:
             SnapshotId: SnapshotId
             DeleteOnVmDeletion: true
             VolumeType: VolumeType
-            Iops: 0
-            VolumeSize: 6
+            Iops: ""
+            VolumeSize: ""
           NoDevice: NoDevice
           VirtualDeviceName: VirtualDeviceName
           DeviceName: DeviceName
         DryRun: true
-        MaxVmsCount: 0
+        MaxVmsCount: ""
         DeletionProtection: true
         SubnetId: SubnetId
         SecurityGroupIds:
@@ -6557,8 +6557,8 @@ components:
         - SecurityGroupIds
         KeypairName: KeypairName
         Nics:
-        - SecondaryPrivateIpCount: 5
-          DeviceNumber: 1
+        - SecondaryPrivateIpCount: ""
+          DeviceNumber: ""
           DeleteOnVmDeletion: true
           Description: Description
           PrivateIps:
@@ -6571,8 +6571,8 @@ components:
           - SecurityGroupIds
           - SecurityGroupIds
           NicId: NicId
-        - SecondaryPrivateIpCount: 5
-          DeviceNumber: 1
+        - SecondaryPrivateIpCount: ""
+          DeviceNumber: ""
           DeleteOnVmDeletion: true
           Description: Description
           PrivateIps:
@@ -6594,7 +6594,7 @@ components:
         - PrivateIps
         ImageId: ImageId
         VmType: VmType
-        MinVmsCount: 6
+        MinVmsCount: ""
         ClientToken: ClientToken
         Performance: high
       properties:
@@ -6632,11 +6632,11 @@ components:
           description: The maximum number of VMs you want to create. If all the VMs
             cannot be created, the largest possible number of VMs above MinVmsCount
             is created.
-          type: integer
+          type: long
         MinVmsCount:
           description: The minimum number of VMs you want to create. If this number
             of VMs cannot be created, no VMs are created.
-          type: integer
+          type: long
         Nics:
           description: One or more NICs. If you specify this parameter, you must define
             one NIC as the primary network interface of the VM with `0` as its device
@@ -6718,7 +6718,7 @@ components:
               State: State
               LinkDate: 2000-01-23
             DeviceName: DeviceName
-          LaunchNumber: 0
+          LaunchNumber: ""
           SubnetId: SubnetId
           BsuOptimized: true
           IsSourceDestChecked: true
@@ -6758,7 +6758,7 @@ components:
             Description: Description
             PrivateDnsName: PrivateDnsName
             LinkNic:
-              DeviceNumber: 6
+              DeviceNumber: ""
               DeleteOnVmDeletion: true
               LinkNicId: LinkNicId
               State: State
@@ -6796,7 +6796,7 @@ components:
             Description: Description
             PrivateDnsName: PrivateDnsName
             LinkNic:
-              DeviceNumber: 6
+              DeviceNumber: ""
               DeleteOnVmDeletion: true
               LinkNicId: LinkNicId
               State: State
@@ -6850,7 +6850,7 @@ components:
               State: State
               LinkDate: 2000-01-23
             DeviceName: DeviceName
-          LaunchNumber: 0
+          LaunchNumber: ""
           SubnetId: SubnetId
           BsuOptimized: true
           IsSourceDestChecked: true
@@ -6890,7 +6890,7 @@ components:
             Description: Description
             PrivateDnsName: PrivateDnsName
             LinkNic:
-              DeviceNumber: 6
+              DeviceNumber: ""
               DeleteOnVmDeletion: true
               LinkNicId: LinkNicId
               State: State
@@ -6928,7 +6928,7 @@ components:
             Description: Description
             PrivateDnsName: PrivateDnsName
             LinkNic:
-              DeviceNumber: 6
+              DeviceNumber: ""
               DeleteOnVmDeletion: true
               LinkNicId: LinkNicId
               State: State
@@ -6972,9 +6972,9 @@ components:
       example:
         SnapshotId: SnapshotId
         VolumeType: VolumeType
-        Size: 6
+        Size: ""
         DryRun: true
-        Iops: 0
+        Iops: ""
         SubregionName: SubregionName
       properties:
         DryRun:
@@ -6985,11 +6985,11 @@ components:
           description: The number of I/O operations per second (IOPS). This parameter
             must be specified only if you create an `io1` volume. The maximum number
             of IOPS allowed for `io1` volumes is `13000`.
-          type: integer
+          type: long
         Size:
           description: The size of the volume, in gibibytes (GiB). The maximum allowed
             size for a volume is 14,901 GiB.
-          type: integer
+          type: long
         SnapshotId:
           description: The ID of the snapshot from which you want to create the volume.
           type: string
@@ -7010,7 +7010,7 @@ components:
           SnapshotId: SnapshotId
           VolumeId: VolumeId
           VolumeType: VolumeType
-          Size: 6
+          Size: ""
           State: State
           LinkedVolumes:
           - VolumeId: VolumeId
@@ -7023,7 +7023,7 @@ components:
             State: State
             VmId: VmId
             DeviceName: DeviceName
-          Iops: 0
+          Iops: ""
           Tags:
           - Value: Value
             Key: Key
@@ -7341,8 +7341,8 @@ components:
         LoadBalancerName: LoadBalancerName
         DryRun: true
         LoadBalancerPorts:
-        - 0
-        - 0
+        - ""
+        - ""
       properties:
         DryRun:
           description: If `true`, checks whether you have the required permissions
@@ -7355,7 +7355,7 @@ components:
         LoadBalancerPorts:
           description: One or more port numbers of the listeners you want to delete.
           items:
-            type: integer
+            type: long
           type: array
       required:
       - LoadBalancerName
@@ -7369,7 +7369,7 @@ components:
           AccessLog:
             OsuBucketPrefix: OsuBucketPrefix
             IsEnabled: true
-            PublicationInterval: 0
+            PublicationInterval: ""
             OsuBucketName: OsuBucketName
           BackendVmIds:
           - BackendVmIds
@@ -7389,11 +7389,11 @@ components:
             SecurityGroupAccountId: SecurityGroupAccountId
           HealthCheck:
             Path: Path
-            UnhealthyThreshold: 2
-            CheckInterval: 6
-            Timeout: 5
-            HealthyThreshold: 1
-            Port: 5
+            UnhealthyThreshold: ""
+            CheckInterval: ""
+            Timeout: ""
+            HealthyThreshold: ""
+            Port: ""
             Protocol: Protocol
           LoadBalancerType: LoadBalancerType
           LoadBalancerName: LoadBalancerName
@@ -7403,17 +7403,17 @@ components:
             - PolicyNames
             BackendProtocol: BackendProtocol
             LoadBalancerProtocol: LoadBalancerProtocol
-            BackendPort: 7
+            BackendPort: ""
             ServerCertificateId: ServerCertificateId
-            LoadBalancerPort: 9
+            LoadBalancerPort: ""
           - PolicyNames:
             - PolicyNames
             - PolicyNames
             BackendProtocol: BackendProtocol
             LoadBalancerProtocol: LoadBalancerProtocol
-            BackendPort: 7
+            BackendPort: ""
             ServerCertificateId: ServerCertificateId
-            LoadBalancerPort: 9
+            LoadBalancerPort: ""
           Subnets:
           - Subnets
           - Subnets
@@ -7463,7 +7463,7 @@ components:
           AccessLog:
             OsuBucketPrefix: OsuBucketPrefix
             IsEnabled: true
-            PublicationInterval: 0
+            PublicationInterval: ""
             OsuBucketName: OsuBucketName
           BackendVmIds:
           - BackendVmIds
@@ -7483,11 +7483,11 @@ components:
             SecurityGroupAccountId: SecurityGroupAccountId
           HealthCheck:
             Path: Path
-            UnhealthyThreshold: 2
-            CheckInterval: 6
-            Timeout: 5
-            HealthyThreshold: 1
-            Port: 5
+            UnhealthyThreshold: ""
+            CheckInterval: ""
+            Timeout: ""
+            HealthyThreshold: ""
+            Port: ""
             Protocol: Protocol
           LoadBalancerType: LoadBalancerType
           LoadBalancerName: LoadBalancerName
@@ -7497,17 +7497,17 @@ components:
             - PolicyNames
             BackendProtocol: BackendProtocol
             LoadBalancerProtocol: LoadBalancerProtocol
-            BackendPort: 7
+            BackendPort: ""
             ServerCertificateId: ServerCertificateId
-            LoadBalancerPort: 9
+            LoadBalancerPort: ""
           - PolicyNames:
             - PolicyNames
             - PolicyNames
             BackendProtocol: BackendProtocol
             LoadBalancerProtocol: LoadBalancerProtocol
-            BackendPort: 7
+            BackendPort: ""
             ServerCertificateId: ServerCertificateId
-            LoadBalancerPort: 9
+            LoadBalancerPort: ""
           Subnets:
           - Subnets
           - Subnets
@@ -7816,7 +7816,7 @@ components:
     DeleteSecurityGroupRuleRequest:
       example:
         IpRange: IpRange
-        ToPortRange: 6
+        ToPortRange: ""
         SecurityGroupNameToUnlink: SecurityGroupNameToUnlink
         SecurityGroupId: SecurityGroupId
         DryRun: true
@@ -7825,7 +7825,7 @@ components:
         - ServiceIds:
           - ServiceIds
           - ServiceIds
-          ToPortRange: 6
+          ToPortRange: ""
           SecurityGroupsMembers:
           - AccountId: AccountId
             SecurityGroupName: SecurityGroupName
@@ -7837,11 +7837,11 @@ components:
           IpRanges:
           - IpRanges
           - IpRanges
-          FromPortRange: 0
+          FromPortRange: ""
         - ServiceIds:
           - ServiceIds
           - ServiceIds
-          ToPortRange: 6
+          ToPortRange: ""
           SecurityGroupsMembers:
           - AccountId: AccountId
             SecurityGroupName: SecurityGroupName
@@ -7853,9 +7853,9 @@ components:
           IpRanges:
           - IpRanges
           - IpRanges
-          FromPortRange: 0
+          FromPortRange: ""
         Flow: Flow
-        FromPortRange: 0
+        FromPortRange: ""
         SecurityGroupAccountIdToUnlink: SecurityGroupAccountIdToUnlink
       properties:
         DryRun:
@@ -7869,7 +7869,7 @@ components:
         FromPortRange:
           description: The beginning of the port range for the TCP and UDP protocols,
             or an ICMP type number.
-          type: integer
+          type: long
         IpProtocol:
           description: The IP protocol name (`tcp`, `udp`, `icmp`) or protocol number.
             By default, `-1`, which means all protocols.
@@ -7897,7 +7897,7 @@ components:
         ToPortRange:
           description: The end of the port range for the TCP and UDP protocols, or
             an ICMP type number.
-          type: integer
+          type: long
       required:
       - Flow
       - SecurityGroupId
@@ -7911,7 +7911,7 @@ components:
           - ServiceIds:
             - ServiceIds
             - ServiceIds
-            ToPortRange: 6
+            ToPortRange: ""
             SecurityGroupsMembers:
             - AccountId: AccountId
               SecurityGroupName: SecurityGroupName
@@ -7923,11 +7923,11 @@ components:
             IpRanges:
             - IpRanges
             - IpRanges
-            FromPortRange: 0
+            FromPortRange: ""
           - ServiceIds:
             - ServiceIds
             - ServiceIds
-            ToPortRange: 6
+            ToPortRange: ""
             SecurityGroupsMembers:
             - AccountId: AccountId
               SecurityGroupName: SecurityGroupName
@@ -7939,7 +7939,7 @@ components:
             IpRanges:
             - IpRanges
             - IpRanges
-            FromPortRange: 0
+            FromPortRange: ""
           NetId: NetId
           AccountId: AccountId
           Description: Description
@@ -7949,7 +7949,7 @@ components:
           - ServiceIds:
             - ServiceIds
             - ServiceIds
-            ToPortRange: 6
+            ToPortRange: ""
             SecurityGroupsMembers:
             - AccountId: AccountId
               SecurityGroupName: SecurityGroupName
@@ -7961,11 +7961,11 @@ components:
             IpRanges:
             - IpRanges
             - IpRanges
-            FromPortRange: 0
+            FromPortRange: ""
           - ServiceIds:
             - ServiceIds
             - ServiceIds
-            ToPortRange: 6
+            ToPortRange: ""
             SecurityGroupsMembers:
             - AccountId: AccountId
               SecurityGroupName: SecurityGroupName
@@ -7977,7 +7977,7 @@ components:
             IpRanges:
             - IpRanges
             - IpRanges
-            FromPortRange: 0
+            FromPortRange: ""
           Tags:
           - Value: Value
             Key: Key
@@ -8337,15 +8337,15 @@ components:
         ClientPrivateIp: ClientPrivateIp
         DirectLinkInterfaceName: DirectLinkInterfaceName
         BgpKey: BgpKey
-        Vlan: 6
+        Vlan: ""
         OutscalePrivateIp: OutscalePrivateIp
         VirtualGatewayId: VirtualGatewayId
-        BgpAsn: 0
+        BgpAsn: ""
       properties:
         BgpAsn:
           description: The BGP (Border Gateway Protocol) ASN (Autonomous System Number)
             on the customer's side of the DirectLink interface.
-          type: integer
+          type: long
         BgpKey:
           description: The BGP authentication key.
           type: string
@@ -8363,7 +8363,7 @@ components:
           type: string
         Vlan:
           description: The VLAN number associated with the DirectLink interface.
-          type: integer
+          type: long
       required:
       - BgpAsn
       - DirectLinkInterfaceName
@@ -8377,8 +8377,8 @@ components:
         AccountId: AccountId
         BgpKey: BgpKey
         DirectLinkInterfaceId: DirectLinkInterfaceId
-        Vlan: 6
-        BgpAsn: 0
+        Vlan: ""
+        BgpAsn: ""
         InterfaceType: InterfaceType
         State: State
         DirectLinkInterfaceName: DirectLinkInterfaceName
@@ -8393,7 +8393,7 @@ components:
         BgpAsn:
           description: The BGP (Border Gateway Protocol) ASN (Autonomous System Number)
             on the customer's side of the DirectLink interface.
-          type: integer
+          type: long
         BgpKey:
           description: The BGP authentication key.
           type: string
@@ -8427,7 +8427,7 @@ components:
           type: string
         Vlan:
           description: The VLAN number associated with the DirectLink interface.
-          type: integer
+          type: long
       type: object
     ErrorResponse:
       properties:
@@ -8461,8 +8461,8 @@ components:
         - QueryUserAgents
         - QueryUserAgents
         ResponseStatusCodes:
-        - 0
-        - 0
+        - ""
+        - ""
         QueryDateAfter: 2000-01-23
         QueryDateBefore: 2000-01-23
         QueryIpAddresses:
@@ -8521,7 +8521,7 @@ components:
         ResponseStatusCodes:
           description: One or more HTTP codes provided by the responses.
           items:
-            type: integer
+            type: long
           type: array
       type: object
     FiltersClientGateway:
@@ -8540,8 +8540,8 @@ components:
         - ClientGatewayIds
         - ClientGatewayIds
         BgpAsns:
-        - 0
-        - 0
+        - ""
+        - ""
         TagKeys:
         - TagKeys
         - TagKeys
@@ -8556,7 +8556,7 @@ components:
           description: The Border Gateway Protocol (BGP) Autonomous System Numbers
             (ASNs) of the connections.
           items:
-            type: integer
+            type: long
           type: array
         ClientGatewayIds:
           description: The IDs of the client gateways.
@@ -8822,8 +8822,8 @@ components:
         - BlockDeviceMappingSnapshotIds
         - BlockDeviceMappingSnapshotIds
         BlockDeviceMappingVolumeSizes:
-        - 0
-        - 0
+        - ""
+        - ""
         ImageNames:
         - ImageNames
         - ImageNames
@@ -8885,7 +8885,7 @@ components:
         BlockDeviceMappingVolumeSizes:
           description: The sizes of the volumes, in gibibytes (GiB).
           items:
-            type: integer
+            type: long
           type: array
         BlockDeviceMappingVolumeTypes:
           description: The types of volumes (`standard` \| `gp2` \| `io1`).
@@ -9331,8 +9331,8 @@ components:
       description: One or more filters.
       example:
         LinkNicSortNumbers:
-        - 0
-        - 0
+        - ""
+        - ""
         PrivateIpsPrivateIps:
         - PrivateIpsPrivateIps
         - PrivateIpsPrivateIps
@@ -9349,7 +9349,7 @@ components:
         LinkNicSortNumbers:
           description: The device numbers the NICs are attached to.
           items:
-            type: integer
+            type: long
           type: array
         LinkNicVmIds:
           description: The IDs of the VMs the NICs are attached to.
@@ -9718,14 +9718,14 @@ components:
       description: One or more filters.
       example:
         VolumeSizes:
-        - 6
-        - 6
+        - ""
+        - ""
         AccountIds:
         - AccountIds
         - AccountIds
         Progresses:
-        - 0
-        - 0
+        - ""
+        - ""
         SnapshotIds:
         - SnapshotIds
         - SnapshotIds
@@ -9783,7 +9783,7 @@ components:
         Progresses:
           description: The progresses of the snapshots, as a percentage.
           items:
-            type: integer
+            type: long
           type: array
         SnapshotIds:
           description: The IDs of the snapshots.
@@ -9820,7 +9820,7 @@ components:
           description: The sizes of the volumes used to create the snapshots, in gibibytes
             (GiB).
           items:
-            type: integer
+            type: long
           type: array
       type: object
     FiltersSubnet:
@@ -9833,8 +9833,8 @@ components:
         - NetIds
         - NetIds
         AvailableIpsCounts:
-        - 0
-        - 0
+        - ""
+        - ""
         SubregionNames:
         - SubregionNames
         - SubregionNames
@@ -9848,7 +9848,7 @@ components:
         AvailableIpsCounts:
           description: The number of available IPs.
           items:
-            type: integer
+            type: long
           type: array
         IpRanges:
           description: The IP ranges in the Subnets, in CIDR notation (for example,
@@ -10050,17 +10050,17 @@ components:
       description: One or more filters.
       example:
         VolumeSizes:
-        - 5
-        - 5
+        - ""
+        - ""
         VcoreCounts:
-        - 6
-        - 6
+        - ""
+        - ""
         VolumeCounts:
-        - 1
-        - 1
+        - ""
+        - ""
         MemorySizes:
-        - 0
-        - 0
+        - ""
+        - ""
         BsuOptimized: true
         VmTypeNames:
         - VmTypeNames
@@ -10072,12 +10072,12 @@ components:
         MemorySizes:
           description: The amounts of memory, in bytes.
           items:
-            type: integer
+            type: long
           type: array
         VcoreCounts:
           description: The numbers of vCores.
           items:
-            type: integer
+            type: long
           type: array
         VmTypeNames:
           description: The names of the VM types. For more information, see [Instance
@@ -10088,12 +10088,12 @@ components:
         VolumeCounts:
           description: The maximum number of ephemeral storage disks.
           items:
-            type: integer
+            type: long
           type: array
         VolumeSizes:
           description: The size of one ephemeral storage disk, in gibibytes (GiB).
           items:
-            type: integer
+            type: long
           type: array
       type: object
     FiltersVmsState:
@@ -10130,8 +10130,8 @@ components:
       description: One or more filters.
       example:
         VolumeSizes:
-        - 0
-        - 0
+        - ""
+        - ""
         CreationDates:
         - 2000-01-23
         - 2000-01-23
@@ -10239,7 +10239,7 @@ components:
         VolumeSizes:
           description: The sizes of the volumes, in gibibytes (GiB).
           items:
-            type: integer
+            type: long
           type: array
         VolumeStates:
           description: The states of the volumes (`creating` \| `available` \| `in-use`
@@ -10272,8 +10272,8 @@ components:
         - ClientGatewayIds
         - ClientGatewayIds
         BgpAsns:
-        - 0
-        - 0
+        - ""
+        - ""
         StaticRoutesOnly: true
         VirtualGatewayIds:
         - VirtualGatewayIds
@@ -10283,7 +10283,7 @@ components:
           description: The Border Gateway Protocol (BGP) Autonomous System Numbers
             (ASNs) of the connections.
           items:
-            type: integer
+            type: long
           type: array
         ClientGatewayIds:
           description: The IDs of the client gateways.
@@ -10358,10 +10358,10 @@ components:
       description: Information about the flexible GPU (fGPU) that is available in
         the public catalog.
       example:
-        VRam: 1
+        VRam: ""
         ModelName: ModelName
-        MaxCpu: 0
-        MaxRam: 6
+        MaxCpu: ""
+        MaxRam: ""
         Generations: Generations
       properties:
         Generations:
@@ -10370,43 +10370,43 @@ components:
         MaxCpu:
           description: The maximum number of VM vCores that the fGPU is compatible
             with.
-          type: integer
+          type: long
         MaxRam:
           description: The maximum amount of VM memory that the fGPU is compatible
             with.
-          type: integer
+          type: long
         ModelName:
           description: The model of fGPU.
           type: string
         VRam:
           description: The amount of video RAM (VRAM) of the fGPU.
-          type: integer
+          type: long
       type: object
     HealthCheck:
       description: Information about the health check configuration.
       example:
         Path: Path
-        UnhealthyThreshold: 2
-        CheckInterval: 6
-        Timeout: 5
-        HealthyThreshold: 1
-        Port: 5
+        UnhealthyThreshold: ""
+        CheckInterval: ""
+        Timeout: ""
+        HealthyThreshold: ""
+        Port: ""
         Protocol: Protocol
       properties:
         CheckInterval:
           description: The number of seconds between two pings (between `5` and `600`
             both included).
-          type: integer
+          type: long
         HealthyThreshold:
           description: The number of consecutive successful pings before considering
             the VM as healthy (between `2` and `10` both included).
-          type: integer
+          type: long
         Path:
           description: The path for HTTP or HTTPS requests.
           type: string
         Port:
           description: The port number (between `1` and `65535`, both included).
-          type: integer
+          type: long
         Protocol:
           description: The protocol for the URL of the VM (`HTTP` \| `HTTPS` \| `TCP`
             \| `SSL` \| `UDP`).
@@ -10414,11 +10414,11 @@ components:
         Timeout:
           description: The maximum waiting time for a response before considering
             the VM as unhealthy, in seconds (between `2` and `60` both included).
-          type: integer
+          type: long
         UnhealthyThreshold:
           description: The number of consecutive failed pings before considering the
             VM as unhealthy (between `2` and `10` both included).
-          type: integer
+          type: long
       required:
       - CheckInterval
       - HealthyThreshold
@@ -10449,16 +10449,16 @@ components:
             SnapshotId: SnapshotId
             DeleteOnVmDeletion: true
             VolumeType: VolumeType
-            Iops: 0
-            VolumeSize: 6
+            Iops: ""
+            VolumeSize: ""
           VirtualDeviceName: VirtualDeviceName
           DeviceName: DeviceName
         - Bsu:
             SnapshotId: SnapshotId
             DeleteOnVmDeletion: true
             VolumeType: VolumeType
-            Iops: 0
-            VolumeSize: 6
+            Iops: ""
+            VolumeSize: ""
           VirtualDeviceName: VirtualDeviceName
           DeviceName: DeviceName
         StateComment:
@@ -10540,7 +10540,7 @@ components:
       description: Information about the OMI export task.
       example:
         Comment: Comment
-        Progress: 0
+        Progress: ""
         TaskId: TaskId
         State: State
         ImageId: ImageId
@@ -10568,7 +10568,7 @@ components:
           $ref: '#/components/schemas/OsuExport'
         Progress:
           description: The progress of the OMI export task, as a percentage.
-          type: integer
+          type: long
         State:
           description: The state of the OMI export task (`pending/queued` \| `pending`
             \| `completed` \| `failed` \| `cancelled`).
@@ -10704,7 +10704,7 @@ components:
     LinkNic:
       description: Information about the NIC attachment.
       example:
-        DeviceNumber: 0
+        DeviceNumber: ""
         DeleteOnVmDeletion: true
         VmAccountId: VmAccountId
         LinkNicId: LinkNicId
@@ -10717,7 +10717,7 @@ components:
         DeviceNumber:
           description: The device index for the NIC attachment (between 1 and 7, both
             included).
-          type: integer
+          type: long
         LinkNicId:
           description: The ID of the NIC to attach.
           type: string
@@ -10735,7 +10735,7 @@ components:
     LinkNicLight:
       description: Information about the network interface card (NIC).
       example:
-        DeviceNumber: 6
+        DeviceNumber: ""
         DeleteOnVmDeletion: true
         LinkNicId: LinkNicId
         State: State
@@ -10746,7 +10746,7 @@ components:
         DeviceNumber:
           description: The device index for the NIC attachment (between 1 and 7, both
             included).
-          type: integer
+          type: long
         LinkNicId:
           description: The ID of the NIC to attach.
           type: string
@@ -10757,7 +10757,7 @@ components:
       type: object
     LinkNicRequest:
       example:
-        DeviceNumber: 0
+        DeviceNumber: ""
         DryRun: true
         VmId: VmId
         NicId: NicId
@@ -10765,7 +10765,7 @@ components:
         DeviceNumber:
           description: The index of the VM device for the NIC attachment (between
             1 and 7, both included).
-          type: integer
+          type: long
         DryRun:
           description: If `true`, checks whether you have the required permissions
             to perform the action.
@@ -10809,7 +10809,7 @@ components:
       type: object
     LinkPrivateIpsRequest:
       example:
-        SecondaryPrivateIpCount: 0
+        SecondaryPrivateIpCount: ""
         AllowRelink: true
         PrivateIps:
         - PrivateIps
@@ -10837,7 +10837,7 @@ components:
         SecondaryPrivateIpCount:
           description: The number of secondary private IP addresses to assign to the
             NIC.
-          type: integer
+          type: long
       required:
       - NicId
       type: object
@@ -11102,14 +11102,14 @@ components:
         - PolicyNames
         BackendProtocol: BackendProtocol
         LoadBalancerProtocol: LoadBalancerProtocol
-        BackendPort: 7
+        BackendPort: ""
         ServerCertificateId: ServerCertificateId
-        LoadBalancerPort: 9
+        LoadBalancerPort: ""
       properties:
         BackendPort:
           description: The port on which the back-end VM is listening (between `1`
             and `65535`, both included).
-          type: integer
+          type: long
         BackendProtocol:
           description: The protocol for routing traffic to back-end VMs (`HTTP` \|
             `HTTPS` \| `TCP` \| `SSL` \| `UDP`).
@@ -11117,7 +11117,7 @@ components:
         LoadBalancerPort:
           description: The port on which the load balancer is listening (between 1
             and `65535`, both included).
-          type: integer
+          type: long
         LoadBalancerProtocol:
           description: The routing protocol (`HTTP` \| `HTTPS` \| `TCP` \| `SSL` \|
             `UDP`).
@@ -11137,14 +11137,14 @@ components:
       example:
         BackendProtocol: BackendProtocol
         LoadBalancerProtocol: LoadBalancerProtocol
-        BackendPort: 0
+        BackendPort: ""
         ServerCertificateId: ServerCertificateId
-        LoadBalancerPort: 6
+        LoadBalancerPort: ""
       properties:
         BackendPort:
           description: The port on which the back-end VM is listening (between `1`
             and `65535`, both included).
-          type: integer
+          type: long
         BackendProtocol:
           description: The protocol for routing traffic to back-end VMs (`HTTP` \|
             `HTTPS` \| `TCP` \| `SSL` \| `UDP`).
@@ -11152,7 +11152,7 @@ components:
         LoadBalancerPort:
           description: The port on which the load balancer is listening (between `1`
             and `65535`, both included).
-          type: integer
+          type: long
         LoadBalancerProtocol:
           description: The routing protocol (`HTTP` \| `HTTPS` \| `TCP` \| `SSL` \|
             `UDP`).
@@ -11171,7 +11171,7 @@ components:
         AccessLog:
           OsuBucketPrefix: OsuBucketPrefix
           IsEnabled: true
-          PublicationInterval: 0
+          PublicationInterval: ""
           OsuBucketName: OsuBucketName
         BackendVmIds:
         - BackendVmIds
@@ -11191,11 +11191,11 @@ components:
           SecurityGroupAccountId: SecurityGroupAccountId
         HealthCheck:
           Path: Path
-          UnhealthyThreshold: 2
-          CheckInterval: 6
-          Timeout: 5
-          HealthyThreshold: 1
-          Port: 5
+          UnhealthyThreshold: ""
+          CheckInterval: ""
+          Timeout: ""
+          HealthyThreshold: ""
+          Port: ""
           Protocol: Protocol
         LoadBalancerType: LoadBalancerType
         LoadBalancerName: LoadBalancerName
@@ -11205,17 +11205,17 @@ components:
           - PolicyNames
           BackendProtocol: BackendProtocol
           LoadBalancerProtocol: LoadBalancerProtocol
-          BackendPort: 7
+          BackendPort: ""
           ServerCertificateId: ServerCertificateId
-          LoadBalancerPort: 9
+          LoadBalancerPort: ""
         - PolicyNames:
           - PolicyNames
           - PolicyNames
           BackendProtocol: BackendProtocol
           LoadBalancerProtocol: LoadBalancerProtocol
-          BackendPort: 7
+          BackendPort: ""
           ServerCertificateId: ServerCertificateId
-          LoadBalancerPort: 9
+          LoadBalancerPort: ""
         Subnets:
         - Subnets
         - Subnets
@@ -11325,17 +11325,17 @@ components:
         QueryApiName: QueryApiName
         QueryDate: 2000-01-23
         AccountId: AccountId
-        QueryPayloadSize: 1
+        QueryPayloadSize: ""
         RequestId: RequestId
         QueryUserAgent: QueryUserAgent
         QueryApiVersion: QueryApiVersion
-        QueryHeaderSize: 6
+        QueryHeaderSize: ""
         QueryCallName: QueryCallName
-        CallDuration: 0
+        CallDuration: ""
         QueryPayloadRaw: QueryPayloadRaw
         QueryIpAddress: QueryIpAddress
-        ResponseSize: 5
-        ResponseStatusCode: 5
+        ResponseSize: ""
+        ResponseStatusCode: ""
         QueryHeaderRaw: QueryHeaderRaw
       properties:
         AccountId:
@@ -11343,7 +11343,7 @@ components:
           type: string
         CallDuration:
           description: The duration of the call (in milliseconds).
-          type: integer
+          type: long
         QueryAccessKey:
           description: The API key used for the query.
           type: string
@@ -11366,7 +11366,7 @@ components:
           type: string
         QueryHeaderSize:
           description: The query header size.
-          type: integer
+          type: long
         QueryIpAddress:
           description: The IP address used for the query.
           type: string
@@ -11375,7 +11375,7 @@ components:
           type: string
         QueryPayloadSize:
           description: The query payload size.
-          type: integer
+          type: long
         QueryUserAgent:
           description: The user agent used for the HTTP request.
           type: string
@@ -11384,10 +11384,10 @@ components:
           type: string
         ResponseSize:
           description: The size of the response (in bytes).
-          type: integer
+          type: long
         ResponseStatusCode:
           description: The HTTP code provided in the response.
-          type: integer
+          type: long
       type: object
     MaintenanceEvent:
       description: Information about the maintenance event.
@@ -11615,7 +11615,7 @@ components:
         Description: Description
         PrivateDnsName: PrivateDnsName
         LinkNic:
-          DeviceNumber: 0
+          DeviceNumber: ""
           DeleteOnVmDeletion: true
           VmAccountId: VmAccountId
           LinkNicId: LinkNicId
@@ -11709,8 +11709,8 @@ components:
       description: Information about the network interface card (NIC) when creating
         a virtual machine (VM).
       example:
-        SecondaryPrivateIpCount: 5
-        DeviceNumber: 1
+        SecondaryPrivateIpCount: ""
+        DeviceNumber: ""
         DeleteOnVmDeletion: true
         Description: Description
         PrivateIps:
@@ -11736,7 +11736,7 @@ components:
           description: The index of the VM device for the NIC attachment (between
             0 and 7, both included). This parameter is required if you create a NIC
             when creating the VM.
-          type: integer
+          type: long
         NicId:
           description: The ID of the NIC, if you are attaching an existing NIC when
             creating a VM.
@@ -11752,7 +11752,7 @@ components:
           description: The number of secondary private IP addresses, if you create
             a NIC when creating a VM. This parameter cannot be specified if you specified
             more than one private IP address in the `PrivateIps` parameter.
-          type: integer
+          type: long
         SecurityGroupIds:
           description: One or more IDs of security groups for the NIC, if you acreate
             a NIC when creating a VM.
@@ -11781,7 +11781,7 @@ components:
         Description: Description
         PrivateDnsName: PrivateDnsName
         LinkNic:
-          DeviceNumber: 6
+          DeviceNumber: ""
           DeleteOnVmDeletion: true
           LinkNicId: LinkNicId
           State: State
@@ -12092,8 +12092,8 @@ components:
         QuotaCollection: QuotaCollection
         AccountId: AccountId
         Description: Description
-        UsedValue: 6
-        MaxValue: 0
+        UsedValue: ""
+        MaxValue: ""
         Name: Name
         ShortDescription: ShortDescription
       properties:
@@ -12106,7 +12106,7 @@ components:
         MaxValue:
           description: The maximum value of the quota for the 3DS OUTSCALE user account
             (if there is no limit, `0`).
-          type: integer
+          type: long
         Name:
           description: The unique name of the quota.
           type: string
@@ -12118,7 +12118,7 @@ components:
           type: string
         UsedValue:
           description: The limit value currently used by the 3DS OUTSCALE user account.
-          type: integer
+          type: long
       type: object
     QuotaTypes:
       description: One or more quotas.
@@ -12127,15 +12127,15 @@ components:
         - QuotaCollection: QuotaCollection
           AccountId: AccountId
           Description: Description
-          UsedValue: 6
-          MaxValue: 0
+          UsedValue: ""
+          MaxValue: ""
           Name: Name
           ShortDescription: ShortDescription
         - QuotaCollection: QuotaCollection
           AccountId: AccountId
           Description: Description
-          UsedValue: 6
-          MaxValue: 0
+          UsedValue: ""
+          MaxValue: ""
           Name: Name
           ShortDescription: ShortDescription
         QuotaType: QuotaType
@@ -12192,8 +12192,8 @@ components:
           - QueryUserAgents
           - QueryUserAgents
           ResponseStatusCodes:
-          - 0
-          - 0
+          - ""
+          - ""
           QueryDateAfter: 2000-01-23
           QueryDateBefore: 2000-01-23
           QueryIpAddresses:
@@ -12210,7 +12210,7 @@ components:
           - QueryApiNames
         NextPageToken: NextPageToken
         DryRun: true
-        ResultsPerPage: 6
+        ResultsPerPage: ""
         With:
           QueryAccessKey: true
           QueryApiName: true
@@ -12241,7 +12241,7 @@ components:
         ResultsPerPage:
           description: The maximum number of items returned in a single page. By default,
             100.
-          type: integer
+          type: long
         With:
           $ref: '#/components/schemas/With'
       type: object
@@ -12255,33 +12255,33 @@ components:
           QueryApiName: QueryApiName
           QueryDate: 2000-01-23
           AccountId: AccountId
-          QueryPayloadSize: 1
+          QueryPayloadSize: ""
           RequestId: RequestId
           QueryUserAgent: QueryUserAgent
           QueryApiVersion: QueryApiVersion
-          QueryHeaderSize: 6
+          QueryHeaderSize: ""
           QueryCallName: QueryCallName
-          CallDuration: 0
+          CallDuration: ""
           QueryPayloadRaw: QueryPayloadRaw
           QueryIpAddress: QueryIpAddress
-          ResponseSize: 5
-          ResponseStatusCode: 5
+          ResponseSize: ""
+          ResponseStatusCode: ""
           QueryHeaderRaw: QueryHeaderRaw
         - QueryAccessKey: QueryAccessKey
           QueryApiName: QueryApiName
           QueryDate: 2000-01-23
           AccountId: AccountId
-          QueryPayloadSize: 1
+          QueryPayloadSize: ""
           RequestId: RequestId
           QueryUserAgent: QueryUserAgent
           QueryApiVersion: QueryApiVersion
-          QueryHeaderSize: 6
+          QueryHeaderSize: ""
           QueryCallName: QueryCallName
-          CallDuration: 0
+          CallDuration: ""
           QueryPayloadRaw: QueryPayloadRaw
           QueryIpAddress: QueryIpAddress
-          ResponseSize: 5
-          ResponseStatusCode: 5
+          ResponseSize: ""
+          ResponseStatusCode: ""
           QueryHeaderRaw: QueryHeaderRaw
       properties:
         Logs:
@@ -12311,8 +12311,8 @@ components:
           - ClientGatewayIds
           - ClientGatewayIds
           BgpAsns:
-          - 0
-          - 0
+          - ""
+          - ""
           TagKeys:
           - TagKeys
           - TagKeys
@@ -12340,7 +12340,7 @@ components:
           ClientGatewayId: ClientGatewayId
           PublicIp: PublicIp
           State: State
-          BgpAsn: 0
+          BgpAsn: ""
           Tags:
           - Value: Value
             Key: Key
@@ -12350,7 +12350,7 @@ components:
           ClientGatewayId: ClientGatewayId
           PublicIp: PublicIp
           State: State
-          BgpAsn: 0
+          BgpAsn: ""
           Tags:
           - Value: Value
             Key: Key
@@ -12500,8 +12500,8 @@ components:
           AccountId: AccountId
           BgpKey: BgpKey
           DirectLinkInterfaceId: DirectLinkInterfaceId
-          Vlan: 6
-          BgpAsn: 0
+          Vlan: ""
+          BgpAsn: ""
           InterfaceType: InterfaceType
           State: State
           DirectLinkInterfaceName: DirectLinkInterfaceName
@@ -12513,8 +12513,8 @@ components:
           AccountId: AccountId
           BgpKey: BgpKey
           DirectLinkInterfaceId: DirectLinkInterfaceId
-          Vlan: 6
-          BgpAsn: 0
+          Vlan: ""
+          BgpAsn: ""
           InterfaceType: InterfaceType
           State: State
           DirectLinkInterfaceName: DirectLinkInterfaceName
@@ -12590,15 +12590,15 @@ components:
         ResponseContext:
           RequestId: RequestId
         FlexibleGpuCatalog:
-        - VRam: 1
+        - VRam: ""
           ModelName: ModelName
-          MaxCpu: 0
-          MaxRam: 6
+          MaxCpu: ""
+          MaxRam: ""
           Generations: Generations
-        - VRam: 1
+        - VRam: ""
           ModelName: ModelName
-          MaxCpu: 0
-          MaxRam: 6
+          MaxCpu: ""
+          MaxRam: ""
           Generations: Generations
       properties:
         FlexibleGpuCatalog:
@@ -12694,7 +12694,7 @@ components:
           RequestId: RequestId
         ImageExportTasks:
         - Comment: Comment
-          Progress: 0
+          Progress: ""
           TaskId: TaskId
           State: State
           ImageId: ImageId
@@ -12712,7 +12712,7 @@ components:
           - Value: Value
             Key: Key
         - Comment: Comment
-          Progress: 0
+          Progress: ""
           TaskId: TaskId
           State: State
           ImageId: ImageId
@@ -12771,8 +12771,8 @@ components:
           - BlockDeviceMappingSnapshotIds
           - BlockDeviceMappingSnapshotIds
           BlockDeviceMappingVolumeSizes:
-          - 0
-          - 0
+          - ""
+          - ""
           ImageNames:
           - ImageNames
           - ImageNames
@@ -12830,16 +12830,16 @@ components:
               SnapshotId: SnapshotId
               DeleteOnVmDeletion: true
               VolumeType: VolumeType
-              Iops: 0
-              VolumeSize: 6
+              Iops: ""
+              VolumeSize: ""
             VirtualDeviceName: VirtualDeviceName
             DeviceName: DeviceName
           - Bsu:
               SnapshotId: SnapshotId
               DeleteOnVmDeletion: true
               VolumeType: VolumeType
-              Iops: 0
-              VolumeSize: 6
+              Iops: ""
+              VolumeSize: ""
             VirtualDeviceName: VirtualDeviceName
             DeviceName: DeviceName
           StateComment:
@@ -12875,16 +12875,16 @@ components:
               SnapshotId: SnapshotId
               DeleteOnVmDeletion: true
               VolumeType: VolumeType
-              Iops: 0
-              VolumeSize: 6
+              Iops: ""
+              VolumeSize: ""
             VirtualDeviceName: VirtualDeviceName
             DeviceName: DeviceName
           - Bsu:
               SnapshotId: SnapshotId
               DeleteOnVmDeletion: true
               VolumeType: VolumeType
-              Iops: 0
-              VolumeSize: 6
+              Iops: ""
+              VolumeSize: ""
             VirtualDeviceName: VirtualDeviceName
             DeviceName: DeviceName
           StateComment:
@@ -13026,7 +13026,7 @@ components:
         - AccessLog:
             OsuBucketPrefix: OsuBucketPrefix
             IsEnabled: true
-            PublicationInterval: 0
+            PublicationInterval: ""
             OsuBucketName: OsuBucketName
           BackendVmIds:
           - BackendVmIds
@@ -13046,11 +13046,11 @@ components:
             SecurityGroupAccountId: SecurityGroupAccountId
           HealthCheck:
             Path: Path
-            UnhealthyThreshold: 2
-            CheckInterval: 6
-            Timeout: 5
-            HealthyThreshold: 1
-            Port: 5
+            UnhealthyThreshold: ""
+            CheckInterval: ""
+            Timeout: ""
+            HealthyThreshold: ""
+            Port: ""
             Protocol: Protocol
           LoadBalancerType: LoadBalancerType
           LoadBalancerName: LoadBalancerName
@@ -13060,17 +13060,17 @@ components:
             - PolicyNames
             BackendProtocol: BackendProtocol
             LoadBalancerProtocol: LoadBalancerProtocol
-            BackendPort: 7
+            BackendPort: ""
             ServerCertificateId: ServerCertificateId
-            LoadBalancerPort: 9
+            LoadBalancerPort: ""
           - PolicyNames:
             - PolicyNames
             - PolicyNames
             BackendProtocol: BackendProtocol
             LoadBalancerProtocol: LoadBalancerProtocol
-            BackendPort: 7
+            BackendPort: ""
             ServerCertificateId: ServerCertificateId
-            LoadBalancerPort: 9
+            LoadBalancerPort: ""
           Subnets:
           - Subnets
           - Subnets
@@ -13088,7 +13088,7 @@ components:
         - AccessLog:
             OsuBucketPrefix: OsuBucketPrefix
             IsEnabled: true
-            PublicationInterval: 0
+            PublicationInterval: ""
             OsuBucketName: OsuBucketName
           BackendVmIds:
           - BackendVmIds
@@ -13108,11 +13108,11 @@ components:
             SecurityGroupAccountId: SecurityGroupAccountId
           HealthCheck:
             Path: Path
-            UnhealthyThreshold: 2
-            CheckInterval: 6
-            Timeout: 5
-            HealthyThreshold: 1
-            Port: 5
+            UnhealthyThreshold: ""
+            CheckInterval: ""
+            Timeout: ""
+            HealthyThreshold: ""
+            Port: ""
             Protocol: Protocol
           LoadBalancerType: LoadBalancerType
           LoadBalancerName: LoadBalancerName
@@ -13122,17 +13122,17 @@ components:
             - PolicyNames
             BackendProtocol: BackendProtocol
             LoadBalancerProtocol: LoadBalancerProtocol
-            BackendPort: 7
+            BackendPort: ""
             ServerCertificateId: ServerCertificateId
-            LoadBalancerPort: 9
+            LoadBalancerPort: ""
           - PolicyNames:
             - PolicyNames
             - PolicyNames
             BackendProtocol: BackendProtocol
             LoadBalancerProtocol: LoadBalancerProtocol
-            BackendPort: 7
+            BackendPort: ""
             ServerCertificateId: ServerCertificateId
-            LoadBalancerPort: 9
+            LoadBalancerPort: ""
           Subnets:
           - Subnets
           - Subnets
@@ -13538,8 +13538,8 @@ components:
       example:
         Filters:
           LinkNicSortNumbers:
-          - 0
-          - 0
+          - ""
+          - ""
           PrivateIpsPrivateIps:
           - PrivateIpsPrivateIps
           - PrivateIpsPrivateIps
@@ -13582,7 +13582,7 @@ components:
           Description: Description
           PrivateDnsName: PrivateDnsName
           LinkNic:
-            DeviceNumber: 0
+            DeviceNumber: ""
             DeleteOnVmDeletion: true
             VmAccountId: VmAccountId
             LinkNicId: LinkNicId
@@ -13634,7 +13634,7 @@ components:
           Description: Description
           PrivateDnsName: PrivateDnsName
           LinkNic:
-            DeviceNumber: 0
+            DeviceNumber: ""
             DeleteOnVmDeletion: true
             VmAccountId: VmAccountId
             LinkNicId: LinkNicId
@@ -13854,15 +13854,15 @@ components:
           - QuotaCollection: QuotaCollection
             AccountId: AccountId
             Description: Description
-            UsedValue: 6
-            MaxValue: 0
+            UsedValue: ""
+            MaxValue: ""
             Name: Name
             ShortDescription: ShortDescription
           - QuotaCollection: QuotaCollection
             AccountId: AccountId
             Description: Description
-            UsedValue: 6
-            MaxValue: 0
+            UsedValue: ""
+            MaxValue: ""
             Name: Name
             ShortDescription: ShortDescription
           QuotaType: QuotaType
@@ -13870,15 +13870,15 @@ components:
           - QuotaCollection: QuotaCollection
             AccountId: AccountId
             Description: Description
-            UsedValue: 6
-            MaxValue: 0
+            UsedValue: ""
+            MaxValue: ""
             Name: Name
             ShortDescription: ShortDescription
           - QuotaCollection: QuotaCollection
             AccountId: AccountId
             Description: Description
-            UsedValue: 6
-            MaxValue: 0
+            UsedValue: ""
+            MaxValue: ""
             Name: Name
             ShortDescription: ShortDescription
           QuotaType: QuotaType
@@ -14082,7 +14082,7 @@ components:
           - ServiceIds:
             - ServiceIds
             - ServiceIds
-            ToPortRange: 6
+            ToPortRange: ""
             SecurityGroupsMembers:
             - AccountId: AccountId
               SecurityGroupName: SecurityGroupName
@@ -14094,11 +14094,11 @@ components:
             IpRanges:
             - IpRanges
             - IpRanges
-            FromPortRange: 0
+            FromPortRange: ""
           - ServiceIds:
             - ServiceIds
             - ServiceIds
-            ToPortRange: 6
+            ToPortRange: ""
             SecurityGroupsMembers:
             - AccountId: AccountId
               SecurityGroupName: SecurityGroupName
@@ -14110,7 +14110,7 @@ components:
             IpRanges:
             - IpRanges
             - IpRanges
-            FromPortRange: 0
+            FromPortRange: ""
           NetId: NetId
           AccountId: AccountId
           Description: Description
@@ -14120,7 +14120,7 @@ components:
           - ServiceIds:
             - ServiceIds
             - ServiceIds
-            ToPortRange: 6
+            ToPortRange: ""
             SecurityGroupsMembers:
             - AccountId: AccountId
               SecurityGroupName: SecurityGroupName
@@ -14132,11 +14132,11 @@ components:
             IpRanges:
             - IpRanges
             - IpRanges
-            FromPortRange: 0
+            FromPortRange: ""
           - ServiceIds:
             - ServiceIds
             - ServiceIds
-            ToPortRange: 6
+            ToPortRange: ""
             SecurityGroupsMembers:
             - AccountId: AccountId
               SecurityGroupName: SecurityGroupName
@@ -14148,7 +14148,7 @@ components:
             IpRanges:
             - IpRanges
             - IpRanges
-            FromPortRange: 0
+            FromPortRange: ""
           Tags:
           - Value: Value
             Key: Key
@@ -14158,7 +14158,7 @@ components:
           - ServiceIds:
             - ServiceIds
             - ServiceIds
-            ToPortRange: 6
+            ToPortRange: ""
             SecurityGroupsMembers:
             - AccountId: AccountId
               SecurityGroupName: SecurityGroupName
@@ -14170,11 +14170,11 @@ components:
             IpRanges:
             - IpRanges
             - IpRanges
-            FromPortRange: 0
+            FromPortRange: ""
           - ServiceIds:
             - ServiceIds
             - ServiceIds
-            ToPortRange: 6
+            ToPortRange: ""
             SecurityGroupsMembers:
             - AccountId: AccountId
               SecurityGroupName: SecurityGroupName
@@ -14186,7 +14186,7 @@ components:
             IpRanges:
             - IpRanges
             - IpRanges
-            FromPortRange: 0
+            FromPortRange: ""
           NetId: NetId
           AccountId: AccountId
           Description: Description
@@ -14196,7 +14196,7 @@ components:
           - ServiceIds:
             - ServiceIds
             - ServiceIds
-            ToPortRange: 6
+            ToPortRange: ""
             SecurityGroupsMembers:
             - AccountId: AccountId
               SecurityGroupName: SecurityGroupName
@@ -14208,11 +14208,11 @@ components:
             IpRanges:
             - IpRanges
             - IpRanges
-            FromPortRange: 0
+            FromPortRange: ""
           - ServiceIds:
             - ServiceIds
             - ServiceIds
-            ToPortRange: 6
+            ToPortRange: ""
             SecurityGroupsMembers:
             - AccountId: AccountId
               SecurityGroupName: SecurityGroupName
@@ -14224,7 +14224,7 @@ components:
             IpRanges:
             - IpRanges
             - IpRanges
-            FromPortRange: 0
+            FromPortRange: ""
           Tags:
           - Value: Value
             Key: Key
@@ -14272,7 +14272,7 @@ components:
         SnapshotExportTasks:
         - Comment: Comment
           SnapshotId: SnapshotId
-          Progress: 0
+          Progress: ""
           TaskId: TaskId
           State: State
           OsuExport:
@@ -14290,7 +14290,7 @@ components:
             Key: Key
         - Comment: Comment
           SnapshotId: SnapshotId
-          Progress: 0
+          Progress: ""
           TaskId: TaskId
           State: State
           OsuExport:
@@ -14319,14 +14319,14 @@ components:
       example:
         Filters:
           VolumeSizes:
-          - 6
-          - 6
+          - ""
+          - ""
           AccountIds:
           - AccountIds
           - AccountIds
           Progresses:
-          - 0
-          - 0
+          - ""
+          - ""
           SnapshotIds:
           - SnapshotIds
           - SnapshotIds
@@ -14370,7 +14370,7 @@ components:
           RequestId: RequestId
         Snapshots:
         - SnapshotId: SnapshotId
-          Progress: 0
+          Progress: ""
           VolumeId: VolumeId
           AccountId: AccountId
           Description: Description
@@ -14381,14 +14381,14 @@ components:
             - AccountIds
             GlobalPermission: true
           AccountAlias: AccountAlias
-          VolumeSize: 6
+          VolumeSize: ""
           Tags:
           - Value: Value
             Key: Key
           - Value: Value
             Key: Key
         - SnapshotId: SnapshotId
-          Progress: 0
+          Progress: ""
           VolumeId: VolumeId
           AccountId: AccountId
           Description: Description
@@ -14399,7 +14399,7 @@ components:
             - AccountIds
             GlobalPermission: true
           AccountAlias: AccountAlias
-          VolumeSize: 6
+          VolumeSize: ""
           Tags:
           - Value: Value
             Key: Key
@@ -14424,8 +14424,8 @@ components:
           - NetIds
           - NetIds
           AvailableIpsCounts:
-          - 0
-          - 0
+          - ""
+          - ""
           SubregionNames:
           - SubregionNames
           - SubregionNames
@@ -14449,7 +14449,7 @@ components:
         Subnets:
         - IpRange: IpRange
           NetId: NetId
-          AvailableIpsCount: 0
+          AvailableIpsCount: ""
           MapPublicIpOnLaunch: true
           State: State
           SubnetId: SubnetId
@@ -14461,7 +14461,7 @@ components:
           SubregionName: SubregionName
         - IpRange: IpRange
           NetId: NetId
-          AvailableIpsCount: 0
+          AvailableIpsCount: ""
           MapPublicIpOnLaunch: true
           State: State
           SubnetId: SubnetId
@@ -14643,17 +14643,17 @@ components:
       example:
         Filters:
           VolumeSizes:
-          - 5
-          - 5
+          - ""
+          - ""
           VcoreCounts:
-          - 6
-          - 6
+          - ""
+          - ""
           VolumeCounts:
-          - 1
-          - 1
+          - ""
+          - ""
           MemorySizes:
-          - 0
-          - 0
+          - ""
+          - ""
           BsuOptimized: true
           VmTypeNames:
           - VmTypeNames
@@ -14670,19 +14670,19 @@ components:
     ReadVmTypesResponse:
       example:
         VmTypes:
-        - MemorySize: 6.0274563
-          VcoreCount: 1
-          MaxPrivateIps: 0
+        - MemorySize: 0.8008282
+          VcoreCount: ""
+          MaxPrivateIps: ""
           VmTypeName: VmTypeName
-          VolumeCount: 5
-          VolumeSize: 5
+          VolumeCount: ""
+          VolumeSize: ""
           BsuOptimized: true
-        - MemorySize: 6.0274563
-          VcoreCount: 1
-          MaxPrivateIps: 0
+        - MemorySize: 0.8008282
+          VcoreCount: ""
+          MaxPrivateIps: ""
           VmTypeName: VmTypeName
-          VolumeCount: 5
-          VolumeSize: 5
+          VolumeCount: ""
+          VolumeSize: ""
           BsuOptimized: true
         ResponseContext:
           RequestId: RequestId
@@ -14792,7 +14792,7 @@ components:
               State: State
               LinkDate: 2000-01-23
             DeviceName: DeviceName
-          LaunchNumber: 0
+          LaunchNumber: ""
           SubnetId: SubnetId
           BsuOptimized: true
           IsSourceDestChecked: true
@@ -14832,7 +14832,7 @@ components:
             Description: Description
             PrivateDnsName: PrivateDnsName
             LinkNic:
-              DeviceNumber: 6
+              DeviceNumber: ""
               DeleteOnVmDeletion: true
               LinkNicId: LinkNicId
               State: State
@@ -14870,7 +14870,7 @@ components:
             Description: Description
             PrivateDnsName: PrivateDnsName
             LinkNic:
-              DeviceNumber: 6
+              DeviceNumber: ""
               DeleteOnVmDeletion: true
               LinkNicId: LinkNicId
               State: State
@@ -14924,7 +14924,7 @@ components:
               State: State
               LinkDate: 2000-01-23
             DeviceName: DeviceName
-          LaunchNumber: 0
+          LaunchNumber: ""
           SubnetId: SubnetId
           BsuOptimized: true
           IsSourceDestChecked: true
@@ -14964,7 +14964,7 @@ components:
             Description: Description
             PrivateDnsName: PrivateDnsName
             LinkNic:
-              DeviceNumber: 6
+              DeviceNumber: ""
               DeleteOnVmDeletion: true
               LinkNicId: LinkNicId
               State: State
@@ -15002,7 +15002,7 @@ components:
             Description: Description
             PrivateDnsName: PrivateDnsName
             LinkNic:
-              DeviceNumber: 6
+              DeviceNumber: ""
               DeleteOnVmDeletion: true
               LinkNicId: LinkNicId
               State: State
@@ -15110,8 +15110,8 @@ components:
       example:
         Filters:
           VolumeSizes:
-          - 0
-          - 0
+          - ""
+          - ""
           CreationDates:
           - 2000-01-23
           - 2000-01-23
@@ -15167,7 +15167,7 @@ components:
         - SnapshotId: SnapshotId
           VolumeId: VolumeId
           VolumeType: VolumeType
-          Size: 6
+          Size: ""
           State: State
           LinkedVolumes:
           - VolumeId: VolumeId
@@ -15180,7 +15180,7 @@ components:
             State: State
             VmId: VmId
             DeviceName: DeviceName
-          Iops: 0
+          Iops: ""
           Tags:
           - Value: Value
             Key: Key
@@ -15190,7 +15190,7 @@ components:
         - SnapshotId: SnapshotId
           VolumeId: VolumeId
           VolumeType: VolumeType
-          Size: 6
+          Size: ""
           State: State
           LinkedVolumes:
           - VolumeId: VolumeId
@@ -15203,7 +15203,7 @@ components:
             State: State
             VmId: VmId
             DeviceName: DeviceName
-          Iops: 0
+          Iops: ""
           Tags:
           - Value: Value
             Key: Key
@@ -15240,8 +15240,8 @@ components:
           - ClientGatewayIds
           - ClientGatewayIds
           BgpAsns:
-          - 0
-          - 0
+          - ""
+          - ""
           StaticRoutesOnly: true
           VirtualGatewayIds:
           - VirtualGatewayIds
@@ -15576,7 +15576,7 @@ components:
         - ServiceIds:
           - ServiceIds
           - ServiceIds
-          ToPortRange: 6
+          ToPortRange: ""
           SecurityGroupsMembers:
           - AccountId: AccountId
             SecurityGroupName: SecurityGroupName
@@ -15588,11 +15588,11 @@ components:
           IpRanges:
           - IpRanges
           - IpRanges
-          FromPortRange: 0
+          FromPortRange: ""
         - ServiceIds:
           - ServiceIds
           - ServiceIds
-          ToPortRange: 6
+          ToPortRange: ""
           SecurityGroupsMembers:
           - AccountId: AccountId
             SecurityGroupName: SecurityGroupName
@@ -15604,7 +15604,7 @@ components:
           IpRanges:
           - IpRanges
           - IpRanges
-          FromPortRange: 0
+          FromPortRange: ""
         NetId: NetId
         AccountId: AccountId
         Description: Description
@@ -15614,7 +15614,7 @@ components:
         - ServiceIds:
           - ServiceIds
           - ServiceIds
-          ToPortRange: 6
+          ToPortRange: ""
           SecurityGroupsMembers:
           - AccountId: AccountId
             SecurityGroupName: SecurityGroupName
@@ -15626,11 +15626,11 @@ components:
           IpRanges:
           - IpRanges
           - IpRanges
-          FromPortRange: 0
+          FromPortRange: ""
         - ServiceIds:
           - ServiceIds
           - ServiceIds
-          ToPortRange: 6
+          ToPortRange: ""
           SecurityGroupsMembers:
           - AccountId: AccountId
             SecurityGroupName: SecurityGroupName
@@ -15642,7 +15642,7 @@ components:
           IpRanges:
           - IpRanges
           - IpRanges
-          FromPortRange: 0
+          FromPortRange: ""
         Tags:
         - Value: Value
           Key: Key
@@ -15699,7 +15699,7 @@ components:
         ServiceIds:
         - ServiceIds
         - ServiceIds
-        ToPortRange: 6
+        ToPortRange: ""
         SecurityGroupsMembers:
         - AccountId: AccountId
           SecurityGroupName: SecurityGroupName
@@ -15711,12 +15711,12 @@ components:
         IpRanges:
         - IpRanges
         - IpRanges
-        FromPortRange: 0
+        FromPortRange: ""
       properties:
         FromPortRange:
           description: The beginning of the port range for the TCP and UDP protocols,
             or an ICMP type number.
-          type: integer
+          type: long
         IpProtocol:
           description: The IP protocol name (`tcp`, `udp`, `icmp`) or protocol number.
             By default, `-1`, which means all protocols.
@@ -15741,7 +15741,7 @@ components:
         ToPortRange:
           description: The end of the port range for the TCP and UDP protocols, or
             an ICMP type number.
-          type: integer
+          type: long
       type: object
     SecurityGroupsMember:
       description: Information about the member of a security group.
@@ -15786,7 +15786,7 @@ components:
       description: Information about the snapshot.
       example:
         SnapshotId: SnapshotId
-        Progress: 0
+        Progress: ""
         VolumeId: VolumeId
         AccountId: AccountId
         Description: Description
@@ -15797,7 +15797,7 @@ components:
           - AccountIds
           GlobalPermission: true
         AccountAlias: AccountAlias
-        VolumeSize: 6
+        VolumeSize: ""
         Tags:
         - Value: Value
           Key: Key
@@ -15817,7 +15817,7 @@ components:
           $ref: '#/components/schemas/PermissionsOnResource'
         Progress:
           description: The progress of the snapshot, as a percentage.
-          type: integer
+          type: long
         SnapshotId:
           description: The ID of the snapshot.
           type: string
@@ -15835,14 +15835,14 @@ components:
         VolumeSize:
           description: The size of the volume used to create the snapshot, in gibibytes
             (GiB).
-          type: integer
+          type: long
       type: object
     SnapshotExportTask:
       description: Information about the snapshot export task.
       example:
         Comment: Comment
         SnapshotId: SnapshotId
-        Progress: 0
+        Progress: ""
         TaskId: TaskId
         State: State
         OsuExport:
@@ -15866,7 +15866,7 @@ components:
           $ref: '#/components/schemas/OsuExport'
         Progress:
           description: The progress of the snapshot export task, as a percentage.
-          type: integer
+          type: long
         SnapshotId:
           description: The ID of the snapshot to be exported.
           type: string
@@ -16016,7 +16016,7 @@ components:
       example:
         IpRange: IpRange
         NetId: NetId
-        AvailableIpsCount: 0
+        AvailableIpsCount: ""
         MapPublicIpOnLaunch: true
         State: State
         SubnetId: SubnetId
@@ -16029,7 +16029,7 @@ components:
       properties:
         AvailableIpsCount:
           description: The number of available IP addresses in the Subnets.
-          type: integer
+          type: long
         IpRange:
           description: The IP range in the Subnet, in CIDR notation (for example,
             10.0.0.0/16).
@@ -16398,16 +16398,16 @@ components:
               SnapshotId: SnapshotId
               DeleteOnVmDeletion: true
               VolumeType: VolumeType
-              Iops: 0
-              VolumeSize: 6
+              Iops: ""
+              VolumeSize: ""
             VirtualDeviceName: VirtualDeviceName
             DeviceName: DeviceName
           - Bsu:
               SnapshotId: SnapshotId
               DeleteOnVmDeletion: true
               VolumeType: VolumeType
-              Iops: 0
-              VolumeSize: 6
+              Iops: ""
+              VolumeSize: ""
             VirtualDeviceName: VirtualDeviceName
             DeviceName: DeviceName
           StateComment:
@@ -16436,7 +16436,7 @@ components:
         AccessLog:
           OsuBucketPrefix: OsuBucketPrefix
           IsEnabled: true
-          PublicationInterval: 0
+          PublicationInterval: ""
           OsuBucketName: OsuBucketName
         PolicyNames:
         - PolicyNames
@@ -16445,14 +16445,14 @@ components:
         DryRun: true
         HealthCheck:
           Path: Path
-          UnhealthyThreshold: 2
-          CheckInterval: 6
-          Timeout: 5
-          HealthyThreshold: 1
-          Port: 5
+          UnhealthyThreshold: ""
+          CheckInterval: ""
+          Timeout: ""
+          HealthyThreshold: ""
+          Port: ""
           Protocol: Protocol
         ServerCertificateId: ServerCertificateId
-        LoadBalancerPort: 0
+        LoadBalancerPort: ""
       properties:
         AccessLog:
           $ref: '#/components/schemas/AccessLog'
@@ -16468,7 +16468,7 @@ components:
         LoadBalancerPort:
           description: The port on which the load balancer is listening (between `1`
             and `65535`, both included).
-          type: integer
+          type: long
         PolicyNames:
           description: The list of policy names (must contain all the policies to
             be enabled).
@@ -16489,7 +16489,7 @@ components:
           AccessLog:
             OsuBucketPrefix: OsuBucketPrefix
             IsEnabled: true
-            PublicationInterval: 0
+            PublicationInterval: ""
             OsuBucketName: OsuBucketName
           BackendVmIds:
           - BackendVmIds
@@ -16509,11 +16509,11 @@ components:
             SecurityGroupAccountId: SecurityGroupAccountId
           HealthCheck:
             Path: Path
-            UnhealthyThreshold: 2
-            CheckInterval: 6
-            Timeout: 5
-            HealthyThreshold: 1
-            Port: 5
+            UnhealthyThreshold: ""
+            CheckInterval: ""
+            Timeout: ""
+            HealthyThreshold: ""
+            Port: ""
             Protocol: Protocol
           LoadBalancerType: LoadBalancerType
           LoadBalancerName: LoadBalancerName
@@ -16523,17 +16523,17 @@ components:
             - PolicyNames
             BackendProtocol: BackendProtocol
             LoadBalancerProtocol: LoadBalancerProtocol
-            BackendPort: 7
+            BackendPort: ""
             ServerCertificateId: ServerCertificateId
-            LoadBalancerPort: 9
+            LoadBalancerPort: ""
           - PolicyNames:
             - PolicyNames
             - PolicyNames
             BackendProtocol: BackendProtocol
             LoadBalancerProtocol: LoadBalancerProtocol
-            BackendPort: 7
+            BackendPort: ""
             ServerCertificateId: ServerCertificateId
-            LoadBalancerPort: 9
+            LoadBalancerPort: ""
           Subnets:
           - Subnets
           - Subnets
@@ -16707,7 +16707,7 @@ components:
           Description: Description
           PrivateDnsName: PrivateDnsName
           LinkNic:
-            DeviceNumber: 0
+            DeviceNumber: ""
             DeleteOnVmDeletion: true
             VmAccountId: VmAccountId
             LinkNicId: LinkNicId
@@ -16956,7 +16956,7 @@ components:
       example:
         Snapshot:
           SnapshotId: SnapshotId
-          Progress: 0
+          Progress: ""
           VolumeId: VolumeId
           AccountId: AccountId
           Description: Description
@@ -16967,7 +16967,7 @@ components:
             - AccountIds
             GlobalPermission: true
           AccountAlias: AccountAlias
-          VolumeSize: 6
+          VolumeSize: ""
           Tags:
           - Value: Value
             Key: Key
@@ -17009,7 +17009,7 @@ components:
         Subnet:
           IpRange: IpRange
           NetId: NetId
-          AvailableIpsCount: 0
+          AvailableIpsCount: ""
           MapPublicIpOnLaunch: true
           State: State
           SubnetId: SubnetId
@@ -17139,7 +17139,7 @@ components:
               State: State
               LinkDate: 2000-01-23
             DeviceName: DeviceName
-          LaunchNumber: 0
+          LaunchNumber: ""
           SubnetId: SubnetId
           BsuOptimized: true
           IsSourceDestChecked: true
@@ -17179,7 +17179,7 @@ components:
             Description: Description
             PrivateDnsName: PrivateDnsName
             LinkNic:
-              DeviceNumber: 6
+              DeviceNumber: ""
               DeleteOnVmDeletion: true
               LinkNicId: LinkNicId
               State: State
@@ -17217,7 +17217,7 @@ components:
             Description: Description
             PrivateDnsName: PrivateDnsName
             LinkNic:
-              DeviceNumber: 6
+              DeviceNumber: ""
               DeleteOnVmDeletion: true
               LinkNicId: LinkNicId
               State: State
@@ -17319,7 +17319,7 @@ components:
             State: State
             LinkDate: 2000-01-23
           DeviceName: DeviceName
-        LaunchNumber: 0
+        LaunchNumber: ""
         SubnetId: SubnetId
         BsuOptimized: true
         IsSourceDestChecked: true
@@ -17359,7 +17359,7 @@ components:
           Description: Description
           PrivateDnsName: PrivateDnsName
           LinkNic:
-            DeviceNumber: 6
+            DeviceNumber: ""
             DeleteOnVmDeletion: true
             LinkNicId: LinkNicId
             State: State
@@ -17397,7 +17397,7 @@ components:
           Description: Description
           PrivateDnsName: PrivateDnsName
           LinkNic:
-            DeviceNumber: 6
+            DeviceNumber: ""
             DeleteOnVmDeletion: true
             LinkNicId: LinkNicId
             State: State
@@ -17464,7 +17464,7 @@ components:
         LaunchNumber:
           description: The number for the VM when launching a group of several VMs
             (for example, 0, 1, 2, and so on).
-          type: integer
+          type: long
         NetId:
           description: The ID of the Net in which the VM is running.
           type: string
@@ -17598,12 +17598,12 @@ components:
     VmType:
       description: Information about the VM type.
       example:
-        MemorySize: 6.0274563
-        VcoreCount: 1
-        MaxPrivateIps: 0
+        MemorySize: 0.8008282
+        VcoreCount: ""
+        MaxPrivateIps: ""
         VmTypeName: VmTypeName
-        VolumeCount: 5
-        VolumeSize: 5
+        VolumeCount: ""
+        VolumeSize: ""
         BsuOptimized: true
       properties:
         BsuOptimized:
@@ -17612,23 +17612,23 @@ components:
         MaxPrivateIps:
           description: The maximum number of private IP addresses per network interface
             card (NIC).
-          type: integer
+          type: long
         MemorySize:
           description: The amount of memory, in gibibytes.
           format: float
           type: number
         VcoreCount:
           description: The number of vCores.
-          type: integer
+          type: long
         VmTypeName:
           description: The name of the VM type.
           type: string
         VolumeCount:
           description: The maximum number of ephemeral storage disks.
-          type: integer
+          type: long
         VolumeSize:
           description: The size of one ephemeral storage disk, in gibibytes (GiB).
-          type: integer
+          type: long
       type: object
     Volume:
       description: Information about the volume.
@@ -17636,7 +17636,7 @@ components:
         SnapshotId: SnapshotId
         VolumeId: VolumeId
         VolumeType: VolumeType
-        Size: 6
+        Size: ""
         State: State
         LinkedVolumes:
         - VolumeId: VolumeId
@@ -17649,7 +17649,7 @@ components:
           State: State
           VmId: VmId
           DeviceName: DeviceName
-        Iops: 0
+        Iops: ""
         Tags:
         - Value: Value
           Key: Key
@@ -17662,7 +17662,7 @@ components:
             The number of I/O operations per second (IOPS):<br />
             - For `io1` volumes, the number of provisioned IOPS<br />
             - For `gp2` volumes, the baseline performance of the volume
-          type: integer
+          type: long
         LinkedVolumes:
           description: Information about your volume attachment.
           items:
@@ -17670,7 +17670,7 @@ components:
           type: array
         Size:
           description: The size of the volume, in gibibytes (GiB).
-          type: integer
+          type: long
         SnapshotId:
           description: The snapshot from which the volume was created.
           type: string

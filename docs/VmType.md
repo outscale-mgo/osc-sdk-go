@@ -5,12 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **BsuOptimized** | Pointer to **bool** | Indicates whether the VM is optimized for BSU I/O. | [optional] 
-**MaxPrivateIps** | Pointer to **int32** | The maximum number of private IP addresses per network interface card (NIC). | [optional] 
+**MaxPrivateIps** | Pointer to **int64** | The maximum number of private IP addresses per network interface card (NIC). | [optional] 
 **MemorySize** | Pointer to **float32** | The amount of memory, in gibibytes. | [optional] 
-**VcoreCount** | Pointer to **int32** | The number of vCores. | [optional] 
+**VcoreCount** | Pointer to **int64** | The number of vCores. | [optional] 
 **VmTypeName** | Pointer to **string** | The name of the VM type. | [optional] 
-**VolumeCount** | Pointer to **int32** | The maximum number of ephemeral storage disks. | [optional] 
-**VolumeSize** | Pointer to **int32** | The size of one ephemeral storage disk, in gibibytes (GiB). | [optional] 
+**VolumeCount** | Pointer to **int64** | The maximum number of ephemeral storage disks. | [optional] 
+**VolumeSize** | Pointer to **int64** | The size of one ephemeral storage disk, in gibibytes (GiB). | [optional] 
 
 ## Methods
 
@@ -41,13 +41,13 @@ SetBsuOptimized gets a reference to the given bool and assigns it to the BsuOpti
 
 ### GetMaxPrivateIps
 
-`func (o *VmType) GetMaxPrivateIps() int32`
+`func (o *VmType) GetMaxPrivateIps() int64`
 
 GetMaxPrivateIps returns the MaxPrivateIps field if non-nil, zero value otherwise.
 
 ### GetMaxPrivateIpsOk
 
-`func (o *VmType) GetMaxPrivateIpsOk() (int32, bool)`
+`func (o *VmType) GetMaxPrivateIpsOk() (int64, bool)`
 
 GetMaxPrivateIpsOk returns a tuple with the MaxPrivateIps field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -60,9 +60,9 @@ HasMaxPrivateIps returns a boolean if a field has been set.
 
 ### SetMaxPrivateIps
 
-`func (o *VmType) SetMaxPrivateIps(v int32)`
+`func (o *VmType) SetMaxPrivateIps(v int64)`
 
-SetMaxPrivateIps gets a reference to the given int32 and assigns it to the MaxPrivateIps field.
+SetMaxPrivateIps gets a reference to the given int64 and assigns it to the MaxPrivateIps field.
 
 ### GetMemorySize
 
@@ -91,13 +91,13 @@ SetMemorySize gets a reference to the given float32 and assigns it to the Memory
 
 ### GetVcoreCount
 
-`func (o *VmType) GetVcoreCount() int32`
+`func (o *VmType) GetVcoreCount() int64`
 
 GetVcoreCount returns the VcoreCount field if non-nil, zero value otherwise.
 
 ### GetVcoreCountOk
 
-`func (o *VmType) GetVcoreCountOk() (int32, bool)`
+`func (o *VmType) GetVcoreCountOk() (int64, bool)`
 
 GetVcoreCountOk returns a tuple with the VcoreCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -110,9 +110,9 @@ HasVcoreCount returns a boolean if a field has been set.
 
 ### SetVcoreCount
 
-`func (o *VmType) SetVcoreCount(v int32)`
+`func (o *VmType) SetVcoreCount(v int64)`
 
-SetVcoreCount gets a reference to the given int32 and assigns it to the VcoreCount field.
+SetVcoreCount gets a reference to the given int64 and assigns it to the VcoreCount field.
 
 ### GetVmTypeName
 
@@ -141,13 +141,13 @@ SetVmTypeName gets a reference to the given string and assigns it to the VmTypeN
 
 ### GetVolumeCount
 
-`func (o *VmType) GetVolumeCount() int32`
+`func (o *VmType) GetVolumeCount() int64`
 
 GetVolumeCount returns the VolumeCount field if non-nil, zero value otherwise.
 
 ### GetVolumeCountOk
 
-`func (o *VmType) GetVolumeCountOk() (int32, bool)`
+`func (o *VmType) GetVolumeCountOk() (int64, bool)`
 
 GetVolumeCountOk returns a tuple with the VolumeCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -160,19 +160,19 @@ HasVolumeCount returns a boolean if a field has been set.
 
 ### SetVolumeCount
 
-`func (o *VmType) SetVolumeCount(v int32)`
+`func (o *VmType) SetVolumeCount(v int64)`
 
-SetVolumeCount gets a reference to the given int32 and assigns it to the VolumeCount field.
+SetVolumeCount gets a reference to the given int64 and assigns it to the VolumeCount field.
 
 ### GetVolumeSize
 
-`func (o *VmType) GetVolumeSize() int32`
+`func (o *VmType) GetVolumeSize() int64`
 
 GetVolumeSize returns the VolumeSize field if non-nil, zero value otherwise.
 
 ### GetVolumeSizeOk
 
-`func (o *VmType) GetVolumeSizeOk() (int32, bool)`
+`func (o *VmType) GetVolumeSizeOk() (int64, bool)`
 
 GetVolumeSizeOk returns a tuple with the VolumeSize field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -185,9 +185,9 @@ HasVolumeSize returns a boolean if a field has been set.
 
 ### SetVolumeSize
 
-`func (o *VmType) SetVolumeSize(v int32)`
+`func (o *VmType) SetVolumeSize(v int64)`
 
-SetVolumeSize gets a reference to the given int32 and assigns it to the VolumeSize field.
+SetVolumeSize gets a reference to the given int64 and assigns it to the VolumeSize field.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

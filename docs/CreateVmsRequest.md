@@ -12,8 +12,8 @@ Name | Type | Description | Notes
 **DryRun** | Pointer to **bool** | If &#x60;true&#x60;, checks whether you have the required permissions to perform the action. | [optional] 
 **ImageId** | Pointer to **string** | The ID of the OMI used to create the VM. You can find the list of OMIs by calling the [ReadImages](#readimages) method. | 
 **KeypairName** | Pointer to **string** | The name of the keypair. | [optional] 
-**MaxVmsCount** | Pointer to **int32** | The maximum number of VMs you want to create. If all the VMs cannot be created, the largest possible number of VMs above MinVmsCount is created. | [optional] 
-**MinVmsCount** | Pointer to **int32** | The minimum number of VMs you want to create. If this number of VMs cannot be created, no VMs are created. | [optional] 
+**MaxVmsCount** | Pointer to **int64** | The maximum number of VMs you want to create. If all the VMs cannot be created, the largest possible number of VMs above MinVmsCount is created. | [optional] 
+**MinVmsCount** | Pointer to **int64** | The minimum number of VMs you want to create. If this number of VMs cannot be created, no VMs are created. | [optional] 
 **Nics** | Pointer to [**[]NicForVmCreation**](NicForVmCreation.md) | One or more NICs. If you specify this parameter, you must define one NIC as the primary network interface of the VM with &#x60;0&#x60; as its device number. | [optional] 
 **Performance** | Pointer to **string** | The performance of the VM (&#x60;standard&#x60; \\| &#x60;high&#x60; \\|  &#x60;highest&#x60;). | [optional] [default to PERFORMANCE_HIGH]
 **Placement** | Pointer to [**Placement**](Placement.md) |  | [optional] 
@@ -229,13 +229,13 @@ SetKeypairName gets a reference to the given string and assigns it to the Keypai
 
 ### GetMaxVmsCount
 
-`func (o *CreateVmsRequest) GetMaxVmsCount() int32`
+`func (o *CreateVmsRequest) GetMaxVmsCount() int64`
 
 GetMaxVmsCount returns the MaxVmsCount field if non-nil, zero value otherwise.
 
 ### GetMaxVmsCountOk
 
-`func (o *CreateVmsRequest) GetMaxVmsCountOk() (int32, bool)`
+`func (o *CreateVmsRequest) GetMaxVmsCountOk() (int64, bool)`
 
 GetMaxVmsCountOk returns a tuple with the MaxVmsCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -248,19 +248,19 @@ HasMaxVmsCount returns a boolean if a field has been set.
 
 ### SetMaxVmsCount
 
-`func (o *CreateVmsRequest) SetMaxVmsCount(v int32)`
+`func (o *CreateVmsRequest) SetMaxVmsCount(v int64)`
 
-SetMaxVmsCount gets a reference to the given int32 and assigns it to the MaxVmsCount field.
+SetMaxVmsCount gets a reference to the given int64 and assigns it to the MaxVmsCount field.
 
 ### GetMinVmsCount
 
-`func (o *CreateVmsRequest) GetMinVmsCount() int32`
+`func (o *CreateVmsRequest) GetMinVmsCount() int64`
 
 GetMinVmsCount returns the MinVmsCount field if non-nil, zero value otherwise.
 
 ### GetMinVmsCountOk
 
-`func (o *CreateVmsRequest) GetMinVmsCountOk() (int32, bool)`
+`func (o *CreateVmsRequest) GetMinVmsCountOk() (int64, bool)`
 
 GetMinVmsCountOk returns a tuple with the MinVmsCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -273,9 +273,9 @@ HasMinVmsCount returns a boolean if a field has been set.
 
 ### SetMinVmsCount
 
-`func (o *CreateVmsRequest) SetMinVmsCount(v int32)`
+`func (o *CreateVmsRequest) SetMinVmsCount(v int64)`
 
-SetMinVmsCount gets a reference to the given int32 and assigns it to the MinVmsCount field.
+SetMinVmsCount gets a reference to the given int64 and assigns it to the MinVmsCount field.
 
 ### GetNics
 

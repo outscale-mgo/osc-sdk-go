@@ -5,11 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **BsuOptimized** | Pointer to **bool** | Indicates whether the VM is optimized for BSU I/O. | [optional] 
-**MemorySizes** | Pointer to **[]int32** | The amounts of memory, in bytes. | [optional] 
-**VcoreCounts** | Pointer to **[]int32** | The numbers of vCores. | [optional] 
+**MemorySizes** | Pointer to **[]int64** | The amounts of memory, in bytes. | [optional] 
+**VcoreCounts** | Pointer to **[]int64** | The numbers of vCores. | [optional] 
 **VmTypeNames** | Pointer to **[]string** | The names of the VM types. For more information, see [Instance Types](https://wiki.outscale.net/display/EN/Instance+Types). | [optional] 
-**VolumeCounts** | Pointer to **[]int32** | The maximum number of ephemeral storage disks. | [optional] 
-**VolumeSizes** | Pointer to **[]int32** | The size of one ephemeral storage disk, in gibibytes (GiB). | [optional] 
+**VolumeCounts** | Pointer to **[]int64** | The maximum number of ephemeral storage disks. | [optional] 
+**VolumeSizes** | Pointer to **[]int64** | The size of one ephemeral storage disk, in gibibytes (GiB). | [optional] 
 
 ## Methods
 
@@ -40,13 +40,13 @@ SetBsuOptimized gets a reference to the given bool and assigns it to the BsuOpti
 
 ### GetMemorySizes
 
-`func (o *FiltersVmType) GetMemorySizes() []int32`
+`func (o *FiltersVmType) GetMemorySizes() []int64`
 
 GetMemorySizes returns the MemorySizes field if non-nil, zero value otherwise.
 
 ### GetMemorySizesOk
 
-`func (o *FiltersVmType) GetMemorySizesOk() ([]int32, bool)`
+`func (o *FiltersVmType) GetMemorySizesOk() ([]int64, bool)`
 
 GetMemorySizesOk returns a tuple with the MemorySizes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -59,19 +59,19 @@ HasMemorySizes returns a boolean if a field has been set.
 
 ### SetMemorySizes
 
-`func (o *FiltersVmType) SetMemorySizes(v []int32)`
+`func (o *FiltersVmType) SetMemorySizes(v []int64)`
 
-SetMemorySizes gets a reference to the given []int32 and assigns it to the MemorySizes field.
+SetMemorySizes gets a reference to the given []int64 and assigns it to the MemorySizes field.
 
 ### GetVcoreCounts
 
-`func (o *FiltersVmType) GetVcoreCounts() []int32`
+`func (o *FiltersVmType) GetVcoreCounts() []int64`
 
 GetVcoreCounts returns the VcoreCounts field if non-nil, zero value otherwise.
 
 ### GetVcoreCountsOk
 
-`func (o *FiltersVmType) GetVcoreCountsOk() ([]int32, bool)`
+`func (o *FiltersVmType) GetVcoreCountsOk() ([]int64, bool)`
 
 GetVcoreCountsOk returns a tuple with the VcoreCounts field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -84,9 +84,9 @@ HasVcoreCounts returns a boolean if a field has been set.
 
 ### SetVcoreCounts
 
-`func (o *FiltersVmType) SetVcoreCounts(v []int32)`
+`func (o *FiltersVmType) SetVcoreCounts(v []int64)`
 
-SetVcoreCounts gets a reference to the given []int32 and assigns it to the VcoreCounts field.
+SetVcoreCounts gets a reference to the given []int64 and assigns it to the VcoreCounts field.
 
 ### GetVmTypeNames
 
@@ -115,13 +115,13 @@ SetVmTypeNames gets a reference to the given []string and assigns it to the VmTy
 
 ### GetVolumeCounts
 
-`func (o *FiltersVmType) GetVolumeCounts() []int32`
+`func (o *FiltersVmType) GetVolumeCounts() []int64`
 
 GetVolumeCounts returns the VolumeCounts field if non-nil, zero value otherwise.
 
 ### GetVolumeCountsOk
 
-`func (o *FiltersVmType) GetVolumeCountsOk() ([]int32, bool)`
+`func (o *FiltersVmType) GetVolumeCountsOk() ([]int64, bool)`
 
 GetVolumeCountsOk returns a tuple with the VolumeCounts field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -134,19 +134,19 @@ HasVolumeCounts returns a boolean if a field has been set.
 
 ### SetVolumeCounts
 
-`func (o *FiltersVmType) SetVolumeCounts(v []int32)`
+`func (o *FiltersVmType) SetVolumeCounts(v []int64)`
 
-SetVolumeCounts gets a reference to the given []int32 and assigns it to the VolumeCounts field.
+SetVolumeCounts gets a reference to the given []int64 and assigns it to the VolumeCounts field.
 
 ### GetVolumeSizes
 
-`func (o *FiltersVmType) GetVolumeSizes() []int32`
+`func (o *FiltersVmType) GetVolumeSizes() []int64`
 
 GetVolumeSizes returns the VolumeSizes field if non-nil, zero value otherwise.
 
 ### GetVolumeSizesOk
 
-`func (o *FiltersVmType) GetVolumeSizesOk() ([]int32, bool)`
+`func (o *FiltersVmType) GetVolumeSizesOk() ([]int64, bool)`
 
 GetVolumeSizesOk returns a tuple with the VolumeSizes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -159,9 +159,9 @@ HasVolumeSizes returns a boolean if a field has been set.
 
 ### SetVolumeSizes
 
-`func (o *FiltersVmType) SetVolumeSizes(v []int32)`
+`func (o *FiltersVmType) SetVolumeSizes(v []int64)`
 
-SetVolumeSizes gets a reference to the given []int32 and assigns it to the VolumeSizes field.
+SetVolumeSizes gets a reference to the given []int64 and assigns it to the VolumeSizes field.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

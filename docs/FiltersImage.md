@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **BlockDeviceMappingDeleteOnVmDeletion** | Pointer to **bool** | Indicates whether the block device mapping is deleted when terminating the VM. | [optional] 
 **BlockDeviceMappingDeviceNames** | Pointer to **[]string** | The device names for the volumes. | [optional] 
 **BlockDeviceMappingSnapshotIds** | Pointer to **[]string** | The IDs of the snapshots used to create the volumes. | [optional] 
-**BlockDeviceMappingVolumeSizes** | Pointer to **[]int32** | The sizes of the volumes, in gibibytes (GiB). | [optional] 
+**BlockDeviceMappingVolumeSizes** | Pointer to **[]int64** | The sizes of the volumes, in gibibytes (GiB). | [optional] 
 **BlockDeviceMappingVolumeTypes** | Pointer to **[]string** | The types of volumes (&#x60;standard&#x60; \\| &#x60;gp2&#x60; \\| &#x60;io1&#x60;). | [optional] 
 **Descriptions** | Pointer to **[]string** | The descriptions of the OMIs, provided when they were created. | [optional] 
 **FileLocations** | Pointer to **[]string** | The locations where the OMI files are stored on Object Storage Unit (OSU). | [optional] 
@@ -180,13 +180,13 @@ SetBlockDeviceMappingSnapshotIds gets a reference to the given []string and assi
 
 ### GetBlockDeviceMappingVolumeSizes
 
-`func (o *FiltersImage) GetBlockDeviceMappingVolumeSizes() []int32`
+`func (o *FiltersImage) GetBlockDeviceMappingVolumeSizes() []int64`
 
 GetBlockDeviceMappingVolumeSizes returns the BlockDeviceMappingVolumeSizes field if non-nil, zero value otherwise.
 
 ### GetBlockDeviceMappingVolumeSizesOk
 
-`func (o *FiltersImage) GetBlockDeviceMappingVolumeSizesOk() ([]int32, bool)`
+`func (o *FiltersImage) GetBlockDeviceMappingVolumeSizesOk() ([]int64, bool)`
 
 GetBlockDeviceMappingVolumeSizesOk returns a tuple with the BlockDeviceMappingVolumeSizes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -199,9 +199,9 @@ HasBlockDeviceMappingVolumeSizes returns a boolean if a field has been set.
 
 ### SetBlockDeviceMappingVolumeSizes
 
-`func (o *FiltersImage) SetBlockDeviceMappingVolumeSizes(v []int32)`
+`func (o *FiltersImage) SetBlockDeviceMappingVolumeSizes(v []int64)`
 
-SetBlockDeviceMappingVolumeSizes gets a reference to the given []int32 and assigns it to the BlockDeviceMappingVolumeSizes field.
+SetBlockDeviceMappingVolumeSizes gets a reference to the given []int64 and assigns it to the BlockDeviceMappingVolumeSizes field.
 
 ### GetBlockDeviceMappingVolumeTypes
 

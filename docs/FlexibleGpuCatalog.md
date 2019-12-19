@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Generations** | Pointer to **string** | The generations of VMs that the fGPU is compatible with. | [optional] 
-**MaxCpu** | Pointer to **int32** | The maximum number of VM vCores that the fGPU is compatible with. | [optional] 
-**MaxRam** | Pointer to **int32** | The maximum amount of VM memory that the fGPU is compatible with. | [optional] 
+**MaxCpu** | Pointer to **int64** | The maximum number of VM vCores that the fGPU is compatible with. | [optional] 
+**MaxRam** | Pointer to **int64** | The maximum amount of VM memory that the fGPU is compatible with. | [optional] 
 **ModelName** | Pointer to **string** | The model of fGPU. | [optional] 
-**VRam** | Pointer to **int32** | The amount of video RAM (VRAM) of the fGPU. | [optional] 
+**VRam** | Pointer to **int64** | The amount of video RAM (VRAM) of the fGPU. | [optional] 
 
 ## Methods
 
@@ -39,13 +39,13 @@ SetGenerations gets a reference to the given string and assigns it to the Genera
 
 ### GetMaxCpu
 
-`func (o *FlexibleGpuCatalog) GetMaxCpu() int32`
+`func (o *FlexibleGpuCatalog) GetMaxCpu() int64`
 
 GetMaxCpu returns the MaxCpu field if non-nil, zero value otherwise.
 
 ### GetMaxCpuOk
 
-`func (o *FlexibleGpuCatalog) GetMaxCpuOk() (int32, bool)`
+`func (o *FlexibleGpuCatalog) GetMaxCpuOk() (int64, bool)`
 
 GetMaxCpuOk returns a tuple with the MaxCpu field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -58,19 +58,19 @@ HasMaxCpu returns a boolean if a field has been set.
 
 ### SetMaxCpu
 
-`func (o *FlexibleGpuCatalog) SetMaxCpu(v int32)`
+`func (o *FlexibleGpuCatalog) SetMaxCpu(v int64)`
 
-SetMaxCpu gets a reference to the given int32 and assigns it to the MaxCpu field.
+SetMaxCpu gets a reference to the given int64 and assigns it to the MaxCpu field.
 
 ### GetMaxRam
 
-`func (o *FlexibleGpuCatalog) GetMaxRam() int32`
+`func (o *FlexibleGpuCatalog) GetMaxRam() int64`
 
 GetMaxRam returns the MaxRam field if non-nil, zero value otherwise.
 
 ### GetMaxRamOk
 
-`func (o *FlexibleGpuCatalog) GetMaxRamOk() (int32, bool)`
+`func (o *FlexibleGpuCatalog) GetMaxRamOk() (int64, bool)`
 
 GetMaxRamOk returns a tuple with the MaxRam field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -83,9 +83,9 @@ HasMaxRam returns a boolean if a field has been set.
 
 ### SetMaxRam
 
-`func (o *FlexibleGpuCatalog) SetMaxRam(v int32)`
+`func (o *FlexibleGpuCatalog) SetMaxRam(v int64)`
 
-SetMaxRam gets a reference to the given int32 and assigns it to the MaxRam field.
+SetMaxRam gets a reference to the given int64 and assigns it to the MaxRam field.
 
 ### GetModelName
 
@@ -114,13 +114,13 @@ SetModelName gets a reference to the given string and assigns it to the ModelNam
 
 ### GetVRam
 
-`func (o *FlexibleGpuCatalog) GetVRam() int32`
+`func (o *FlexibleGpuCatalog) GetVRam() int64`
 
 GetVRam returns the VRam field if non-nil, zero value otherwise.
 
 ### GetVRamOk
 
-`func (o *FlexibleGpuCatalog) GetVRamOk() (int32, bool)`
+`func (o *FlexibleGpuCatalog) GetVRamOk() (int64, bool)`
 
 GetVRamOk returns a tuple with the VRam field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -133,9 +133,9 @@ HasVRam returns a boolean if a field has been set.
 
 ### SetVRam
 
-`func (o *FlexibleGpuCatalog) SetVRam(v int32)`
+`func (o *FlexibleGpuCatalog) SetVRam(v int64)`
 
-SetVRam gets a reference to the given int32 and assigns it to the VRam field.
+SetVRam gets a reference to the given int64 and assigns it to the VRam field.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

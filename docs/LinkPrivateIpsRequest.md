@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **DryRun** | Pointer to **bool** | If &#x60;true&#x60;, checks whether you have the required permissions to perform the action. | [optional] 
 **NicId** | Pointer to **string** | The ID of the NIC. | 
 **PrivateIps** | Pointer to **[]string** | The secondary private IP address or addresses you want to assign to the NIC within the IP address range of the Subnet. | [optional] 
-**SecondaryPrivateIpCount** | Pointer to **int32** | The number of secondary private IP addresses to assign to the NIC. | [optional] 
+**SecondaryPrivateIpCount** | Pointer to **int64** | The number of secondary private IP addresses to assign to the NIC. | [optional] 
 
 ## Methods
 
@@ -114,13 +114,13 @@ SetPrivateIps gets a reference to the given []string and assigns it to the Priva
 
 ### GetSecondaryPrivateIpCount
 
-`func (o *LinkPrivateIpsRequest) GetSecondaryPrivateIpCount() int32`
+`func (o *LinkPrivateIpsRequest) GetSecondaryPrivateIpCount() int64`
 
 GetSecondaryPrivateIpCount returns the SecondaryPrivateIpCount field if non-nil, zero value otherwise.
 
 ### GetSecondaryPrivateIpCountOk
 
-`func (o *LinkPrivateIpsRequest) GetSecondaryPrivateIpCountOk() (int32, bool)`
+`func (o *LinkPrivateIpsRequest) GetSecondaryPrivateIpCountOk() (int64, bool)`
 
 GetSecondaryPrivateIpCountOk returns a tuple with the SecondaryPrivateIpCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -133,9 +133,9 @@ HasSecondaryPrivateIpCount returns a boolean if a field has been set.
 
 ### SetSecondaryPrivateIpCount
 
-`func (o *LinkPrivateIpsRequest) SetSecondaryPrivateIpCount(v int32)`
+`func (o *LinkPrivateIpsRequest) SetSecondaryPrivateIpCount(v int64)`
 
-SetSecondaryPrivateIpCount gets a reference to the given int32 and assigns it to the SecondaryPrivateIpCount field.
+SetSecondaryPrivateIpCount gets a reference to the given int64 and assigns it to the SecondaryPrivateIpCount field.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

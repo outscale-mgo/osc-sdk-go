@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DryRun** | Pointer to **bool** | If &#x60;true&#x60;, checks whether you have the required permissions to perform the action. | [optional] 
 **LoadBalancerName** | Pointer to **string** | The name of the load balancer for which you want to delete listeners. | 
-**LoadBalancerPorts** | Pointer to **[]int32** | One or more port numbers of the listeners you want to delete. | 
+**LoadBalancerPorts** | Pointer to **[]int64** | One or more port numbers of the listeners you want to delete. | 
 
 ## Methods
 
@@ -62,13 +62,13 @@ SetLoadBalancerName gets a reference to the given string and assigns it to the L
 
 ### GetLoadBalancerPorts
 
-`func (o *DeleteLoadBalancerListenersRequest) GetLoadBalancerPorts() []int32`
+`func (o *DeleteLoadBalancerListenersRequest) GetLoadBalancerPorts() []int64`
 
 GetLoadBalancerPorts returns the LoadBalancerPorts field if non-nil, zero value otherwise.
 
 ### GetLoadBalancerPortsOk
 
-`func (o *DeleteLoadBalancerListenersRequest) GetLoadBalancerPortsOk() ([]int32, bool)`
+`func (o *DeleteLoadBalancerListenersRequest) GetLoadBalancerPortsOk() ([]int64, bool)`
 
 GetLoadBalancerPortsOk returns a tuple with the LoadBalancerPorts field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -81,9 +81,9 @@ HasLoadBalancerPorts returns a boolean if a field has been set.
 
 ### SetLoadBalancerPorts
 
-`func (o *DeleteLoadBalancerListenersRequest) SetLoadBalancerPorts(v []int32)`
+`func (o *DeleteLoadBalancerListenersRequest) SetLoadBalancerPorts(v []int64)`
 
-SetLoadBalancerPorts gets a reference to the given []int32 and assigns it to the LoadBalancerPorts field.
+SetLoadBalancerPorts gets a reference to the given []int64 and assigns it to the LoadBalancerPorts field.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

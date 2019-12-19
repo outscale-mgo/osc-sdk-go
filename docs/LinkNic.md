@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DeleteOnVmDeletion** | Pointer to **bool** | If &#x60;true&#x60;, the volume is deleted when the VM is terminated. | [optional] 
-**DeviceNumber** | Pointer to **int32** | The device index for the NIC attachment (between 1 and 7, both included). | [optional] 
+**DeviceNumber** | Pointer to **int64** | The device index for the NIC attachment (between 1 and 7, both included). | [optional] 
 **LinkNicId** | Pointer to **string** | The ID of the NIC to attach. | [optional] 
 **State** | Pointer to **string** | The state of the attachment (&#x60;attaching&#x60; \\| &#x60;attached&#x60; \\| &#x60;detaching&#x60; \\| &#x60;detached&#x60;). | [optional] 
 **VmAccountId** | Pointer to **string** | The account ID of the owner of the VM. | [optional] 
@@ -40,13 +40,13 @@ SetDeleteOnVmDeletion gets a reference to the given bool and assigns it to the D
 
 ### GetDeviceNumber
 
-`func (o *LinkNic) GetDeviceNumber() int32`
+`func (o *LinkNic) GetDeviceNumber() int64`
 
 GetDeviceNumber returns the DeviceNumber field if non-nil, zero value otherwise.
 
 ### GetDeviceNumberOk
 
-`func (o *LinkNic) GetDeviceNumberOk() (int32, bool)`
+`func (o *LinkNic) GetDeviceNumberOk() (int64, bool)`
 
 GetDeviceNumberOk returns a tuple with the DeviceNumber field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -59,9 +59,9 @@ HasDeviceNumber returns a boolean if a field has been set.
 
 ### SetDeviceNumber
 
-`func (o *LinkNic) SetDeviceNumber(v int32)`
+`func (o *LinkNic) SetDeviceNumber(v int64)`
 
-SetDeviceNumber gets a reference to the given int32 and assigns it to the DeviceNumber field.
+SetDeviceNumber gets a reference to the given int64 and assigns it to the DeviceNumber field.
 
 ### GetLinkNicId
 

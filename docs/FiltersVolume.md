@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **TagValues** | Pointer to **[]string** | The values of the tags associated with the volumes. | [optional] 
 **Tags** | Pointer to **[]string** | The key/value combination of the tags associated with the volumes, in the following format: \&quot;Filters\&quot;:{\&quot;Tags\&quot;:[\&quot;TAGKEY&#x3D;TAGVALUE\&quot;]}. | [optional] 
 **VolumeIds** | Pointer to **[]string** | The IDs of the volumes. | [optional] 
-**VolumeSizes** | Pointer to **[]int32** | The sizes of the volumes, in gibibytes (GiB). | [optional] 
+**VolumeSizes** | Pointer to **[]int64** | The sizes of the volumes, in gibibytes (GiB). | [optional] 
 **VolumeStates** | Pointer to **[]string** | The states of the volumes (&#x60;creating&#x60; \\| &#x60;available&#x60; \\| &#x60;in-use&#x60; \\| &#x60;deleting&#x60; \\| &#x60;error&#x60;). | [optional] 
 **VolumeTypes** | Pointer to **[]string** | The types of the volumes (&#x60;standard&#x60; \\| &#x60;gp2&#x60; \\| &#x60;io1&#x60;). | [optional] 
 
@@ -324,13 +324,13 @@ SetVolumeIds gets a reference to the given []string and assigns it to the Volume
 
 ### GetVolumeSizes
 
-`func (o *FiltersVolume) GetVolumeSizes() []int32`
+`func (o *FiltersVolume) GetVolumeSizes() []int64`
 
 GetVolumeSizes returns the VolumeSizes field if non-nil, zero value otherwise.
 
 ### GetVolumeSizesOk
 
-`func (o *FiltersVolume) GetVolumeSizesOk() ([]int32, bool)`
+`func (o *FiltersVolume) GetVolumeSizesOk() ([]int64, bool)`
 
 GetVolumeSizesOk returns a tuple with the VolumeSizes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -343,9 +343,9 @@ HasVolumeSizes returns a boolean if a field has been set.
 
 ### SetVolumeSizes
 
-`func (o *FiltersVolume) SetVolumeSizes(v []int32)`
+`func (o *FiltersVolume) SetVolumeSizes(v []int64)`
 
-SetVolumeSizes gets a reference to the given []int32 and assigns it to the VolumeSizes field.
+SetVolumeSizes gets a reference to the given []int64 and assigns it to the VolumeSizes field.
 
 ### GetVolumeStates
 

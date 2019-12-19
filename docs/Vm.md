@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **ImageId** | Pointer to **string** | The ID of the OMI used to create the VM. | [optional] 
 **IsSourceDestChecked** | Pointer to **bool** | (Net only) If &#x60;true&#x60;, the source/destination check is enabled. If &#x60;false&#x60;, it is disabled. This value must be &#x60;false&#x60; for a NAT VM to perform network address translation (NAT) in a Net. | [optional] 
 **KeypairName** | Pointer to **string** | The name of the keypair used when launching the VM. | [optional] 
-**LaunchNumber** | Pointer to **int32** | The number for the VM when launching a group of several VMs (for example, 0, 1, 2, and so on). | [optional] 
+**LaunchNumber** | Pointer to **int64** | The number for the VM when launching a group of several VMs (for example, 0, 1, 2, and so on). | [optional] 
 **NetId** | Pointer to **string** | The ID of the Net in which the VM is running. | [optional] 
 **Nics** | Pointer to [**[]NicLight**](NicLight.md) | The network interface cards (NICs) the VMs are attached to. | [optional] 
 **OsFamily** | Pointer to **string** | Indicates the operating system (OS) of the VM. | [optional] 
@@ -266,13 +266,13 @@ SetKeypairName gets a reference to the given string and assigns it to the Keypai
 
 ### GetLaunchNumber
 
-`func (o *Vm) GetLaunchNumber() int32`
+`func (o *Vm) GetLaunchNumber() int64`
 
 GetLaunchNumber returns the LaunchNumber field if non-nil, zero value otherwise.
 
 ### GetLaunchNumberOk
 
-`func (o *Vm) GetLaunchNumberOk() (int32, bool)`
+`func (o *Vm) GetLaunchNumberOk() (int64, bool)`
 
 GetLaunchNumberOk returns a tuple with the LaunchNumber field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -285,9 +285,9 @@ HasLaunchNumber returns a boolean if a field has been set.
 
 ### SetLaunchNumber
 
-`func (o *Vm) SetLaunchNumber(v int32)`
+`func (o *Vm) SetLaunchNumber(v int64)`
 
-SetLaunchNumber gets a reference to the given int32 and assigns it to the LaunchNumber field.
+SetLaunchNumber gets a reference to the given int64 and assigns it to the LaunchNumber field.
 
 ### GetNetId
 

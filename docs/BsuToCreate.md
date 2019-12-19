@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DeleteOnVmDeletion** | Pointer to **bool** | Set to &#x60;true&#x60; by default, which means that the volume is deleted when the VM is terminated. If set to &#x60;false&#x60;, the volume is not deleted when the VM is terminated. | [optional] 
-**Iops** | Pointer to **int32** | The number of I/O operations per second (IOPS). This parameter must be specified only if you create an &#x60;io1&#x60; volume. The maximum number of IOPS allowed for &#x60;io1&#x60; volumes is &#x60;13000&#x60;. | [optional] 
+**Iops** | Pointer to **int64** | The number of I/O operations per second (IOPS). This parameter must be specified only if you create an &#x60;io1&#x60; volume. The maximum number of IOPS allowed for &#x60;io1&#x60; volumes is &#x60;13000&#x60;. | [optional] 
 **SnapshotId** | Pointer to **string** | The ID of the snapshot used to create the volume. | [optional] 
-**VolumeSize** | Pointer to **int32** | The size of the volume, in gibibytes (GiB).&lt;br /&gt; If you specify a snapshot ID, the volume size must be at least equal to the snapshot size.&lt;br /&gt; If you specify a snapshot ID but no volume size, the volume is created with a size similar to the snapshot one. | [optional] 
+**VolumeSize** | Pointer to **int64** | The size of the volume, in gibibytes (GiB).&lt;br /&gt; If you specify a snapshot ID, the volume size must be at least equal to the snapshot size.&lt;br /&gt; If you specify a snapshot ID but no volume size, the volume is created with a size similar to the snapshot one. | [optional] 
 **VolumeType** | Pointer to **string** | The type of the volume (&#x60;standard&#x60; \\| &#x60;io1&#x60; \\| &#x60;gp2&#x60;). If not specified in the request, a &#x60;standard&#x60; volume is created.&lt;br /&gt; For more information about volume types, see [Volume Types and IOPS](https://wiki.outscale.net/display/EN/About+Volumes#AboutVolumes-VolumeTypesVolumeTypesandIOPS). | [optional] 
 
 ## Methods
@@ -39,13 +39,13 @@ SetDeleteOnVmDeletion gets a reference to the given bool and assigns it to the D
 
 ### GetIops
 
-`func (o *BsuToCreate) GetIops() int32`
+`func (o *BsuToCreate) GetIops() int64`
 
 GetIops returns the Iops field if non-nil, zero value otherwise.
 
 ### GetIopsOk
 
-`func (o *BsuToCreate) GetIopsOk() (int32, bool)`
+`func (o *BsuToCreate) GetIopsOk() (int64, bool)`
 
 GetIopsOk returns a tuple with the Iops field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -58,9 +58,9 @@ HasIops returns a boolean if a field has been set.
 
 ### SetIops
 
-`func (o *BsuToCreate) SetIops(v int32)`
+`func (o *BsuToCreate) SetIops(v int64)`
 
-SetIops gets a reference to the given int32 and assigns it to the Iops field.
+SetIops gets a reference to the given int64 and assigns it to the Iops field.
 
 ### GetSnapshotId
 
@@ -89,13 +89,13 @@ SetSnapshotId gets a reference to the given string and assigns it to the Snapsho
 
 ### GetVolumeSize
 
-`func (o *BsuToCreate) GetVolumeSize() int32`
+`func (o *BsuToCreate) GetVolumeSize() int64`
 
 GetVolumeSize returns the VolumeSize field if non-nil, zero value otherwise.
 
 ### GetVolumeSizeOk
 
-`func (o *BsuToCreate) GetVolumeSizeOk() (int32, bool)`
+`func (o *BsuToCreate) GetVolumeSizeOk() (int64, bool)`
 
 GetVolumeSizeOk returns a tuple with the VolumeSize field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -108,9 +108,9 @@ HasVolumeSize returns a boolean if a field has been set.
 
 ### SetVolumeSize
 
-`func (o *BsuToCreate) SetVolumeSize(v int32)`
+`func (o *BsuToCreate) SetVolumeSize(v int64)`
 
-SetVolumeSize gets a reference to the given int32 and assigns it to the VolumeSize field.
+SetVolumeSize gets a reference to the given int64 and assigns it to the VolumeSize field.
 
 ### GetVolumeType
 

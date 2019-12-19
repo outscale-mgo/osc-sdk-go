@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LinkNicSortNumbers** | Pointer to **[]int32** | The device numbers the NICs are attached to. | [optional] 
+**LinkNicSortNumbers** | Pointer to **[]int64** | The device numbers the NICs are attached to. | [optional] 
 **LinkNicVmIds** | Pointer to **[]string** | The IDs of the VMs the NICs are attached to. | [optional] 
 **NicIds** | Pointer to **[]string** | The IDs of the NICs. | [optional] 
 **PrivateIpsPrivateIps** | Pointer to **[]string** | The private IP addresses of the NICs. | [optional] 
@@ -14,13 +14,13 @@ Name | Type | Description | Notes
 
 ### GetLinkNicSortNumbers
 
-`func (o *FiltersNic) GetLinkNicSortNumbers() []int32`
+`func (o *FiltersNic) GetLinkNicSortNumbers() []int64`
 
 GetLinkNicSortNumbers returns the LinkNicSortNumbers field if non-nil, zero value otherwise.
 
 ### GetLinkNicSortNumbersOk
 
-`func (o *FiltersNic) GetLinkNicSortNumbersOk() ([]int32, bool)`
+`func (o *FiltersNic) GetLinkNicSortNumbersOk() ([]int64, bool)`
 
 GetLinkNicSortNumbersOk returns a tuple with the LinkNicSortNumbers field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -33,9 +33,9 @@ HasLinkNicSortNumbers returns a boolean if a field has been set.
 
 ### SetLinkNicSortNumbers
 
-`func (o *FiltersNic) SetLinkNicSortNumbers(v []int32)`
+`func (o *FiltersNic) SetLinkNicSortNumbers(v []int64)`
 
-SetLinkNicSortNumbers gets a reference to the given []int32 and assigns it to the LinkNicSortNumbers field.
+SetLinkNicSortNumbers gets a reference to the given []int64 and assigns it to the LinkNicSortNumbers field.
 
 ### GetLinkNicVmIds
 

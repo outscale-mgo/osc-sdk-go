@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Comment** | Pointer to **string** | If the snapshot export task fails, an error message appears. | [optional] 
 **OsuExport** | Pointer to [**OsuExport**](OsuExport.md) |  | [optional] 
-**Progress** | Pointer to **int32** | The progress of the snapshot export task, as a percentage. | [optional] 
+**Progress** | Pointer to **int64** | The progress of the snapshot export task, as a percentage. | [optional] 
 **SnapshotId** | Pointer to **string** | The ID of the snapshot to be exported. | [optional] 
 **State** | Pointer to **string** | The state of the snapshot export task (&#x60;pending&#x60; \\| &#x60;active&#x60; \\| &#x60;completed&#x60; \\| &#x60;failed&#x60;). | [optional] 
 **Tags** | Pointer to [**[]ResourceTag**](ResourceTag.md) | One or more tags associated with the snapshot export task. | [optional] 
@@ -66,13 +66,13 @@ SetOsuExport gets a reference to the given OsuExport and assigns it to the OsuEx
 
 ### GetProgress
 
-`func (o *SnapshotExportTask) GetProgress() int32`
+`func (o *SnapshotExportTask) GetProgress() int64`
 
 GetProgress returns the Progress field if non-nil, zero value otherwise.
 
 ### GetProgressOk
 
-`func (o *SnapshotExportTask) GetProgressOk() (int32, bool)`
+`func (o *SnapshotExportTask) GetProgressOk() (int64, bool)`
 
 GetProgressOk returns a tuple with the Progress field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -85,9 +85,9 @@ HasProgress returns a boolean if a field has been set.
 
 ### SetProgress
 
-`func (o *SnapshotExportTask) SetProgress(v int32)`
+`func (o *SnapshotExportTask) SetProgress(v int64)`
 
-SetProgress gets a reference to the given int32 and assigns it to the Progress field.
+SetProgress gets a reference to the given int64 and assigns it to the Progress field.
 
 ### GetSnapshotId
 

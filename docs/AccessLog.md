@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **IsEnabled** | Pointer to **bool** | If &#x60;true&#x60;, access logs are enabled for your load balancer. If &#x60;false&#x60;, they are not. If you set this to &#x60;true&#x60; in your request, the &#x60;OsuBucketName&#x60; parameter is required. | [optional] 
 **OsuBucketName** | Pointer to **string** | The name of the Object Storage Unit (OSU) bucket for the access logs. | [optional] 
 **OsuBucketPrefix** | Pointer to **string** | The path to the folder of the access logs in your Object Storage Unit (OSU) bucket (by default, the &#x60;root&#x60; level of your bucket). | [optional] 
-**PublicationInterval** | Pointer to **int32** | The time interval for the publication of access logs in the Object Storage Unit (OSU) bucket, in minutes. This value can be either 5 or 60 (by default, 60). | [optional] 
+**PublicationInterval** | Pointer to **int64** | The time interval for the publication of access logs in the Object Storage Unit (OSU) bucket, in minutes. This value can be either 5 or 60 (by default, 60). | [optional] 
 
 ## Methods
 
@@ -88,13 +88,13 @@ SetOsuBucketPrefix gets a reference to the given string and assigns it to the Os
 
 ### GetPublicationInterval
 
-`func (o *AccessLog) GetPublicationInterval() int32`
+`func (o *AccessLog) GetPublicationInterval() int64`
 
 GetPublicationInterval returns the PublicationInterval field if non-nil, zero value otherwise.
 
 ### GetPublicationIntervalOk
 
-`func (o *AccessLog) GetPublicationIntervalOk() (int32, bool)`
+`func (o *AccessLog) GetPublicationIntervalOk() (int64, bool)`
 
 GetPublicationIntervalOk returns a tuple with the PublicationInterval field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -107,9 +107,9 @@ HasPublicationInterval returns a boolean if a field has been set.
 
 ### SetPublicationInterval
 
-`func (o *AccessLog) SetPublicationInterval(v int32)`
+`func (o *AccessLog) SetPublicationInterval(v int64)`
 
-SetPublicationInterval gets a reference to the given int32 and assigns it to the PublicationInterval field.
+SetPublicationInterval gets a reference to the given int64 and assigns it to the PublicationInterval field.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DeleteOnVmDeletion** | Pointer to **bool** | If &#x60;true&#x60;, the NIC is deleted when the VM is terminated. You can specify &#x60;true&#x60; only if you create a NIC when creating a VM. | [optional] 
 **Description** | Pointer to **string** | The description of the NIC, if you are creating a NIC when creating the VM. | [optional] 
-**DeviceNumber** | Pointer to **int32** | The index of the VM device for the NIC attachment (between 0 and 7, both included). This parameter is required if you create a NIC when creating the VM. | [optional] 
+**DeviceNumber** | Pointer to **int64** | The index of the VM device for the NIC attachment (between 0 and 7, both included). This parameter is required if you create a NIC when creating the VM. | [optional] 
 **NicId** | Pointer to **string** | The ID of the NIC, if you are attaching an existing NIC when creating a VM. | [optional] 
 **PrivateIps** | Pointer to [**[]PrivateIpLight**](PrivateIpLight.md) | One or more private IP addresses to assign to the NIC, if you create a NIC when creating a VM. Only one private IP address can be the primary private IP address. | [optional] 
-**SecondaryPrivateIpCount** | Pointer to **int32** | The number of secondary private IP addresses, if you create a NIC when creating a VM. This parameter cannot be specified if you specified more than one private IP address in the &#x60;PrivateIps&#x60; parameter. | [optional] 
+**SecondaryPrivateIpCount** | Pointer to **int64** | The number of secondary private IP addresses, if you create a NIC when creating a VM. This parameter cannot be specified if you specified more than one private IP address in the &#x60;PrivateIps&#x60; parameter. | [optional] 
 **SecurityGroupIds** | Pointer to **[]string** | One or more IDs of security groups for the NIC, if you acreate a NIC when creating a VM. | [optional] 
 **SubnetId** | Pointer to **string** | The ID of the Subnet for the NIC, if you create a NIC when creating a VM. | [optional] 
 
@@ -67,13 +67,13 @@ SetDescription gets a reference to the given string and assigns it to the Descri
 
 ### GetDeviceNumber
 
-`func (o *NicForVmCreation) GetDeviceNumber() int32`
+`func (o *NicForVmCreation) GetDeviceNumber() int64`
 
 GetDeviceNumber returns the DeviceNumber field if non-nil, zero value otherwise.
 
 ### GetDeviceNumberOk
 
-`func (o *NicForVmCreation) GetDeviceNumberOk() (int32, bool)`
+`func (o *NicForVmCreation) GetDeviceNumberOk() (int64, bool)`
 
 GetDeviceNumberOk returns a tuple with the DeviceNumber field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -86,9 +86,9 @@ HasDeviceNumber returns a boolean if a field has been set.
 
 ### SetDeviceNumber
 
-`func (o *NicForVmCreation) SetDeviceNumber(v int32)`
+`func (o *NicForVmCreation) SetDeviceNumber(v int64)`
 
-SetDeviceNumber gets a reference to the given int32 and assigns it to the DeviceNumber field.
+SetDeviceNumber gets a reference to the given int64 and assigns it to the DeviceNumber field.
 
 ### GetNicId
 
@@ -142,13 +142,13 @@ SetPrivateIps gets a reference to the given []PrivateIpLight and assigns it to t
 
 ### GetSecondaryPrivateIpCount
 
-`func (o *NicForVmCreation) GetSecondaryPrivateIpCount() int32`
+`func (o *NicForVmCreation) GetSecondaryPrivateIpCount() int64`
 
 GetSecondaryPrivateIpCount returns the SecondaryPrivateIpCount field if non-nil, zero value otherwise.
 
 ### GetSecondaryPrivateIpCountOk
 
-`func (o *NicForVmCreation) GetSecondaryPrivateIpCountOk() (int32, bool)`
+`func (o *NicForVmCreation) GetSecondaryPrivateIpCountOk() (int64, bool)`
 
 GetSecondaryPrivateIpCountOk returns a tuple with the SecondaryPrivateIpCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -161,9 +161,9 @@ HasSecondaryPrivateIpCount returns a boolean if a field has been set.
 
 ### SetSecondaryPrivateIpCount
 
-`func (o *NicForVmCreation) SetSecondaryPrivateIpCount(v int32)`
+`func (o *NicForVmCreation) SetSecondaryPrivateIpCount(v int64)`
 
-SetSecondaryPrivateIpCount gets a reference to the given int32 and assigns it to the SecondaryPrivateIpCount field.
+SetSecondaryPrivateIpCount gets a reference to the given int64 and assigns it to the SecondaryPrivateIpCount field.
 
 ### GetSecurityGroupIds
 

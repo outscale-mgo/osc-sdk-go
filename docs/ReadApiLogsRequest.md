@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **DryRun** | Pointer to **bool** | If &#x60;true&#x60;, checks whether you have the required permissions to perform the action. | [optional] 
 **Filters** | Pointer to [**FiltersApiLog**](FiltersApiLog.md) |  | [optional] 
 **NextPageToken** | Pointer to **string** | The token to request the next page of results. | [optional] 
-**ResultsPerPage** | Pointer to **int32** | The maximum number of items returned in a single page. By default, 100. | [optional] 
+**ResultsPerPage** | Pointer to **int64** | The maximum number of items returned in a single page. By default, 100. | [optional] 
 **With** | Pointer to [**With**](With.md) |  | [optional] 
 
 ## Methods
@@ -89,13 +89,13 @@ SetNextPageToken gets a reference to the given string and assigns it to the Next
 
 ### GetResultsPerPage
 
-`func (o *ReadApiLogsRequest) GetResultsPerPage() int32`
+`func (o *ReadApiLogsRequest) GetResultsPerPage() int64`
 
 GetResultsPerPage returns the ResultsPerPage field if non-nil, zero value otherwise.
 
 ### GetResultsPerPageOk
 
-`func (o *ReadApiLogsRequest) GetResultsPerPageOk() (int32, bool)`
+`func (o *ReadApiLogsRequest) GetResultsPerPageOk() (int64, bool)`
 
 GetResultsPerPageOk returns a tuple with the ResultsPerPage field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -108,9 +108,9 @@ HasResultsPerPage returns a boolean if a field has been set.
 
 ### SetResultsPerPage
 
-`func (o *ReadApiLogsRequest) SetResultsPerPage(v int32)`
+`func (o *ReadApiLogsRequest) SetResultsPerPage(v int64)`
 
-SetResultsPerPage gets a reference to the given int32 and assigns it to the ResultsPerPage field.
+SetResultsPerPage gets a reference to the given int64 and assigns it to the ResultsPerPage field.
 
 ### GetWith
 

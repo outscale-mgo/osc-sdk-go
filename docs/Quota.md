@@ -6,11 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountId** | Pointer to **string** | The account ID of the owner of the quotas. | [optional] 
 **Description** | Pointer to **string** | The description of the quota. | [optional] 
-**MaxValue** | Pointer to **int32** | The maximum value of the quota for the 3DS OUTSCALE user account (if there is no limit, &#x60;0&#x60;). | [optional] 
+**MaxValue** | Pointer to **int64** | The maximum value of the quota for the 3DS OUTSCALE user account (if there is no limit, &#x60;0&#x60;). | [optional] 
 **Name** | Pointer to **string** | The unique name of the quota. | [optional] 
 **QuotaCollection** | Pointer to **string** | The group name of the quota. | [optional] 
 **ShortDescription** | Pointer to **string** | The description of the quota. | [optional] 
-**UsedValue** | Pointer to **int32** | The limit value currently used by the 3DS OUTSCALE user account. | [optional] 
+**UsedValue** | Pointer to **int64** | The limit value currently used by the 3DS OUTSCALE user account. | [optional] 
 
 ## Methods
 
@@ -66,13 +66,13 @@ SetDescription gets a reference to the given string and assigns it to the Descri
 
 ### GetMaxValue
 
-`func (o *Quota) GetMaxValue() int32`
+`func (o *Quota) GetMaxValue() int64`
 
 GetMaxValue returns the MaxValue field if non-nil, zero value otherwise.
 
 ### GetMaxValueOk
 
-`func (o *Quota) GetMaxValueOk() (int32, bool)`
+`func (o *Quota) GetMaxValueOk() (int64, bool)`
 
 GetMaxValueOk returns a tuple with the MaxValue field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -85,9 +85,9 @@ HasMaxValue returns a boolean if a field has been set.
 
 ### SetMaxValue
 
-`func (o *Quota) SetMaxValue(v int32)`
+`func (o *Quota) SetMaxValue(v int64)`
 
-SetMaxValue gets a reference to the given int32 and assigns it to the MaxValue field.
+SetMaxValue gets a reference to the given int64 and assigns it to the MaxValue field.
 
 ### GetName
 
@@ -166,13 +166,13 @@ SetShortDescription gets a reference to the given string and assigns it to the S
 
 ### GetUsedValue
 
-`func (o *Quota) GetUsedValue() int32`
+`func (o *Quota) GetUsedValue() int64`
 
 GetUsedValue returns the UsedValue field if non-nil, zero value otherwise.
 
 ### GetUsedValueOk
 
-`func (o *Quota) GetUsedValueOk() (int32, bool)`
+`func (o *Quota) GetUsedValueOk() (int64, bool)`
 
 GetUsedValueOk returns a tuple with the UsedValue field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -185,9 +185,9 @@ HasUsedValue returns a boolean if a field has been set.
 
 ### SetUsedValue
 
-`func (o *Quota) SetUsedValue(v int32)`
+`func (o *Quota) SetUsedValue(v int64)`
 
-SetUsedValue gets a reference to the given int32 and assigns it to the UsedValue field.
+SetUsedValue gets a reference to the given int64 and assigns it to the UsedValue field.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

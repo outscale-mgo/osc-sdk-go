@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BgpAsn** | Pointer to **int32** | An unsigned 32-bits Autonomous System Number (ASN) used by the Border Gateway Protocol (BGP) to find out the path to your client gateway through the Internet network. | [optional] 
+**BgpAsn** | Pointer to **int64** | An unsigned 32-bits Autonomous System Number (ASN) used by the Border Gateway Protocol (BGP) to find out the path to your client gateway through the Internet network. | [optional] 
 **ClientGatewayId** | Pointer to **string** | The ID of the client gateway. | [optional] 
 **ConnectionType** | Pointer to **string** | The type of communication tunnel used by the client gateway (only &#x60;ipsec.1&#x60; is supported). | [optional] 
 **PublicIp** | Pointer to **string** | The public IPv4 address of the client gateway (must be a fixed address into a NATed network). | [optional] 
@@ -15,13 +15,13 @@ Name | Type | Description | Notes
 
 ### GetBgpAsn
 
-`func (o *ClientGateway) GetBgpAsn() int32`
+`func (o *ClientGateway) GetBgpAsn() int64`
 
 GetBgpAsn returns the BgpAsn field if non-nil, zero value otherwise.
 
 ### GetBgpAsnOk
 
-`func (o *ClientGateway) GetBgpAsnOk() (int32, bool)`
+`func (o *ClientGateway) GetBgpAsnOk() (int64, bool)`
 
 GetBgpAsnOk returns a tuple with the BgpAsn field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -34,9 +34,9 @@ HasBgpAsn returns a boolean if a field has been set.
 
 ### SetBgpAsn
 
-`func (o *ClientGateway) SetBgpAsn(v int32)`
+`func (o *ClientGateway) SetBgpAsn(v int64)`
 
-SetBgpAsn gets a reference to the given int32 and assigns it to the BgpAsn field.
+SetBgpAsn gets a reference to the given int64 and assigns it to the BgpAsn field.
 
 ### GetClientGatewayId
 

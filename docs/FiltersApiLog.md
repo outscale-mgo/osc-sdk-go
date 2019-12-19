@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **QueryIpAddresses** | Pointer to **[]string** | One or more IP addresses used for the query. | [optional] 
 **QueryUserAgents** | Pointer to **[]string** | One or more user agents used for the HTTP request. | [optional] 
 **RequestIds** | Pointer to **[]string** | One or more request IDs. | [optional] 
-**ResponseStatusCodes** | Pointer to **[]int32** | One or more HTTP codes provided by the responses. | [optional] 
+**ResponseStatusCodes** | Pointer to **[]int64** | One or more HTTP codes provided by the responses. | [optional] 
 
 ## Methods
 
@@ -218,13 +218,13 @@ SetRequestIds gets a reference to the given []string and assigns it to the Reque
 
 ### GetResponseStatusCodes
 
-`func (o *FiltersApiLog) GetResponseStatusCodes() []int32`
+`func (o *FiltersApiLog) GetResponseStatusCodes() []int64`
 
 GetResponseStatusCodes returns the ResponseStatusCodes field if non-nil, zero value otherwise.
 
 ### GetResponseStatusCodesOk
 
-`func (o *FiltersApiLog) GetResponseStatusCodesOk() ([]int32, bool)`
+`func (o *FiltersApiLog) GetResponseStatusCodesOk() ([]int64, bool)`
 
 GetResponseStatusCodesOk returns a tuple with the ResponseStatusCodes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -237,9 +237,9 @@ HasResponseStatusCodes returns a boolean if a field has been set.
 
 ### SetResponseStatusCodes
 
-`func (o *FiltersApiLog) SetResponseStatusCodes(v []int32)`
+`func (o *FiltersApiLog) SetResponseStatusCodes(v []int64)`
 
-SetResponseStatusCodes gets a reference to the given []int32 and assigns it to the ResponseStatusCodes field.
+SetResponseStatusCodes gets a reference to the given []int64 and assigns it to the ResponseStatusCodes field.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

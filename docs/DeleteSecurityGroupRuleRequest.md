@@ -6,14 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DryRun** | Pointer to **bool** | If &#x60;true&#x60;, checks whether you have the required permissions to perform the action. | [optional] 
 **Flow** | Pointer to **string** | The direction of the flow: &#x60;Inbound&#x60; or &#x60;Outbound&#x60;. You can specify &#x60;Outbound&#x60; for Nets only. | 
-**FromPortRange** | Pointer to **int32** | The beginning of the port range for the TCP and UDP protocols, or an ICMP type number. | [optional] 
+**FromPortRange** | Pointer to **int64** | The beginning of the port range for the TCP and UDP protocols, or an ICMP type number. | [optional] 
 **IpProtocol** | Pointer to **string** | The IP protocol name (&#x60;tcp&#x60;, &#x60;udp&#x60;, &#x60;icmp&#x60;) or protocol number. By default, &#x60;-1&#x60;, which means all protocols. | [optional] 
 **IpRange** | Pointer to **string** | The IP range for the security group rule, in CIDR notation (for example, 10.0.0.0/16). | [optional] 
 **Rules** | Pointer to [**[]SecurityGroupRule**](SecurityGroupRule.md) | One or more rules you want to delete from the security group. | [optional] 
 **SecurityGroupAccountIdToUnlink** | Pointer to **string** | The account ID of the owner of the security group you want to delete a rule from. | [optional] 
 **SecurityGroupId** | Pointer to **string** | The ID of the security group you want to delete a rule from. | 
 **SecurityGroupNameToUnlink** | Pointer to **string** | The ID of the source security group. If you are in the Public Cloud, you can also specify the name of the source security group. | [optional] 
-**ToPortRange** | Pointer to **int32** | The end of the port range for the TCP and UDP protocols, or an ICMP type number. | [optional] 
+**ToPortRange** | Pointer to **int64** | The end of the port range for the TCP and UDP protocols, or an ICMP type number. | [optional] 
 
 ## Methods
 
@@ -69,13 +69,13 @@ SetFlow gets a reference to the given string and assigns it to the Flow field.
 
 ### GetFromPortRange
 
-`func (o *DeleteSecurityGroupRuleRequest) GetFromPortRange() int32`
+`func (o *DeleteSecurityGroupRuleRequest) GetFromPortRange() int64`
 
 GetFromPortRange returns the FromPortRange field if non-nil, zero value otherwise.
 
 ### GetFromPortRangeOk
 
-`func (o *DeleteSecurityGroupRuleRequest) GetFromPortRangeOk() (int32, bool)`
+`func (o *DeleteSecurityGroupRuleRequest) GetFromPortRangeOk() (int64, bool)`
 
 GetFromPortRangeOk returns a tuple with the FromPortRange field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -88,9 +88,9 @@ HasFromPortRange returns a boolean if a field has been set.
 
 ### SetFromPortRange
 
-`func (o *DeleteSecurityGroupRuleRequest) SetFromPortRange(v int32)`
+`func (o *DeleteSecurityGroupRuleRequest) SetFromPortRange(v int64)`
 
-SetFromPortRange gets a reference to the given int32 and assigns it to the FromPortRange field.
+SetFromPortRange gets a reference to the given int64 and assigns it to the FromPortRange field.
 
 ### GetIpProtocol
 
@@ -244,13 +244,13 @@ SetSecurityGroupNameToUnlink gets a reference to the given string and assigns it
 
 ### GetToPortRange
 
-`func (o *DeleteSecurityGroupRuleRequest) GetToPortRange() int32`
+`func (o *DeleteSecurityGroupRuleRequest) GetToPortRange() int64`
 
 GetToPortRange returns the ToPortRange field if non-nil, zero value otherwise.
 
 ### GetToPortRangeOk
 
-`func (o *DeleteSecurityGroupRuleRequest) GetToPortRangeOk() (int32, bool)`
+`func (o *DeleteSecurityGroupRuleRequest) GetToPortRangeOk() (int64, bool)`
 
 GetToPortRangeOk returns a tuple with the ToPortRange field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -263,9 +263,9 @@ HasToPortRange returns a boolean if a field has been set.
 
 ### SetToPortRange
 
-`func (o *DeleteSecurityGroupRuleRequest) SetToPortRange(v int32)`
+`func (o *DeleteSecurityGroupRuleRequest) SetToPortRange(v int64)`
 
-SetToPortRange gets a reference to the given int32 and assigns it to the ToPortRange field.
+SetToPortRange gets a reference to the given int64 and assigns it to the ToPortRange field.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
