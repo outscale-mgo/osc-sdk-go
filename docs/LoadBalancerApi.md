@@ -1,13 +1,17 @@
 # \LoadBalancerApi
 
-All URIs are relative to *https://api.eu-west-2.outscale.com/oapi/v0*
+All URIs are relative to *https://api.eu-west-2.outscale.com/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateLoadBalancer**](LoadBalancerApi.md#CreateLoadBalancer) | **Post** /CreateLoadBalancer | 
+[**CreateLoadBalancerTags**](LoadBalancerApi.md#CreateLoadBalancerTags) | **Post** /CreateLoadBalancerTags | 
 [**DeleteLoadBalancer**](LoadBalancerApi.md#DeleteLoadBalancer) | **Post** /DeleteLoadBalancer | 
+[**DeleteLoadBalancerTags**](LoadBalancerApi.md#DeleteLoadBalancerTags) | **Post** /DeleteLoadBalancerTags | 
 [**DeregisterVmsInLoadBalancer**](LoadBalancerApi.md#DeregisterVmsInLoadBalancer) | **Post** /DeregisterVmsInLoadBalancer | 
+[**ReadLoadBalancerTags**](LoadBalancerApi.md#ReadLoadBalancerTags) | **Post** /ReadLoadBalancerTags | 
 [**ReadLoadBalancers**](LoadBalancerApi.md#ReadLoadBalancers) | **Post** /ReadLoadBalancers | 
+[**ReadVmsHealth**](LoadBalancerApi.md#ReadVmsHealth) | **Post** /ReadVmsHealth | 
 [**RegisterVmsInLoadBalancer**](LoadBalancerApi.md#RegisterVmsInLoadBalancer) | **Post** /RegisterVmsInLoadBalancer | 
 [**UpdateLoadBalancer**](LoadBalancerApi.md#UpdateLoadBalancer) | **Post** /UpdateLoadBalancer | 
 
@@ -39,6 +43,47 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CreateLoadBalancerResponse**](CreateLoadBalancerResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreateLoadBalancerTags
+
+> CreateLoadBalancerTagsResponse CreateLoadBalancerTags(ctx, optional)
+
+
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+ **optional** | ***CreateLoadBalancerTagsOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a pointer to a CreateLoadBalancerTagsOpts struct
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createLoadBalancerTagsRequest** | [**optional.Interface of CreateLoadBalancerTagsRequest**](CreateLoadBalancerTagsRequest.md)|  | 
+
+### Return type
+
+[**CreateLoadBalancerTagsResponse**](CreateLoadBalancerTagsResponse.md)
 
 ### Authorization
 
@@ -95,6 +140,47 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## DeleteLoadBalancerTags
+
+> DeleteLoadBalancerTagsResponse DeleteLoadBalancerTags(ctx, optional)
+
+
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+ **optional** | ***DeleteLoadBalancerTagsOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a pointer to a DeleteLoadBalancerTagsOpts struct
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **deleteLoadBalancerTagsRequest** | [**optional.Interface of DeleteLoadBalancerTagsRequest**](DeleteLoadBalancerTagsRequest.md)|  | 
+
+### Return type
+
+[**DeleteLoadBalancerTagsResponse**](DeleteLoadBalancerTagsResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## DeregisterVmsInLoadBalancer
 
 > DeregisterVmsInLoadBalancerResponse DeregisterVmsInLoadBalancer(ctx, optional)
@@ -136,6 +222,47 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## ReadLoadBalancerTags
+
+> ReadLoadBalancerTagsResponse ReadLoadBalancerTags(ctx, optional)
+
+
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+ **optional** | ***ReadLoadBalancerTagsOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a pointer to a ReadLoadBalancerTagsOpts struct
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **readLoadBalancerTagsRequest** | [**optional.Interface of ReadLoadBalancerTagsRequest**](ReadLoadBalancerTagsRequest.md)|  | 
+
+### Return type
+
+[**ReadLoadBalancerTagsResponse**](ReadLoadBalancerTagsResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## ReadLoadBalancers
 
 > ReadLoadBalancersResponse ReadLoadBalancers(ctx, optional)
@@ -162,6 +289,47 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ReadLoadBalancersResponse**](ReadLoadBalancersResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ReadVmsHealth
+
+> ReadVmsHealthResponse ReadVmsHealth(ctx, optional)
+
+
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+ **optional** | ***ReadVmsHealthOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a pointer to a ReadVmsHealthOpts struct
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **readVmsHealthRequest** | [**optional.Interface of ReadVmsHealthRequest**](ReadVmsHealthRequest.md)|  | 
+
+### Return type
+
+[**ReadVmsHealthResponse**](ReadVmsHealthResponse.md)
 
 ### Authorization
 

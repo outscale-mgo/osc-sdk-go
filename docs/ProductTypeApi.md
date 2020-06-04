@@ -1,6 +1,6 @@
 # \ProductTypeApi
 
-All URIs are relative to *https://api.eu-west-2.outscale.com/oapi/v0*
+All URIs are relative to *https://api.eu-west-2.outscale.com/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

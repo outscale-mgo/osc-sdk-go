@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountId** | Pointer to **string** | The account ID of the owner of the DirectLink. | [optional] 
-**Bandwidth** | Pointer to **string** | The physical link bandwidth (either 1 GiB/s or 10 GiB/s). | [optional] 
-**DirectLinkId** | Pointer to **string** | The ID of the DirectLink (for example, dcx-xxxxxxxx). | [optional] 
+**Bandwidth** | Pointer to **string** | The physical link bandwidth (either 1 Gbps or 10 Gbps). | [optional] 
+**DirectLinkId** | Pointer to **string** | The ID of the DirectLink (for example, dxcon-xxxxxxxx). | [optional] 
 **DirectLinkName** | Pointer to **string** | The name of the DirectLink. | [optional] 
 **Location** | Pointer to **string** | The datacenter where the DirectLink is located. | [optional] 
 **RegionName** | Pointer to **string** | The Region in which the DirectLink has been created. | [optional] 

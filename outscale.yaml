@@ -7473,8 +7473,6 @@ paths:
     description: Creates a new secret access key and the corresponding access key ID for a specified user. The created key is automatically set to `active`.
     post:
       operationId: CreateAccessKey
-      requestBody:
-        content: {}
       responses:
         '200':
           content:
