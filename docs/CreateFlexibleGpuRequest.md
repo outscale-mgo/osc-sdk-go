@@ -6,7 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DeleteOnVmDeletion** | Pointer to **bool** | If &#x60;true&#x60;, the fGPU is deleted when the VM is terminated. | [optional] [default to false]
 **DryRun** | Pointer to **bool** | If &#x60;true&#x60;, checks whether you have the required permissions to perform the action. | [optional] 
-**ModelName** | Pointer to **string** | The model of GPU you want to allocate. For more information, see [About Flexible GPUs](https://wiki.outscale.net/display/EN/About+Flexible+GPUs). | 
+**Generation** | Pointer to **string** | The processor generation that the fGPU must be compatible with. If not specified, the oldest possible processor generation is selected (as provided by [ReadFlexibleGpuCatalog](#readflexiblegpucatalog) for the specified model of fGPU). | [optional] 
+**ModelName** | Pointer to **string** | The model of fGPU you want to allocate. For more information, see [About Flexible GPUs](https://wiki.outscale.net/display/EN/About+Flexible+GPUs). | 
 **SubregionName** | Pointer to **string** | The Subregion in which you want to create the fGPU. | 
 
 ## Methods
@@ -60,6 +61,31 @@ HasDryRun returns a boolean if a field has been set.
 `func (o *CreateFlexibleGpuRequest) SetDryRun(v bool)`
 
 SetDryRun gets a reference to the given bool and assigns it to the DryRun field.
+
+### GetGeneration
+
+`func (o *CreateFlexibleGpuRequest) GetGeneration() string`
+
+GetGeneration returns the Generation field if non-nil, zero value otherwise.
+
+### GetGenerationOk
+
+`func (o *CreateFlexibleGpuRequest) GetGenerationOk() (string, bool)`
+
+GetGenerationOk returns a tuple with the Generation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### HasGeneration
+
+`func (o *CreateFlexibleGpuRequest) HasGeneration() bool`
+
+HasGeneration returns a boolean if a field has been set.
+
+### SetGeneration
+
+`func (o *CreateFlexibleGpuRequest) SetGeneration(v string)`
+
+SetGeneration gets a reference to the given string and assigns it to the Generation field.
 
 ### GetModelName
 

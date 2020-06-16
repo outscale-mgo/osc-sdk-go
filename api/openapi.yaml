@@ -15,17 +15,22 @@ info:
     url: https://opensource.org/licenses/BSD-3-Clause
   termsOfService: https://en.outscale.com/terms-of-service/
   title: 3DS OUTSCALE API
-  version: "0.15"
+  version: "1.1"
 servers:
-- url: https://api.{region}.outscale.com/oapi/v0
+- url: https://api.{region}.outscale.com/api/v1
   variables:
     region:
       default: eu-west-2
       enum:
-      - cn-southeast-1
       - eu-west-2
       - us-east-2
       - us-west-1
+- url: https://api.{region}.outscale.hk/api/v1
+  variables:
+    region:
+      default: cn-southeast-1
+      enum:
+      - cn-southeast-1
 security:
 - ApiKeyAuth: []
 paths:
@@ -73,6 +78,61 @@ paths:
           description: The HTTP 500 response (Internal Server Error).
       tags:
       - NetPeering
+  /CheckAuthentication:
+    description: Validates the authenticity of the account.
+    post:
+      operationId: CheckAuthentication
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CheckAuthenticationRequest'
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CheckAuthenticationResponse'
+          description: Information about the response.
+      tags:
+      - Account
+  /CreateAccessKey:
+    description: Creates a new secret access key and the corresponding access key
+      ID for a specified user. The created key is automatically set to `active`.
+    post:
+      operationId: CreateAccessKey
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateAccessKeyResponse'
+          description: Information about the response.
+      tags:
+      - AccessKey
+  /CreateAccount:
+    description: |-
+      Creates a new 3DS OUTSCALE account.<br /><br />
+
+      **[NOTE]**<br />
+      * You need 3DS OUTSCALE credentials and the appropriate quotas to create a new account via API. To get quotas, you can send an email to sales@outscale.com.<br />
+      * If you want to pass a numeral value as a string instead of an long, you must wrap your string in additional quotes (for example, `'&#34;92000&#34;'`).
+    post:
+      operationId: CreateAccount
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAccountRequest'
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateAccountResponse'
+          description: Information about the response.
+      tags:
+      - Account
   /CreateClientGateway:
     description: |-
       Provides information about your client gateway.<br />
@@ -96,8 +156,8 @@ paths:
       tags:
       - ClientGateway
   /CreateDhcpOptions:
-    description: Creates a new set of DHCP options that you can then associate with
-      a Net.
+    description: Creates a new set of DHCP options, that you can then associate with
+      a Net using the [UpdateNet](#updatenet) method.
     post:
       operationId: CreateDhcpOptions
       requestBody:
@@ -329,6 +389,26 @@ paths:
           description: The HTTP 500 response (Internal Server Error).
       tags:
       - Keypair
+  /CreateListenerRule:
+    description: |-
+      Creates a rule for traffic redirection for the specified listener. Each rule must have either the `HostNamePattern` or `PathPattern` parameter specified. Rules are treated in priority order, from the highest value to the lowest value.<br />
+      Once the rule is created, you need to register backend VMs with it. For more information, see the [RegisterVmsInLoadBalancer](#registervmsinloadbalancer) method.
+    post:
+      operationId: CreateListenerRule
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateListenerRuleRequest'
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateListenerRuleResponse'
+          description: Information about the reponse.
+      tags:
+      - Listener
   /CreateLoadBalancer:
     description: |-
       Creates a load balancer.<br />
@@ -393,6 +473,26 @@ paths:
           description: The HTTP 200 response (OK).
       tags:
       - LoadBalancerPolicy
+  /CreateLoadBalancerTags:
+    description: |-
+      Adds one or more tags to the specified load balancers.<br />
+      If a tag with the same key already exists for the load balancer, the tag value is replaced.
+    post:
+      operationId: CreateLoadBalancerTags
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateLoadBalancerTagsRequest'
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateLoadBalancerTagsResponse'
+          description: The HTTP 200 response (OK).
+      tags:
+      - LoadBalancer
   /CreateNatService:
     description: |-
       Creates a network address translation (NAT) service in the specified public Subnet of a Net.<br />
@@ -792,6 +892,30 @@ paths:
           description: The HTTP 500 response (Internal Server Error).
       tags:
       - SecurityGroupRule
+  /CreateServerCertificate:
+    description: |-
+      Creates a server certificate and its matching private key.<br /><br />
+      These elements can be used with other services (for example, to configure SSL termination on load balancers).<br /><br />
+      You can also specify the chain of intermediate certification authorities if your certificate is not directly signed by a root one. You can specify multiple intermediate certification authorities in the `CertificateChain` parameter. To do so, concatenate all certificates in the correct order (the first certificate must be the authority of your certificate, the second must the the authority of the first one, and so on).<br /><br />
+      The private key must be a RSA key in PKCS1 form. To check this, open the PEM file and ensure its header reads as follows: BEGIN RSA PRIVATE KEY.<br /><br />
+      [IMPORTANT]<br /><br />
+      This private key must not be protected by a password or a passphrase.
+    post:
+      operationId: CreateServerCertificate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateServerCertificateRequest'
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateServerCertificateResponse'
+          description: Information about the response.
+      tags:
+      - ServerCertificate
   /CreateSnapshot:
     description: |-
       Creates a snapshot of a Block storage Unit (BSU) volume.<br />
@@ -1104,6 +1228,28 @@ paths:
           description: The HTTP 200 response (OK).
       tags:
       - VpnConnection
+  /DeleteAccessKey:
+    description: |-
+      Deletes the specified access key associated with the account that sends the request.<br /><br />
+
+      **[NOTE]**<br />
+      To protect against brute force attacks, the number of requests allowed for this method in a given time period is limited.
+    post:
+      operationId: DeleteAccessKey
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteAccessKeyRequest'
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteAccessKeyResponse'
+          description: Information about the response.
+      tags:
+      - AccessKey
   /DeleteClientGateway:
     description: |-
       Deletes a client gateway.<br />
@@ -1339,6 +1485,26 @@ paths:
           description: The HTTP 500 response (Internal Server Error).
       tags:
       - Keypair
+  /DeleteListenerRule:
+    description: |-
+      Deletes a listener rule.<br />
+      The previously active rule is disabled after deletion.
+    post:
+      operationId: DeleteListenerRule
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteListenerRuleRequest'
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteListenerRuleResponse'
+          description: Information about the response.
+      tags:
+      - Listener
   /DeleteLoadBalancer:
     description: Deletes a specified load balancer.
     post:
@@ -1395,6 +1561,24 @@ paths:
           description: The HTTP 200 response (OK).
       tags:
       - LoadBalancerPolicy
+  /DeleteLoadBalancerTags:
+    description: Deletes one or more tags from the specified load balancers.
+    post:
+      operationId: DeleteLoadBalancerTags
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteLoadBalancerTagsRequest'
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteLoadBalancerTagsResponse'
+          description: The HTTP 200 response (OK).
+      tags:
+      - LoadBalancer
   /DeleteNatService:
     description: |-
       Deletes a specified network address translation (NAT) service.<br />
@@ -1776,6 +1960,24 @@ paths:
           description: The HTTP 500 response (Internal Server Error).
       tags:
       - SecurityGroupRule
+  /DeleteServerCertificate:
+    description: Deletes a specified server certificate.
+    post:
+      operationId: DeleteServerCertificate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteServerCertificateRequest'
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteServerCertificateResponse'
+          description: Informaton about the response.
+      tags:
+      - ServerCertificate
   /DeleteSnapshot:
     description: |-
       Deletes a specified snapshot.<br />
@@ -2315,6 +2517,44 @@ paths:
           description: The HTTP 500 response (Internal Server Error).
       tags:
       - Volume
+  /ReadAccessKeys:
+    description: |-
+      Returns information about the access key IDs of a specified user.<br />
+      If the user does not have any access key ID, this action returns an empty list.
+    post:
+      operationId: ReadAccessKeys
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReadAccessKeysRequest'
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReadAccessKeysResponse'
+          description: Information about the response.
+      tags:
+      - AccessKey
+  /ReadAccounts:
+    description: Gets information about the account that sent the request.
+    post:
+      operationId: ReadAccounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReadAccountsRequest'
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReadAccountsResponse'
+          description: Information about the response.
+      tags:
+      - Account
   /ReadAdminPassword:
     description: |-
       Retrieves the administrator password for a Windows running virtual machine (VM).<br />
@@ -2438,6 +2678,26 @@ paths:
           description: The HTTP 500 response (Internal Server Error).
       tags:
       - Vm
+  /ReadConsumptionAccount:
+    description: |-
+      Displays information about the consumption of your account for each billable resource within the specified time period.<br /><br />
+
+      **[NOTE]**<br />
+      If you exceed the number of identical requests allowed for a configured time period, the `Throttling` error message is returned.
+    post:
+      operationId: ReadConsumptionAccount
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReadConsumptionAccountRequest'
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReadConsumptionAccountResponse'
+          description: Information about the response.
   /ReadDhcpOptions:
     description: |-
       Retrieves information about the content of one or more DHCP options sets.<br /><br />
@@ -2692,6 +2952,47 @@ paths:
           description: The HTTP 500 response (Internal Server Error).
       tags:
       - Keypair
+  /ReadListenerRules:
+    description: Describes one or more listener rules. By default, this action returns
+      the full list of listener rules for the account.
+    post:
+      operationId: ReadListenerRules
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReadListenerRulesRequest'
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReadListenerRulesResponse'
+          description: Information about the response.
+      tags:
+      - Listener
+  /ReadLoadBalancerTags:
+    description: |-
+      Describes the tags associated with one or more specified load balancers.<br /><br />
+
+      **[NOTE]**<br />
+      If you exceed the number of identical requests allowed for a configured time period, the `Throttling` error message is returned.
+    post:
+      operationId: ReadLoadBalancerTags
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReadLoadBalancerTagsRequest'
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReadLoadBalancerTagsResponse'
+          description: The HTTP 200 response (OK).
+      tags:
+      - LoadBalancer
   /ReadLoadBalancers:
     description: |-
       Lists one or more load balancers and their attributes.<br /><br />
@@ -2987,7 +3288,7 @@ paths:
           description: The HTTP 200 response (OK).
       security: []
       tags:
-      - PublicIpRange
+      - PublicIp
   /ReadPublicIps:
     description: |-
       Lists one or more External IP addresses (EIPs) allocated to your account.<br />
@@ -3051,6 +3352,24 @@ paths:
           description: The HTTP 200 response (OK).
       tags:
       - Quota
+  /ReadRegions:
+    description: Describes one or more Regions of the 3DS OUTSCALE Cloud.
+    post:
+      operationId: ReadRegions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReadRegionsRequest'
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReadRegionsResponse'
+          description: Information about the response.
+      tags:
+      - Region
   /ReadRouteTables:
     description: |-
       Lists one or more of your route tables.<br />
@@ -3092,6 +3411,25 @@ paths:
           description: The HTTP 500 response (Internal Server Error).
       tags:
       - RouteTable
+  /ReadSecretAccessKey:
+    description: Gets information about the secret access key associated with the
+      account that sends the request.
+    post:
+      operationId: ReadSecretAccessKey
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReadSecretAccessKeyRequest'
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReadSecretAccessKeyResponse'
+          description: Information about the response.
+      tags:
+      - AccessKey
   /ReadSecurityGroups:
     description: |-
       Lists one or more security groups.<br />
@@ -3133,6 +3471,24 @@ paths:
           description: The HTTP 500 response (Internal Server Error).
       tags:
       - SecurityGroup
+  /ReadServerCertificates:
+    description: List your server certificates.
+    post:
+      operationId: ReadServerCertificates
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReadServerCertificatesRequest'
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReadServerCertificatesResponse'
+          description: Information about the response.
+      tags:
+      - ServerCertificate
   /ReadSnapshotExportTasks:
     description: |-
       Lists one or more snapshot export tasks.<br /><br />
@@ -3406,7 +3762,7 @@ paths:
                 $ref: '#/components/schemas/ReadVmsHealthResponse'
           description: The HTTP 200 response (OK).
       tags:
-      - Health
+      - LoadBalancer
   /ReadVmsState:
     description: |-
       Lists the status of one or more virtual machines (VMs).<br /><br />
@@ -3611,6 +3967,52 @@ paths:
           description: The HTTP 500 response (Internal Server Error).
       tags:
       - NetPeering
+  /ResetAccountPassword:
+    description: |-
+      Replaces the account password with the new one you provide.<br />
+      You must also provide the token you received by email when asking for a password reset using the SendResetPasswordEmail method.<br /><br />
+      Password strength is tested through heuristic algorithms. For more information, see the [zxcvbn GitHub](https://github.com/dropbox/zxcvbn).<br /><br />
+      **[NOTE]**<br />
+      To protect against brute force attacks, the number of requests allowed for this method in a given time period is limited.
+    post:
+      operationId: ResetAccountPassword
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetAccountPasswordRequest'
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResetAccountPasswordResponse'
+          description: Information about the response.
+      tags:
+      - Account
+  /SendResetPasswordEmail:
+    description: |-
+      Sends an email to the email address provided for the account with a token to reset your password.<br />
+      You need to provide this token when updating the account password using the ResetAccountPassword method.<br /><br />
+      **[NOTE]**<br />
+      To protect against brute force attacks, the number of requests allowed for this method in a given time period is limited.
+    post:
+      operationId: SendResetPasswordEmail
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendResetPasswordEmailRequest'
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SendResetPasswordEmailResponse'
+          description: Information about the response.You need to provide this token
+            when updating the account password using the ResetAccountPassword method.
+      tags:
+      - Account
   /StartVms:
     description: |-
       Start one or more virtual machines (VMs).<br />
@@ -3956,6 +4358,47 @@ paths:
           description: The HTTP 500 response (Internal Server Error).
       tags:
       - Volume
+  /UpdateAccessKey:
+    description: |-
+      Modifies the status of the specified access key associated with the account that sends the request.<br />
+      When set to `active`, the access key is enabled and can be used to send requests. When set to `inactive`, the access key is disabled.<br /><br />
+
+      **[NOTE]**<br />
+      To protect against brute force attacks, the number of requests allowed for this method in a given time period is limited.
+    post:
+      operationId: UpdateAccessKey
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAccessKeyRequest'
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateAccessKeyResponse'
+          description: Information about the response.
+      tags:
+      - AccessKey
+  /UpdateAccount:
+    description: Updates the account information for the account that sends the request.
+    post:
+      operationId: UpdateAccount
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAccountRequest'
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateAccountResponse'
+          description: Information about the response.
+      tags:
+      - Account
   /UpdateFlexibleGpu:
     description: Modifies a flexible GPU (fGPU) behavior.
     post:
@@ -4012,12 +4455,32 @@ paths:
           description: The HTTP 500 response (Internal Server Error).
       tags:
       - Image
+  /UpdateListenerRule:
+    description: |-
+      Updates the pattern of the listener rule.<br />
+      This call updates the pattern matching algorithm for incoming traffic.
+    post:
+      operationId: UpdateListenerRule
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateListenerRuleRequest'
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateListenerRuleResponse'
+          description: Information about the response.
+      tags:
+      - Listener
   /UpdateLoadBalancer:
     description: |-
       Modifies the specified attributes of a load balancer.<br /><br />
 
       You can set a new SSL certificate to an SSL or HTTPS listener of a load balancer.<br />
-      This certificate replaces any certificate used on the same load balancer and port. <br /><br />
+      This certificate replaces any certificate used on the same load balancer and port.<br /><br />
 
       You can also replace the current set of policies for a load balancer with another specified one.<br />
       If the `PolicyNames` parameter is empty, all current policies are disabled.
@@ -4196,6 +4659,24 @@ paths:
           description: The HTTP 200 response (OK).
       tags:
       - VirtualGateway
+  /UpdateServerCertificate:
+    description: Modifies the name and/or the path of a specified server certificate.
+    post:
+      operationId: UpdateServerCertificate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateServerCertificateRequest'
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateServerCertificateResponse'
+          description: Information about the response.
+      tags:
+      - ServerCertificate
   /UpdateSnapshot:
     description: |-
       Modifies the permissions for a specified snapshot.<br />
@@ -4316,6 +4797,7 @@ paths:
 components:
   schemas:
     AcceptNetPeeringRequest:
+      additionalProperties: false
       example:
         DryRun: true
         NetPeeringId: NetPeeringId
@@ -4331,6 +4813,7 @@ components:
       - NetPeeringId
       type: object
     AcceptNetPeeringResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -4359,6 +4842,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     AccepterNet:
+      additionalProperties: false
       description: Information about the accepter Net.
       example:
         IpRange: IpRange
@@ -4376,7 +4860,63 @@ components:
           description: The ID of the accepter Net.
           type: string
       type: object
+    AccessKey:
+      additionalProperties: false
+      description: Information about the access key.
+      example:
+        CreationDate: CreationDate
+        AccessKeyId: AccessKeyId
+        State: State
+        LastModificationDate: LastModificationDate
+      properties:
+        AccessKeyId:
+          description: The ID of the access key.
+          type: string
+        CreationDate:
+          description: The date and time of creation of the access key.
+          format: datetime
+          type: string
+        LastModificationDate:
+          description: The date and time of the last modification of the access key.
+          format: datetime
+          type: string
+        State:
+          description: The state of the access key (`Active` if the key is valid for
+            API calls, or `Inactive` if not).
+          type: string
+      type: object
+    AccessKeySecretKey:
+      additionalProperties: false
+      description: Information about the secret access key.
+      example:
+        CreationDate: CreationDate
+        SecretKey: SecretKey
+        AccessKeyId: AccessKeyId
+        State: State
+        LastModificationDate: LastModificationDate
+      properties:
+        AccessKeyId:
+          description: The ID of the secret access key.
+          type: string
+        CreationDate:
+          description: The date and time of creation of the secret access key.
+          format: datetime
+          type: string
+        LastModificationDate:
+          description: The date and time of the last modification of the secret access
+            key.
+          format: datetime
+          type: string
+        SecretKey:
+          description: The secret access key that enables you to send requests.
+          type: string
+        State:
+          description: The state of the secret access key (`Active` if the key is
+            valid for API calls, or `Inactive` if not).
+          type: string
+      type: object
     AccessLog:
+      additionalProperties: false
       description: Information about access logs.
       example:
         OsuBucketPrefix: OsuBucketPrefix
@@ -4403,7 +4943,70 @@ components:
             5 or 60 (by default, 60).
           type: long
       type: object
+    Account:
+      additionalProperties: false
+      description: Information about the account.
+      example:
+        AccountId: AccountId
+        Email: Email
+        FirstName: FirstName
+        StateProvince: StateProvince
+        ZipCode: ZipCode
+        City: City
+        CustomerId: CustomerId
+        JobTitle: JobTitle
+        VatNumber: VatNumber
+        CompanyName: CompanyName
+        MobileNumber: MobileNumber
+        Country: Country
+        PhoneNumber: PhoneNumber
+        LastName: LastName
+      properties:
+        AccountId:
+          description: The ID of the account.
+          type: string
+        City:
+          description: The city of the account owner.
+          type: string
+        CompanyName:
+          description: The name of the company for the account.
+          type: string
+        Country:
+          description: The country of the account owner.
+          type: string
+        CustomerId:
+          description: The ID of the customer. It must be 8 digits (by default, `12345678`).
+          type: string
+        Email:
+          description: The email address for the account.
+          type: string
+        FirstName:
+          description: The first name of the account owner.
+          type: string
+        JobTitle:
+          description: The job title of the account owner.
+          type: string
+        LastName:
+          description: The last name of the account owner.
+          type: string
+        MobileNumber:
+          description: The mobile phone number of the account owner.
+          type: string
+        PhoneNumber:
+          description: The landline phone number of the account owner.
+          type: string
+        StateProvince:
+          description: The state/province of the account.
+          type: string
+        VatNumber:
+          description: The value added tax (VAT) number for the account.
+          type: string
+        ZipCode:
+          description: The ZIP code of the city.
+          type: string
+      type: object
     ApplicationStickyCookiePolicy:
+      additionalProperties: false
       description: Information about the stickiness policy.
       example:
         PolicyName: PolicyName
@@ -4418,6 +5021,7 @@ components:
           type: string
       type: object
     BackendVmHealth:
+      additionalProperties: false
       description: Information about the health of a back-end VM.
       example:
         Description: Description
@@ -4442,6 +5046,7 @@ components:
           type: string
       type: object
     BlockDeviceMappingCreated:
+      additionalProperties: false
       description: Information about the created block device mapping.
       example:
         Bsu:
@@ -4458,6 +5063,7 @@ components:
           type: string
       type: object
     BlockDeviceMappingImage:
+      additionalProperties: false
       description: One or more parameters used to automatically set up volumes when
         the VM is created.
       example:
@@ -4480,6 +5086,7 @@ components:
           type: string
       type: object
     BlockDeviceMappingVmCreation:
+      additionalProperties: false
       description: Information about the block device mapping.
       example:
         Bsu:
@@ -4506,6 +5113,7 @@ components:
           type: string
       type: object
     BlockDeviceMappingVmUpdate:
+      additionalProperties: false
       description: Information about the block device mapping.
       example:
         Bsu:
@@ -4529,6 +5137,7 @@ components:
           type: string
       type: object
     BsuCreated:
+      additionalProperties: false
       description: Information about the created BSU volume.
       example:
         VolumeId: VolumeId
@@ -4553,6 +5162,7 @@ components:
           type: string
       type: object
     BsuToCreate:
+      additionalProperties: false
       description: Information about the BSU volume to create.
       example:
         SnapshotId: SnapshotId
@@ -4587,6 +5197,7 @@ components:
           type: string
       type: object
     BsuToUpdateVm:
+      additionalProperties: false
       description: Information about the BSU volume.
       example:
         VolumeId: VolumeId
@@ -4599,7 +5210,35 @@ components:
           description: The ID of the volume.
           type: string
       type: object
+    CheckAuthenticationRequest:
+      additionalProperties: false
+      example:
+        DryRun: true
+        Login: Login
+        Password: Password
+      properties:
+        DryRun:
+          description: If `true`, checks whether you have the required permissions
+            to perform the action.
+          type: boolean
+        Login:
+          description: The email address of the account.
+          type: string
+        Password:
+          description: The password of the account.
+          type: string
+      type: object
+    CheckAuthenticationResponse:
+      additionalProperties: false
+      example:
+        ResponseContext:
+          RequestId: RequestId
+      properties:
+        ResponseContext:
+          $ref: '#/components/schemas/ResponseContext'
+      type: object
     ClientGateway:
+      additionalProperties: false
       description: Information about the client gateway.
       example:
         ConnectionType: ConnectionType
@@ -4639,7 +5278,164 @@ components:
             $ref: '#/components/schemas/ResourceTag'
           type: array
       type: object
+    ConsumptionEntry:
+      additionalProperties: false
+      description: Information about the resources consumed during the specified time
+        period.
+      example:
+        Type: Type
+        Category: Category
+        Value: Value
+        Service: Service
+        Title: Title
+        FromDate: FromDate
+        ToDate: ToDate
+        Operation: Operation
+      properties:
+        Category:
+          description: The category of the resource (for example, `network`).
+          type: string
+        FromDate:
+          description: The beginning of the time period.
+          type: string
+        Operation:
+          description: The API call that triggered the resource consumption (for example,
+            `RunInstances` or `CreateVolume`).
+          type: string
+        Service:
+          description: The service of the API call (`TinaOS-FCU`, `TinaOS-LBU`, `TinaOS-OSU`
+            or `TinaOS-DirectLink`).
+          type: string
+        Title:
+          description: A description of the consumed resource.
+          type: string
+        ToDate:
+          description: The end of the time period.
+          type: string
+        Type:
+          description: The type of resource, depending on the API call.
+          type: string
+        Value:
+          description: The consumed amount for the resource. The unit depends on the
+            resource type. For more information, see the `Title` element.
+          type: string
+      type: object
+    CreateAccessKeyResponse:
+      additionalProperties: false
+      example:
+        ResponseContext:
+          RequestId: RequestId
+        AccessKey:
+          CreationDate: CreationDate
+          SecretKey: SecretKey
+          AccessKeyId: AccessKeyId
+          State: State
+          LastModificationDate: LastModificationDate
+      properties:
+        AccessKey:
+          $ref: '#/components/schemas/AccessKeySecretKey'
+        ResponseContext:
+          $ref: '#/components/schemas/ResponseContext'
+      type: object
+    CreateAccountRequest:
+      additionalProperties: false
+      example:
+        Email: Email
+        FirstName: FirstName
+        StateProvince: StateProvince
+        ZipCode: ZipCode
+        DryRun: true
+        City: City
+        CustomerId: CustomerId
+        JobTitle: JobTitle
+        VatNumber: VatNumber
+        CompanyName: CompanyName
+        MobileNumber: MobileNumber
+        Country: Country
+        PhoneNumber: PhoneNumber
+        LastName: LastName
+      properties:
+        City:
+          description: The city of the account owner.
+          type: string
+        CompanyName:
+          description: The name of the company for the account.
+          type: string
+        Country:
+          description: The country of the account owner.
+          type: string
+        CustomerId:
+          description: The ID of the customer. It must be 8 digits (by default, `12345678`).
+          type: string
+        DryRun:
+          description: If `true`, checks whether you have the required permissions
+            to perform the action.
+          type: boolean
+        Email:
+          description: The email address for the account.
+          type: string
+        FirstName:
+          description: The first name of the account owner.
+          type: string
+        JobTitle:
+          description: The job title of the account owner.
+          type: string
+        LastName:
+          description: The last name of the account owner.
+          type: string
+        MobileNumber:
+          description: The mobile phone number of the account owner.
+          type: string
+        PhoneNumber:
+          description: The landline phone number of the account owner.
+          type: string
+        StateProvince:
+          description: The state/province of the account.
+          type: string
+        VatNumber:
+          description: The value added tax (VAT) number for the account.
+          type: string
+        ZipCode:
+          description: The ZIP code of the city.
+          type: string
+      required:
+      - City
+      - CompanyName
+      - Country
+      - CustomerId
+      - Email
+      - FirstName
+      - LastName
+      - ZipCode
+      type: object
+    CreateAccountResponse:
+      additionalProperties: false
+      example:
+        Account:
+          AccountId: AccountId
+          Email: Email
+          FirstName: FirstName
+          StateProvince: StateProvince
+          ZipCode: ZipCode
+          City: City
+          CustomerId: CustomerId
+          JobTitle: JobTitle
+          VatNumber: VatNumber
+          CompanyName: CompanyName
+          MobileNumber: MobileNumber
+          Country: Country
+          PhoneNumber: PhoneNumber
+          LastName: LastName
+        ResponseContext:
+          RequestId: RequestId
+      properties:
+        Account:
+          $ref: '#/components/schemas/Account'
+        ResponseContext:
+          $ref: '#/components/schemas/ResponseContext'
+      type: object
     CreateClientGatewayRequest:
+      additionalProperties: false
       example:
         ConnectionType: ConnectionType
         PublicIp: PublicIp
@@ -4649,7 +5445,7 @@ components:
         BgpAsn:
           description: An unsigned 32-bits Autonomous System Number (ASN) used by
             the Border Gateway Protocol (BGP) to find out the path to your client
-            gateway through the Internet network. The integer must be within the [0;4294967295]
+            gateway through the Internet network. The long must be within the [0;4294967295]
             range. By default, 65000.
           type: long
         ConnectionType:
@@ -4669,6 +5465,7 @@ components:
       - PublicIp
       type: object
     CreateClientGatewayResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -4690,6 +5487,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     CreateDhcpOptionsRequest:
+      additionalProperties: false
       example:
         NtpServers:
         - NtpServers
@@ -4721,6 +5519,7 @@ components:
           type: array
       type: object
     CreateDhcpOptionsResponse:
+      additionalProperties: false
       example:
         DhcpOptionsSet:
           DhcpOptionsSetId: DhcpOptionsSetId
@@ -4747,6 +5546,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     CreateDirectLinkInterfaceRequest:
+      additionalProperties: false
       example:
         DirectLinkInterface:
           ClientPrivateIp: ClientPrivateIp
@@ -4774,6 +5574,7 @@ components:
       - DirectLinkInterface
       type: object
     CreateDirectLinkInterfaceResponse:
+      additionalProperties: false
       example:
         DirectLinkInterface:
           ClientPrivateIp: ClientPrivateIp
@@ -4798,6 +5599,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     CreateDirectLinkRequest:
+      additionalProperties: false
       example:
         DirectLinkName: DirectLinkName
         Bandwidth: Bandwidth
@@ -4805,7 +5607,7 @@ components:
         Location: Location
       properties:
         Bandwidth:
-          description: The bandwidth of the DirectLink (`1GBps` \| `10GBps`).
+          description: The bandwidth of the DirectLink (`1Gbps` \| `10Gbps`).
           type: string
         DirectLinkName:
           description: The name of the DirectLink.
@@ -4824,6 +5626,7 @@ components:
       - Location
       type: object
     CreateDirectLinkResponse:
+      additionalProperties: false
       example:
         DirectLink:
           AccountId: AccountId
@@ -4842,7 +5645,9 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     CreateFlexibleGpuRequest:
+      additionalProperties: false
       example:
+        Generation: Generation
         DeleteOnVmDeletion: false
         ModelName: ModelName
         DryRun: true
@@ -4856,8 +5661,14 @@ components:
           description: If `true`, checks whether you have the required permissions
             to perform the action.
           type: boolean
+        Generation:
+          description: The processor generation that the fGPU must be compatible with.
+            If not specified, the oldest possible processor generation is selected
+            (as provided by [ReadFlexibleGpuCatalog](#readflexiblegpucatalog) for
+            the specified model of fGPU).
+          type: string
         ModelName:
-          description: The model of GPU you want to allocate. For more information,
+          description: The model of fGPU you want to allocate. For more information,
             see [About Flexible GPUs](https://wiki.outscale.net/display/EN/About+Flexible+GPUs).
           type: string
         SubregionName:
@@ -4868,10 +5679,12 @@ components:
       - SubregionName
       type: object
     CreateFlexibleGpuResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
         FlexibleGpu:
+          Generation: Generation
           DeleteOnVmDeletion: true
           ModelName: ModelName
           FlexibleGpuId: FlexibleGpuId
@@ -4885,6 +5698,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     CreateImageExportTaskRequest:
+      additionalProperties: false
       example:
         DryRun: true
         ImageId: ImageId
@@ -4911,6 +5725,7 @@ components:
       - OsuExport
       type: object
     CreateImageExportTaskResponse:
+      additionalProperties: false
       example:
         ImageExportTask:
           Comment: Comment
@@ -4940,6 +5755,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     CreateImageRequest:
+      additionalProperties: false
       example:
         ImageName: ImageName
         SourceRegionName: SourceRegionName
@@ -5013,6 +5829,7 @@ components:
           type: string
       type: object
     CreateImageResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -5069,6 +5886,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     CreateInternetServiceRequest:
+      additionalProperties: false
       example:
         DryRun: true
       properties:
@@ -5078,6 +5896,7 @@ components:
           type: boolean
       type: object
     CreateInternetServiceResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -5097,6 +5916,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     CreateKeypairRequest:
+      additionalProperties: false
       example:
         PublicKey: PublicKey
         DryRun: true
@@ -5111,13 +5931,13 @@ components:
             [ASCII printable characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters).
           type: string
         PublicKey:
-          description: The public key. If you are not using command line tools, it
-            must be encoded in Base64.
+          description: The public key. It must be base64-encoded.
           type: string
       required:
       - KeypairName
       type: object
     CreateKeypairResponse:
+      additionalProperties: false
       example:
         Keypair:
           KeypairFingerprint: KeypairFingerprint
@@ -5131,7 +5951,66 @@ components:
         ResponseContext:
           $ref: '#/components/schemas/ResponseContext'
       type: object
+    CreateListenerRuleRequest:
+      additionalProperties: false
+      example:
+        Listener:
+          LoadBalancerName: LoadBalancerName
+          LoadBalancerPort: ""
+        ListenerRule:
+          Action: Action
+          PathPattern: PathPattern
+          HostNamePattern: HostNamePattern
+          Priority: ""
+          ListenerRuleId: ListenerRuleId
+          ListenerRuleName: ListenerRuleName
+        DryRun: true
+        VmIds:
+        - VmIds
+        - VmIds
+      properties:
+        DryRun:
+          description: If `true`, checks whether you have the required permissions
+            to perform the action.
+          type: boolean
+        Listener:
+          $ref: '#/components/schemas/LoadBalancerLight'
+        ListenerRule:
+          $ref: '#/components/schemas/ListenerRuleForCreation'
+        VmIds:
+          description: The IDs of the backend VMs.
+          items:
+            type: string
+          type: array
+      required:
+      - Listener
+      - ListenerRule
+      - VmIds
+      type: object
+    CreateListenerRuleResponse:
+      additionalProperties: false
+      example:
+        ListenerRule:
+          Action: Action
+          PathPattern: PathPattern
+          HostNamePattern: HostNamePattern
+          Priority: ""
+          ListenerRuleId: ""
+          ListenerId: ""
+          ListenerRuleName: ListenerRuleName
+          VmIds:
+          - VmIds
+          - VmIds
+        ResponseContext:
+          RequestId: RequestId
+      properties:
+        ListenerRule:
+          $ref: '#/components/schemas/ListenerRule'
+        ResponseContext:
+          $ref: '#/components/schemas/ResponseContext'
+      type: object
     CreateLoadBalancerListenersRequest:
+      additionalProperties: false
       example:
         LoadBalancerName: LoadBalancerName
         Listeners:
@@ -5165,6 +6044,7 @@ components:
       - LoadBalancerName
       type: object
     CreateLoadBalancerListenersResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -5238,6 +6118,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     CreateLoadBalancerPolicyRequest:
+      additionalProperties: false
       example:
         LoadBalancerName: LoadBalancerName
         PolicyType: PolicyType
@@ -5272,6 +6153,7 @@ components:
       - PolicyType
       type: object
     CreateLoadBalancerPolicyResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -5345,6 +6227,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     CreateLoadBalancerRequest:
+      additionalProperties: false
       example:
         LoadBalancerName: LoadBalancerName
         SecurityGroups:
@@ -5423,6 +6306,7 @@ components:
       - LoadBalancerName
       type: object
     CreateLoadBalancerResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -5495,7 +6379,48 @@ components:
         ResponseContext:
           $ref: '#/components/schemas/ResponseContext'
       type: object
+    CreateLoadBalancerTagsRequest:
+      additionalProperties: false
+      example:
+        LoadBalancerNames:
+        - LoadBalancerNames
+        - LoadBalancerNames
+        DryRun: true
+        Tags:
+        - Value: Value
+          Key: Key
+        - Value: Value
+          Key: Key
+      properties:
+        DryRun:
+          description: If `true`, checks whether you have the required permissions
+            to perform the action.
+          type: boolean
+        LoadBalancerNames:
+          description: One or more load balancer names.
+          items:
+            type: string
+          type: array
+        Tags:
+          description: One or more tags to add to the specified load balancers.
+          items:
+            $ref: '#/components/schemas/ResourceTag'
+          type: array
+      required:
+      - LoadBalancerNames
+      - Tags
+      type: object
+    CreateLoadBalancerTagsResponse:
+      additionalProperties: false
+      example:
+        ResponseContext:
+          RequestId: RequestId
+      properties:
+        ResponseContext:
+          $ref: '#/components/schemas/ResponseContext'
+      type: object
     CreateNatServiceRequest:
+      additionalProperties: false
       example:
         DryRun: true
         PublicIpId: PublicIpId
@@ -5518,6 +6443,7 @@ components:
       - SubnetId
       type: object
     CreateNatServiceResponse:
+      additionalProperties: false
       example:
         NatService:
           NatServiceId: NatServiceId
@@ -5543,6 +6469,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     CreateNetAccessPointRequest:
+      additionalProperties: false
       example:
         NetId: NetId
         RouteTableIds:
@@ -5572,6 +6499,7 @@ components:
       - ServiceName
       type: object
     CreateNetAccessPointResponse:
+      additionalProperties: false
       example:
         NetAccessPoint:
           NetId: NetId
@@ -5595,6 +6523,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     CreateNetPeeringRequest:
+      additionalProperties: false
       example:
         AccepterNetId: AccepterNetId
         DryRun: true
@@ -5615,6 +6544,7 @@ components:
       - SourceNetId
       type: object
     CreateNetPeeringResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -5643,6 +6573,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     CreateNetRequest:
+      additionalProperties: false
       example:
         IpRange: IpRange
         Tenancy: Tenancy
@@ -5664,6 +6595,7 @@ components:
       - IpRange
       type: object
     CreateNetResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -5685,6 +6617,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     CreateNicRequest:
+      additionalProperties: false
       example:
         Description: Description
         PrivateIps:
@@ -5726,6 +6659,7 @@ components:
       - SubnetId
       type: object
     CreateNicResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -5789,6 +6723,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     CreatePublicIpRequest:
+      additionalProperties: false
       example:
         DryRun: true
       properties:
@@ -5798,6 +6733,7 @@ components:
           type: boolean
       type: object
     CreatePublicIpResponse:
+      additionalProperties: false
       example:
         PublicIp:
           NicAccountId: NicAccountId
@@ -5821,6 +6757,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     CreateRouteRequest:
+      additionalProperties: false
       example:
         NatServiceId: NatServiceId
         RouteTableId: RouteTableId
@@ -5863,6 +6800,7 @@ components:
       - RouteTableId
       type: object
     CreateRouteResponse:
+      additionalProperties: false
       example:
         RouteTable:
           NetId: NetId
@@ -5916,6 +6854,7 @@ components:
           $ref: '#/components/schemas/RouteTable'
       type: object
     CreateRouteTableRequest:
+      additionalProperties: false
       example:
         NetId: NetId
         DryRun: true
@@ -5931,6 +6870,7 @@ components:
       - NetId
       type: object
     CreateRouteTableResponse:
+      additionalProperties: false
       example:
         RouteTable:
           NetId: NetId
@@ -5984,6 +6924,7 @@ components:
           $ref: '#/components/schemas/RouteTable'
       type: object
     CreateSecurityGroupRequest:
+      additionalProperties: false
       example:
         NetId: NetId
         Description: Description
@@ -6004,6 +6945,7 @@ components:
         SecurityGroupName:
           description: |-
             (Public Cloud only) The name of the security group.<br />
+            This name must not start with `sg-`.</br>
             This name must be unique and contain between 1 and 255 ASCII characters. Accented letters are not allowed.
           type: string
       required:
@@ -6011,6 +6953,7 @@ components:
       - SecurityGroupName
       type: object
     CreateSecurityGroupResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -6098,6 +7041,7 @@ components:
           $ref: '#/components/schemas/SecurityGroup'
       type: object
     CreateSecurityGroupRuleRequest:
+      additionalProperties: false
       example:
         IpRange: IpRange
         ToPortRange: ""
@@ -6188,6 +7132,7 @@ components:
       - SecurityGroupId
       type: object
     CreateSecurityGroupRuleResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -6274,7 +7219,62 @@ components:
         SecurityGroup:
           $ref: '#/components/schemas/SecurityGroup'
       type: object
+    CreateServerCertificateRequest:
+      additionalProperties: false
+      example:
+        Path: Path
+        Chain: Chain
+        PrivateKey: PrivateKey
+        DryRun: true
+        Body: Body
+        Name: Name
+      properties:
+        Body:
+          description: The PEM-encoded X509 certificate.
+          type: string
+        Chain:
+          description: The PEM-encoded intermediate certification authorities.
+          type: string
+        DryRun:
+          description: If `true`, checks whether you have the required permissions
+            to perform the action.
+          type: boolean
+        Name:
+          description: 'A unique name for the certificate. Constraints: 1-128 alphanumeric
+            characters, pluses (+), equals (=), commas (,), periods (.), at signs
+            (@), minuses (-), or underscores (_).'
+          type: string
+        Path:
+          description: The path to the server certificate, set to a slash (/) if not
+            specified.
+          type: string
+        PrivateKey:
+          description: The PEM-encoded private key matching the certificate.
+          type: string
+      required:
+      - Body
+      - Name
+      - PrivateKey
+      type: object
+    CreateServerCertificateResponse:
+      additionalProperties: false
+      example:
+        ServerCertificate:
+          Path: Path
+          UploadDate: 2000-01-23
+          ExpirationDate: 2000-01-23
+          Id: Id
+          Name: Name
+        ResponseContext:
+          RequestId: RequestId
+      properties:
+        ResponseContext:
+          $ref: '#/components/schemas/ResponseContext'
+        ServerCertificate:
+          $ref: '#/components/schemas/ServerCertificate'
+      type: object
     CreateSnapshotExportTaskRequest:
+      additionalProperties: false
       example:
         SnapshotId: SnapshotId
         DryRun: true
@@ -6301,6 +7301,7 @@ components:
       - SnapshotId
       type: object
     CreateSnapshotExportTaskResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -6330,6 +7331,7 @@ components:
           $ref: '#/components/schemas/SnapshotExportTask'
       type: object
     CreateSnapshotRequest:
+      additionalProperties: false
       example:
         SnapshotSize: ""
         SourceRegionName: SourceRegionName
@@ -6351,9 +7353,8 @@ components:
             the OSU bucket.
           type: string
         SnapshotSize:
-          description: The size of the snapshot created in your account, in gibibytes
-            (GiB). This size must be exactly the same as the source snapshot one.
-            The maximum allowed size is 14,901 GiB.
+          description: The size of the snapshot created in your account, in bytes.
+            This size must be exactly the same as the source snapshot one.
           type: long
         SourceRegionName:
           description: The name of the source Region, which must be the same as the
@@ -6367,6 +7368,7 @@ components:
           type: string
       type: object
     CreateSnapshotResponse:
+      additionalProperties: false
       example:
         Snapshot:
           SnapshotId: SnapshotId
@@ -6396,6 +7398,7 @@ components:
           $ref: '#/components/schemas/Snapshot'
       type: object
     CreateSubnetRequest:
+      additionalProperties: false
       example:
         IpRange: IpRange
         NetId: NetId
@@ -6421,6 +7424,7 @@ components:
       - NetId
       type: object
     CreateSubnetResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -6444,6 +7448,7 @@ components:
           $ref: '#/components/schemas/Subnet'
       type: object
     CreateTagsRequest:
+      additionalProperties: false
       example:
         ResourceIds:
         - ResourceIds
@@ -6474,6 +7479,7 @@ components:
       - Tags
       type: object
     CreateTagsResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -6482,6 +7488,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     CreateVirtualGatewayRequest:
+      additionalProperties: false
       example:
         ConnectionType: ConnectionType
         DryRun: true
@@ -6498,6 +7505,7 @@ components:
       - ConnectionType
       type: object
     CreateVirtualGatewayResponse:
+      additionalProperties: false
       example:
         VirtualGateway:
           ConnectionType: ConnectionType
@@ -6522,6 +7530,7 @@ components:
           $ref: '#/components/schemas/VirtualGateway'
       type: object
     CreateVmsRequest:
+      additionalProperties: false
       example:
         SecurityGroups:
         - SecurityGroups
@@ -6673,9 +7682,8 @@ components:
           description: The ID of the Subnet in which you want to create the VM.
           type: string
         UserData:
-          description: Data or a script used to add a specific configuration to the
-            VM when creating it. If you are not using a command line tool, this must
-            be Base64-encoded.
+          description: Data or script used to add a specific configuration to the
+            VM. It must be base64-encoded.
           type: string
         VmInitiatedShutdownBehavior:
           description: The VM behavior when you stop it. By default or if set to `stop`,
@@ -6691,6 +7699,7 @@ components:
       - ImageId
       type: object
     CreateVmsResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -6969,6 +7978,7 @@ components:
           type: array
       type: object
     CreateVolumeRequest:
+      additionalProperties: false
       example:
         SnapshotId: SnapshotId
         VolumeType: VolumeType
@@ -6987,8 +7997,9 @@ components:
             of IOPS allowed for `io1` volumes is `13000`.
           type: long
         Size:
-          description: The size of the volume, in gibibytes (GiB). The maximum allowed
-            size for a volume is 14,901 GiB.
+          description: 'The size of the volume, in gibibytes (GiB). The maximum allowed
+            size for a volume is 14,901 GiB. This parameter is required if the volume
+            is not created from a snapshot (`SnapshotId` unspecified). '
           type: long
         SnapshotId:
           description: The ID of the snapshot from which you want to create the volume.
@@ -7005,6 +8016,7 @@ components:
       - SubregionName
       type: object
     CreateVolumeResponse:
+      additionalProperties: false
       example:
         Volume:
           SnapshotId: SnapshotId
@@ -7039,6 +8051,7 @@ components:
           $ref: '#/components/schemas/Volume'
       type: object
     CreateVpnConnectionRequest:
+      additionalProperties: false
       example:
         ConnectionType: ConnectionType
         ClientGatewayId: ClientGatewayId
@@ -7071,6 +8084,7 @@ components:
       - VirtualGatewayId
       type: object
     CreateVpnConnectionResponse:
+      additionalProperties: false
       example:
         VpnConnection:
           ConnectionType: ConnectionType
@@ -7101,6 +8115,7 @@ components:
           $ref: '#/components/schemas/VpnConnection'
       type: object
     CreateVpnConnectionRouteRequest:
+      additionalProperties: false
       example:
         DestinationIpRange: DestinationIpRange
         DryRun: true
@@ -7122,6 +8137,32 @@ components:
       - VpnConnectionId
       type: object
     CreateVpnConnectionRouteResponse:
+      additionalProperties: false
+      example:
+        ResponseContext:
+          RequestId: RequestId
+      properties:
+        ResponseContext:
+          $ref: '#/components/schemas/ResponseContext'
+      type: object
+    DeleteAccessKeyRequest:
+      additionalProperties: false
+      example:
+        AccessKeyId: AccessKeyId
+        DryRun: true
+      properties:
+        AccessKeyId:
+          description: The ID of the access key you want to delete.
+          type: string
+        DryRun:
+          description: If `true`, checks whether you have the required permissions
+            to perform the action.
+          type: boolean
+      required:
+      - AccessKeyId
+      type: object
+    DeleteAccessKeyResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -7130,6 +8171,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     DeleteClientGatewayRequest:
+      additionalProperties: false
       example:
         ClientGatewayId: ClientGatewayId
         DryRun: true
@@ -7145,6 +8187,7 @@ components:
       - ClientGatewayId
       type: object
     DeleteClientGatewayResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -7153,6 +8196,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     DeleteDhcpOptionsRequest:
+      additionalProperties: false
       example:
         DhcpOptionsSetId: DhcpOptionsSetId
         DryRun: true
@@ -7168,6 +8212,7 @@ components:
       - DhcpOptionsSetId
       type: object
     DeleteDhcpOptionsResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -7176,6 +8221,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     DeleteDirectLinkInterfaceRequest:
+      additionalProperties: false
       example:
         DryRun: true
         DirectLinkInterfaceId: DirectLinkInterfaceId
@@ -7191,6 +8237,7 @@ components:
       - DirectLinkInterfaceId
       type: object
     DeleteDirectLinkInterfaceResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -7199,6 +8246,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     DeleteDirectLinkRequest:
+      additionalProperties: false
       example:
         DryRun: true
         DirectLinkId: DirectLinkId
@@ -7214,6 +8262,7 @@ components:
       - DirectLinkId
       type: object
     DeleteDirectLinkResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -7222,6 +8271,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     DeleteExportTaskRequest:
+      additionalProperties: false
       example:
         DryRun: true
         ExportTaskId: ExportTaskId
@@ -7237,6 +8287,7 @@ components:
       - ExportTaskId
       type: object
     DeleteExportTaskResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -7245,6 +8296,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     DeleteFlexibleGpuRequest:
+      additionalProperties: false
       example:
         FlexibleGpuId: FlexibleGpuId
         DryRun: true
@@ -7260,6 +8312,7 @@ components:
       - FlexibleGpuId
       type: object
     DeleteFlexibleGpuResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -7268,6 +8321,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     DeleteImageRequest:
+      additionalProperties: false
       example:
         DryRun: true
         ImageId: ImageId
@@ -7283,6 +8337,7 @@ components:
       - ImageId
       type: object
     DeleteImageResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -7291,6 +8346,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     DeleteInternetServiceRequest:
+      additionalProperties: false
       example:
         InternetServiceId: InternetServiceId
         DryRun: true
@@ -7306,6 +8362,7 @@ components:
       - InternetServiceId
       type: object
     DeleteInternetServiceResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -7314,6 +8371,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     DeleteKeypairRequest:
+      additionalProperties: false
       example:
         DryRun: true
         KeypairName: KeypairName
@@ -7329,6 +8387,32 @@ components:
       - KeypairName
       type: object
     DeleteKeypairResponse:
+      additionalProperties: false
+      example:
+        ResponseContext:
+          RequestId: RequestId
+      properties:
+        ResponseContext:
+          $ref: '#/components/schemas/ResponseContext'
+      type: object
+    DeleteListenerRuleRequest:
+      additionalProperties: false
+      example:
+        DryRun: true
+        ListenerRuleName: ListenerRuleName
+      properties:
+        DryRun:
+          description: If `true`, checks whether you have the required permissions
+            to perform the action.
+          type: boolean
+        ListenerRuleName:
+          description: The name of the rule you want to delete.
+          type: string
+      required:
+      - ListenerRuleName
+      type: object
+    DeleteListenerRuleResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -7337,6 +8421,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     DeleteLoadBalancerListenersRequest:
+      additionalProperties: false
       example:
         LoadBalancerName: LoadBalancerName
         DryRun: true
@@ -7362,6 +8447,7 @@ components:
       - LoadBalancerPorts
       type: object
     DeleteLoadBalancerListenersResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -7435,6 +8521,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     DeleteLoadBalancerPolicyRequest:
+      additionalProperties: false
       example:
         LoadBalancerName: LoadBalancerName
         PolicyName: PolicyName
@@ -7456,6 +8543,7 @@ components:
       - PolicyName
       type: object
     DeleteLoadBalancerPolicyResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -7529,6 +8617,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     DeleteLoadBalancerRequest:
+      additionalProperties: false
       example:
         LoadBalancerName: LoadBalancerName
         DryRun: true
@@ -7544,6 +8633,45 @@ components:
       - LoadBalancerName
       type: object
     DeleteLoadBalancerResponse:
+      additionalProperties: false
+      example:
+        ResponseContext:
+          RequestId: RequestId
+      properties:
+        ResponseContext:
+          $ref: '#/components/schemas/ResponseContext'
+      type: object
+    DeleteLoadBalancerTagsRequest:
+      additionalProperties: false
+      example:
+        LoadBalancerNames:
+        - LoadBalancerNames
+        - LoadBalancerNames
+        DryRun: true
+        Tags:
+        - Key: Key
+        - Key: Key
+      properties:
+        DryRun:
+          description: If `true`, checks whether you have the required permissions
+            to perform the action.
+          type: boolean
+        LoadBalancerNames:
+          description: One or more load balancer names.
+          items:
+            type: string
+          type: array
+        Tags:
+          description: One or more tags to delete from the load balancers.
+          items:
+            $ref: '#/components/schemas/ResourceLoadBalancerTag'
+          type: array
+      required:
+      - LoadBalancerNames
+      - Tags
+      type: object
+    DeleteLoadBalancerTagsResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -7552,6 +8680,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     DeleteNatServiceRequest:
+      additionalProperties: false
       example:
         NatServiceId: NatServiceId
         DryRun: true
@@ -7567,6 +8696,7 @@ components:
       - NatServiceId
       type: object
     DeleteNatServiceResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -7575,6 +8705,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     DeleteNetAccessPointRequest:
+      additionalProperties: false
       example:
         DryRun: true
         NetAccessPointId: NetAccessPointId
@@ -7590,6 +8721,7 @@ components:
       - NetAccessPointId
       type: object
     DeleteNetAccessPointResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -7598,6 +8730,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     DeleteNetPeeringRequest:
+      additionalProperties: false
       example:
         DryRun: true
         NetPeeringId: NetPeeringId
@@ -7613,6 +8746,7 @@ components:
       - NetPeeringId
       type: object
     DeleteNetPeeringResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -7621,6 +8755,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     DeleteNetRequest:
+      additionalProperties: false
       example:
         NetId: NetId
         DryRun: true
@@ -7636,6 +8771,7 @@ components:
       - NetId
       type: object
     DeleteNetResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -7644,6 +8780,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     DeleteNicRequest:
+      additionalProperties: false
       example:
         DryRun: true
         NicId: NicId
@@ -7659,6 +8796,7 @@ components:
       - NicId
       type: object
     DeleteNicResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -7667,6 +8805,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     DeletePublicIpRequest:
+      additionalProperties: false
       example:
         PublicIp: PublicIp
         DryRun: true
@@ -7685,6 +8824,7 @@ components:
           type: string
       type: object
     DeletePublicIpResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -7693,6 +8833,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     DeleteRouteRequest:
+      additionalProperties: false
       example:
         RouteTableId: RouteTableId
         DestinationIpRange: DestinationIpRange
@@ -7713,6 +8854,7 @@ components:
       - RouteTableId
       type: object
     DeleteRouteResponse:
+      additionalProperties: false
       example:
         RouteTable:
           NetId: NetId
@@ -7766,6 +8908,7 @@ components:
           $ref: '#/components/schemas/RouteTable'
       type: object
     DeleteRouteTableRequest:
+      additionalProperties: false
       example:
         RouteTableId: RouteTableId
         DryRun: true
@@ -7781,6 +8924,7 @@ components:
       - RouteTableId
       type: object
     DeleteRouteTableResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -7789,6 +8933,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     DeleteSecurityGroupRequest:
+      additionalProperties: false
       example:
         SecurityGroupName: SecurityGroupName
         SecurityGroupId: SecurityGroupId
@@ -7806,6 +8951,7 @@ components:
           type: string
       type: object
     DeleteSecurityGroupResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -7814,6 +8960,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     DeleteSecurityGroupRuleRequest:
+      additionalProperties: false
       example:
         IpRange: IpRange
         ToPortRange: ""
@@ -7903,6 +9050,7 @@ components:
       - SecurityGroupId
       type: object
     DeleteSecurityGroupRuleResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -7989,7 +9137,33 @@ components:
         SecurityGroup:
           $ref: '#/components/schemas/SecurityGroup'
       type: object
+    DeleteServerCertificateRequest:
+      additionalProperties: false
+      example:
+        DryRun: true
+        Name: Name
+      properties:
+        DryRun:
+          description: If `true`, checks whether you have the required permissions
+            to perform the action.
+          type: boolean
+        Name:
+          description: The name of the server certificate you want to delete.
+          type: string
+      required:
+      - Name
+      type: object
+    DeleteServerCertificateResponse:
+      additionalProperties: false
+      example:
+        ResponseContext:
+          RequestId: RequestId
+      properties:
+        ResponseContext:
+          $ref: '#/components/schemas/ResponseContext'
+      type: object
     DeleteSnapshotRequest:
+      additionalProperties: false
       example:
         SnapshotId: SnapshotId
         DryRun: true
@@ -8005,6 +9179,7 @@ components:
       - SnapshotId
       type: object
     DeleteSnapshotResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -8013,6 +9188,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     DeleteSubnetRequest:
+      additionalProperties: false
       example:
         DryRun: true
         SubnetId: SubnetId
@@ -8028,6 +9204,7 @@ components:
       - SubnetId
       type: object
     DeleteSubnetResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -8036,6 +9213,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     DeleteTagsRequest:
+      additionalProperties: false
       example:
         ResourceIds:
         - ResourceIds
@@ -8067,6 +9245,7 @@ components:
       - Tags
       type: object
     DeleteTagsResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -8075,6 +9254,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     DeleteVirtualGatewayRequest:
+      additionalProperties: false
       example:
         DryRun: true
         VirtualGatewayId: VirtualGatewayId
@@ -8090,6 +9270,7 @@ components:
       - VirtualGatewayId
       type: object
     DeleteVirtualGatewayResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -8098,6 +9279,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     DeleteVmsRequest:
+      additionalProperties: false
       example:
         DryRun: true
         VmIds:
@@ -8117,6 +9299,7 @@ components:
       - VmIds
       type: object
     DeleteVmsResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -8137,6 +9320,7 @@ components:
           type: array
       type: object
     DeleteVolumeRequest:
+      additionalProperties: false
       example:
         VolumeId: VolumeId
         DryRun: true
@@ -8152,6 +9336,7 @@ components:
       - VolumeId
       type: object
     DeleteVolumeResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -8160,6 +9345,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     DeleteVpnConnectionRequest:
+      additionalProperties: false
       example:
         DryRun: true
         VpnConnectionId: VpnConnectionId
@@ -8175,6 +9361,7 @@ components:
       - VpnConnectionId
       type: object
     DeleteVpnConnectionResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -8183,6 +9370,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     DeleteVpnConnectionRouteRequest:
+      additionalProperties: false
       example:
         DestinationIpRange: DestinationIpRange
         DryRun: true
@@ -8205,6 +9393,7 @@ components:
       - VpnConnectionId
       type: object
     DeleteVpnConnectionRouteResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -8213,6 +9402,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     DeregisterVmsInLoadBalancerRequest:
+      additionalProperties: false
       example:
         BackendVmIds:
         - BackendVmIds
@@ -8237,6 +9427,7 @@ components:
       - LoadBalancerName
       type: object
     DeregisterVmsInLoadBalancerResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -8245,6 +9436,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     DhcpOptionsSet:
+      additionalProperties: false
       description: Information about the DHCP options set.
       example:
         DhcpOptionsSetId: DhcpOptionsSetId
@@ -8293,6 +9485,7 @@ components:
           type: array
       type: object
     DirectLink:
+      additionalProperties: false
       description: Information about the DirectLink.
       example:
         AccountId: AccountId
@@ -8307,10 +9500,10 @@ components:
           description: The account ID of the owner of the DirectLink.
           type: string
         Bandwidth:
-          description: The physical link bandwidth (either 1 GiB/s or 10 GiB/s).
+          description: The physical link bandwidth (either 1 Gbps or 10 Gbps).
           type: string
         DirectLinkId:
-          description: The ID of the DirectLink (for example, dcx-xxxxxxxx).
+          description: The ID of the DirectLink (for example, dxcon-xxxxxxxx).
           type: string
         DirectLinkName:
           description: The name of the DirectLink.
@@ -8332,6 +9525,7 @@ components:
           type: string
       type: object
     DirectLinkInterface:
+      additionalProperties: false
       description: Information about the DirectLink interface.
       example:
         ClientPrivateIp: ClientPrivateIp
@@ -8371,6 +9565,7 @@ components:
       - Vlan
       type: object
     DirectLinkInterfaces:
+      additionalProperties: false
       description: Information about the DirectLink interfaces.
       example:
         ClientPrivateIp: ClientPrivateIp
@@ -8430,6 +9625,7 @@ components:
           type: long
       type: object
     ErrorResponse:
+      additionalProperties: false
       properties:
         Errors:
           description: One or more errors.
@@ -8438,7 +9634,9 @@ components:
           type: array
         ResponseContext:
           $ref: '#/components/schemas/ResponseContext'
+      type: object
     Errors:
+      additionalProperties: false
       description: Information about the errors.
       properties:
         Code:
@@ -8451,7 +9649,30 @@ components:
           description: The type of the error.
           type: string
       type: object
+    FiltersAccessKeys:
+      additionalProperties: false
+      description: One or more filters.
+      example:
+        States:
+        - States
+        - States
+        AccessKeyIds:
+        - AccessKeyIds
+        - AccessKeyIds
+      properties:
+        AccessKeyIds:
+          description: The IDs of the access keys.
+          items:
+            type: string
+          type: array
+        States:
+          description: The states of the access keys (`active` \| `inactive`).
+          items:
+            type: string
+          type: array
+      type: object
     FiltersApiLog:
+      additionalProperties: false
       description: One or more filters.
       example:
         QueryCallNames:
@@ -8525,6 +9746,7 @@ components:
           type: array
       type: object
     FiltersClientGateway:
+      additionalProperties: false
       description: One or more filters.
       example:
         States:
@@ -8598,6 +9820,7 @@ components:
           type: array
       type: object
     FiltersDhcpOptions:
+      additionalProperties: false
       description: One or more filters.
       example:
         NtpServers:
@@ -8666,6 +9889,7 @@ components:
           type: array
       type: object
     FiltersDirectLink:
+      additionalProperties: false
       description: One or more filters.
       example:
         DirectLinkIds:
@@ -8679,6 +9903,7 @@ components:
           type: array
       type: object
     FiltersDirectLinkInterface:
+      additionalProperties: false
       description: One or more filters.
       example:
         DirectLinkIds:
@@ -8700,6 +9925,7 @@ components:
           type: array
       type: object
     FiltersExportTask:
+      additionalProperties: false
       description: One or more filters.
       example:
         TaskIds:
@@ -8738,6 +9964,7 @@ components:
           type: array
       type: object
     FiltersFlexibleGpu:
+      additionalProperties: false
       description: One or more filters.
       example:
         States:
@@ -8790,6 +10017,7 @@ components:
           type: array
       type: object
     FiltersImage:
+      additionalProperties: false
       description: One or more filters.
       example:
         ImageIds:
@@ -8929,12 +10157,12 @@ components:
             type: string
           type: array
         RootDeviceTypes:
-          description: The types of root device used by the OMIs (always `ebs`).
+          description: The types of root device used by the OMIs (always `bsu`).
           items:
             type: string
           type: array
         States:
-          description: The states of the OMIs.
+          description: The states of the OMIs (`pending` \| `available` \| `failed`).
           items:
             type: string
           type: array
@@ -8961,6 +10189,7 @@ components:
           type: array
       type: object
     FiltersInternetService:
+      additionalProperties: false
       description: One or more filters.
       example:
         TagKeys:
@@ -8999,6 +10228,7 @@ components:
           type: array
       type: object
     FiltersKeypair:
+      additionalProperties: false
       description: One or more filters.
       example:
         KeypairNames:
@@ -9019,7 +10249,22 @@ components:
             type: string
           type: array
       type: object
+    FiltersListenerRule:
+      additionalProperties: false
+      description: One or more filters.
+      example:
+        ListenerRuleNames:
+        - ListenerRuleNames
+        - ListenerRuleNames
+      properties:
+        ListenerRuleNames:
+          description: The names of the listener rules.
+          items:
+            type: string
+          type: array
+      type: object
     FiltersLoadBalancer:
+      additionalProperties: false
       description: One or more filters.
       example:
         LoadBalancerNames:
@@ -9033,6 +10278,7 @@ components:
           type: array
       type: object
     FiltersNatService:
+      additionalProperties: false
       description: One or more filters.
       example:
         States:
@@ -9096,6 +10342,7 @@ components:
           type: array
       type: object
     FiltersNet:
+      additionalProperties: false
       description: One or more filters.
       example:
         States:
@@ -9159,6 +10406,7 @@ components:
           type: array
       type: object
     FiltersNetAccessPoint:
+      additionalProperties: false
       description: One or more filters.
       example:
         States:
@@ -9223,6 +10471,7 @@ components:
           type: array
       type: object
     FiltersNetPeering:
+      additionalProperties: false
       description: One or more filters.
       example:
         AccepterNetIpRanges:
@@ -9328,6 +10577,7 @@ components:
           type: array
       type: object
     FiltersNic:
+      additionalProperties: false
       description: One or more filters.
       example:
         LinkNicSortNumbers:
@@ -9373,6 +10623,7 @@ components:
           type: array
       type: object
     FiltersProductType:
+      additionalProperties: false
       description: One or more filters.
       example:
         ProductTypeIds:
@@ -9386,6 +10637,7 @@ components:
           type: array
       type: object
     FiltersPublicIp:
+      additionalProperties: false
       description: One or more filters.
       example:
         PublicIps:
@@ -9480,6 +10732,7 @@ components:
           type: array
       type: object
     FiltersQuota:
+      additionalProperties: false
       description: One or more filters.
       example:
         ShortDescriptions:
@@ -9518,6 +10771,7 @@ components:
           type: array
       type: object
     FiltersRouteTable:
+      additionalProperties: false
       description: One or more filters.
       example:
         RouteNatServiceIds:
@@ -9639,6 +10893,7 @@ components:
           type: array
       type: object
     FiltersSecurityGroup:
+      additionalProperties: false
       description: One or more filters.
       example:
         AccountIds:
@@ -9692,7 +10947,18 @@ components:
             type: string
           type: array
       type: object
+    FiltersServerCertificate:
+      additionalProperties: false
+      description: One or more filters.
+      example:
+        Paths: Paths
+      properties:
+        Paths:
+          description: The path to the server certificate.
+          type: string
+      type: object
     FiltersService:
+      additionalProperties: false
       description: One or more filters.
       example:
         ServiceIds:
@@ -9715,6 +10981,7 @@ components:
           type: array
       type: object
     FiltersSnapshot:
+      additionalProperties: false
       description: One or more filters.
       example:
         VolumeSizes:
@@ -9791,7 +11058,7 @@ components:
             type: string
           type: array
         States:
-          description: The states of the snapshots (`in-queue` \| `pending` \| `completed`).
+          description: The states of the snapshots (`in-queue` \| `completed` \| `error`).
           items:
             type: string
           type: array
@@ -9824,6 +11091,7 @@ components:
           type: array
       type: object
     FiltersSubnet:
+      additionalProperties: false
       description: One or more filters.
       example:
         States:
@@ -9878,6 +11146,7 @@ components:
           type: array
       type: object
     FiltersSubregion:
+      additionalProperties: false
       description: One or more filters.
       example:
         SubregionNames:
@@ -9891,6 +11160,7 @@ components:
           type: array
       type: object
     FiltersTag:
+      additionalProperties: false
       description: One or more filters.
       example:
         ResourceTypes:
@@ -9919,10 +11189,10 @@ components:
             type: string
           type: array
         ResourceTypes:
-          description: The resource type (`instance` \| `image` \| `volume` \| `snapshot`
-            \| `public-ip` \| `security-group` \| `route-table` \| `network-interface`
-            \| `vpc` \| `subnet` \| `network-link` \| `vpc-endpoint` \| `nat-gateway`
-            \| `internet-gateway` \| `customer-gateway` \| `vpn-gateway` \| `vpn-connection`
+          description: The resource type (`vm` \| `image` \| `volume` \| `snapshot`
+            \| `public-ip` \| `security-group` \| `route-table` \| `nic` \| `net`
+            \| `subnet` \| `net-peering` \| `net-access-point` \| `nat-service` \|
+            `internet-service` \| `client-gateway` \| `virtual-gateway` \| `vpn-connection`
             \| `dhcp-options` \| `task`).
           items:
             type: string
@@ -9937,6 +11207,7 @@ components:
           type: array
       type: object
     FiltersVirtualGateway:
+      additionalProperties: false
       description: One or more filters.
       example:
         States:
@@ -10009,6 +11280,7 @@ components:
           type: array
       type: object
     FiltersVm:
+      additionalProperties: false
       description: One or more filters.
       example:
         TagKeys:
@@ -10047,6 +11319,7 @@ components:
           type: array
       type: object
     FiltersVmType:
+      additionalProperties: false
       description: One or more filters.
       example:
         VolumeSizes:
@@ -10059,8 +11332,8 @@ components:
         - ""
         - ""
         MemorySizes:
-        - ""
-        - ""
+        - 0.8008282
+        - 0.8008282
         BsuOptimized: true
         VmTypeNames:
         - VmTypeNames
@@ -10070,9 +11343,10 @@ components:
           description: Indicates whether the VM is optimized for BSU I/O.
           type: boolean
         MemorySizes:
-          description: The amounts of memory, in bytes.
+          description: The amounts of memory, in gibibytes (GiB).
           items:
-            type: long
+            format: float
+            type: number
           type: array
         VcoreCounts:
           description: The numbers of vCores.
@@ -10097,6 +11371,7 @@ components:
           type: array
       type: object
     FiltersVmsState:
+      additionalProperties: false
       description: One or more filters.
       example:
         SubregionNames:
@@ -10120,13 +11395,14 @@ components:
             type: string
           type: array
         VmStates:
-          description: The states of the VMs (`pending` \| `running` \| `shutting-down`
-            \| `terminated` \| `stopping` \| `stopped`).
+          description: The states of the VMs (`pending` \| `running` \| `stopping`
+            \| `stopped` \| `shutting-down` \| `terminated` \| `quarantine`).
           items:
             type: string
           type: array
       type: object
     FiltersVolume:
+      additionalProperties: false
       description: One or more filters.
       example:
         VolumeSizes:
@@ -10254,6 +11530,7 @@ components:
           type: array
       type: object
     FiltersVpnConnection:
+      additionalProperties: false
       description: One or more filters.
       example:
         States:
@@ -10324,8 +11601,10 @@ components:
           type: array
       type: object
     FlexibleGpu:
+      additionalProperties: false
       description: Information about the flexible GPU (fGPU).
       example:
+        Generation: Generation
         DeleteOnVmDeletion: true
         ModelName: ModelName
         FlexibleGpuId: FlexibleGpuId
@@ -10338,6 +11617,9 @@ components:
           type: boolean
         FlexibleGpuId:
           description: The ID of the fGPU.
+          type: string
+        Generation:
+          description: The compatible processor generation.
           type: string
         ModelName:
           description: The model of fGPU. For more information, see [About Flexible
@@ -10355,6 +11637,7 @@ components:
           type: string
       type: object
     FlexibleGpuCatalog:
+      additionalProperties: false
       description: Information about the flexible GPU (fGPU) that is available in
         the public catalog.
       example:
@@ -10383,6 +11666,7 @@ components:
           type: long
       type: object
     HealthCheck:
+      additionalProperties: false
       description: Information about the health check configuration.
       example:
         Path: Path
@@ -10429,6 +11713,7 @@ components:
       - UnhealthyThreshold
       type: object
     Image:
+      additionalProperties: false
       description: Information about the OMI.
       example:
         ProductCodes:
@@ -10526,7 +11811,7 @@ components:
           description: The type of root device used by the OMI (always `bsu`).
           type: string
         State:
-          description: The state of the OMI.
+          description: The state of the OMI (`pending` \| `available` \| `failed`).
           type: string
         StateComment:
           $ref: '#/components/schemas/StateComment'
@@ -10537,6 +11822,7 @@ components:
           type: array
       type: object
     ImageExportTask:
+      additionalProperties: false
       description: Information about the OMI export task.
       example:
         Comment: Comment
@@ -10583,6 +11869,7 @@ components:
           type: string
       type: object
     InternetService:
+      additionalProperties: false
       description: Information about the Internet service.
       example:
         NetId: NetId
@@ -10611,6 +11898,7 @@ components:
           type: array
       type: object
     Keypair:
+      additionalProperties: false
       description: Information about the keypair.
       example:
         KeypairFingerprint: KeypairFingerprint
@@ -10626,6 +11914,7 @@ components:
           type: string
       type: object
     KeypairCreated:
+      additionalProperties: false
       description: Information about the created keypair.
       example:
         KeypairFingerprint: KeypairFingerprint
@@ -10645,6 +11934,7 @@ components:
           type: string
       type: object
     LinkFlexibleGpuRequest:
+      additionalProperties: false
       example:
         FlexibleGpuId: FlexibleGpuId
         DryRun: true
@@ -10665,6 +11955,7 @@ components:
       - VmId
       type: object
     LinkFlexibleGpuResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -10673,6 +11964,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     LinkInternetServiceRequest:
+      additionalProperties: false
       example:
         NetId: NetId
         InternetServiceId: InternetServiceId
@@ -10694,6 +11986,7 @@ components:
       - NetId
       type: object
     LinkInternetServiceResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -10702,6 +11995,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     LinkNic:
+      additionalProperties: false
       description: Information about the NIC attachment.
       example:
         DeviceNumber: ""
@@ -10733,6 +12027,7 @@ components:
           type: string
       type: object
     LinkNicLight:
+      additionalProperties: false
       description: Information about the network interface card (NIC).
       example:
         DeviceNumber: ""
@@ -10756,6 +12051,7 @@ components:
           type: string
       type: object
     LinkNicRequest:
+      additionalProperties: false
       example:
         DeviceNumber: ""
         DryRun: true
@@ -10782,6 +12078,7 @@ components:
       - VmId
       type: object
     LinkNicResponse:
+      additionalProperties: false
       example:
         LinkNicId: LinkNicId
         ResponseContext:
@@ -10794,6 +12091,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     LinkNicToUpdate:
+      additionalProperties: false
       description: Information about the NIC attachment. If you are modifying the
         `DeleteOnVmDeletion` attribute, you must specify the ID of the NIC attachment.
       example:
@@ -10808,6 +12106,7 @@ components:
           type: string
       type: object
     LinkPrivateIpsRequest:
+      additionalProperties: false
       example:
         SecondaryPrivateIpCount: ""
         AllowRelink: true
@@ -10842,6 +12141,7 @@ components:
       - NicId
       type: object
     LinkPrivateIpsResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -10850,6 +12150,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     LinkPublicIp:
+      additionalProperties: false
       description: Information about the EIP association.
       example:
         PublicIp: PublicIp
@@ -10876,6 +12177,7 @@ components:
           type: string
       type: object
     LinkPublicIpLightForVm:
+      additionalProperties: false
       description: Information about the EIP associated with the NIC.
       example:
         PublicIp: PublicIp
@@ -10893,6 +12195,7 @@ components:
           type: string
       type: object
     LinkPublicIpRequest:
+      additionalProperties: false
       example:
         AllowRelink: true
         PrivateIp: PrivateIp
@@ -10937,6 +12240,7 @@ components:
           type: string
       type: object
     LinkPublicIpResponse:
+      additionalProperties: false
       example:
         LinkPublicIpId: LinkPublicIpId
         ResponseContext:
@@ -10950,6 +12254,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     LinkRouteTable:
+      additionalProperties: false
       description: One or more associations between the route table and the Subnets.
       example:
         RouteTableId: RouteTableId
@@ -10971,6 +12276,7 @@ components:
           type: string
       type: object
     LinkRouteTableRequest:
+      additionalProperties: false
       example:
         RouteTableId: RouteTableId
         DryRun: true
@@ -10991,6 +12297,7 @@ components:
       - SubnetId
       type: object
     LinkRouteTableResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -11003,6 +12310,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     LinkVirtualGatewayRequest:
+      additionalProperties: false
       example:
         NetId: NetId
         DryRun: true
@@ -11023,6 +12331,7 @@ components:
       - VirtualGatewayId
       type: object
     LinkVirtualGatewayResponse:
+      additionalProperties: false
       example:
         NetToVirtualGatewayLink:
           NetId: NetId
@@ -11036,6 +12345,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     LinkVolumeRequest:
+      additionalProperties: false
       example:
         VolumeId: VolumeId
         DryRun: true
@@ -11061,6 +12371,7 @@ components:
       - VolumeId
       type: object
     LinkVolumeResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -11069,6 +12380,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     LinkedVolume:
+      additionalProperties: false
       description: Information about volume attachment.
       example:
         VolumeId: VolumeId
@@ -11095,6 +12407,7 @@ components:
           type: string
       type: object
     Listener:
+      additionalProperties: false
       description: Information about the listener.
       example:
         PolicyNames:
@@ -11133,6 +12446,7 @@ components:
           type: string
       type: object
     ListenerForCreation:
+      additionalProperties: false
       description: Information about the listener to create.
       example:
         BackendProtocol: BackendProtocol
@@ -11165,7 +12479,94 @@ components:
       - LoadBalancerPort
       - LoadBalancerProtocol
       type: object
+    ListenerRule:
+      additionalProperties: false
+      description: Information about the listener rule.
+      example:
+        Action: Action
+        PathPattern: PathPattern
+        HostNamePattern: HostNamePattern
+        Priority: ""
+        ListenerRuleId: ""
+        ListenerId: ""
+        ListenerRuleName: ListenerRuleName
+        VmIds:
+        - VmIds
+        - VmIds
+      properties:
+        Action:
+          description: The type of action for the rule (always `forward`).
+          type: string
+        HostNamePattern:
+          description: A host-name pattern for the rule, with a maximum length of
+            128 characters. This host-name pattern supports maximum three wildcards,
+            and must not contain any special characters except [-.?].
+          type: string
+        ListenerId:
+          description: The ID of the listener.
+          type: long
+        ListenerRuleId:
+          description: The ID of the listener rule.
+          type: long
+        ListenerRuleName:
+          description: A human-readable name for the listener rule.
+          type: string
+        PathPattern:
+          description: A path pattern for the rule, with a maximum length of 128 characters.
+            This path pattern supports maximum three wildcards, and must not contain
+            any special characters except [_-.$/~"'@:+?].
+          type: string
+        Priority:
+          description: The priority level of the listener rule, between `1` and `19999`
+            both included. Each rule must have a unique priority level. Otherwise,
+            an error is returned.
+          type: long
+        VmIds:
+          description: The IDs of the backend VMs.
+          items:
+            type: string
+          type: array
+      type: object
+    ListenerRuleForCreation:
+      additionalProperties: false
+      description: Information about the listener rule.
+      example:
+        Action: Action
+        PathPattern: PathPattern
+        HostNamePattern: HostNamePattern
+        Priority: ""
+        ListenerRuleId: ListenerRuleId
+        ListenerRuleName: ListenerRuleName
+      properties:
+        Action:
+          description: The type of action for the rule (always `forward`).
+          type: string
+        HostNamePattern:
+          description: 'A host-name pattern for the rule, with a maximum length of
+            128 characters. This host-name pattern supports maximum three wildcards,
+            and must not contain any special characters except [-.?]. '
+          type: string
+        ListenerRuleId:
+          description: The ID of the listener.
+          type: string
+        ListenerRuleName:
+          description: A human-readable name for the listener rule.
+          type: string
+        PathPattern:
+          description: A path pattern for the rule, with a maximum length of 128 characters.
+            This path pattern supports maximum three wildcards, and must not contain
+            any special characters except [_-.$/~"'@:+?].
+          type: string
+        Priority:
+          description: The priority level of the listener rule, between `1` and `19999`
+            both included. Each rule must have a unique priority level. Otherwise,
+            an error is returned.
+          type: long
+      required:
+      - Priority
+      type: object
     LoadBalancer:
+      additionalProperties: false
       description: Information about the load balancer.
       example:
         AccessLog:
@@ -11294,7 +12695,26 @@ components:
             $ref: '#/components/schemas/ResourceTag'
           type: array
       type: object
+    LoadBalancerLight:
+      additionalProperties: false
+      description: Information about the load balancer.
+      example:
+        LoadBalancerName: LoadBalancerName
+        LoadBalancerPort: ""
+      properties:
+        LoadBalancerName:
+          description: The name of the load balancer to which the listener is attached.
+          type: string
+        LoadBalancerPort:
+          description: The port of load balancer on which the load balancer is listening
+            (between `1` and `65535` both included).
+          type: long
+      required:
+      - LoadBalancerName
+      - LoadBalancerPort
+      type: object
     LoadBalancerStickyCookiePolicy:
+      additionalProperties: false
       description: Information about the stickiness policy.
       example:
         PolicyName: PolicyName
@@ -11303,7 +12723,26 @@ components:
           description: The name of the stickiness policy.
           type: string
       type: object
+    LoadBalancerTag:
+      additionalProperties: false
+      description: Information about the load balancer tag.
+      example:
+        LoadBalancerName: LoadBalancerName
+        Value: Value
+        Key: Key
+      properties:
+        Key:
+          description: The key of the tag.
+          type: string
+        LoadBalancerName:
+          description: The name of the load balancer.
+          type: string
+        Value:
+          description: The value of the tag.
+          type: string
+      type: object
     Location:
+      additionalProperties: false
       description: Information about the DirectLink location.
       example:
         Code: Code
@@ -11319,6 +12758,7 @@ components:
           type: string
       type: object
     Log:
+      additionalProperties: false
       description: Information about the log.
       example:
         QueryAccessKey: QueryAccessKey
@@ -11390,6 +12830,7 @@ components:
           type: long
       type: object
     MaintenanceEvent:
+      additionalProperties: false
       description: Information about the maintenance event.
       example:
         Description: Description
@@ -11413,6 +12854,7 @@ components:
           type: string
       type: object
     NatService:
+      additionalProperties: false
       description: Information about the NAT service.
       example:
         NatServiceId: NatServiceId
@@ -11456,6 +12898,7 @@ components:
           type: array
       type: object
     Net:
+      additionalProperties: false
       description: Information about the Net.
       example:
         IpRange: IpRange
@@ -11492,6 +12935,7 @@ components:
           type: string
       type: object
     NetAccessPoint:
+      additionalProperties: false
       description: Information about the Net access point.
       example:
         NetId: NetId
@@ -11533,6 +12977,7 @@ components:
           type: array
       type: object
     NetPeering:
+      additionalProperties: false
       description: Information about the Net peering connection.
       example:
         SourceNet:
@@ -11569,6 +13014,7 @@ components:
           type: array
       type: object
     NetPeeringState:
+      additionalProperties: false
       description: Information about the state of the Net peering connection.
       example:
         Message: Message
@@ -11583,6 +13029,7 @@ components:
           type: string
       type: object
     NetToVirtualGatewayLink:
+      additionalProperties: false
       description: Information about the attachment.
       example:
         NetId: NetId
@@ -11597,6 +13044,7 @@ components:
           type: string
       type: object
     Nic:
+      additionalProperties: false
       description: Information about the NIC.
       example:
         SecurityGroups:
@@ -11706,6 +13154,7 @@ components:
           type: array
       type: object
     NicForVmCreation:
+      additionalProperties: false
       description: Information about the network interface card (NIC) when creating
         a virtual machine (VM).
       example:
@@ -11765,6 +13214,7 @@ components:
           type: string
       type: object
     NicLight:
+      additionalProperties: false
       description: Information about the network interface card (NIC).
       example:
         SecurityGroups:
@@ -11852,6 +13302,7 @@ components:
           type: string
       type: object
     OsuApiKey:
+      additionalProperties: false
       description: Information about the OSU API key.
       example:
         SecretKey: SecretKey
@@ -11867,6 +13318,7 @@ components:
           type: string
       type: object
     OsuExport:
+      additionalProperties: false
       description: Information about the OSU export.
       example:
         OsuManifestUrl: OsuManifestUrl
@@ -11897,6 +13349,7 @@ components:
       - OsuBucket
       type: object
     PermissionsOnResource:
+      additionalProperties: false
       description: Information about the users who have permissions for the resource.
       example:
         AccountIds:
@@ -11916,6 +13369,7 @@ components:
           type: boolean
       type: object
     PermissionsOnResourceCreation:
+      additionalProperties: false
       description: Information about the permissions for the resource.
       example:
         Additions:
@@ -11935,6 +13389,7 @@ components:
           $ref: '#/components/schemas/PermissionsOnResource'
       type: object
     Placement:
+      additionalProperties: false
       description: Information about the placement of the VM.
       example:
         Tenancy: Tenancy
@@ -11948,6 +13403,7 @@ components:
           type: string
       type: object
     PrivateIp:
+      additionalProperties: false
       description: Information about the private IP.
       example:
         LinkPublicIp:
@@ -11974,6 +13430,7 @@ components:
           type: string
       type: object
     PrivateIpLight:
+      additionalProperties: false
       description: Information about the private IP.
       example:
         PrivateIp: PrivateIp
@@ -11988,6 +13445,7 @@ components:
           type: string
       type: object
     PrivateIpLightForVm:
+      additionalProperties: false
       description: Information about the private IP of the NIC.
       example:
         LinkPublicIp:
@@ -12012,6 +13470,7 @@ components:
           type: string
       type: object
     ProductType:
+      additionalProperties: false
       description: Information about the product type.
       example:
         Description: Description
@@ -12029,6 +13488,7 @@ components:
           type: string
       type: object
     PublicIp:
+      additionalProperties: false
       description: Information about the public IP.
       example:
         NicAccountId: NicAccountId
@@ -12074,6 +13534,7 @@ components:
           type: string
       type: object
     PublicIpLight:
+      additionalProperties: false
       description: Information about the public IP.
       example:
         PublicIp: PublicIp
@@ -12087,6 +13548,7 @@ components:
           type: string
       type: object
     Quota:
+      additionalProperties: false
       description: Information about the quota.
       example:
         QuotaCollection: QuotaCollection
@@ -12121,6 +13583,7 @@ components:
           type: long
       type: object
     QuotaTypes:
+      additionalProperties: false
       description: One or more quotas.
       example:
         Quotas:
@@ -12150,7 +13613,98 @@ components:
             $ref: '#/components/schemas/Quota'
           type: array
       type: object
+    ReadAccessKeysRequest:
+      additionalProperties: false
+      example:
+        Filters:
+          States:
+          - States
+          - States
+          AccessKeyIds:
+          - AccessKeyIds
+          - AccessKeyIds
+      properties:
+        Filters:
+          $ref: '#/components/schemas/FiltersAccessKeys'
+      type: object
+    ReadAccessKeysResponse:
+      additionalProperties: false
+      example:
+        AccessKeys:
+        - CreationDate: CreationDate
+          AccessKeyId: AccessKeyId
+          State: State
+          LastModificationDate: LastModificationDate
+        - CreationDate: CreationDate
+          AccessKeyId: AccessKeyId
+          State: State
+          LastModificationDate: LastModificationDate
+        ResponseContext:
+          RequestId: RequestId
+      properties:
+        AccessKeys:
+          description: A list of access keys.
+          items:
+            $ref: '#/components/schemas/AccessKey'
+          type: array
+        ResponseContext:
+          $ref: '#/components/schemas/ResponseContext'
+      type: object
+    ReadAccountsRequest:
+      additionalProperties: false
+      example:
+        DryRun: true
+      properties:
+        DryRun:
+          description: If `true`, checks whether you have the required permissions
+            to perform the action.
+          type: boolean
+      type: object
+    ReadAccountsResponse:
+      additionalProperties: false
+      example:
+        ResponseContext:
+          RequestId: RequestId
+        Accounts:
+        - AccountId: AccountId
+          Email: Email
+          FirstName: FirstName
+          StateProvince: StateProvince
+          ZipCode: ZipCode
+          City: City
+          CustomerId: CustomerId
+          JobTitle: JobTitle
+          VatNumber: VatNumber
+          CompanyName: CompanyName
+          MobileNumber: MobileNumber
+          Country: Country
+          PhoneNumber: PhoneNumber
+          LastName: LastName
+        - AccountId: AccountId
+          Email: Email
+          FirstName: FirstName
+          StateProvince: StateProvince
+          ZipCode: ZipCode
+          City: City
+          CustomerId: CustomerId
+          JobTitle: JobTitle
+          VatNumber: VatNumber
+          CompanyName: CompanyName
+          MobileNumber: MobileNumber
+          Country: Country
+          PhoneNumber: PhoneNumber
+          LastName: LastName
+      properties:
+        Accounts:
+          description: The list of the accounts.
+          items:
+            $ref: '#/components/schemas/Account'
+          type: array
+        ResponseContext:
+          $ref: '#/components/schemas/ResponseContext'
+      type: object
     ReadAdminPasswordRequest:
+      additionalProperties: false
       example:
         DryRun: true
         VmId: VmId
@@ -12166,6 +13720,7 @@ components:
       - VmId
       type: object
     ReadAdminPasswordResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -12183,6 +13738,7 @@ components:
           type: string
       type: object
     ReadApiLogsRequest:
+      additionalProperties: false
       example:
         Filters:
           QueryCallNames:
@@ -12246,6 +13802,7 @@ components:
           $ref: '#/components/schemas/With'
       type: object
     ReadApiLogsResponse:
+      additionalProperties: false
       example:
         NextPageToken: NextPageToken
         ResponseContext:
@@ -12296,6 +13853,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     ReadClientGatewaysRequest:
+      additionalProperties: false
       example:
         Filters:
           States:
@@ -12332,6 +13890,7 @@ components:
           $ref: '#/components/schemas/FiltersClientGateway'
       type: object
     ReadClientGatewaysResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -12366,6 +13925,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     ReadConsoleOutputRequest:
+      additionalProperties: false
       example:
         DryRun: true
         VmId: VmId
@@ -12381,6 +13941,7 @@ components:
       - VmId
       type: object
     ReadConsoleOutputResponse:
+      additionalProperties: false
       example:
         ConsoleOutput: ConsoleOutput
         ResponseContext:
@@ -12397,7 +13958,65 @@ components:
           description: The ID of the VM.
           type: string
       type: object
+    ReadConsumptionAccountRequest:
+      additionalProperties: false
+      example:
+        DryRun: true
+        FromDate: FromDate
+        ToDate: ToDate
+      properties:
+        DryRun:
+          description: If `true`, checks whether you have the required permissions
+            to perform the action.
+          type: boolean
+        FromDate:
+          description: The beginning of the time period, in ISO-8601 format with the
+            date only (for example, `2017-06-14` or `2017-06-14T00:00:00Z`).
+          format: datetime
+          type: string
+        ToDate:
+          description: The end of the time period, in ISO-8601 format with the date
+            only (for example, `2017-06-30` or `2017-06-30T00:00:00Z`).
+          format: datetime
+          type: string
+      required:
+      - FromDate
+      - ToDate
+      type: object
+    ReadConsumptionAccountResponse:
+      additionalProperties: false
+      example:
+        ResponseContext:
+          RequestId: RequestId
+        ConsumptionEntries:
+        - Type: Type
+          Category: Category
+          Value: Value
+          Service: Service
+          Title: Title
+          FromDate: FromDate
+          ToDate: ToDate
+          Operation: Operation
+        - Type: Type
+          Category: Category
+          Value: Value
+          Service: Service
+          Title: Title
+          FromDate: FromDate
+          ToDate: ToDate
+          Operation: Operation
+      properties:
+        ConsumptionEntries:
+          description: Information about the resources consumed during the specified
+            time period.
+          items:
+            $ref: '#/components/schemas/ConsumptionEntry'
+          type: array
+        ResponseContext:
+          $ref: '#/components/schemas/ResponseContext'
+      type: object
     ReadDhcpOptionsRequest:
+      additionalProperties: false
       example:
         Filters:
           NtpServers:
@@ -12432,6 +14051,7 @@ components:
           $ref: '#/components/schemas/FiltersDhcpOptions'
       type: object
     ReadDhcpOptionsResponse:
+      additionalProperties: false
       example:
         DhcpOptionsSets:
         - DhcpOptionsSetId: DhcpOptionsSetId
@@ -12476,6 +14096,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     ReadDirectLinkInterfacesRequest:
+      additionalProperties: false
       example:
         Filters:
           DirectLinkIds:
@@ -12494,6 +14115,7 @@ components:
           $ref: '#/components/schemas/FiltersDirectLinkInterface'
       type: object
     ReadDirectLinkInterfacesResponse:
+      additionalProperties: false
       example:
         DirectLinkInterfaces:
         - ClientPrivateIp: ClientPrivateIp
@@ -12534,6 +14156,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     ReadDirectLinksRequest:
+      additionalProperties: false
       example:
         Filters:
           DirectLinkIds:
@@ -12549,6 +14172,7 @@ components:
           $ref: '#/components/schemas/FiltersDirectLink'
       type: object
     ReadDirectLinksResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -12577,6 +14201,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     ReadFlexibleGpuCatalogRequest:
+      additionalProperties: false
       example:
         DryRun: true
       properties:
@@ -12586,6 +14211,7 @@ components:
           type: boolean
       type: object
     ReadFlexibleGpuCatalogResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -12611,6 +14237,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     ReadFlexibleGpusRequest:
+      additionalProperties: false
       example:
         Filters:
           States:
@@ -12639,15 +14266,18 @@ components:
           $ref: '#/components/schemas/FiltersFlexibleGpu'
       type: object
     ReadFlexibleGpusResponse:
+      additionalProperties: false
       example:
         FlexibleGpus:
-        - DeleteOnVmDeletion: true
+        - Generation: Generation
+          DeleteOnVmDeletion: true
           ModelName: ModelName
           FlexibleGpuId: FlexibleGpuId
           State: State
           VmId: VmId
           SubregionName: SubregionName
-        - DeleteOnVmDeletion: true
+        - Generation: Generation
+          DeleteOnVmDeletion: true
           ModelName: ModelName
           FlexibleGpuId: FlexibleGpuId
           State: State
@@ -12665,6 +14295,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     ReadImageExportTasksRequest:
+      additionalProperties: false
       example:
         Filters:
           TaskIds:
@@ -12689,6 +14320,7 @@ components:
           $ref: '#/components/schemas/FiltersExportTask'
       type: object
     ReadImageExportTasksResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -12739,6 +14371,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     ReadImagesRequest:
+      additionalProperties: false
       example:
         Filters:
           ImageIds:
@@ -12810,6 +14443,7 @@ components:
           $ref: '#/components/schemas/FiltersImage'
       type: object
     ReadImagesResponse:
+      additionalProperties: false
       example:
         Images:
         - ProductCodes:
@@ -12914,6 +14548,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     ReadInternetServicesRequest:
+      additionalProperties: false
       example:
         Filters:
           TagKeys:
@@ -12938,6 +14573,7 @@ components:
           $ref: '#/components/schemas/FiltersInternetService'
       type: object
     ReadInternetServicesResponse:
+      additionalProperties: false
       example:
         InternetServices:
         - NetId: NetId
@@ -12968,6 +14604,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     ReadKeypairsRequest:
+      additionalProperties: false
       example:
         Filters:
           KeypairNames:
@@ -12986,6 +14623,7 @@ components:
           $ref: '#/components/schemas/FiltersKeypair'
       type: object
     ReadKeypairsResponse:
+      additionalProperties: false
       example:
         Keypairs:
         - KeypairFingerprint: KeypairFingerprint
@@ -13003,7 +14641,100 @@ components:
         ResponseContext:
           $ref: '#/components/schemas/ResponseContext'
       type: object
+    ReadListenerRulesRequest:
+      additionalProperties: false
+      example:
+        Filters:
+          ListenerRuleNames:
+          - ListenerRuleNames
+          - ListenerRuleNames
+        DryRun: true
+      properties:
+        DryRun:
+          description: If `true`, checks whether you have the required permissions
+            to perform the action.
+          type: boolean
+        Filters:
+          $ref: '#/components/schemas/FiltersListenerRule'
+      type: object
+    ReadListenerRulesResponse:
+      additionalProperties: false
+      example:
+        ResponseContext:
+          RequestId: RequestId
+        ListenerRules:
+        - Action: Action
+          PathPattern: PathPattern
+          HostNamePattern: HostNamePattern
+          Priority: ""
+          ListenerRuleId: ""
+          ListenerId: ""
+          ListenerRuleName: ListenerRuleName
+          VmIds:
+          - VmIds
+          - VmIds
+        - Action: Action
+          PathPattern: PathPattern
+          HostNamePattern: HostNamePattern
+          Priority: ""
+          ListenerRuleId: ""
+          ListenerId: ""
+          ListenerRuleName: ListenerRuleName
+          VmIds:
+          - VmIds
+          - VmIds
+      properties:
+        ListenerRules:
+          description: The list of the rules to describe.
+          items:
+            $ref: '#/components/schemas/ListenerRule'
+          type: array
+        ResponseContext:
+          $ref: '#/components/schemas/ResponseContext'
+      type: object
+    ReadLoadBalancerTagsRequest:
+      additionalProperties: false
+      example:
+        LoadBalancerNames:
+        - LoadBalancerNames
+        - LoadBalancerNames
+        DryRun: true
+      properties:
+        DryRun:
+          description: If `true`, checks whether you have the required permissions
+            to perform the action.
+          type: boolean
+        LoadBalancerNames:
+          description: One or more load balancer names.
+          items:
+            type: string
+          type: array
+      required:
+      - LoadBalancerNames
+      type: object
+    ReadLoadBalancerTagsResponse:
+      additionalProperties: false
+      example:
+        ResponseContext:
+          RequestId: RequestId
+        Tags:
+        - LoadBalancerName: LoadBalancerName
+          Value: Value
+          Key: Key
+        - LoadBalancerName: LoadBalancerName
+          Value: Value
+          Key: Key
+      properties:
+        ResponseContext:
+          $ref: '#/components/schemas/ResponseContext'
+        Tags:
+          description: Information about one or more load balancer tags.
+          items:
+            $ref: '#/components/schemas/LoadBalancerTag'
+          type: array
+      type: object
     ReadLoadBalancersRequest:
+      additionalProperties: false
       example:
         Filters:
           LoadBalancerNames:
@@ -13019,6 +14750,7 @@ components:
           $ref: '#/components/schemas/FiltersLoadBalancer'
       type: object
     ReadLoadBalancersResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -13157,6 +14889,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     ReadLocationsRequest:
+      additionalProperties: false
       example:
         DryRun: true
       properties:
@@ -13166,6 +14899,7 @@ components:
           type: boolean
       type: object
     ReadLocationsResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -13184,6 +14918,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     ReadNatServicesRequest:
+      additionalProperties: false
       example:
         Filters:
           States:
@@ -13217,6 +14952,7 @@ components:
           $ref: '#/components/schemas/FiltersNatService'
       type: object
     ReadNatServicesResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -13259,6 +14995,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     ReadNetAccessPointServicesRequest:
+      additionalProperties: false
       example:
         Filters:
           ServiceIds:
@@ -13277,6 +15014,7 @@ components:
           $ref: '#/components/schemas/FiltersService'
       type: object
     ReadNetAccessPointServicesResponse:
+      additionalProperties: false
       example:
         Services:
         - ServiceName: ServiceName
@@ -13301,6 +15039,7 @@ components:
           type: array
       type: object
     ReadNetAccessPointsRequest:
+      additionalProperties: false
       example:
         Filters:
           States:
@@ -13334,6 +15073,7 @@ components:
           $ref: '#/components/schemas/FiltersNetAccessPoint'
       type: object
     ReadNetAccessPointsResponse:
+      additionalProperties: false
       example:
         NetAccessPoints:
         - NetId: NetId
@@ -13372,6 +15112,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     ReadNetPeeringsRequest:
+      additionalProperties: false
       example:
         Filters:
           AccepterNetIpRanges:
@@ -13420,6 +15161,7 @@ components:
           $ref: '#/components/schemas/FiltersNetPeering'
       type: object
     ReadNetPeeringsResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -13468,6 +15210,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     ReadNetsRequest:
+      additionalProperties: false
       example:
         Filters:
           States:
@@ -13501,6 +15244,7 @@ components:
           $ref: '#/components/schemas/FiltersNet'
       type: object
     ReadNetsResponse:
+      additionalProperties: false
       example:
         Nets:
         - IpRange: IpRange
@@ -13535,6 +15279,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     ReadNicsRequest:
+      additionalProperties: false
       example:
         Filters:
           LinkNicSortNumbers:
@@ -13562,6 +15307,7 @@ components:
           $ref: '#/components/schemas/FiltersNic'
       type: object
     ReadNicsResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -13680,6 +15426,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     ReadProductTypesRequest:
+      additionalProperties: false
       example:
         Filters:
           ProductTypeIds:
@@ -13695,6 +15442,7 @@ components:
           $ref: '#/components/schemas/FiltersProductType'
       type: object
     ReadProductTypesResponse:
+      additionalProperties: false
       example:
         ProductTypes:
         - Description: Description
@@ -13715,6 +15463,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     ReadPublicIpRangesRequest:
+      additionalProperties: false
       example:
         DryRun: true
       properties:
@@ -13724,6 +15473,7 @@ components:
           type: boolean
       type: object
     ReadPublicIpRangesResponse:
+      additionalProperties: false
       example:
         PublicIps:
         - PublicIps
@@ -13741,6 +15491,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     ReadPublicIpsRequest:
+      additionalProperties: false
       example:
         Filters:
           PublicIps:
@@ -13786,6 +15537,7 @@ components:
           $ref: '#/components/schemas/FiltersPublicIp'
       type: object
     ReadPublicIpsResponse:
+      additionalProperties: false
       example:
         PublicIps:
         - NicAccountId: NicAccountId
@@ -13824,6 +15576,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     ReadQuotasRequest:
+      additionalProperties: false
       example:
         Filters:
           ShortDescriptions:
@@ -13848,6 +15601,7 @@ components:
           $ref: '#/components/schemas/FiltersQuota'
       type: object
     ReadQuotasResponse:
+      additionalProperties: false
       example:
         QuotaTypes:
         - Quotas:
@@ -13893,7 +15647,37 @@ components:
         ResponseContext:
           $ref: '#/components/schemas/ResponseContext'
       type: object
+    ReadRegionsRequest:
+      additionalProperties: false
+      example:
+        DryRun: true
+      properties:
+        DryRun:
+          description: If `true`, checks whether you have the required permissions
+            to perform the action.
+          type: boolean
+      type: object
+    ReadRegionsResponse:
+      additionalProperties: false
+      example:
+        ResponseContext:
+          RequestId: RequestId
+        Regions:
+        - Endpoint: Endpoint
+          RegionName: RegionName
+        - Endpoint: Endpoint
+          RegionName: RegionName
+      properties:
+        Regions:
+          description: Information about one or more Regions.
+          items:
+            $ref: '#/components/schemas/Region'
+          type: array
+        ResponseContext:
+          $ref: '#/components/schemas/ResponseContext'
+      type: object
     ReadRouteTablesRequest:
+      additionalProperties: false
       example:
         Filters:
           RouteNatServiceIds:
@@ -13948,6 +15732,7 @@ components:
           $ref: '#/components/schemas/FiltersRouteTable'
       type: object
     ReadRouteTablesResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -14045,7 +15830,36 @@ components:
             $ref: '#/components/schemas/RouteTable'
           type: array
       type: object
+    ReadSecretAccessKeyRequest:
+      additionalProperties: false
+      example:
+        AccessKeyId: AccessKeyId
+      properties:
+        AccessKeyId:
+          description: The ID of the access key.
+          type: string
+      required:
+      - AccessKeyId
+      type: object
+    ReadSecretAccessKeyResponse:
+      additionalProperties: false
+      example:
+        ResponseContext:
+          RequestId: RequestId
+        AccessKey:
+          CreationDate: CreationDate
+          SecretKey: SecretKey
+          AccessKeyId: AccessKeyId
+          State: State
+          LastModificationDate: LastModificationDate
+      properties:
+        AccessKey:
+          $ref: '#/components/schemas/AccessKeySecretKey'
+        ResponseContext:
+          $ref: '#/components/schemas/ResponseContext'
+      type: object
     ReadSecurityGroupsRequest:
+      additionalProperties: false
       example:
         Filters:
           AccountIds:
@@ -14076,6 +15890,7 @@ components:
           $ref: '#/components/schemas/FiltersSecurityGroup'
       type: object
     ReadSecurityGroupsResponse:
+      additionalProperties: false
       example:
         SecurityGroups:
         - InboundRules:
@@ -14241,7 +16056,47 @@ components:
             $ref: '#/components/schemas/SecurityGroup'
           type: array
       type: object
+    ReadServerCertificatesRequest:
+      additionalProperties: false
+      example:
+        Filters:
+          Paths: Paths
+        DryRun: true
+      properties:
+        DryRun:
+          description: If `true`, checks whether you have the required permissions
+            to perform the action.
+          type: boolean
+        Filters:
+          $ref: '#/components/schemas/FiltersServerCertificate'
+      type: object
+    ReadServerCertificatesResponse:
+      additionalProperties: false
+      example:
+        ResponseContext:
+          RequestId: RequestId
+        ServerCertificates:
+        - Path: Path
+          UploadDate: 2000-01-23
+          ExpirationDate: 2000-01-23
+          Id: Id
+          Name: Name
+        - Path: Path
+          UploadDate: 2000-01-23
+          ExpirationDate: 2000-01-23
+          Id: Id
+          Name: Name
+      properties:
+        ResponseContext:
+          $ref: '#/components/schemas/ResponseContext'
+        ServerCertificates:
+          description: Information about one or more server certificates.
+          items:
+            $ref: '#/components/schemas/ServerCertificate'
+          type: array
+      type: object
     ReadSnapshotExportTasksRequest:
+      additionalProperties: false
       example:
         Filters:
           TaskIds:
@@ -14266,6 +16121,7 @@ components:
           $ref: '#/components/schemas/FiltersExportTask'
       type: object
     ReadSnapshotExportTasksResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -14316,6 +16172,7 @@ components:
           type: array
       type: object
     ReadSnapshotsRequest:
+      additionalProperties: false
       example:
         Filters:
           VolumeSizes:
@@ -14365,6 +16222,7 @@ components:
           $ref: '#/components/schemas/FiltersSnapshot'
       type: object
     ReadSnapshotsResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -14415,6 +16273,7 @@ components:
           type: array
       type: object
     ReadSubnetsRequest:
+      additionalProperties: false
       example:
         Filters:
           States:
@@ -14445,6 +16304,7 @@ components:
           $ref: '#/components/schemas/FiltersSubnet'
       type: object
     ReadSubnetsResponse:
+      additionalProperties: false
       example:
         Subnets:
         - IpRange: IpRange
@@ -14483,6 +16343,7 @@ components:
           type: array
       type: object
     ReadSubregionsRequest:
+      additionalProperties: false
       example:
         Filters:
           SubregionNames:
@@ -14498,6 +16359,7 @@ components:
           $ref: '#/components/schemas/FiltersSubregion'
       type: object
     ReadSubregionsResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -14518,6 +16380,7 @@ components:
           type: array
       type: object
     ReadTagsRequest:
+      additionalProperties: false
       example:
         Filters:
           ResourceTypes:
@@ -14542,6 +16405,7 @@ components:
           $ref: '#/components/schemas/FiltersTag'
       type: object
     ReadTagsResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -14564,6 +16428,7 @@ components:
           type: array
       type: object
     ReadVirtualGatewaysRequest:
+      additionalProperties: false
       example:
         Filters:
           States:
@@ -14600,6 +16465,7 @@ components:
           $ref: '#/components/schemas/FiltersVirtualGateway'
       type: object
     ReadVirtualGatewaysResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -14640,6 +16506,7 @@ components:
           type: array
       type: object
     ReadVmTypesRequest:
+      additionalProperties: false
       example:
         Filters:
           VolumeSizes:
@@ -14652,8 +16519,8 @@ components:
           - ""
           - ""
           MemorySizes:
-          - ""
-          - ""
+          - 0.8008282
+          - 0.8008282
           BsuOptimized: true
           VmTypeNames:
           - VmTypeNames
@@ -14668,6 +16535,7 @@ components:
           $ref: '#/components/schemas/FiltersVmType'
       type: object
     ReadVmTypesResponse:
+      additionalProperties: false
       example:
         VmTypes:
         - MemorySize: 0.8008282
@@ -14696,6 +16564,7 @@ components:
           type: array
       type: object
     ReadVmsHealthRequest:
+      additionalProperties: false
       example:
         BackendVmIds:
         - BackendVmIds
@@ -14719,6 +16588,7 @@ components:
       - LoadBalancerName
       type: object
     ReadVmsHealthResponse:
+      additionalProperties: false
       example:
         BackendVmHealth:
         - Description: Description
@@ -14741,6 +16611,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     ReadVmsRequest:
+      additionalProperties: false
       example:
         Filters:
           TagKeys:
@@ -14765,6 +16636,7 @@ components:
           $ref: '#/components/schemas/FiltersVm'
       type: object
     ReadVmsResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -15043,6 +16915,7 @@ components:
           type: array
       type: object
     ReadVmsStateRequest:
+      additionalProperties: false
       example:
         Filters:
           SubregionNames:
@@ -15069,6 +16942,7 @@ components:
           $ref: '#/components/schemas/FiltersVmsState'
       type: object
     ReadVmsStateResponse:
+      additionalProperties: false
       example:
         VmStates:
         - VmState: VmState
@@ -15107,6 +16981,7 @@ components:
           type: array
       type: object
     ReadVolumesRequest:
+      additionalProperties: false
       example:
         Filters:
           VolumeSizes:
@@ -15162,6 +17037,7 @@ components:
           $ref: '#/components/schemas/FiltersVolume'
       type: object
     ReadVolumesResponse:
+      additionalProperties: false
       example:
         Volumes:
         - SnapshotId: SnapshotId
@@ -15222,6 +17098,7 @@ components:
           type: array
       type: object
     ReadVpnConnectionsRequest:
+      additionalProperties: false
       example:
         Filters:
           States:
@@ -15256,6 +17133,7 @@ components:
           $ref: '#/components/schemas/FiltersVpnConnection'
       type: object
     ReadVpnConnectionsResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -15308,6 +17186,7 @@ components:
           type: array
       type: object
     RebootVmsRequest:
+      additionalProperties: false
       example:
         DryRun: true
         VmIds:
@@ -15327,6 +17206,7 @@ components:
       - VmIds
       type: object
     RebootVmsResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -15334,7 +17214,22 @@ components:
         ResponseContext:
           $ref: '#/components/schemas/ResponseContext'
       type: object
+    Region:
+      additionalProperties: false
+      description: Information about the Region.
+      example:
+        Endpoint: Endpoint
+        RegionName: RegionName
+      properties:
+        Endpoint:
+          description: The hostname of the gateway to access the Region.
+          type: string
+        RegionName:
+          description: The administrative name of the Region.
+          type: string
+      type: object
     RegisterVmsInLoadBalancerRequest:
+      additionalProperties: false
       example:
         BackendVmIds:
         - BackendVmIds
@@ -15361,6 +17256,7 @@ components:
       - LoadBalancerName
       type: object
     RegisterVmsInLoadBalancerResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -15369,6 +17265,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     RejectNetPeeringRequest:
+      additionalProperties: false
       example:
         DryRun: true
         NetPeeringId: NetPeeringId
@@ -15384,6 +17281,7 @@ components:
       - NetPeeringId
       type: object
     RejectNetPeeringResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -15391,7 +17289,49 @@ components:
         ResponseContext:
           $ref: '#/components/schemas/ResponseContext'
       type: object
+    ResetAccountPasswordRequest:
+      additionalProperties: false
+      example:
+        DryRun: true
+        Token: Token
+        Password: Password
+      properties:
+        DryRun:
+          description: If `true`, checks whether you have the required permissions
+            to perform the action.
+          type: boolean
+        Password:
+          description: The new password for the account.
+          type: string
+        Token:
+          description: The token you received at the email address provided for the
+            account.
+          type: string
+      required:
+      - Password
+      - Token
+      type: object
+    ResetAccountPasswordResponse:
+      additionalProperties: false
+      example:
+        ResponseContext:
+          RequestId: RequestId
+      properties:
+        ResponseContext:
+          $ref: '#/components/schemas/ResponseContext'
+      type: object
+    ResourceLoadBalancerTag:
+      additionalProperties: false
+      description: Information about the tag.
+      example:
+        Key: Key
+      properties:
+        Key:
+          description: The key of the tag, with a minimum of 1 character.
+          type: string
+      type: object
     ResourceTag:
+      additionalProperties: false
       description: Information about the tag.
       example:
         Value: Value
@@ -15408,6 +17348,7 @@ components:
       - Value
       type: object
     ResponseContext:
+      additionalProperties: false
       description: Information about the context of the response.
       example:
         RequestId: RequestId
@@ -15417,6 +17358,7 @@ components:
           type: string
       type: object
     Route:
+      additionalProperties: false
       description: Information about the route.
       example:
         NatServiceId: NatServiceId
@@ -15469,6 +17411,7 @@ components:
           type: string
       type: object
     RouteLight:
+      additionalProperties: false
       description: Information about the route.
       example:
         RouteType: RouteType
@@ -15488,6 +17431,7 @@ components:
           type: string
       type: object
     RoutePropagatingVirtualGateway:
+      additionalProperties: false
       description: Information about the route propagating virtual gateway.
       example:
         VirtualGatewayId: VirtualGatewayId
@@ -15497,6 +17441,7 @@ components:
           type: string
       type: object
     RouteTable:
+      additionalProperties: false
       description: Information about the route table.
       example:
         NetId: NetId
@@ -15570,6 +17515,7 @@ components:
           type: array
       type: object
     SecurityGroup:
+      additionalProperties: false
       description: Information about the security group.
       example:
         InboundRules:
@@ -15681,6 +17627,7 @@ components:
           type: array
       type: object
     SecurityGroupLight:
+      additionalProperties: false
       description: Information about the security group.
       example:
         SecurityGroupName: SecurityGroupName
@@ -15694,6 +17641,7 @@ components:
           type: string
       type: object
     SecurityGroupRule:
+      additionalProperties: false
       description: Information about the security group rule.
       example:
         ServiceIds:
@@ -15744,6 +17692,7 @@ components:
           type: long
       type: object
     SecurityGroupsMember:
+      additionalProperties: false
       description: Information about the member of a security group.
       example:
         AccountId: AccountId
@@ -15760,7 +17709,61 @@ components:
           description: (Public Cloud only) The name of the security group.
           type: string
       type: object
+    SendResetPasswordEmailRequest:
+      additionalProperties: false
+      example:
+        Email: Email
+        DryRun: true
+      properties:
+        DryRun:
+          description: If `true`, checks whether you have the required permissions
+            to perform the action.
+          type: boolean
+        Email:
+          description: The email address provided for the account.
+          type: string
+      required:
+      - Email
+      type: object
+    SendResetPasswordEmailResponse:
+      additionalProperties: false
+      example:
+        ResponseContext:
+          RequestId: RequestId
+      properties:
+        ResponseContext:
+          $ref: '#/components/schemas/ResponseContext'
+      type: object
+    ServerCertificate:
+      additionalProperties: false
+      description: Information about the server certificate.
+      example:
+        Path: Path
+        UploadDate: 2000-01-23
+        ExpirationDate: 2000-01-23
+        Id: Id
+        Name: Name
+      properties:
+        ExpirationDate:
+          description: The date at which the server certificate expires.
+          format: date
+          type: string
+        Id:
+          description: The ID of the server certificate.
+          type: string
+        Name:
+          description: The name of the server certificate.
+          type: string
+        Path:
+          description: The path to the server certificate.
+          type: string
+        UploadDate:
+          description: The date at which the server certificate has been uploaded.
+          format: date
+          type: string
+      type: object
     Service:
+      additionalProperties: false
       description: Information about the service.
       example:
         ServiceName: ServiceName
@@ -15783,6 +17786,7 @@ components:
           type: string
       type: object
     Snapshot:
+      additionalProperties: false
       description: Information about the snapshot.
       example:
         SnapshotId: SnapshotId
@@ -15822,7 +17826,7 @@ components:
           description: The ID of the snapshot.
           type: string
         State:
-          description: The state of the snapshot (`in-queue` \| `pending` \| `completed`).
+          description: The state of the snapshot (`in-queue` \| `completed` \| `error`).
           type: string
         Tags:
           description: One or more tags associated with the snapshot.
@@ -15838,6 +17842,7 @@ components:
           type: long
       type: object
     SnapshotExportTask:
+      additionalProperties: false
       description: Information about the snapshot export task.
       example:
         Comment: Comment
@@ -15884,6 +17889,7 @@ components:
           type: string
       type: object
     SourceNet:
+      additionalProperties: false
       description: Information about the source Net.
       example:
         IpRange: IpRange
@@ -15902,6 +17908,7 @@ components:
           type: string
       type: object
     SourceSecurityGroup:
+      additionalProperties: false
       description: |-
         Information about the source security group of the load balancer, which you can use as part of your inbound rules for your registered VMs.<br />
         To only allow traffic from load balancers, add a security group rule that specifies this source security group as the inbound source.
@@ -15917,6 +17924,7 @@ components:
           type: string
       type: object
     StartVmsRequest:
+      additionalProperties: false
       example:
         DryRun: true
         VmIds:
@@ -15936,6 +17944,7 @@ components:
       - VmIds
       type: object
     StartVmsResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -15956,6 +17965,7 @@ components:
           type: array
       type: object
     StateComment:
+      additionalProperties: false
       description: Information about the change of state.
       example:
         StateCode: StateCode
@@ -15969,6 +17979,7 @@ components:
           type: string
       type: object
     StopVmsRequest:
+      additionalProperties: false
       example:
         DryRun: true
         ForceStop: true
@@ -15992,6 +18003,7 @@ components:
       - VmIds
       type: object
     StopVmsResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -16012,6 +18024,7 @@ components:
           type: array
       type: object
     Subnet:
+      additionalProperties: false
       description: Information about the Subnet.
       example:
         IpRange: IpRange
@@ -16057,6 +18070,7 @@ components:
           type: array
       type: object
     Subregion:
+      additionalProperties: false
       description: Information about the Subregion.
       example:
         RegionName: RegionName
@@ -16075,6 +18089,7 @@ components:
           type: string
       type: object
     Tag:
+      additionalProperties: false
       description: Information about the tag.
       example:
         ResourceId: ResourceId
@@ -16096,6 +18111,7 @@ components:
           type: string
       type: object
     UnlinkFlexibleGpuRequest:
+      additionalProperties: false
       example:
         FlexibleGpuId: FlexibleGpuId
         DryRun: true
@@ -16111,6 +18127,7 @@ components:
       - FlexibleGpuId
       type: object
     UnlinkFlexibleGpuResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -16119,6 +18136,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     UnlinkInternetServiceRequest:
+      additionalProperties: false
       example:
         NetId: NetId
         InternetServiceId: InternetServiceId
@@ -16140,6 +18158,7 @@ components:
       - NetId
       type: object
     UnlinkInternetServiceResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -16148,6 +18167,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     UnlinkNicRequest:
+      additionalProperties: false
       example:
         LinkNicId: LinkNicId
         DryRun: true
@@ -16163,6 +18183,7 @@ components:
       - LinkNicId
       type: object
     UnlinkNicResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -16171,6 +18192,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     UnlinkPrivateIpsRequest:
+      additionalProperties: false
       example:
         PrivateIps:
         - PrivateIps
@@ -16196,6 +18218,7 @@ components:
       - PrivateIps
       type: object
     UnlinkPrivateIpsResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -16204,6 +18227,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     UnlinkPublicIpRequest:
+      additionalProperties: false
       example:
         PublicIp: PublicIp
         LinkPublicIpId: LinkPublicIpId
@@ -16223,6 +18247,7 @@ components:
           type: string
       type: object
     UnlinkPublicIpResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -16231,6 +18256,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     UnlinkRouteTableRequest:
+      additionalProperties: false
       example:
         DryRun: true
         LinkRouteTableId: LinkRouteTableId
@@ -16246,6 +18272,7 @@ components:
       - LinkRouteTableId
       type: object
     UnlinkRouteTableResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -16254,6 +18281,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     UnlinkVirtualGatewayRequest:
+      additionalProperties: false
       example:
         NetId: NetId
         DryRun: true
@@ -16275,6 +18303,7 @@ components:
       - VirtualGatewayId
       type: object
     UnlinkVirtualGatewayResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -16283,6 +18312,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     UnlinkVolumeRequest:
+      additionalProperties: false
       example:
         VolumeId: VolumeId
         DryRun: true
@@ -16303,6 +18333,7 @@ components:
       - VolumeId
       type: object
     UnlinkVolumeResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -16310,7 +18341,124 @@ components:
         ResponseContext:
           $ref: '#/components/schemas/ResponseContext'
       type: object
+    UpdateAccessKeyRequest:
+      additionalProperties: false
+      example:
+        AccessKeyId: AccessKeyId
+        State: State
+      properties:
+        AccessKeyId:
+          description: The ID of the access key.
+          type: string
+        State:
+          description: The new state for the access key (`active` \| `inactive`).
+          type: string
+      required:
+      - AccessKeyId
+      - State
+      type: object
+    UpdateAccessKeyResponse:
+      additionalProperties: false
+      example:
+        ResponseContext:
+          RequestId: RequestId
+        AccessKey:
+          CreationDate: CreationDate
+          AccessKeyId: AccessKeyId
+          State: State
+          LastModificationDate: LastModificationDate
+      properties:
+        AccessKey:
+          $ref: '#/components/schemas/AccessKey'
+        ResponseContext:
+          $ref: '#/components/schemas/ResponseContext'
+      type: object
+    UpdateAccountRequest:
+      additionalProperties: false
+      example:
+        Email: Email
+        FirstName: FirstName
+        StateProvince: StateProvince
+        ZipCode: ZipCode
+        DryRun: true
+        City: City
+        JobTitle: JobTitle
+        VatNumber: VatNumber
+        CompanyName: CompanyName
+        MobileNumber: MobileNumber
+        Country: Country
+        PhoneNumber: PhoneNumber
+        LastName: LastName
+      properties:
+        City:
+          description: The new city of the account owner.
+          type: string
+        CompanyName:
+          description: The new name of the company for the account.
+          type: string
+        Country:
+          description: The new country of the account owner.
+          type: string
+        DryRun:
+          description: If `true`, checks whether you have the required permissions
+            to perform the action.
+          type: boolean
+        Email:
+          description: The new email address for the account.
+          type: string
+        FirstName:
+          description: The new first name of the account owner.
+          type: string
+        JobTitle:
+          description: The new job title of the account owner.
+          type: string
+        LastName:
+          description: The new last name of the account owner.
+          type: string
+        MobileNumber:
+          description: The new mobile phone number of the account owner.
+          type: string
+        PhoneNumber:
+          description: The new landline phone number of the account owner.
+          type: string
+        StateProvince:
+          description: The new state/province of the account owner.
+          type: string
+        VatNumber:
+          description: The new value added tax (VAT) number for the account.
+          type: string
+        ZipCode:
+          description: The new ZIP code of the city.
+          type: string
+      type: object
+    UpdateAccountResponse:
+      additionalProperties: false
+      example:
+        Account:
+          AccountId: AccountId
+          Email: Email
+          FirstName: FirstName
+          StateProvince: StateProvince
+          ZipCode: ZipCode
+          City: City
+          CustomerId: CustomerId
+          JobTitle: JobTitle
+          VatNumber: VatNumber
+          CompanyName: CompanyName
+          MobileNumber: MobileNumber
+          Country: Country
+          PhoneNumber: PhoneNumber
+          LastName: LastName
+        ResponseContext:
+          RequestId: RequestId
+      properties:
+        Account:
+          $ref: '#/components/schemas/Account'
+        ResponseContext:
+          $ref: '#/components/schemas/ResponseContext'
+      type: object
     UpdateFlexibleGpuRequest:
+      additionalProperties: false
       example:
         DeleteOnVmDeletion: true
         FlexibleGpuId: FlexibleGpuId
@@ -16330,10 +18478,12 @@ components:
       - FlexibleGpuId
       type: object
     UpdateFlexibleGpuResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
         FlexibleGpu:
+          Generation: Generation
           DeleteOnVmDeletion: true
           ModelName: ModelName
           FlexibleGpuId: FlexibleGpuId
@@ -16347,6 +18497,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     UpdateImageRequest:
+      additionalProperties: false
       example:
         PermissionsToLaunch:
           Additions:
@@ -16376,6 +18527,7 @@ components:
       - PermissionsToLaunch
       type: object
     UpdateImageResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -16431,7 +18583,58 @@ components:
         ResponseContext:
           $ref: '#/components/schemas/ResponseContext'
       type: object
+    UpdateListenerRuleRequest:
+      additionalProperties: false
+      example:
+        PathPattern: PathPattern
+        DryRun: true
+        HostPattern: HostPattern
+        ListenerRuleName: ListenerRuleName
+      properties:
+        DryRun:
+          description: If `true`, checks whether you have the required permissions
+            to perform the action.
+          type: boolean
+        HostPattern:
+          description: A host-name pattern for the rule, with a maximum length of
+            128 characters. This host-name pattern supports maximum three wildcards,
+            and must not contain any special characters except [-.?].
+          type: string
+        ListenerRuleName:
+          description: The name of the listener rule.
+          type: string
+        PathPattern:
+          description: A path pattern for the rule, with a maximum length of 128 characters.
+            This path pattern supports maximum three wildcards, and must not contain
+            any special characters except [_-.$/~"'@:+?].
+          type: string
+      required:
+      - ListenerRuleName
+      type: object
+    UpdateListenerRuleResponse:
+      additionalProperties: false
+      example:
+        ListenerRule:
+          Action: Action
+          PathPattern: PathPattern
+          HostNamePattern: HostNamePattern
+          Priority: ""
+          ListenerRuleId: ""
+          ListenerId: ""
+          ListenerRuleName: ListenerRuleName
+          VmIds:
+          - VmIds
+          - VmIds
+        ResponseContext:
+          RequestId: RequestId
+      properties:
+        ListenerRule:
+          $ref: '#/components/schemas/ListenerRule'
+        ResponseContext:
+          $ref: '#/components/schemas/ResponseContext'
+      type: object
     UpdateLoadBalancerRequest:
+      additionalProperties: false
       example:
         AccessLog:
           OsuBucketPrefix: OsuBucketPrefix
@@ -16482,6 +18685,7 @@ components:
       - LoadBalancerName
       type: object
     UpdateLoadBalancerResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -16555,6 +18759,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     UpdateNetAccessPointRequest:
+      additionalProperties: false
       example:
         RemoveRouteTableIds:
         - RemoveRouteTableIds
@@ -16588,6 +18793,7 @@ components:
       - NetAccessPointId
       type: object
     UpdateNetAccessPointResponse:
+      additionalProperties: false
       example:
         NetAccessPoint:
           NetId: NetId
@@ -16611,6 +18817,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     UpdateNetRequest:
+      additionalProperties: false
       example:
         DhcpOptionsSetId: DhcpOptionsSetId
         NetId: NetId
@@ -16632,6 +18839,7 @@ components:
       - NetId
       type: object
     UpdateNetResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -16653,6 +18861,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     UpdateNicRequest:
+      additionalProperties: false
       example:
         Description: Description
         DryRun: true
@@ -16687,6 +18896,7 @@ components:
       - NicId
       type: object
     UpdateNicResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -16750,6 +18960,7 @@ components:
           $ref: '#/components/schemas/ResponseContext'
       type: object
     UpdateRoutePropagationRequest:
+      additionalProperties: false
       example:
         RouteTableId: RouteTableId
         DryRun: true
@@ -16776,6 +18987,7 @@ components:
       - VirtualGatewayId
       type: object
     UpdateRoutePropagationResponse:
+      additionalProperties: false
       example:
         RouteTable:
           NetId: NetId
@@ -16829,6 +19041,7 @@ components:
           $ref: '#/components/schemas/RouteTable'
       type: object
     UpdateRouteRequest:
+      additionalProperties: false
       example:
         NatServiceId: NatServiceId
         RouteTableId: RouteTableId
@@ -16871,6 +19084,7 @@ components:
       - RouteTableId
       type: object
     UpdateRouteResponse:
+      additionalProperties: false
       example:
         RouteTable:
           NetId: NetId
@@ -16923,7 +19137,47 @@ components:
         RouteTable:
           $ref: '#/components/schemas/RouteTable'
       type: object
+    UpdateServerCertificateRequest:
+      additionalProperties: false
+      example:
+        NewPath: NewPath
+        DryRun: true
+        NewName: NewName
+        Name: Name
+      properties:
+        DryRun:
+          description: If `true`, checks whether you have the required permissions
+            to perform the action.
+          type: boolean
+        Name:
+          description: The name of the server certificate you want to modify.
+          type: string
+        NewName:
+          description: A new name for the server certificate.
+          type: string
+        NewPath:
+          description: A new path for the server certificate.
+          type: string
+      type: object
+    UpdateServerCertificateResponse:
+      additionalProperties: false
+      example:
+        ServerCertificate:
+          Path: Path
+          UploadDate: 2000-01-23
+          ExpirationDate: 2000-01-23
+          Id: Id
+          Name: Name
+        ResponseContext:
+          RequestId: RequestId
+      properties:
+        ResponseContext:
+          $ref: '#/components/schemas/ResponseContext'
+        ServerCertificate:
+          $ref: '#/components/schemas/ServerCertificate'
+      type: object
     UpdateSnapshotRequest:
+      additionalProperties: false
       example:
         SnapshotId: SnapshotId
         PermissionsToCreateVolume:
@@ -16953,6 +19207,7 @@ components:
       - SnapshotId
       type: object
     UpdateSnapshotResponse:
+      additionalProperties: false
       example:
         Snapshot:
           SnapshotId: SnapshotId
@@ -16982,6 +19237,7 @@ components:
           $ref: '#/components/schemas/Snapshot'
       type: object
     UpdateSubnetRequest:
+      additionalProperties: false
       example:
         MapPublicIpOnLaunch: true
         DryRun: true
@@ -17003,6 +19259,7 @@ components:
       - SubnetId
       type: object
     UpdateSubnetResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -17026,6 +19283,7 @@ components:
           $ref: '#/components/schemas/Subnet'
       type: object
     UpdateVmRequest:
+      additionalProperties: false
       example:
         VmInitiatedShutdownBehavior: VmInitiatedShutdownBehavior
         IsSourceDestChecked: true
@@ -17055,9 +19313,7 @@ components:
         BsuOptimized: true
       properties:
         BlockDeviceMappings:
-          description: One or more block device mappings of the VM. This parameter
-            modifies the `DeleteOnDeletion` attribute for volumes attached to the
-            VM.
+          description: One or more block device mappings of the VM.
           items:
             $ref: '#/components/schemas/BlockDeviceMappingVmUpdate'
           type: array
@@ -17112,6 +19368,7 @@ components:
       - VmId
       type: object
     UpdateVmResponse:
+      additionalProperties: false
       example:
         ResponseContext:
           RequestId: RequestId
@@ -17255,6 +19512,7 @@ components:
           $ref: '#/components/schemas/Vm'
       type: object
     VirtualGateway:
+      additionalProperties: false
       description: Information about the virtual gateway.
       example:
         ConnectionType: ConnectionType
@@ -17294,6 +19552,7 @@ components:
           type: string
       type: object
     Vm:
+      additionalProperties: false
       description: Information about the VM.
       example:
         SecurityGroups:
@@ -17515,8 +19774,8 @@ components:
             $ref: '#/components/schemas/SecurityGroupLight'
           type: array
         State:
-          description: The state of the VM (`pending` \| `running` \| `shutting-down`
-            \| `terminated` \| `stopping` \| `stopped`).
+          description: The state of the VM (`pending` \| `running` \| `stopping` \|
+            `stopped` \| `shutting-down` \| `terminated` \| `quarantine`).
           type: string
         StateReason:
           description: The reason explaining the current state of the VM.
@@ -17538,13 +19797,14 @@ components:
         VmInitiatedShutdownBehavior:
           description: The VM behavior when you stop it. By default or if set to `stop`,
             the VM stops. If set to `restart`, the VM stops then automatically restarts.
-            If set to `delete`, the VM stops and is deleted.
+            If set to `terminate`, the VM stops and is deleted.
           type: string
         VmType:
           description: The type of VM. For more information, see [Instance Types](https://wiki.outscale.net/display/EN/Instance+Types).
           type: string
       type: object
     VmState:
+      additionalProperties: false
       description: Information about the state of the VM.
       example:
         CurrentState: CurrentState
@@ -17564,6 +19824,7 @@ components:
           type: string
       type: object
     VmStates:
+      additionalProperties: false
       description: Information about the states of the VMs.
       example:
         VmState: VmState
@@ -17591,11 +19852,12 @@ components:
           description: The ID of the VM.
           type: string
         VmState:
-          description: The state of the VM (`pending` \| `running` \| `shutting-down`
-            \| `terminated` \| `stopping` \| `stopped`).
+          description: The state of the VM (`pending` \| `running` \| `stopping` \|
+            `stopped` \| `shutting-down` \| `terminated` \| `quarantine`).
           type: string
       type: object
     VmType:
+      additionalProperties: false
       description: Information about the VM type.
       example:
         MemorySize: 0.8008282
@@ -17631,6 +19893,7 @@ components:
           type: long
       type: object
     Volume:
+      additionalProperties: false
       description: Information about the volume.
       example:
         SnapshotId: SnapshotId
@@ -17694,6 +19957,7 @@ components:
           type: string
       type: object
     VpnConnection:
+      additionalProperties: false
       description: Information about a VPN connection.
       example:
         ConnectionType: ConnectionType
@@ -17757,6 +20021,7 @@ components:
           type: string
       type: object
     With:
+      additionalProperties: false
       description: The information to be displayed in the API logs to retrieve.
       example:
         QueryAccessKey: true

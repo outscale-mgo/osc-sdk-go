@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **BsuOptimized** | Pointer to **bool** | Indicates whether the VM is optimized for BSU I/O. | [optional] 
-**MemorySizes** | Pointer to **[]int64** | The amounts of memory, in bytes. | [optional] 
+**MemorySizes** | Pointer to **[]float32** | The amounts of memory, in gibibytes (GiB). | [optional] 
 **VcoreCounts** | Pointer to **[]int64** | The numbers of vCores. | [optional] 
 **VmTypeNames** | Pointer to **[]string** | The names of the VM types. For more information, see [Instance Types](https://wiki.outscale.net/display/EN/Instance+Types). | [optional] 
 **VolumeCounts** | Pointer to **[]int64** | The maximum number of ephemeral storage disks. | [optional] 
@@ -40,13 +40,13 @@ SetBsuOptimized gets a reference to the given bool and assigns it to the BsuOpti
 
 ### GetMemorySizes
 
-`func (o *FiltersVmType) GetMemorySizes() []int64`
+`func (o *FiltersVmType) GetMemorySizes() []float32`
 
 GetMemorySizes returns the MemorySizes field if non-nil, zero value otherwise.
 
 ### GetMemorySizesOk
 
-`func (o *FiltersVmType) GetMemorySizesOk() ([]int64, bool)`
+`func (o *FiltersVmType) GetMemorySizesOk() ([]float32, bool)`
 
 GetMemorySizesOk returns a tuple with the MemorySizes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -59,9 +59,9 @@ HasMemorySizes returns a boolean if a field has been set.
 
 ### SetMemorySizes
 
-`func (o *FiltersVmType) SetMemorySizes(v []int64)`
+`func (o *FiltersVmType) SetMemorySizes(v []float32)`
 
-SetMemorySizes gets a reference to the given []int64 and assigns it to the MemorySizes field.
+SetMemorySizes gets a reference to the given []float32 and assigns it to the MemorySizes field.
 
 ### GetVcoreCounts
 

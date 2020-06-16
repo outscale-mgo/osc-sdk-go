@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **PermissionsToCreateVolumeGlobalPermission** | Pointer to **bool** | If &#x60;true&#x60;, lists all public volumes. If &#x60;false&#x60;, lists all private volumes. | [optional] 
 **Progresses** | Pointer to **[]int64** | The progresses of the snapshots, as a percentage. | [optional] 
 **SnapshotIds** | Pointer to **[]string** | The IDs of the snapshots. | [optional] 
-**States** | Pointer to **[]string** | The states of the snapshots (&#x60;in-queue&#x60; \\| &#x60;pending&#x60; \\| &#x60;completed&#x60;). | [optional] 
+**States** | Pointer to **[]string** | The states of the snapshots (&#x60;in-queue&#x60; \\| &#x60;completed&#x60; \\| &#x60;error&#x60;). | [optional] 
 **TagKeys** | Pointer to **[]string** | The keys of the tags associated with the snapshots. | [optional] 
 **TagValues** | Pointer to **[]string** | The values of the tags associated with the snapshots. | [optional] 
 **Tags** | Pointer to **[]string** | The key/value combination of the tags associated with the snapshots, in the following format: \&quot;Filters\&quot;:{\&quot;Tags\&quot;:[\&quot;TAGKEY&#x3D;TAGVALUE\&quot;]}. | [optional] 

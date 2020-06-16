@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **MaintenanceEvents** | Pointer to [**[]MaintenanceEvent**](MaintenanceEvent.md) | One or more scheduled events associated with the VM. | [optional] 
 **SubregionName** | Pointer to **string** | The name of the Subregion of the VM. | [optional] 
 **VmId** | Pointer to **string** | The ID of the VM. | [optional] 
-**VmState** | Pointer to **string** | The state of the VM (&#x60;pending&#x60; \\| &#x60;running&#x60; \\| &#x60;shutting-down&#x60; \\| &#x60;terminated&#x60; \\| &#x60;stopping&#x60; \\| &#x60;stopped&#x60;). | [optional] 
+**VmState** | Pointer to **string** | The state of the VM (&#x60;pending&#x60; \\| &#x60;running&#x60; \\| &#x60;stopping&#x60; \\| &#x60;stopped&#x60; \\| &#x60;shutting-down&#x60; \\| &#x60;terminated&#x60; \\| &#x60;quarantine&#x60;). | [optional] 
 
 ## Methods
 

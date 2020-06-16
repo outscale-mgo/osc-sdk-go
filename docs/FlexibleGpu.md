@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DeleteOnVmDeletion** | Pointer to **bool** | If &#x60;true&#x60;, the fGPU is deleted when the VM is terminated. | [optional] 
 **FlexibleGpuId** | Pointer to **string** | The ID of the fGPU. | [optional] 
+**Generation** | Pointer to **string** | The compatible processor generation. | [optional] 
 **ModelName** | Pointer to **string** | The model of fGPU. For more information, see [About Flexible GPUs](https://wiki.outscale.net/display/EN/About+Flexible+GPUs). | [optional] 
 **State** | Pointer to **string** | The state of the fGPU (&#x60;allocated&#x60; \\| &#x60;attaching&#x60; \\| &#x60;attached&#x60; \\| &#x60;detaching&#x60;). | [optional] 
 **SubregionName** | Pointer to **string** | The Subregion where the fGPU is located. | [optional] 
@@ -62,6 +63,31 @@ HasFlexibleGpuId returns a boolean if a field has been set.
 `func (o *FlexibleGpu) SetFlexibleGpuId(v string)`
 
 SetFlexibleGpuId gets a reference to the given string and assigns it to the FlexibleGpuId field.
+
+### GetGeneration
+
+`func (o *FlexibleGpu) GetGeneration() string`
+
+GetGeneration returns the Generation field if non-nil, zero value otherwise.
+
+### GetGenerationOk
+
+`func (o *FlexibleGpu) GetGenerationOk() (string, bool)`
+
+GetGenerationOk returns a tuple with the Generation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### HasGeneration
+
+`func (o *FlexibleGpu) HasGeneration() bool`
+
+HasGeneration returns a boolean if a field has been set.
+
+### SetGeneration
+
+`func (o *FlexibleGpu) SetGeneration(v string)`
+
+SetGeneration gets a reference to the given string and assigns it to the Generation field.
 
 ### GetModelName
 

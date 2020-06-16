@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **ProductCodes** | Pointer to **[]string** | The product code associated with the OMI (&#x60;0001&#x60; Linux/Unix \\| &#x60;0002&#x60; Windows \\| &#x60;0004&#x60; Linux/Oracle \\| &#x60;0005&#x60; Windows 10). | [optional] 
 **RootDeviceName** | Pointer to **string** | The name of the root device. | [optional] 
 **RootDeviceType** | Pointer to **string** | The type of root device used by the OMI (always &#x60;bsu&#x60;). | [optional] 
-**State** | Pointer to **string** | The state of the OMI. | [optional] 
+**State** | Pointer to **string** | The state of the OMI (&#x60;pending&#x60; \\| &#x60;available&#x60; \\| &#x60;failed&#x60;). | [optional] 
 **StateComment** | Pointer to [**StateComment**](StateComment.md) |  | [optional] 
 **Tags** | Pointer to [**[]ResourceTag**](ResourceTag.md) | One or more tags associated with the OMI. | [optional] 
 
