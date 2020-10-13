@@ -22,7 +22,7 @@ type HealthCheck struct {
 	// The number of consecutive successful pings before considering the VM as healthy (between `2` and `10` both included).
 	HealthyThreshold int64 `json:"HealthyThreshold"`
 	// The path for HTTP or HTTPS requests.
-	Path string `json:"Path"`
+	Path *string `json:"Path,omitempty"`
 	// The port number (between `1` and `65535`, both included).
 	Port int64 `json:"Port"`
 	// The protocol for the URL of the VM (`HTTP` \\| `HTTPS` \\| `TCP` \\| `SSL` \\| `UDP`).
