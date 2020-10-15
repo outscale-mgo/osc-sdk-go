@@ -1,4 +1,4 @@
-module github.com/marinsalinas/osc-sdk-go
+module github.com/outscale-mgo/osc-sdk-go
 
 go 1.13
 
