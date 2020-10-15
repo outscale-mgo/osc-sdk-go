@@ -70,12 +70,12 @@ func (o *HealthCheck) GetPath() string {
 		return ret
 	}
 
-	return o.Path
+	return *o.Path
 }
 
 // SetPath sets field value
 func (o *HealthCheck) SetPath(v string) {
-	o.Path = v
+	o.Path = &v
 }
 
 // GetPort returns the Port field value
